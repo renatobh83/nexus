@@ -17,6 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/renatobh83/nexus.git"
   },
+  "prisma": {
+    "schema": "./prisma"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
