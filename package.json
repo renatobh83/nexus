@@ -10,7 +10,7 @@
     "start": "set NODE_ENV=production && node dist/server.js",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
-    "prisma:studio": "dotenv -e .env -- npx prisma studio",
+    "prisma:studio": "dotenv -e .env -- npx prisma studio"
     
   },
 
