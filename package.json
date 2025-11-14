@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev:win": "set NODE_ENV=development && start /B ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36  && ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "tunnel:start": "ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36",
-    "app:start": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "dev:win": "set NODE_ENV=development && start /B npm run tunnel:start && wait-on tcp:6432 && npm run app:start",
-    "start": "set NODE_ENV=production&& node dist/server.ts",
+    "start": "set NODE_ENV=production && node dist/server.js",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
     "prisma:studio": "dotenv -e .env -- npx prisma studio"
@@ -26,11 +24,23 @@
   },
   "homepage": "https://github.com/renatobh83/nexus#readme",
   "dependencies": {
+    "@bull-board/api": "^6.14.2",
+    "@bull-board/fastify": "^6.14.2",
+    "@fastify/compress": "^8.3.0",
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/csrf-protection": "^7.1.0",
     "@fastify/env": "^5.0.3",
+    "@fastify/formbody": "^8.0.2",
+    "@fastify/helmet": "^13.0.2",
     "@fastify/jwt": "^10.0.0",
+    "@fastify/multipart": "^9.3.0",
+    "@fastify/rate-limit": "^10.3.0",
     "@prisma/client": "^6.19.0",
+    "bullmq": "^5.63.1",
     "fastify": "^5.6.2",
-    "ioredis": "^5.8.2"
+    "ioredis": "^5.8.2",
+    "xss": "^1.0.15"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",

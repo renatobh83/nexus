@@ -9,6 +9,7 @@ import jwt from "@fastify/jwt";
 import { FastifyReply } from "fastify/types/reply";
 import { redisPlugin } from "./plugins/redis";
 import { prisma } from "../lib/prisma";
+import fastifyModule from "./plugins/fastifyModules";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -21,6 +22,7 @@ async function buildServer(
   config: FastifyServerOptions = {}
 ): Promise<FastifyInstance> {
   const server = Fastify({
+    disableRequestLogging: true,
     logger: {
       level: isDevelopment ? "info" : "error",
       transport: isDevelopment
@@ -42,38 +44,49 @@ async function buildServer(
   //   await server.register(fastifyEnv, {
   //     dotenv: true,
   //   });
-  server.log.info("🔌 Tentando conectar ao banco de dados...");
-  await prisma.$connect();
-  server.log.info("✅ Banco de dados conectado com sucesso!");
-  await server.register(redisPlugin);
-  server.setErrorHandler((error: FastifyError, request, reply) => {
-    request.log.error(error);
+  server.register(async (instance: FastifyInstance) => {
+    instance.log.info("🔌 Tentando conectar ao banco de dados...");
+    await prisma.$connect();
+    instance.log.info("✅ Banco de dados conectado com sucesso!");
 
-    if (error.code === "FST_CORS_ERROR") {
-      return reply.status(400).send({ error: "CORS não permitido" });
-    }
-
-    reply.status(error.statusCode || 500).send({
-      error: error.message || "Erro interno no servidor",
-    });
-    server.decorate(
-      "authenticate",
-      async function (request: FastifyRequest, reply: FastifyReply) {
-        try {
-          await request.jwtVerify(); // verifica o token
-        } catch (err: any) {
-          request.server.log.error("JWT ERROR:", err);
-          reply.status(401).send({ error: "Token inválido", details: err });
-        }
+    // Registra outros plugins que dependem de conexões externas
+    await instance.register(redisPlugin);
+    await instance.register(fastifyModule);
+  });
+  server.decorate(
+    "authenticate",
+    async function (request: FastifyRequest, reply: FastifyReply) {
+      try {
+        await request.jwtVerify();
+      } catch (err: any) {
+        // Não precisa tipar 'err' como 'any' aqui, o catch já o trata.
+        request.server.log.error("JWT ERROR:", err);
+        // Retorna a resposta para parar a execução.
+        return reply.status(401).send({ error: "Token inválido" });
       }
-    );
-    server.setNotFoundHandler((request, reply) => {
-      reply.status(404).send({
-        error: "Not Found",
-        message: `A rota ${request.url} não existe`,
+    }
+  );
+  server.setErrorHandler(
+    (error: FastifyError, request: FastifyRequest, reply: FastifyReply) => {
+      request.log.error(error);
+
+      if (error.code === "FST_CORS_ERROR") {
+        return reply.status(400).send({ error: "CORS não permitido" });
+      }
+
+      // Resposta padrão para outros erros
+      return reply.status(error.statusCode || 500).send({
+        error: error.message || "Erro interno no servidor",
       });
+    }
+  );
+  server.setNotFoundHandler((request, reply) => {
+    reply.status(404).send({
+      error: "Not Found",
+      message: `A rota ${request.url} não existe`,
     });
   });
+
   return server;
 }
 /**
@@ -91,7 +104,11 @@ export async function start() {
     // await StartAllWhatsAppsSessions();
     // await scheduleOrUpdateDnsJob();
   } catch (err: any) {
-    app.log.error(err);
+    if (app) {
+      app.log.error(err, "❌ Falha ao iniciar o servidor.");
+    } else {
+      console.error("❌ Falha crítica antes da inicialização do logger:", err);
+    }
     process.exit(1);
   }
 }

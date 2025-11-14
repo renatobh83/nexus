@@ -1,6 +1,7 @@
 import fp from "fastify-plugin";
 import { FastifyInstance } from "fastify";
 import { redisClient } from "../../lib/redis";
+import { registerBullMQ } from "./bullMq";
 
 /**
  * Plugin de Conexão com o Redis para Fastify.
@@ -24,9 +25,25 @@ import { redisClient } from "../../lib/redis";
  * // O registro de plugins que dependem do Redis deve ocorrer DENTRO deste plugin.
  */
 export const redisPlugin = fp(async (fastify: FastifyInstance) => {
-  redisClient.on("ready", () => {
-    fastify.log.info("Redis conectado e pronto, registrando Workes");
-    // fastify.register(registerBullMQ);
-    // fastify.decorate("redis", redisClient);
+  fastify.log.info("🔌 Registrando plugin do Redis...");
+  // Verificamos o status atual do cliente.
+  if (redisClient.status === "ready") {
+    // Se já estiver pronto, registramos o BullMQ imediatamente.
+    fastify.log.info("Redis já está pronto. Registrando BullMQ.");
+    fastify.register(registerBullMQ);
+  } else {
+    // Se ainda não estiver pronto (improvável, mas seguro), esperamos pelo evento 'ready'.
+    redisClient.once("ready", () => {
+      fastify.log.info("Redis ficou pronto. Registrando BullMQ.");
+      fastify.register(registerBullMQ);
+    });
+  }
+  // Decora a instância do Fastify para que o cliente seja acessível em outros lugares.
+  fastify.decorate("redis", redisClient);
+
+  // Adiciona o hook para fechar a conexão graciosamente.
+  fastify.addHook("onClose", async (instance) => {
+    await redisClient.quit();
+    instance.log.info("Conexão com o Redis fechada graciosamente.");
   });
 });
