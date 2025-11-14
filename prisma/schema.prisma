@@ -14,9 +14,6 @@ datasource db {
 
 }
 
-
-
-// Definição do ENUM para o campo chatFlowStatus
 enum ChatFlowStatus {
   not_started
   waiting_answer
@@ -62,9 +59,6 @@ model User {
   @@map("Users") // Mapeia para a tabela "Users"
 }
 
-// Definição do modelo Queue.
-// Representa uma fila de atendimento ou um departamento.
-
 model Queue {
   id       Int     @id @default(autoincrement())
   queue    String  // Nome da fila
@@ -90,7 +84,6 @@ model Queue {
   // --- Mapeamento da Tabela ---
   @@map("Queues")
 }
-
 
 model Tenant {
   id                   Int      @id @default(autoincrement())
@@ -133,8 +126,6 @@ model Tenant {
   @@map("Tenants")
 }
 
-
-// --- MODELO EXPLÍCITO PARA A TABELA DE JUNÇÃO EXISTENTE ---
 model UsersQueues {
   // Relação com User, usando o campo 'userId'
   user   User @relation(fields: [userId], references: [id])
@@ -152,8 +143,7 @@ model UsersQueues {
   // Crucial para que o Prisma encontre a tabela correta.
   @@map("UsersQueues")
 }
-// Definição do modelo Empresa.
-// Representa uma empresa cliente, que é um sub-nível de um Tenant.
+
 
 model Empresa {
   id                   Int      @id @default(autoincrement())
@@ -246,9 +236,6 @@ model EmpresaContact {
   // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
   @@map("EmpresaContacts")
 }
-// Definição do modelo Contact.
-// Representa um contato final, que pode ser um cliente, um usuário, etc.
-// É uma entidade central que se conecta a quase todos os outros modelos.
 
 model Contact {
   id               Int       @id @default(autoincrement())
@@ -356,8 +343,6 @@ model Ticket {
   @@map("Tickets")
 }
 
-// Definição do modelo ChatFlow.
-// Representa um fluxo de chatbot, com sua estrutura de nós e interações.
 
 model ChatFlow {
   id           Int      @id @default(autoincrement())
@@ -436,10 +421,6 @@ model Whatsapp {
   @@map("Whatsapp")
 }
 
-// Definição do modelo Chamado.
-// Representa um chamado ou incidente de suporte técnico.
-
-// Define um tipo ENUM para o status do chamado, garantindo consistência.
 enum ChamadoStatus {
   ABERTO
   EM_ANDAMENTO
