@@ -30,7 +30,7 @@ export class UsersController {
         .send({ error: "Erro interno ao buscar usuários." });
     }
   };
-  createUser = async (
+  createOrUpdateUser = async (
     request: FastifyRequest<{
       Body: {
         email: string;
@@ -50,7 +50,7 @@ export class UsersController {
           .code(ERRORS.unauthorizedAccess.statusCode)
           .send(ERRORS.unauthorizedAccess.message);
       }
-      const user = await this.userService.createUser(payload);
+      const user = await this.userService.saveUser(payload);
       return reply.code(200).send(user);
     } catch (error) {
       return reply.code(404).send({ message: "Erro create user" });

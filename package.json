@@ -53,9 +53,7 @@
     "dotenv-cli": "^11.0.0",
     "pino-pretty": "^13.1.2",
     "prisma": "^6.19.0",
-    "prisma-import": "^1.0.5",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3",
-    "wait-on": "^9.0.3"
+    "typescript": "^5.9.3"
   }
 }

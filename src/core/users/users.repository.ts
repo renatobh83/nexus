@@ -31,29 +31,27 @@ export class UsersRepository {
       },
     });
   }
-  /**
-   *  Cria um usuario no banco de dados.
-   * @param data - Os dados para a criação do usuario.
-   * @param email - Oe mail do usuario.
-   * @param password - A senha do usuario.
-   * @param name - O nome do usuario.
-   * @param profile - O grupo do usuario.
-   * @returns O usuario create ou null.
-   */
-  async createUser(userData: CreateUserDTO) {
-    const { queues, ...restOfUserData } = userData;
-    // 2. Transforma o array de IDs de filas (se existir) para o formato do Prisma.
-    const queuesToConnect = queues?.map((id) => ({
-      queueId: id,
-    }));
-    // 3. Monta o objeto 'data' final no formato que o Prisma espera.
-    const userToCreate = {
-      ...restOfUserData,
-      queues: queuesToConnect ? { create: queuesToConnect } : undefined,
+async createOrUpdateUser(userData: any) { // Use um tipo/interface apropriado aqui
+    const { id, queues, ...restOfUserData } = userData;
+
+    const dataForUpdate = {
+        ...restOfUserData,
+        // Lógica para lidar com filas em uma atualização
+        queues: queues ? { deleteMany: {}, create: queues.map(id => ({ queueId: id })) } : undefined,
     };
-    // 4. Chama o Prisma com o objeto de dados corretamente formatado.
-    return prisma.user.create({
-      data: userToCreate,
+
+    const dataForCreate = {
+        ...restOfUserData,
+        // Lógica para lidar com filas em uma criação
+        queues: queues ? { create: queues.map(id => ({ queueId: id })) } : undefined,
+    };
+
+    return prisma.user.upsert({
+        // Se 'id' existir, use-o para encontrar o usuário.
+        // Se não, use um valor que garante que não encontrará nada (forçando a criação).
+        where: { id: id || -1 },
+        create: dataForCreate,
+        update: dataForUpdate,
     });
-  }
+}
 }

@@ -1,4 +1,5 @@
-interface CreateUserDTO {
+interface SaveUserDTO {
+  id?: number;
   name: string;
   email: string;
   password: string;
@@ -6,3 +7,4 @@ interface CreateUserDTO {
   profile: string;
   queues?: number[];
 }
+
