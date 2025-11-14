@@ -1,0 +1,38 @@
+model User {
+  // --- Campos Diretos ---
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  status       String?
+  passwordHash String?   // O campo que realmente existe no banco
+  tokenVersion Int       @default(0)
+  profile      String?
+  ativo        Boolean   @default(true)
+  lastLogin    DateTime?
+  lastOnline   DateTime?
+  lastLogout   DateTime?
+  isOnline     Boolean   @default(false)
+  configs      Json?     // Suporte nativo para JSON
+
+  // --- Timestamps ---
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // --- Relações ---
+
+  // Relação com Tenant (um User pertence a um Tenant)
+   tenant   Tenant @relation("TenantMembers", fields: [tenantId], references: [id])
+  tenantId     Int
+
+  ownedTenants Tenant[] @relation("TenantOwner")
+  // Relações Inversas (um User tem muitos...)
+  tickets      Ticket[]
+  chamados     Chamado[] // Supondo que exista um modelo Chamado
+  chatFlow ChatFlow[]
+  // Relação Muitos-para-Muitos (M-N) com Queue
+  // A relação agora aponta para o modelo da tabela de junção.
+  // Um usuário tem uma lista de "atribuições de fila".
+  queues UsersQueues[]
+
+  @@map("Users") // Mapeia para a tabela "Users"
+}

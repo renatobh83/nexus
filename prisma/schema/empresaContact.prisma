@@ -1,0 +1,25 @@
+
+model EmpresaContact {
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Empresa: Aponta para a empresa à qual este contato está associado.
+  empresa   Empresa @relation(fields: [empresaId], references: [id])
+  empresaId Int     // Chave estrangeira para o modelo Empresa.
+
+  // Relação com Contact: Aponta para o contato que está associado a esta empresa.
+  contact   Contact @relation(fields: [contactId], references: [id])
+  contactId Int     // Chave estrangeira para o modelo Contact.
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Chave Primária e Índices ---
+
+  // Define uma chave primária composta. Isso garante que a combinação de
+  // uma empresa e um contato seja única, prevenindo entradas duplicadas.
+  @@id([empresaId, contactId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("EmpresaContacts")
+}

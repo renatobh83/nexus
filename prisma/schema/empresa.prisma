@@ -1,0 +1,47 @@
+
+
+
+
+model Empresa {
+  id                   Int      @id @default(autoincrement())
+  name                 String
+  active               Boolean  @default(true)
+  address              Json?    // Endereço da empresa
+  identifier           BigInt?  // Usamos BigInt para corresponder ao DataTypes.BIGINT
+  acessoExterno        Json[]   @default([]) // Array de objetos JSON para acessos DDNS
+  openTicketIds        Int[]    @default([]) // Array de IDs de tickets abertos
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // --- Relações ---
+
+  // Relação com Tenant: Uma Empresa pertence a um Tenant.
+  tenant               Tenant   @relation(fields: [tenantId], references: [id])
+  tenantId             Int
+
+  // Relação com Contact (Responsável): Uma Empresa tem um Contact responsável.
+  // A relação é opcional, como indicado por 'allowNull: true'.
+  // responsavelContact   Contact? @relation("ResponsavelEmpresa", fields: [responsavelContactId], references: [id])
+  responsavelContactId Int?
+
+  // Relação com ResultadoDDNS: Uma Empresa pode ter um resultado de DDNS.
+  // A relação é opcional.
+  // ResultadoDDNS        ResultadoDDNS? @relation(fields: [resultadoDDNSId], references: [id])
+  resultadoDDNSId      Int?
+
+  // Relação com EmpresaContrato: Uma Empresa pode ter muitos contratos.
+  contratos            EmpresaContrato[]
+
+  // Relação com Ticket: Uma Empresa pode estar associada a muitos tickets.
+  tickets              Ticket[]
+
+  // Relação Muitos-para-Muitos com Contact (via EmpresaContact):
+  // Uma Empresa tem muitos contatos associados através da tabela de junção 'EmpresaContact'.
+  empresaContacts      EmpresaContact[]
+
+  chamado Chamado[]
+
+  // Mapeia para o nome da tabela existente.
+  @@map("Empresas")
+}

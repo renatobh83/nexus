@@ -1,0 +1,19 @@
+
+
+model UsersQueues {
+  // Relação com User, usando o campo 'userId'
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  // Relação com Queue, usando o campo 'queueId'
+  queue   Queue @relation(fields: [queueId], references: [id])
+  queueId Int
+
+  // Define a chave primária composta, que é a combinação de userId e queueId.
+  // Isso espelha a estrutura de uma tabela de junção padrão.
+  @@id([userId, queueId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  // Crucial para que o Prisma encontre a tabela correta.
+  @@map("UsersQueues")
+}

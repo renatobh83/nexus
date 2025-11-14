@@ -1,0 +1,41 @@
+
+model Tenant {
+  id                   Int      @id @default(autoincrement())
+  status               String   @default("active")
+  name                 String
+  businessHours        Json     @default("{}") // Armazena horários de funcionamento
+  messageBusinessHours String?  // Mensagem para fora do horário de expediente
+  address              Json?    // Endereço do tenant como um objeto JSON
+  dadosNfe             Json?    // Dados para Nota Fiscal Eletrônica como JSON
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // --- Relações ---
+
+  // Relação com User (Proprietário): Um Tenant pertence a um User (owner).
+  // Esta é a parte "muitos-para-um" da relação.
+   owner                User     @relation("TenantOwner", fields: [ownerId], references: [id])
+  ownerId              Int      // Chave estrangeira para o User proprietário
+
+  // Relação com EmpresaContrato: Um Tenant pode ter muitos contratos.
+  // Este é o lado "um" da relação "um-para-muitos".
+  contratos            EmpresaContrato[]
+
+  // Relação com Empresa: Um Tenant pode ter muitas empresas.
+  empresas             Empresa[]
+
+  // Relação com Whatsapp: Um Tenant pode ter muitas conexões de WhatsApp.
+  // (Assumindo que você adicionará esta relação baseada nos outros modelos)
+  whatsapps            Whatsapp[]
+
+  // Relação com User: Um Tenant pode ter muitos usuários.
+  // (Esta é a relação inversa do 'belongsTo' no modelo User)
+  users                User[] @relation("TenantMembers")
+  chatFlows            ChatFlow[]
+  queues               Queue[]
+  ticket Ticket[]
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("Tenants")
+}
