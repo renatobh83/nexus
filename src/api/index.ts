@@ -11,6 +11,7 @@ import { redisPlugin } from "./plugins/redis";
 import { prisma } from "../lib/prisma";
 import fastifyModule from "./plugins/fastifyModules";
 import routes from "./routes/Index";
+import { initWbot } from "../lib/wbot";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -105,6 +106,7 @@ export async function start() {
     app.server.keepAliveTimeout = 5 * 60 * 1000;
     // await StartAllWhatsAppsSessions();
     // await scheduleOrUpdateDnsJob();
+    // await initWbot({ name: "TesteNewServer", id: 10 });
   } catch (err: any) {
     if (app) {
       app.log.error(err, "❌ Falha ao iniciar o servidor.");

@@ -10,7 +10,8 @@
     "start": "set NODE_ENV=production && node dist/server.js",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
-    "prisma:studio": "dotenv -e .env -- npx prisma studio"
+    "prisma:studio": "dotenv -e .env -- npx prisma studio",
+    "postinstall": "npx prisma generate"
   },
   "repository": {
     "type": "git",
@@ -37,10 +38,13 @@
     "@fastify/multipart": "^9.3.0",
     "@fastify/rate-limit": "^10.3.0",
     "@prisma/client": "^6.19.0",
+    "@types/jsonwebtoken": "^9.0.10",
     "bcryptjs": "^3.0.3",
     "bullmq": "^5.63.1",
     "fastify": "^5.6.2",
     "ioredis": "^5.8.2",
+    "jsonwebtoken": "^9.0.2",
+    "wbotconnect": "^1.0.19",
     "xss": "^1.0.15"
   },
   "devDependencies": {
@@ -48,6 +52,7 @@
     "dotenv-cli": "^11.0.0",
     "pino-pretty": "^13.1.2",
     "prisma": "^6.19.0",
+    "prisma-import": "^1.0.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3",
     "wait-on": "^9.0.3"

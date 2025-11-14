@@ -11,7 +11,6 @@ export async function userRoutes(fastify: FastifyInstance) {
 
   // Define a rota GET /users e a conecta ao método 'findAll' do controller
   fastify.get("/users", usersController.findAll);
-
   fastify.get("/users/test", usersController.createUser);
 
   // Exemplo de como seria uma rota para buscar um usuário por ID

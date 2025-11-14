@@ -15,6 +15,7 @@ export class UserService {
     const users = await this.userRepository.findAll();
     return users;
   }
+
   /**
    * Orquestra a criacao de um  usuário.
    * @returns Uma Promise que resolve a criacao de um usuario.
