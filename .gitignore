@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+start-tunnel.sh
+userDataDir
+tokens
+/src/generated/prisma
+.vscode

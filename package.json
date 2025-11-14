@@ -1,0 +1,44 @@
+{
+  "name": "nexus",
+  "version": "1.0.0",
+  "description": "![Nexus Banner](https://i.imgur.com/sC9A6A5.png)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "tunnel:start": "ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36",
+    "app:start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev:win": "set NODE_ENV=development && start /B npm run tunnel:start && wait-on tcp:6432 && npm run app:start",
+    "start": "set NODE_ENV=production&& node dist/server.ts",
+    "prisma:generate": "dotenv -e .env -- npx prisma generate",
+    "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
+    "prisma:studio": "dotenv -e .env -- npx prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatobh83/nexus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatobh83/nexus/issues"
+  },
+  "homepage": "https://github.com/renatobh83/nexus#readme",
+  "dependencies": {
+    "@fastify/env": "^5.0.3",
+    "@fastify/jwt": "^10.0.0",
+    "@prisma/client": "^6.19.0",
+    "fastify": "^5.6.2",
+    "ioredis": "^5.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "dotenv-cli": "^11.0.0",
+    "pino-pretty": "^13.1.2",
+    "prisma": "^6.19.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3",
+    "wait-on": "^9.0.3"
+  }
+}
