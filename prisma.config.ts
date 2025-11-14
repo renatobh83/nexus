@@ -1,4 +1,6 @@
 import path from "node:path";
+import { config } from "dotenv";
+config(); // Load environment variables
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
