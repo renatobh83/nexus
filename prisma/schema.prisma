@@ -6,10 +6,89 @@
 
 generator client {
   provider = "prisma-client-js"
-output   = "../generated/prisma-client"
+
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  // --- Campos Diretos ---
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  status       String?
+  passwordHash String?   // O campo que realmente existe no banco
+  tokenVersion Int       @default(0)
+  profile      String?
+  ativo        Boolean   @default(true)
+  lastLogin    DateTime?
+  lastOnline   DateTime?
+  lastLogout   DateTime?
+  isOnline     Boolean   @default(false)
+  configs      Json?     // Suporte nativo para JSON
+
+  // --- Timestamps ---
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // --- Relações ---
+
+  // Relação com Tenant (um User pertence a um Tenant)
+  tenant       Tenant    @relation(fields: [tenantId], references: [id])
+  tenantId     Int
+
+  // Relações Inversas (um User tem muitos...)
+  // tickets      Ticket[]
+  // chamados     Chamado[] // Supondo que exista um modelo Chamado
+
+  // Relação Muitos-para-Muitos (M-N) com Queue
+  // A relação agora aponta para o modelo da tabela de junção.
+  // Um usuário tem uma lista de "atribuições de fila".
+  queues UsersQueues[]
+
+  @@map("Users") // Mapeia para a tabela "Users"
+}
+
+model Queue {
+  id    Int     @id @default(autoincrement())
+  name  String
+  // ... outros campos da Queue
+
+ // A relação inversa também aponta para o modelo da tabela de junção.
+  userAssignments UsersQueues[]
+
+  @@map("Queues")
+}
+
+model Tenant {
+  id    Int     @id @default(autoincrement())
+  name  String
+  // ... outros campos da Queue
+
+  // --- ADICIONE ESTA LINHA ---
+  // Relação inversa: um Tenant pode ter uma lista de muitos Users.
+  users User[]
+  @@map("Tenant")
+}
+
+// --- MODELO EXPLÍCITO PARA A TABELA DE JUNÇÃO EXISTENTE ---
+model UsersQueues {
+  // Relação com User, usando o campo 'userId'
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  // Relação com Queue, usando o campo 'queueId'
+  queue   Queue @relation(fields: [queueId], references: [id])
+  queueId Int
+
+  // Define a chave primária composta, que é a combinação de userId e queueId.
+  // Isso espelha a estrutura de uma tabela de junção padrão.
+  @@id([userId, queueId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  // Crucial para que o Prisma encontre a tabela correta.
+  @@map("UsersQueues")
 }

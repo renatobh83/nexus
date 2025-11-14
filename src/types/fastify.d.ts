@@ -8,3 +8,10 @@ declare module "fastify" {
     redis: Redis;
   }
 }
+
+declare module "fastify" {
+  interface FastifyRequest {
+    user?: { id: string; email: string };
+    moduleName: any;
+  }
+}

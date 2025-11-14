@@ -10,6 +10,7 @@ import { FastifyReply } from "fastify/types/reply";
 import { redisPlugin } from "./plugins/redis";
 import { prisma } from "../lib/prisma";
 import fastifyModule from "./plugins/fastifyModules";
+import routes from "./routes/Index";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -80,6 +81,7 @@ async function buildServer(
       });
     }
   );
+  await server.register(routes);
   server.setNotFoundHandler((request, reply) => {
     reply.status(404).send({
       error: "Not Found",
