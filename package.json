@@ -11,11 +11,9 @@
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
     "prisma:studio": "dotenv -e .env -- npx prisma studio",
-    "postinstall": "npx prisma generate"
+    
   },
-  "prisma": {
-    "schema": "./prisma/schema.prisma"
-  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/renatobh83/nexus.git"
