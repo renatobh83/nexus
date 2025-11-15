@@ -36,6 +36,98 @@ enum MessageSendType {
   bot
   sync
 }
+// Definição do modelo Setting.
+// Armazena configurações personalizadas do tipo chave-valor para cada Tenant.
+
+model Setting {
+  id      Int    @id @default(autoincrement())
+  key     String // A chave da configuração (ex: 'userCreation', 'checkMsgIsGroup')
+  value   String // O valor da configuração (ex: 'enabled', 'disabled')
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Tenant: Uma configuração pertence a um Tenant.
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId  Int      // Chave estrangeira para o modelo Tenant.
+
+  // --- Índices e Mapeamento ---
+
+  // Cria um índice único para a combinação de 'key' e 'tenantId'.
+  // Isso garante que não pode haver duas configurações com a mesma chave
+  // para o mesmo tenant, prevenindo dados duplicados e inconsistentes.
+  @@unique([key, tenantId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("Settings")
+}
+// Definição do modelo ApiConfig.
+// Armazena configurações para integrações de API externas,
+// como tokens de autenticação e URLs de webhook.
+
+// Definição do modelo Email.
+// Armazena as credenciais de um servidor SMTP para envio de e-mails,
+// com escopo por Tenant.
+
+model Email {
+  id        Int     @id @default(autoincrement())
+  smtp      String  // Endereço do servidor SMTP (ex: smtp.gmail.com)
+  senha     String  @db.Text // Senha do e-mail. Será armazenada criptografada.
+  email     String  // Endereço de e-mail de envio
+  portaSMTP Int     // Porta do servidor SMTP (ex: 587, 465)
+  ssl       Boolean @default(false) // Se a conexão usa SSL
+  tsl       String? // Se a conexão usa TLS (geralmente 'true' ou 'false' como string)
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Tenant: Estas credenciais de e-mail pertencem a um Tenant.
+  // A regra onDelete: Cascade garante que, se o Tenant for deletado,
+  // estas credenciais também serão removidas.
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId  Int      @unique // Garante que um Tenant só pode ter uma configuração de e-mail.
+
+  // --- Mapeamento da Tabela ---
+  @@map("Email")
+}
+
+
+model ApiConfig {
+  id               String    @id @default(uuid()) @db.Uuid
+  name             String    // Nome descritivo para a configuração da API
+  token            String?   // Token de API (opcional)
+  authToken        String    @unique // Token de autenticação, deve ser único para segurança
+  urlServiceStatus String?   // URL para enviar status do serviço (online, offline)
+  urlMessageStatus String?   // URL para enviar status de mensagens (enviada, recebida)
+  isActive         Boolean   @default(true)
+
+  // --- Metadados ---
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Whatsapp: A configuração de API está associada a uma sessão/conexão.
+  session          Whatsapp  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sessionId        Int       // Chave estrangeira para o modelo Whatsapp.
+
+  // Relação com User: A configuração foi criada ou é gerenciada por um usuário.
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           Int       // Chave estrangeira para o modelo User.
+
+  // Relação com Tenant: A configuração pertence a um Tenant.
+  tenant           Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId         Int       // Chave estrangeira para o modelo Tenant.
+
+  // --- Mapeamento da Tabela ---
+  @@map("ApiConfigs")
+}
 
 // Representa uma única mensagem dentro de um Ticket.
 model Message {
@@ -137,6 +229,7 @@ model Whatsapp {
 
   // Mapeia para o nome da tabela existente no banco de dados.
   @@map("Whatsapp")
+  apiConfigs ApiConfig[]
 }
 
 enum ChamadoStatus {
@@ -187,6 +280,7 @@ model Chamado {
 
   // --- Mapeamento da Tabela ---
   @@map("Chamados")
+  logTickets LogTicket[]
 }
 
 model ChatFlow {
@@ -305,7 +399,44 @@ model Empresa {
 
   // Mapeia para o nome da tabela existente.
   @@map("Empresas")
+  notaFiscals NotaFiscal[]
+  resultadoDDNSs ResultadoDDNS[]
 }
+
+// Definição do modelo FastReply.
+// Armazena atalhos de texto (respostas rápidas) para serem usados
+// por usuários durante o atendimento.
+
+model FastReply {
+  id      Int    @id @default(autoincrement())
+  key     String // O atalho ou palavra-chave (ex: 'saudacao', '/obrigado')
+  message String @db.Text // A mensagem completa a ser enviada
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com User: Uma resposta rápida é criada e pertence a um usuário.
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int      // Chave estrangeira para o modelo User.
+
+  // Relação com Tenant: A resposta rápida pertence a um Tenant (escopo de dados).
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId  Int      // Chave estrangeira para o modelo Tenant.
+
+  // --- Índices e Mapeamento ---
+
+  // Cria um índice único para a combinação de 'key' e 'tenantId'.
+  // Isso garante que não pode haver duas respostas rápidas com o mesmo atalho
+  // para o mesmo tenant, evitando conflitos.
+  @@unique([key, tenantId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("FastReply")
+}
+
 
 model EmpresaContact {
   // --- Relações e Chaves Estrangeiras ---
@@ -422,6 +553,39 @@ model Queue {
 
   // --- Mapeamento da Tabela ---
   @@map("Queues")
+  logTickets LogTicket[]
+}
+
+// Definição do modelo Integracoes.
+// Armazena configurações para diversas integrações de terceiros
+// (ex: RD Station, PipeDrive, etc.), com escopo por Tenant.
+
+model Integracoes {
+  id          Int    @id @default(autoincrement())
+  name        String // Nome da integração (ex: 'RDStation', 'Asaas')
+  config_json Json   // Objeto JSON contendo as configurações específicas (tokens, chaves, etc.)
+
+  // --- Metadados ---
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Tenant: Uma integração pertence a um Tenant.
+  // A regra onDelete: Cascade garante que, se o Tenant for deletado,
+  // suas configurações de integração também serão removidas.
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId    Int      // Chave estrangeira para o modelo Tenant.
+
+  // --- Índices e Mapeamento ---
+
+  // Cria um índice único para a combinação de 'name' e 'tenantId'.
+  // Isso garante que um tenant não possa ter duas configurações para a mesma
+  // integração (ex: duas configurações 'RDStation'), prevenindo inconsistências.
+  @@unique([name, tenantId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("Integracoes")
 }
 
 
@@ -462,13 +626,61 @@ model Tenant {
   queues               Queue[]
   ticket Ticket[]
   messages Message[]
+  settings Setting[]
+  apiConfigs ApiConfig[]
+  emails Email?
 
   // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
   @@map("Tenants")
+  fastReplies FastReply[]
+  integracoes Integracoes[]
+  logTickets LogTicket[]
+  notaFiscals NotaFiscal[]
 }
 
 
 
+// Definição do modelo LogTicket.
+// Funciona como uma trilha de auditoria, registrando eventos e mudanças
+// de estado que ocorrem em Tickets e Chamados.
+
+model LogTicket {
+  id   Int    @id @default(autoincrement())
+  type String @db.Text // Tipo do evento de log (ex: 'create', 'transfer', 'close')
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+  // As relações são opcionais para permitir flexibilidade no registro de diferentes tipos de eventos.
+
+  // Relação com Chamado: O log pode estar associado a um chamado.
+  // onDelete: SetNull -> Se o chamado for deletado, o log não é perdido,
+  // apenas a referência a ele é anulada. Importante para auditoria.
+  chamado   Chamado? @relation(fields: [chamadoId], references: [id], onDelete: SetNull)
+  chamadoId Int?
+
+  // Relação com User: O log foi gerado por uma ação de um usuário.
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId    Int?
+
+  // Relação com Queue: O log pode registrar uma mudança de fila.
+  queue     Queue?   @relation(fields: [queueId], references: [id], onDelete: SetNull)
+  queueId   Int?
+
+  // Relação com Tenant: O log pertence a um Tenant.
+  // onDelete: Cascade -> Se o Tenant for deletado, todos os seus logs são removidos.
+  tenant    Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenantId  Int?
+
+  // Relação com Ticket: O log pode estar associado a um ticket.
+  ticket    Ticket?  @relation(fields: [ticketId], references: [id], onDelete: SetNull)
+  ticketId  Int?
+
+  // --- Mapeamento da Tabela ---
+  @@map("LogTickets")
+}
 
 model Ticket {
   // --- Campos Diretos ---
@@ -532,10 +744,107 @@ model Ticket {
 
   chamado Chamado[]
   messages Message[]
+  logTickets LogTicket[]
 
   // Mapeia o nome do modelo para o nome da tabela no banco de dados
   @@map("Tickets")
 }
+// Definição do modelo NotaFiscal.
+// Armazena informações de notas fiscais emitidas, incluindo
+// números, protocolos e status de cancelamento.
+
+model NotaFiscal {
+  id             Int       @id @default(autoincrement())
+  numeroNota     String
+  codVerificacao String
+  protocolo      String
+  rps            String    // Recibo Provisório de Serviços
+  cancelada      Boolean   @default(false)
+  datacancelamento DateTime?
+  status         String?   // Status da nota (ex: 'emitida', 'cancelada', 'processando')
+
+  // --- Metadados ---
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Tenant: A nota fiscal pertence a um Tenant.
+  // onDelete: Restrict -> Impede que um Tenant seja deletado se tiver notas fiscais associadas.
+  tenant         Tenant    @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  tenantId       Int
+
+  // Relação com Empresa: A nota fiscal foi emitida para uma Empresa.
+  // onDelete: Restrict -> Impede que uma Empresa seja deletada se tiver notas fiscais associadas.
+  empresa        Empresa   @relation(fields: [empresaId], references: [id], onDelete: Restrict)
+  empresaId      Int
+
+  // --- Índices e Mapeamento ---
+
+  // Cria um índice único para a combinação de 'numeroNota' e 'tenantId'.
+  // Isso garante que não pode haver duas notas com o mesmo número para o mesmo tenant.
+  @@unique([numeroNota, tenantId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("NotaFiscal")
+}
+
+// Definição do modelo NotaFiscalLog.
+// Armazena um registro de eventos e mensagens relacionados ao
+// processamento de notas fiscais, servindo como uma trilha de auditoria.
+
+model NotaFiscalLog {
+  id        Int    @id @default(autoincrement())
+  codigo    String // Código do evento ou erro (ex: 'E160', 'sucesso')
+  numeroRps String // Número do RPS ao qual o log se refere
+  mensagem  String @db.Text // Mensagem descritiva do evento ou erro
+
+  // --- Metadados ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // --- Índices e Mapeamento ---
+
+  // Adiciona um índice no campo 'numeroRps' para otimizar buscas
+  // por todos os logs relacionados a um RPS específico.
+  @@index([numeroRps])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("NotaFiscalLog")
+}
+
+// Definição do modelo ResultadoDDNS.
+// Armazena o histórico de resultados de verificações de DNS dinâmico (DDNS)
+// para cada empresa, registrando o status em um determinado momento.
+
+model ResultadoDDNS {
+  id           Int      @id @default(autoincrement())
+  dominio      String   // O domínio que foi verificado
+  status       String   // O status do resultado (ex: 'online', 'offline', 'resolvido')
+  verificadoEm DateTime // O timestamp exato de quando a verificação foi realizada
+
+  // --- Metadados ---
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Empresa: O resultado da verificação pertence a uma Empresa.
+  // onDelete: Cascade -> Se a Empresa for deletada, todos os seus históricos
+  // de verificação de DDNS também serão removidos.
+  empresa      Empresa  @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  empresaId    Int
+
+  // --- Índices e Mapeamento ---
+
+  // Adiciona um índice no campo 'empresaId' para otimizar a busca
+  // por todos os resultados de DDNS de uma empresa específica.
+  @@index([empresaId])
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("ResultadoDDNS")
+}
+
 
 model User {
   // --- Campos Diretos ---
@@ -573,8 +882,11 @@ model User {
   // Um usuário tem uma lista de "atribuições de fila".
   queues UsersQueues[]
   messages Message[]
+  apiConfigs ApiConfig[]
 
   @@map("Users") // Mapeia para a tabela "Users"
+  fastReplies FastReply[]
+  logTickets LogTicket[]
 }
 
 
