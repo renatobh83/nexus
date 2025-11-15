@@ -4,7 +4,7 @@ config(); // Load environment variables
 import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
-  schema: path.join("prisma", "schema.prisma"),
+  schema: path.join("prisma", "schema", "schema.prisma"),
   migrations: {
     path: "prisma/migrations",
   },
