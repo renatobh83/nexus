@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { UserService } from "./users.service";
-import { ERRORS } from "../../errors/errors.helper";
+import { ERRORS, handleServerError } from "../../errors/errors.helper";
 
 export class UsersController {
   private userService: UserService;
@@ -57,6 +57,53 @@ export class UsersController {
     }
   };
   // Aqui você teria outros métodos do controller, como:
-  // findById = async (request, reply) => { ... }
-  // create = async (request, reply) => { ... }
+  findById = async (request: FastifyRequest, reply: FastifyReply) => {
+    try {
+      // const { tenantId } = request.user as any;
+      const { id } = request.params as any;
+      ;
+
+      const user = await this.userService.findUserById(Number(id), 1);
+      return reply.code(200).send(user);
+    } catch (error) {
+
+      return reply.code(404).send({ message: "Erro find user" });
+    }
+  }
+  updateUserStatus = async (request: FastifyRequest, reply: FastifyReply) => {
+    const { tenantId, profile, id } = request.user as any;
+    const { userId } = request.params as any;
+    const payload = { userData: request.body, userId, tenantId };
+    try {
+      const userUpdate = await this.userService.updateUserStatus(userId, tenantId, payload)
+      return reply.code(200).send(userUpdate);
+    } catch (error) {
+      return reply.code(404).send({ message: "Erro updateStatus user" });
+    }
+  }
+  removeUser = async (
+  request: FastifyRequest,
+  reply: FastifyReply
+) => {
+  const { tenantId, profile, id } = request.user as any;
+  const { userId } = request.params as any;
+  try {
+    if (profile !== "admin") {
+      return reply
+        .code(ERRORS.unauthorizedAccess.statusCode)
+        .send(ERRORS.unauthorizedAccess.message);
+    }
+    
+    const isDelete = await this.userService.removeUser(userId)
+    // const io = getIO();
+
+    // io.emit(`${tenantId}:user`, {
+    //   action: "delete",
+    //   userId,
+    // });
+    return reply.code(200).send({ message: isDelete });
+  } catch (error) {
+    return handleServerError(reply, error);
+  }
+};
 }
