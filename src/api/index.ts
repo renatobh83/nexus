@@ -23,7 +23,7 @@ import diContainerPlugin from './plugins/di-container'
 let fastifyApp: FastifyInstance;
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-
+console.log(isDevelopment)
 /**
  * Funcao responsavel para construir o servidor
  *
