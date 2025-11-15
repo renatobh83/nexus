@@ -20,7 +20,78 @@ enum ChatFlowStatus {
   in_progress
 }
 
+// Definição dos ENUMs para status e tipo de envio, garantindo consistência.
+enum MessageStatus {
+  pending
+  sended
+  received
+  canceled
+}
 
+enum MessageSendType {
+  campaign
+  chat
+  external
+  schedule
+  bot
+  sync
+}
+
+// Representa uma única mensagem dentro de um Ticket.
+model Message {
+  id              String          @id @default(uuid()) @db.Uuid
+  messageId       String?          @unique // ID da mensagem vindo da plataforma (WA, IG, etc.)
+  ack             Int             @default(1)
+  status          MessageStatus   @default(pending)
+  wabaMediaId     String?
+  read            Boolean         @default(false)
+  fromMe          Boolean         @default(false)
+  body            String          @db.Text // Corpo da mensagem, será armazenado criptografado
+  mediaName       String?
+  mediaUrl        String?         // Armazena apenas o nome do arquivo, a URL completa é montada no serviço
+  mediaType       String?
+  reaction        String?
+  reactionFromMe  String?
+  timestamp       BigInt?
+  scheduleDate    DateTime?
+  sendType        MessageSendType @default(chat)
+  idFront         String?         // ID temporário gerado pelo frontend
+  isDeleted       Boolean         @default(false)
+  isForwarded     Boolean         @default(false)
+
+  // --- Metadados ---
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  // --- Relações e Chaves Estrangeiras ---
+
+  // Relação com Ticket: Uma mensagem pertence a um Ticket.
+  ticket          Ticket?         @relation(fields: [ticketId], references: [id])
+  ticketId        Int?
+
+  // Relação com Contact: Uma mensagem é de/para um Contact.
+  contact         Contact?        @relation(fields: [contactId], references: [id])
+  contactId       Int?
+
+  // Relação com User: Uma mensagem pode ter sido enviada por um User.
+  user            User?           @relation(fields: [userId], references: [id])
+  userId          Int?
+
+  // Relação com Tenant: Uma mensagem pertence a um Tenant.
+  tenant          Tenant?         @relation(fields: [tenantId], references: [id])
+  tenantId        Int?
+
+  // --- Auto-Relação para Mensagens Citadas (Quoted Messages) ---
+  // Uma mensagem pode citar outra mensagem.
+  quotedMsg       Message?        @relation("QuotedMessages", fields: [quotedMsgId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  quotedMsgId     String?         @db.Uuid
+
+  // Uma mensagem pode ser citada por muitas outras mensagens.
+  quotes          Message[]       @relation("QuotedMessages")
+
+  // --- Mapeamento da Tabela ---
+  @@map("Messages")
+}
 
 
 model Whatsapp {
@@ -182,6 +253,7 @@ model Contact {
   // Representa em quais empresas este contato está associado.
   // Esta é uma relação explícita, então apontamos para o modelo de junção.
   empresaAssignments EmpresaContact[]
+  messages Message[]
 
   // Mapeia para o nome da tabela existente.
   @@map("Contacts")
@@ -389,6 +461,7 @@ model Tenant {
   chatFlows            ChatFlow[]
   queues               Queue[]
   ticket Ticket[]
+  messages Message[]
 
   // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
   @@map("Tenants")
@@ -457,9 +530,8 @@ model Ticket {
   tenant              Tenant    @relation(fields: [tenantId], references: [id])
   tenantId            Int
 
-  // Relação com Message (um Ticket tem muitas Messages)
-  // messages            Message[]
   chamado Chamado[]
+  messages Message[]
 
   // Mapeia o nome do modelo para o nome da tabela no banco de dados
   @@map("Tickets")
@@ -500,6 +572,7 @@ model User {
   // A relação agora aponta para o modelo da tabela de junção.
   // Um usuário tem uma lista de "atribuições de fila".
   queues UsersQueues[]
+  messages Message[]
 
   @@map("Users") // Mapeia para a tabela "Users"
 }
