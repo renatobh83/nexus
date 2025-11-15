@@ -1,16 +1,17 @@
-import { FastifyRequest, FastifyReply } from "fastify";
-import { WhatsappService } from "./whatsapp.service";
+import { FastifyRequest, FastifyReply, FastifyInstance, FastifyPluginOptions } from "fastify";
 
-export class WppController {
-  private whatsappService: WhatsappService;
 
-  constructor() {
-    this.whatsappService = new WhatsappService();
-  }
-  listaCanais = async (request: FastifyRequest, reply: FastifyReply) => {
+/**
+ * Controller de Whatsapp (Plugin Fastify).
+ * @param fastify - A instância do Fastify, que agora contém o 'userService' injetado.
+ * @param opts - Opções do plugin.
+ */
+export async function whatsappController(fastify: FastifyInstance, opts: FastifyPluginOptions) {
+    const whatsappService = fastify.services.whatsappService
+    fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
       // 1. Chama o Service
-      const wpp = await this.whatsappService.findAll();
+      const wpp = await whatsappService.findAll();
 
       // 2. Envia a resposta de sucesso
       return reply.status(200).send(wpp);
@@ -19,5 +20,5 @@ export class WppController {
       request.log.error(error, "❌ Erro ao buscar wpp no WppController");
       return reply.status(500).send({ error: "Erro interno ao buscar wpp." });
     }
-  };
+  })
 }

@@ -49,11 +49,9 @@ export class UserService {
     return user;
   }
 
-  async findUserById(userId: number, tenantId: number) {
+  async findUserById(userId: number) {
     const user = await this.userRepository.findUserById(userId)
-    if (!user || user.tenantId !== tenantId) {
-      throw new AppError("ERR_NO_USER_FOUND", 404);
-    }
+   
     return user
   }
     /**

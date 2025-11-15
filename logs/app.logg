@@ -1,0 +1,368 @@
+{
+  error: Error: Function not implemented.
+      at diContainerPlugin (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:205:9)
+      at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)
+      at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21),
+  level: 'error',
+  message: 'uncaughtException: Function not implemented.\n' +
+    'Error: Function not implemented.\n' +
+    '    at diContainerPlugin (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:205:9)\n' +
+    '    at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)\n' +
+    '    at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:90:21)',
+  stack: 'Error: Function not implemented.\n' +
+    '    at diContainerPlugin (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:205:9)\n' +
+    '    at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)\n' +
+    '    at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:90:21)',
+  exception: true,
+  date: 'Sat Nov 15 2025 06:52:24 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 3813,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 113180672,
+      heapTotal: 58753024,
+      heapUsed: 32729344,
+      external: 2816786,
+      arrayBuffers: 4321543
+    }
+  },
+  os: {
+    loadavg: [ 1.904296875, 2.05126953125, 2.380859375 ],
+    uptime: 4409
+  },
+  trace: [
+    {
+      column: 9,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      function: 'diContainerPlugin',
+      line: 205,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js',
+      function: 'Plugin.exec',
+      line: 125,
+      method: 'exec',
+      native: false
+    },
+    {
+      column: 10,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._loadPlugin',
+      line: 432,
+      method: '_loadPlugin',
+      native: false
+    },
+    {
+      column: 21,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 90,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T09:52:24.748Z'
+}
+{
+  error: ReferenceError: diContainerPlugin is not defined
+      at buildServer (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:53:17)
+      at start (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:186:21)
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/server.ts:5:8)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13),
+  level: 'error',
+  message: 'uncaughtException: diContainerPlugin is not defined\n' +
+    'ReferenceError: diContainerPlugin is not defined\n' +
+    '    at buildServer (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:53:17)\n' +
+    '    at start (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:186:21)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/server.ts:5:8)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)',
+  stack: 'ReferenceError: diContainerPlugin is not defined\n' +
+    '    at buildServer (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:53:17)\n' +
+    '    at start (/Users/renato/Desktop/Dev/nexus/src/api/index.ts:186:21)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/server.ts:5:8)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)',
+  exception: true,
+  date: 'Sat Nov 15 2025 06:52:38 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 3826,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 115343360,
+      heapTotal: 58490880,
+      heapUsed: 32024248,
+      external: 2816388,
+      arrayBuffers: 4321145
+    }
+  },
+  os: {
+    loadavg: [ 1.93115234375, 2.04833984375, 2.37353515625 ],
+    uptime: 4423
+  },
+  trace: [
+    {
+      column: 17,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      function: 'buildServer',
+      line: 53,
+      method: null,
+      native: false
+    },
+    {
+      column: 21,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      function: 'start',
+      line: 186,
+      method: null,
+      native: false
+    },
+    {
+      column: 8,
+      file: '/Users/renato/Desktop/Dev/nexus/src/server.ts',
+      function: null,
+      line: 5,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7580432009870126.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T09:52:38.891Z'
+}
+{
+  error: PrismaClientInitializationError: Can't reach database server at `localhost:6432`
+  
+  Please make sure your database server is running at `localhost:6432`.
+      at r (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/engines/library/LibraryEngine.ts:440:17)
+      at /Users/renato/Desktop/Dev/nexus/src/api/index.ts:65:5 {
+    clientVersion: '6.19.0',
+    errorCode: 'P1001',
+    retryable: undefined
+  },
+  level: 'error',
+  message: "uncaughtException: Can't reach database server at `localhost:6432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `localhost:6432`.\n' +
+    "PrismaClientInitializationError: Can't reach database server at `localhost:6432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `localhost:6432`.\n' +
+    '    at r (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/engines/library/LibraryEngine.ts:440:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/index.ts:65:5',
+  stack: "PrismaClientInitializationError: Can't reach database server at `localhost:6432`\n" +
+    '\n' +
+    'Please make sure your database server is running at `localhost:6432`.\n' +
+    '    at r (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/engines/library/LibraryEngine.ts:440:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/index.ts:65:5',
+  exception: true,
+  date: 'Sat Nov 15 2025 07:43:09 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 4174,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 135905280,
+      heapTotal: 62947328,
+      heapUsed: 37772032,
+      external: 2831947,
+      arrayBuffers: 4295979
+    }
+  },
+  os: {
+    loadavg: [ 2.044921875, 2.50244140625, 2.3095703125 ],
+    uptime: 7454
+  },
+  trace: [
+    {
+      column: null,
+      file: '`localhost',
+      function: null,
+      line: 6432,
+      method: null,
+      native: false
+    },
+    {
+      column: 17,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/engines/library/LibraryEngine.ts',
+      function: 'r',
+      line: 440,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      function: null,
+      line: 65,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T10:43:09.093Z'
+}
+{
+  error: TypeError: whatsapp_controller_1.WppController is not a constructor
+      at wppRoutes (/Users/renato/Desktop/Dev/nexus/src/api/routes/wpp.routes.ts:9:25)
+      at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)
+      at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)
+      at processTicksAndRejections (node:internal/process/task_queues:90:21),
+  level: 'error',
+  message: 'uncaughtException: whatsapp_controller_1.WppController is not a constructor\n' +
+    'TypeError: whatsapp_controller_1.WppController is not a constructor\n' +
+    '    at wppRoutes (/Users/renato/Desktop/Dev/nexus/src/api/routes/wpp.routes.ts:9:25)\n' +
+    '    at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)\n' +
+    '    at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:90:21)',
+  stack: 'TypeError: whatsapp_controller_1.WppController is not a constructor\n' +
+    '    at wppRoutes (/Users/renato/Desktop/Dev/nexus/src/api/routes/wpp.routes.ts:9:25)\n' +
+    '    at Plugin.exec (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js:125:28)\n' +
+    '    at Boot._loadPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:432:10)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:90:21)',
+  exception: true,
+  date: 'Sat Nov 15 2025 08:11:06 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 5251,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 125435904,
+      heapTotal: 57491456,
+      heapUsed: 28395088,
+      external: 2835199,
+      arrayBuffers: 4321418
+    }
+  },
+  os: {
+    loadavg: [ 1.42626953125, 2.25537109375, 2.19384765625 ],
+    uptime: 9131
+  },
+  trace: [
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/routes/wpp.routes.ts',
+      function: 'wppRoutes',
+      line: 9,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/lib/plugin.js',
+      function: 'Plugin.exec',
+      line: 125,
+      method: 'exec',
+      native: false
+    },
+    {
+      column: 10,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._loadPlugin',
+      line: 432,
+      method: '_loadPlugin',
+      native: false
+    },
+    {
+      column: 21,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 90,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T11:11:06.435Z'
+}

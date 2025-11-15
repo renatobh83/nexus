@@ -6,12 +6,21 @@ import Fastify, {
 } from "fastify";
 import fastifyEnv from "@fastify/env";
 import jwt from "@fastify/jwt";
+import fastifySocketIO from "fastify-socket.io";
 import { FastifyReply } from "fastify/types/reply";
 import { redisPlugin } from "./plugins/redis";
 import { prisma } from "../lib/prisma";
 import fastifyModule from "./plugins/fastifyModules";
 import routes from "./routes/Index";
 import { initWbot } from "../lib/wbot";
+import { setupSocket } from "../lib/socket";
+import decodeTokenSocket from "../ultis/decodeTokenSocket";
+import { UserService } from "../core/users/users.service";
+import { UsersRepository } from "../core/users/users.repository";
+import { JsonWebTokenError } from "jsonwebtoken";
+
+import diContainerPlugin from './plugins/di-container'
+let fastifyApp: FastifyInstance;
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -29,17 +38,24 @@ async function buildServer(
       level: isDevelopment ? "info" : "error",
       transport: isDevelopment
         ? {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss Z",
-              ignore: "pid,hostname",
-            },
-          }
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            translateTime: "HH:MM:ss Z",
+            ignore: "pid,hostname",
+          },
+        }
         : undefined,
     },
     trustProxy: true,
   });
+
+
+  await server.register(jwt, {
+    secret: process.env.JWT_SECRET!,
+  });
+
+  server.register(diContainerPlugin);
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };
   });
@@ -83,13 +99,105 @@ async function buildServer(
     }
   );
   await server.register(routes);
+
+
+  await server.register(fastifySocketIO, {
+    cors: {
+      origin: ["http://localhost:5173", "*"],
+      credentials: true,
+      methods: ["GET", "POST"],
+    },
+    pingTimeout: 180000,
+    pingInterval: 60000,
+  });
+
   server.setNotFoundHandler((request, reply) => {
     reply.status(404).send({
       error: "Not Found",
       message: `A rota ${request.url} não existe`,
     });
   });
+  server.ready((err) => {
+    if (err) throw err;
 
+    // 3. APLICAR O MIDDLEWARE DE AUTENTICAÇÃO DO SOCKET.IO
+    server.io.use(async (socket, next) => {
+      try {
+        const token =
+          socket?.handshake?.auth?.token ||
+          socket?.handshake?.headers?.authorization?.split(" ")[1];
+
+        if (!token) {
+          return next(new Error("token ausente"));
+        }
+
+        const verifyValid = decodeTokenSocket(token);
+        if (!verifyValid.isValid) return next(new Error("invalid token"));
+        const data = verifyValid.data;
+
+        if (data.type === "chat-client") {
+          socket.handshake.auth = {
+            ...data,
+            tenantId: String(verifyValid.data.tenantId),
+          };
+          return next();
+        }
+
+        const auth = socket?.handshake?.auth;
+        socket.handshake.auth = {
+          ...auth,
+          ...verifyValid.data,
+          id: String(verifyValid.data.id),
+          tenantId: String(verifyValid.data.tenantId),
+        };
+
+        const user = await server.services.userService.findUserById(Number(verifyValid.data.id))
+
+        socket.handshake.auth.user = user;
+        return next();
+      } catch (err: any) {
+        if (err instanceof JsonWebTokenError) {
+          console.warn(`Token inválido no socket ${socket.id}: ${err.message}`);
+        } else {
+          console.error(`Erro inesperado no socket ${socket.id}:`, err);
+        }
+        socket.emit(`tokenInvalid:${socket.id}`);
+        next(new Error("authentication error"));
+      }
+    });
+
+    // 4. CONFIGURAR OS LISTENERS DE EVENTOS DO SOCKET.IO
+    setupSocket(server.io);
+  });
+
+  const signals: NodeJS.Signals[] = ["SIGINT", "SIGTERM"];
+  signals.forEach((signal) => {
+    process.on(signal, async () => {
+      try {
+        await server.close();
+        // await shutdown();
+        server.log.error(`Closed application on ${signal}`);
+        process.exit(0);
+      } catch (err: any) {
+        server.log.error(`Error closing application on ${signal}`, err);
+        process.exit(1);
+      }
+    });
+  });
+
+  signals.forEach((signal) => {
+    process.on(signal, async () => {
+      try {
+        await server.close();
+        // await shutdown();
+        server.log.error(`Closed application on ${signal}`);
+        process.exit(0);
+      } catch (err: any) {
+        server.log.error(`Error closing application on ${signal}`, err);
+        process.exit(1);
+      }
+    });
+  });
   return server;
 }
 /**
@@ -99,14 +207,13 @@ async function buildServer(
  */
 export async function start() {
   const app = await buildServer();
-
+  fastifyApp = app;
   try {
     await app.listen({ port: 3000, host: "0.0.0.0" });
     app.log.info("Servidor rodando em http://localhost:3000");
     app.server.keepAliveTimeout = 5 * 60 * 1000;
     // await StartAllWhatsAppsSessions();
     // await scheduleOrUpdateDnsJob();
-    // await initWbot({ name: "TesteNewServer", id: 10 });
   } catch (err: any) {
     if (app) {
       app.log.error(err, "❌ Falha ao iniciar o servidor.");
@@ -116,3 +223,5 @@ export async function start() {
     process.exit(1);
   }
 }
+
+export const getFastifyApp = () => fastifyApp;

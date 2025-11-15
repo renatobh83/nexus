@@ -1,7 +1,1 @@
-export default {
-  key: "WebHooksAPIConfirmacao",
-  async handle({ data }: any) {
-    try {
-    } catch (error) {}
-  },
-};
+export { default as sendMessage } from "./sendMessage";
