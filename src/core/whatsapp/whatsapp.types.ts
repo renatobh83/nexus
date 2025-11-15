@@ -14,8 +14,23 @@ interface CreateWhatsappDTO {
 }
 
 interface UpdateWhatsappDTO {
-  type?: string;
   tokenHook?: string | null;
   tenantId: number; // Necessário para gerar o token
-  id: number; // Necessário para gerar o token
+  id?: number; // Necessário para gerar o token
+  name?: string;
+  status?: string;
+  session?: string;
+  isDefault?: boolean;
+  tokenTelegram?: string;
+  pairingCodeEnabled?: boolean;
+  farewellMessage: string;
+  isActive?: boolean;
+  type?: "waba" | "instagram" | "telegram" | "whatsapp" | "messenger";
+  wabaBSP?: string;
+  tokenAPI?: string;
+  chatFlowId?: number | null;
+  wppUser?: string;
+  qrcode?: string;
+  retries?: number;
+  phone?: string;
 }

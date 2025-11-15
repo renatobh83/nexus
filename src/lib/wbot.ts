@@ -199,7 +199,7 @@ export const initWbot = async (whatsapp: any): Promise<Session> => {
   }
 };
 
-async function removeSession(session: string) {
+export async function removeSession(session: string) {
   try {
     // Defina o caminho da pasta com base no sessionId
     const sessionPath = path.join(
@@ -218,7 +218,7 @@ async function removeSession(session: string) {
   }
 }
 
-export const removeWbot = async (whatsappId: number): Promise<void> => {
+ const removeWbot = async (whatsappId: number): Promise<void> => {
   try {
     const io = getIO();
     const sessionIndex = sessions.findIndex((s) => s.id === whatsappId);

@@ -366,3 +366,303 @@
   ],
   timestamp: '2025-11-15T11:11:06.435Z'
 }
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/whatsapp/whatsapp.service.ts(137,39): error TS1003: Identifier expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(137,39): error TS1003: Identifier expected.\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(137,39): error TS1003: Identifier expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(137,39): error TS1003: Identifier expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Sat Nov 15 2025 09:52:11 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 6680,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 97550336,
+      heapTotal: 58490880,
+      heapUsed: 31842152,
+      external: 2816126,
+      arrayBuffers: 123435
+    }
+  },
+  os: {
+    loadavg: [ 1.806640625, 1.94384765625, 2.2841796875 ],
+    uptime: 15196
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T12:52:11.781Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/whatsapp/whatsapp.repository.ts(59,5): error TS1109: Expression expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.repository.ts(59,5): error TS1109: Expression expected.\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.repository.ts(59,5): error TS1109: Expression expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.repository.ts(59,5): error TS1109: Expression expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Sat Nov 15 2025 10:04:59 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 6837,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 97353728,
+      heapTotal: 57704448,
+      heapUsed: 32084272,
+      external: 2816126,
+      arrayBuffers: 123435
+    }
+  },
+  os: {
+    loadavg: [ 2.09814453125, 1.93408203125, 2.060546875 ],
+    uptime: 15964
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-7228888974081558.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-15T13:04:59.084Z'
+}
