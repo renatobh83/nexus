@@ -666,3 +666,13 @@
   ],
   timestamp: '2025-11-15T13:04:59.084Z'
 }
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-15T14:08:04.151Z'
+}

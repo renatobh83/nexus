@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma, Whatsapp } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
 export class WhatsappRepository {
@@ -53,11 +53,71 @@ export class WhatsappRepository {
     return prisma.whatsapp.findFirst({ where });
   }
 
-  async deleteWhasapp(wppId: number){
+  async deleteWhasapp(wppId: number) {
     return prisma.whatsapp.delete({
       where: {
         id: wppId
       }
     })
   }
+
+
+
+
+  /**
+   * Busca todas as conexões de WhatsApp ativas e prontas para uso.
+   * 
+   * Esta consulta otimizada seleciona apenas os canais que não estão em um
+   * estado 'DISCONNECTED'. Para canais do tipo 'whatsapp', ela também exclui
+   * aqueles que estão aguardando a leitura de um QR Code, focando apenas
+   * nos canais efetivamente operacionais.
+   * 
+   * A cláusula `select` é utilizada para buscar apenas os campos essenciais,
+   * melhorando a performance da consulta.
+   *
+   * @returns {Promise<Partial<Whatsapp>[]>} Uma Promise que resolve para um array
+   * de objetos parciais de WhatsApp, contendo apenas os campos selecionados.
+   */
+  async findActiveAndReady(): Promise<Partial<Whatsapp>[]> {
+    return prisma.whatsapp.findMany({
+      // A cláusula 'where' combina todas as condições de filtro.
+      where: {
+        // Condição 1: Deve estar ativo.
+        isActive: true,
+
+        // Condição 2: O status não pode ser 'DISCONNECTED'.
+        status: {
+          notIn: ["DISCONNECTED"],
+        },
+
+        // Condição 3: Lógica OR complexa.
+        OR: [
+          // Condição 3.A: O tipo é um dos canais que não dependem de QR Code.
+          {
+            type: {
+              in: ["instagram", "telegram", "waba", "messenger"],
+            },
+          },
+          // Condição 3.B: OU o tipo é 'whatsapp' E seu status está pronto.
+          {
+            type: "whatsapp",
+            status: {
+              notIn: ["DISCONNECTED", "qrcode"],
+            },
+          },
+        ],
+      },
+      // Cláusula 'select' para retornar apenas os campos necessários.
+      select: {
+        id: true,
+        type: true,
+        status: true,
+        tokenTelegram: true,
+        tenantId: true,
+        name: true,
+      },
+    });
+  }
+
+
 }

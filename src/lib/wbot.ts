@@ -4,6 +4,8 @@ import fs, { promises } from "node:fs";
 import { AppError } from "../errors/errors.helper";
 import { logger } from "../ultis/logger";
 import { getIO } from "./socket";
+import { FastifyInstance } from "fastify";
+import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 
 interface Session extends Whatsapp {
   id: number;
@@ -15,14 +17,22 @@ let tenantId: string;
 let whatsappSession: any;
 
 
-
+// Função auxiliar para extrair o código do URL do QR
+function extractQrCode(url: string): string | null {
+  if (!url) return null;
+  return url.replace(/^https:\/\/wa\.me\/settings\/linked_devices#/, '');
+}
 
 /**
- * Funcao Responsavel por iniciar a conexao com o whatsapp web
- * @param whatsapp
- * @returns Promisse<whatsapp> retorna uma instancia do cliente whatsapp
+ * Inicia uma sessão do wbotconnect para uma determinada conexão de WhatsApp.
+ * Esta função configura os callbacks da biblioteca e delega as atualizações de estado
+ * para o WhatsappService, mantendo a lógica de negócio separada.
+ *
+ * @param whatsapp - O objeto da conexão de WhatsApp vindo do banco de dados.
+ * @param whatsappService - A instância do serviço para persistir as mudanças.
+ * @returns Uma Promise que resolve para a instância do cliente wbot.
  */
-export const initWbot = async (whatsapp: any): Promise<Session> => {
+export const initWbot = async (whatsapp: any, whatsappService: WhatsappService): Promise<Session> => {
   const io = getIO();
   let wbot: Session;
   tenantId = whatsapp.tenantId;
@@ -56,131 +66,66 @@ export const initWbot = async (whatsapp: any): Promise<Session> => {
           attempts: any,
           urlCode: any
         ) => {
-          const matches = base64Qrimg.match(
-            /^data:([A-Za-z-+/]+);base64,(.+)$/
-          );
-          if (!matches || matches.length !== 3) {
-            throw new Error("Invalid input string");
+          const qrCode = extractQrCode(urlCode);
+          if (qrCode) {
+            // Delega a lógica para o serviço
+            await whatsappService.handleQrCode(whatsapp.id, whatsapp.tenantId, qrCode, attempts);
           }
-          logger.info(
-            `Session QR CODE: ${`wbot-${whatsapp.id}`}-ID: ${whatsapp.id}-${whatsapp.status
-            }`
-          );
-          await whatsapp.update({
-            qrcode: extrairParteWhatsApp(urlCode),
-            status: "qrcode",
-            retries: attempts,
-          });
-          const response = {
-            type: matches[1],
-            data: Buffer.from(matches[2], "base64"),
-          };
-          fs.writeFile(qrCodePath, response.data, "binary", (err) => {
-            if (err) {
-              console.error("Erro ao salvar QR Code:", err);
-            }
-          });
-          io.emit(`${tenantId}:whatsappSession`, {
-            action: "update",
-            session: whatsapp,
-          });
+          // const matches = base64Qrimg.match(
+          //   /^data:([A-Za-z-+/]+);base64,(.+)$/
+          // );
+          // if (!matches || matches.length !== 3) {
+          //   throw new Error("Invalid input string");
+          // }
+          // logger.info(
+          //   `Session QR CODE: ${`wbot-${whatsapp.id}`}-ID: ${whatsapp.id}-${whatsapp.status
+          //   }`
+          // );
+          // await app.services.whatsappService.update(whatsapp.id, whatsapp.tenantId,{
+          //   qrcode: extrairParteWhatsApp(urlCode),
+          //   status: "qrcode",
+          //   retries: attempts,
+          // });
+          // const response = {
+          //   type: matches[1],
+          //   data: Buffer.from(matches[2], "base64"),
+          // };
+          // fs.writeFile(qrCodePath, response.data, "binary", (err) => {
+          //   if (err) {
+          //     console.error("Erro ao salvar QR Code:", err);
+          //   }
+          // });
+          // io.emit(`${tenantId}:whatsappSession`, {
+          //   action: "update",
+          //   session: whatsapp,
+          // });
         }
         ,
-        statusFind: async (statusSession: string) => {
-          if (statusSession === "autocloseCalled") {
-            whatsapp.update({
-              status: "DISCONNECTED",
-              qrcode: "",
-              retries: 0,
-              phone: "",
-              session: "",
-              pairingCode: "",
-            });
-            io.emit(`${tenantId}:whatsappSession`, {
-              action: "close",
-              session: whatsapp,
-            });
-          }
-          if (statusSession === "qrReadFail") {
-            logger.error(`Session: ${sessionName}-AUTHENTICATION FAILURE`);
-            if (whatsapp.retries > 1) {
-              await whatsapp.update({
-                retries: 0,
-                session: "",
-              });
-            }
-            const retry = whatsapp.retries;
-            await whatsapp.update({
-              status: "DISCONNECTED",
-              retries: retry + 1,
-            });
-            io.emit(`${tenantId}:whatsappSession`, {
-              action: "update",
-              session: whatsapp,
-            });
-          }
-          if (
-            statusSession === "desconnectedMobile" ||
-            statusSession === "browserClose"
-          ) {
-            const sessionIndex = sessions.findIndex(
-              (s) => Number(s.id) === Number(whatsapp.id)
-            );
+        statusFind: async (statusSession) => {
+          console.log(`INFO: Status da sessão '${whatsapp.name}': ${statusSession}`);
+          switch (statusSession) {
+            case 'autocloseCalled':
+            case 'desconnectedMobile':
+            case 'browserClose':
+            case 'serverClose':
+              // Todos esses status levam a uma desconexão.
+              await whatsappService.handleDisconnected(whatsapp.id, whatsapp.tenantId);
+              // Lógica para remover a sessão do array local e limpar arquivos pode ser chamada aqui.
+              break;
 
-            if (sessionIndex !== -1) {
-              whatsapp.update({
-                status: "DISCONNECTED",
-                qrcode: "",
-                retries: 0,
-                phone: "",
-                session: "",
-                pairingCode: "",
-              });
-              io.emit(`${tenantId}:whatsappSession`, {
-                action: "update",
-                session: whatsapp,
-              });
-              sessions.splice(sessionIndex, 1);
-            }
-          }
-          if (statusSession === "inChat") {
-            if (fs.existsSync(qrCodePath)) {
-              fs.unlink(qrCodePath, () => { });
-            }
-          }
-          if (statusSession === "serverClose") {
-            const sessionIndex = sessions.findIndex(
-              (s) => Number(s.id) === Number(whatsapp.id)
-            );
+            case 'inChat':
+              // Se a sessão está conectada, remove o arquivo do QR Code.
+              if (fs.existsSync(qrCodePath)) {
+                fs.unlink(qrCodePath, () => { });
+              }
+              break;
 
-            if (sessionIndex !== -1) {
-              whatsapp.update({
-                status: "DISCONNECTED",
-                qrcode: "",
-                retries: 0,
-                phone: "",
-                session: "",
-                pairingCode: "",
-              });
-              io.emit(`${tenantId}:whatsappSession`, {
-                action: "update",
-                session: whatsapp,
-              });
-              sessions.splice(sessionIndex, 1);
-            }
+            // Outros status podem ser tratados aqui se necessário.
           }
         },
-        catchLinkCode: async (code: string) => {
-          await whatsapp.update({
-            pairingCode: code,
-            status: "qrcode",
-            retries: 0,
-          });
-          io.emit(`${tenantId}:whatsappSession`, {
-            action: "update",
-            session: whatsapp,
-          })
 
+        catchLinkCode: async (code: any) => {
+          await whatsappService.handlePairingCode(whatsapp.id, whatsapp.tenantId, code);
         },
       })
     )) as unknown as Session;
@@ -191,12 +136,64 @@ export const initWbot = async (whatsapp: any): Promise<Session> => {
     } else {
       sessions[sessionIndex] = wbot;
     }
+    start(wbot, io, whatsappService)
     return wbot;
   } catch (error) {
-    console.log(whatsappSession);
+
     removeSession(whatsappSession.name);
     throw new AppError("ERR_INICIAR_SESSAO_WPWEB", 403);
   }
+};
+async function waitForApiValue(apiCall: Session, interval = 1000) {
+  return new Promise((resolve, reject) => {
+    const checkValue = async () => {
+      try {
+        const profileSession = await apiCall.getProfileName();
+
+        const wbotVersion = await apiCall.getWAVersion();
+        const number = await apiCall.getWid();
+        const result = {
+          wbotVersion,
+          profileSession,
+          number,
+        };
+
+        if (result !== null) {
+          resolve(result); // Retorna o valor assim que não for null
+        } else {
+          setTimeout(checkValue, interval); // Recheca após o intervalo
+        }
+      } catch (error) {
+        reject(error); // Rejeita a promise em caso de erro
+      }
+    };
+    checkValue(); // Inicia a verificação
+  });
+}
+
+const start = async (client: Session, io: any, service: WhatsappService) => {
+  try {
+
+    const isReady = await client.isAuthenticated();
+
+    if (isReady) {
+      logger.info(`Session: ${sessionName} AUTHENTICATED`);
+      client.startTyping;
+      const profileSession = await waitForApiValue(client, 1000);
+
+       await service.handleConnected(whatsappSession.id, whatsappSession.tenantId, profileSession, whatsappSession.name);
+      
+      // io.emit(`${tenantId}:whatsappSession`, {
+      //   action: "update",
+      //   session: whatsappSession,
+      // });
+      // io.emit(`${tenantId}:whatsappSession`, {
+      //   action: "readySession",
+      //   session: whatsappSession,
+      // });
+      // wbotMessageListener(client);
+    }
+  } catch (_error) { }
 };
 
 export async function removeSession(session: string) {
@@ -218,7 +215,7 @@ export async function removeSession(session: string) {
   }
 }
 
- const removeWbot = async (whatsappId: number): Promise<void> => {
+const removeWbot = async (whatsappId: number): Promise<void> => {
   try {
     const io = getIO();
     const sessionIndex = sessions.findIndex((s) => s.id === whatsappId);

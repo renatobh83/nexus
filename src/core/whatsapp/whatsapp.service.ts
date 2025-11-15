@@ -4,6 +4,7 @@ import { WhatsappRepository } from "./whatsapp.repository";
 import { AppError } from "../../errors/errors.helper";
 import { getIO } from "../../lib/socket";
 import { removeSession } from "../../lib/wbot";
+import { StartConnectionSession } from "../../api/helpers/StartConnectionSession";
 
 
 export class WhatsappService {
@@ -240,7 +241,47 @@ export class WhatsappService {
 
 
 
+  /**
+     * Inicia as sessões de todas as conexões de WhatsApp ativas e prontas.
+     * 
+     * Este método busca no banco de dados todas as conexões que estão em um
+     * estado operacional (ativas, conectadas e não aguardando QR Code) e,
+     * em seguida, itera sobre elas para iniciar suas respectivas sessões.
+     * É ideal para ser chamado na inicialização do servidor ou em rotinas de
+     * reconexão.
+     *
+     * @returns {Promise<void>} Uma Promise que resolve quando a tentativa de
+     * iniciar todas as sessões for concluída.
+     */
+  async startAllReadySessions(): Promise<void> {
 
+    // 1. CHAMA O MÉTODO DO REPOSITÓRIO
+    // A complexidade da busca está totalmente encapsulada no repositório.
+    // O serviço apenas consome o resultado.
+    const readyWhatsapps = await this.whatsappRepository.findActiveAndReady();
+
+    if (readyWhatsapps.length === 0) {
+      // console.log('INFO: Nenhuma conexão pronta para iniciar encontrada.');
+      return;
+    }
+
+    // console.log(`INFO: Encontradas ${readyWhatsapps.length} conexões. Tentando iniciar as sessões...`);
+
+    // 2. APLICA A LÓGICA DE NEGÓCIO SOBRE OS DADOS RETORNADOS
+    // Itera sobre a lista de conexões retornadas.
+    // Usamos Promise.all para processar as inicializações em paralelo, o que é mais eficiente.
+    await Promise.all(
+      readyWhatsapps.map(async (whatsapp) => {
+        try {
+          // Aqui você colocaria a sua lógica real para iniciar uma sessão.
+
+          await StartConnectionSession(whatsapp)
+        } catch (error) {
+          console.error(`ERROR: Falha ao iniciar a sessão para '${whatsapp.name}' (ID: ${whatsapp.id}).`, error);
+        }
+      })
+    );
+  }
 
 
   /**
@@ -290,5 +331,73 @@ export class WhatsappService {
     // A lógica de buscar ApiConfig e enviar o webhook iria aqui.
     // await this.webhookService.send(tenantId, sessionId, payload);
     console.log("Enviando webhook de status:", payload);
+  }
+  /**
+    * Atualiza o estado de uma sessão para 'qrcode', salvando o QR Code.
+    * Emite um evento de socket para notificar o frontend.
+    */
+  async handleQrCode(whatsappId: number, tenantId: number, qrcode: string, attempts: number): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
+      qrcode,
+      status: 'qrcode',
+      retries: attempts,
+    });
+    this.emitSessionUpdate(tenantId, updatedWhatsapp);
+  }
+
+  /**
+ * Atualiza o estado de uma sessão para 'CONNECTED', limpando dados antigos.
+ * Emite múltiplos eventos de socket para o frontend.
+ */
+  async handleConnected(whatsappId: number, tenantId: number, phoneInfo: any, sessionName: string): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
+      status: 'CONNECTED',
+      qrcode: '',
+      retries: 0,
+      phone: phoneInfo,
+      session: sessionName,
+      pairingCode: '',
+    });
+    this.emitSessionUpdate(tenantId, updatedWhatsapp);
+    this.emitSessionReady(tenantId, updatedWhatsapp);
+  }
+  /**
+ * Atualiza o estado de uma sessão para 'DISCONNECTED' e limpa os dados da sessão.
+ * Emite um evento de socket para notificar o frontend.
+ */
+  async handleDisconnected(whatsappId: number, tenantId: number): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
+      status: 'DISCONNECTED',
+      qrcode: '',
+      session: '',
+      pairingCode: '',
+      phone: Prisma.JsonNull, // Limpa o campo JSON
+    });
+    this.emitSessionUpdate(tenantId, updatedWhatsapp);
+  }
+  /**
+  * Atualiza o código de pareamento (Pairing Code).
+  */
+  async handlePairingCode(whatsappId: number, tenantId: number, pairingCode: string): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
+      pairingCode,
+      status: 'qrcode', // O status também muda para qrcode neste caso
+    });
+    this.emitSessionUpdate(tenantId, updatedWhatsapp);
+  }
+  // Métodos privados para emitir eventos, evitando repetição
+  private emitSessionUpdate(tenantId: number, session: Whatsapp): void {
+    const io = getIO();
+    io.to(String(tenantId)).emit(`${tenantId}:whatsappSession`, {
+      action: 'update',
+      session,
+    });
+  }
+  private emitSessionReady(tenantId: number, session: Whatsapp): void {
+    const io = getIO();
+    io.to(String(tenantId)).emit(`${tenantId}:whatsappSession`, {
+      action: 'readySession',
+      session,
+    });
   }
 }
