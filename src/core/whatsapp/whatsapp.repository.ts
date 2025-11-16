@@ -11,7 +11,7 @@ export class WhatsappRepository {
     return prisma.whatsapp.findMany({
       where: {
         isDeleted: false
-      }, include:{tenant: true}
+      }, include:{tickets: true}
     });
   }
   /**
