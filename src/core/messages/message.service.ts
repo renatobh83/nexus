@@ -102,7 +102,7 @@ export class MessageService {
 
 
 
-  private buildMessageBody = (template: string, ticket: Ticket) => {
+  private buildMessageBody = (template: string, ticket: any) => {
     
   return pupa(template || "", {
     
