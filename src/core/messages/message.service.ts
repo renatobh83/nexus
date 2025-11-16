@@ -1,5 +1,5 @@
 
-// import { CreateMessageDTO } from './dto/create-message.dto';
+
 import { Message } from '@prisma/client';
 import { encrypt, decrypt, isEncrypted } from '../../lib/crypto'; // Importa as funções
 import { MessageRepository } from './message.repository';

@@ -30,8 +30,9 @@ console.log(isDevelopment)
  * @returns {Promise<FastifyInstance>} Uma Promise que resolve para o objeto do FastifyInstance
  */
 async function buildServer(
-  config: FastifyServerOptions = {}
+  // config: FastifyServerOptions = {}
 ): Promise<FastifyInstance> {
+
   const server = Fastify({
     disableRequestLogging: true,
     logger: {

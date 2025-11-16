@@ -43,7 +43,7 @@ export class UsersRepository {
     const dataForCreate = {
       ...restOfUserData,
       // Lógica para lidar com filas em uma criação
-      queues: queues ? { create: queues.map(id => ({ queueId: id })) } : undefined,
+      queues: queues ? { create: queues.map((id: any) => ({ queueId: id })) } : undefined,
     };
 
     return prisma.user.upsert({

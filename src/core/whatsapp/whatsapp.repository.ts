@@ -7,6 +7,7 @@ export class WhatsappRepository {
    * @returns retorna os canais cadastrados
    */
   async findAll() {
+  
     return prisma.whatsapp.findMany({
       where: {
         isDeleted: false

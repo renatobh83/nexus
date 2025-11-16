@@ -1,5 +1,9 @@
+import { Prisma } from "@prisma/client"
+
+
 export class MessageRepository {
-    create(dto: any) {
+    create(dto: Prisma.MessageCreateInput) {
+        
         return Promise<null>
     }
 
