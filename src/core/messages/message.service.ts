@@ -16,7 +16,7 @@ export class MessageService {
   /**
    * Cria uma nova mensagem, aplicando a criptografia antes de salvar.
    */
-  async createMessageSystem(dto: MessageDTO): Promise<Message> {
+  async createMessageSystem(dto: MessageDTO): Promise<void> {
     
     // --- LÓGICA DO HOOK 'beforeCreate' ---
     let bodyToSave = dto.body.trim();
