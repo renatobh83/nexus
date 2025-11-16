@@ -64,8 +64,8 @@ export class MessageService {
     //   // ... outros campos que você queira atualizar
     // };
 
-    const newMessage = await this.messageRepository.findOrCreateAndReload();
-    return newMessage;
+    //const newMessage = await this.messageRepository.findOrCreateAndReload();
+    //return newMessage;
   }
 
   /**
@@ -102,7 +102,7 @@ export class MessageService {
 
 
 
-  private buildMessageBody = (template: string, ticket: any) => {
+  /*private buildMessageBody = (template: string, ticket: any) => {
     
   return pupa(template || "", {
     
@@ -112,5 +112,5 @@ export class MessageService {
     user: ticket?.user?.name ?? "",
     userEmail: ticket?.user?.email ?? "",
   });
-};
+};*/
 }
