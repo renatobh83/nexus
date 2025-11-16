@@ -183,6 +183,8 @@ model Message {
 
   // --- Mapeamento da Tabela ---
   @@map("Messages")
+  // ESTE BLOCO É ESSENCIAL PARA GERAR O TIPO messageId_tenantId
+  @@unique([messageId, tenantId])
 }
 
 
