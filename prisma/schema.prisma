@@ -607,8 +607,7 @@ model Tenant {
 
   // Relação com User (Proprietário): Um Tenant pertence a um User (owner).
   // Esta é a parte "muitos-para-um" da relação.
-   owner                User     @relation("TenantOwner", fields: [ownerId], references: [id])
-  ownerId              Int      // Chave estrangeira para o User proprietário
+//   owner                User     @relation("TenantOwner", fields: [ownerId], references: [id]  ownerId              Int      // Chave estrangeira para o User proprietário
 
   // Relação com EmpresaContrato: Um Tenant pode ter muitos contratos.
   // Este é o lado "um" da relação "um-para-muitos".
@@ -874,7 +873,7 @@ model User {
    tenant   Tenant @relation("TenantMembers", fields: [tenantId], references: [id])
   tenantId     Int
 
-  ownedTenants Tenant[] @relation("TenantOwner")
+//  ownedTenants Tenant[] @relation("TenantOwner")
   // Relações Inversas (um User tem muitos...)
   tickets      Ticket[]
   chamados     Chamado[] // Supondo que exista um modelo Chamado
