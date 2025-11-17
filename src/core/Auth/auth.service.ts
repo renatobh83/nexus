@@ -105,7 +105,7 @@ export class AuthService {
     );
 
     const fullUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
-    console.log(resetToken);
+
     //   // Encurta com Redis
     const code = nanoid(6);
     const expireSeconds = 15 * 60;
