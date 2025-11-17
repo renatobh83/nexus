@@ -26,11 +26,12 @@ export class WhatsappService {
     }
     let isDefault = dto.isDefault ?? false;
 
-    // Busca o padrão atual usando findFirst
+    // // Busca o padrão atual usando findFirst
     const currentDefault = await this.whatsappRepository.findFirst({
       tenantId: dto.tenantId,
       isDefault: true,
     });
+
     // Se o novo deve ser padrão, e já existe um padrão, desativa o antigo.
     if (isDefault && currentDefault) {
       await this.whatsappRepository.update(currentDefault.id, {
@@ -51,7 +52,7 @@ export class WhatsappService {
       });
     }
 
-    // 2. Monta o objeto de dados final no formato que o repositório espera.
+    // // 2. Monta o objeto de dados final no formato que o repositório espera.
     const dataForDb: Prisma.WhatsappCreateInput = {
       // Conecta as relações
       tenant: {
@@ -68,19 +69,17 @@ export class WhatsappService {
       name: dto.name,
       status: dto.status,
       type: dto.type,
-      pairingCodeEnabled: dto.pairingCodeEnabled ?? false,
+      pairingCodeEnabled: dto.pairingCodeEnabled,
       wppUser: dto.wppUser,
       tokenTelegram: dto.tokenTelegram,
       farewellMessage: dto.farewellMessage,
       isDefault: isDefault,
-
-      // Adiciona os campos gerados pela lógica de negócio
       tokenHook: tokenHook,
     };
 
-    // =================================================================
-    // 4. CRIAÇÃO DO REGISTRO
-    // =================================================================
+    // // =================================================================
+    // // 4. CRIAÇÃO DO REGISTRO
+    // // =================================================================
     const newWhatsapp = await this.whatsappRepository.create(dataForDb);
     return newWhatsapp;
   }
@@ -143,7 +142,7 @@ export class WhatsappService {
    * @throws {AppError} Lança um erro se a conexão de WhatsApp não for encontrada (ERR_NO_WAPP_FOUND).
    */
   async update(
-    whatsappId: number,
+    whatsappId: string,
     tenantId: number,
     dto: UpdateWhatsappDTO
   ): Promise<Whatsapp> {
@@ -156,7 +155,7 @@ export class WhatsappService {
       const currentDefault = await this.whatsappRepository.findFirst({
         tenantId: tenantId,
         isDefault: true,
-        id: { not: whatsappId }, // A mágica do Prisma: 'id' não é o 'whatsappId' que estamos atualizando.
+        id: { not: parseInt(whatsappId) }, // A mágica do Prisma: 'id' não é o 'whatsappId' que estamos atualizando.
       });
 
       // Se encontrou uma, a desmarca.

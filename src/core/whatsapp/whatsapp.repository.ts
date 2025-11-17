@@ -38,13 +38,13 @@ export class WhatsappRepository {
    * @returns O registro completo do WhatsApp após a atualização.
    */
   async updateScoped(
-    id: number,
+    id: string,
     tenantId: number,
     data: Prisma.WhatsappUpdateInput
   ) {
     return prisma.whatsapp.update({
       where: {
-        id: id,
+        id: parseInt(id),
         tenantId: tenantId, // Garante que só podemos atualizar um registro do nosso próprio tenant.
       },
       data,

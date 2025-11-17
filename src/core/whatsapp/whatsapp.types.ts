@@ -33,5 +33,5 @@ interface UpdateWhatsappDTO {
   qrcode?: string | null;
   retries?: number;
   phone?: string;
-  pairingCode?: string | null
+  pairingCode?: string | null;
 }

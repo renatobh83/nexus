@@ -1430,3 +1430,12 @@
   ],
   timestamp: '2025-11-17T14:44:42.827Z'
 }
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Error in updateCanal ERRO_AO_ATUALIZAR_WHATSAPP',
+  stack: 'Error: ERRO_AO_ATUALIZAR_WHATSAPP\n' +
+    '    at WhatsappService.update (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\whatsapp\\whatsapp.service.ts:227:13)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\whatsapp\\whatsapp.controller.ts:76:25)',
+  timestamp: '2025-11-17T18:04:21.961Z'
+}
