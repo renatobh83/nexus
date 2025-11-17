@@ -353,7 +353,7 @@ export class WhatsappService {
    * Emite um evento de socket para notificar o frontend.
    */
   async handleQrCode(
-    whatsappId: number,
+    whatsappId: string,
     tenantId: number,
     qrcode: string,
     attempts: number
@@ -375,7 +375,7 @@ export class WhatsappService {
    * Emite múltiplos eventos de socket para o frontend.
    */
   async handleConnected(
-    whatsappId: number,
+    whatsappId: string,
     tenantId: number,
     phoneInfo: any,
     sessionName: string
@@ -400,7 +400,7 @@ export class WhatsappService {
    * Emite um evento de socket para notificar o frontend.
    */
   async handleDisconnected(
-    whatsappId: number,
+    whatsappId: string,
     tenantId: number
   ): Promise<void> {
     const updatedWhatsapp = await this.whatsappRepository.updateScoped(
@@ -420,7 +420,7 @@ export class WhatsappService {
    * Atualiza o código de pareamento (Pairing Code).
    */
   async handlePairingCode(
-    whatsappId: number,
+    whatsappId: string,
     tenantId: number,
     pairingCode: string
   ): Promise<void> {
