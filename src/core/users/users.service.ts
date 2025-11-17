@@ -15,7 +15,7 @@ export class UserService {
    * @returns Uma Promise que resolve para a lista de todos os usuários.
    */
   async findAllUsers() {
-    const users = await this.userRepository.findAll();
+    const users = await this.userRepository.findMany();
     return users;
   }
 
@@ -26,10 +26,10 @@ export class UserService {
    * @returns O usuário criado ou atualizado.
    */
   async saveUser(userData: SaveUserDTO) {
-
     // Prepara os dados base do usuário, excluindo o ID por enquanto.
-    const userDataPayload: any = { // Usar 'any' aqui é um atalho, mas podemos tipar melhor
-      id: 'id' in userData ? userData.id : undefined,
+    const userDataPayload: any = {
+      // Usar 'any' aqui é um atalho, mas podemos tipar melhor
+      id: "id" in userData ? userData.id : undefined,
       name: userData.name,
       email: userData.email,
       tenantId: userData.tenantId,
@@ -49,37 +49,52 @@ export class UserService {
     return user;
   }
 
-  async findUserById(userId: number) {
-    const user = await this.userRepository.findUserById(userId)
-   
-    return user
+  async findUserById(id: string) {
+    const userId = parseInt(id, 10);
+    if (isNaN(userId)) {
+      return null;
+    }
+    const where: Prisma.UserWhereInput = { id: userId };
+    const user = await this.userRepository.findUserById(where);
+
+    return user;
   }
-    /**
+  /**
    * Atualiza o status de online e a situação de um usuário.
    * @param userId - O ID do usuário a ser atualizado.
    * @param tenantId - O ID do tenant para garantir o escopo correto.
    * @param dto - Os novos dados de status.
    * @returns O objeto do usuário completo e atualizado.
    */
-  async updateUserStatus(userId: number, tenantId: number, dto: any): Promise<User> {
+  async updateUserStatus(
+    userId: number,
+    tenantId: number,
+    dto: any
+  ): Promise<User> {
     try {
       // O repositório faz tudo em uma única chamada!
-      const updatedUser = await this.userRepository.updateStatus(userId, tenantId, dto);
+      const updatedUser = await this.userRepository.updateStatus(
+        userId,
+        tenantId,
+        dto
+      );
       return updatedUser;
     } catch (error) {
       // O Prisma lança um erro específico (P2025) se o registro a ser atualizado não for encontrado.
       // Podemos capturar esse erro e transformá-lo no nosso AppError.
-      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
-        throw new AppError('ERR_NO_USER_FOUND', 404);
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2025"
+      ) {
+        throw new AppError("ERR_NO_USER_FOUND", 404);
       }
       // Se for outro erro, apenas o relançamos.
       throw error;
     }
   }
 
-  async removeUser(userId: number){
-    const deleted = await this.userRepository.removeUser(userId)
-    return deleted
+  async removeUser(userId: number) {
+    const deleted = await this.userRepository.removeUser(userId);
+    return deleted;
   }
-
 }

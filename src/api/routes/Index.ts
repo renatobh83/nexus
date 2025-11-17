@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { userController } from "../../core/users/users.controller";
 import { whatsappController } from "../../core/whatsapp/whatsapp.controller";
+import { authController } from "../../core/Auth/auth.controller";
 
 // Importe seus controllers
 
@@ -18,10 +19,11 @@ async function apiV1Routes(fastify: FastifyInstance) {
   // Estas rotas não exigem autenticação.
   // O prefixo final será: /api/v1/whatsapp
   fastify.register(whatsappController, { prefix: "/whatsapp" });
+  fastify.register(userController, { prefix: "/users" });
+  fastify.register(authController, { prefix: "/auth" });
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });
-
 
   // =================================================================
   // ROTAS PRIVADAS (ESCOPO DE AUTENTICAÇÃO)
@@ -33,8 +35,8 @@ async function apiV1Routes(fastify: FastifyInstance) {
 
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
-    privateScope.register(userController, { prefix: "/users" });
-    
+    // privateScope.register(userController, { prefix: "/users" });
+
     // Registre outros controllers privados aqui...
     // privateScope.register(ticketController, { prefix: "/tickets" });
     // privateScope.register(tenantController, { prefix: "/tenants" });

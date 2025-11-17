@@ -6,14 +6,13 @@ export class WhatsappRepository {
    * Lista todos os canais no banco de dados
    * @returns retorna os canais cadastrados
    */
-  async findAll() {
-  
-    return prisma.whatsapp.findMany({
-      where: {
-        isDeleted: false
-      }, include:{apiConfigs: true, tenant:{select:{name:true}}}
-    });
+  async findMany(
+    where?: Prisma.WhatsappWhereInput,
+    include?: Prisma.WhatsappInclude
+  ) {
+    return prisma.whatsapp.findMany({ where, include });
   }
+
   /**
    * Cria uma nova conexão de WhatsApp no banco de dados.
    * @param data - Os dados já formatados no tipo Prisma.WhatsappCreateInput.
@@ -38,7 +37,11 @@ export class WhatsappRepository {
    * @param data - Os dados a serem atualizados.
    * @returns O registro completo do WhatsApp após a atualização.
    */
-  async updateScoped(id: number, tenantId: number, data: Prisma.WhatsappUpdateInput) {
+  async updateScoped(
+    id: number,
+    tenantId: number,
+    data: Prisma.WhatsappUpdateInput
+  ) {
     return prisma.whatsapp.update({
       where: {
         id: id,
@@ -48,31 +51,29 @@ export class WhatsappRepository {
     });
   }
 
-
-  // Método para buscar o primeiro registro que corresponde aos critérios
-  async findFirst(where: Prisma.WhatsappWhereInput) {
-    return prisma.whatsapp.findFirst({ where });
+  async findFirst(
+    where: Prisma.WhatsappWhereInput,
+    include?: Prisma.WhatsappInclude
+  ) {
+    return prisma.whatsapp.findFirst({ where, include });
   }
 
   async deleteWhasapp(wppId: number) {
     return prisma.whatsapp.delete({
       where: {
-        id: wppId
-      }
-    })
+        id: wppId,
+      },
+    });
   }
-
-
-
 
   /**
    * Busca todas as conexões de WhatsApp ativas e prontas para uso.
-   * 
+   *
    * Esta consulta otimizada seleciona apenas os canais que não estão em um
    * estado 'DISCONNECTED'. Para canais do tipo 'whatsapp', ela também exclui
    * aqueles que estão aguardando a leitura de um QR Code, focando apenas
    * nos canais efetivamente operacionais.
-   * 
+   *
    * A cláusula `select` é utilizada para buscar apenas os campos essenciais,
    * melhorando a performance da consulta.
    *
@@ -119,6 +120,4 @@ export class WhatsappRepository {
       },
     });
   }
-
-
 }

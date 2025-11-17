@@ -676,3 +676,757 @@
     '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
   timestamp: '2025-11-15T14:08:04.151Z'
 }
+{
+  error: C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Auth\auth.services.ts:7
+          this.userRepository = await new users_repository_1.UsersRepository();
+                                ^^^^^
+  
+  SyntaxError: await is only valid in async functions and the top level bodies of modules
+      at wrapSafe (node:internal/modules/cjs/loader:1692:18)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1735:20)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: await is only valid in async functions and the top level bodies of modules\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:7\n' +
+    '        this.userRepository = await new users_repository_1.UsersRepository();\n' +
+    '                              ^^^^^\n' +
+    '\n' +
+    'SyntaxError: await is only valid in async functions and the top level bodies of modules\n' +
+    '    at wrapSafe (node:internal/modules/cjs/loader:1692:18)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1735:20)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:7\n' +
+    '        this.userRepository = await new users_repository_1.UsersRepository();\n' +
+    '                              ^^^^^\n' +
+    '\n' +
+    'SyntaxError: await is only valid in async functions and the top level bodies of modules\n' +
+    '    at wrapSafe (node:internal/modules/cjs/loader:1692:18)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1735:20)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 17 2025 09:26:59 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 17700,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 119222272,
+      heapTotal: 66117632,
+      heapUsed: 46190624,
+      external: 4384219,
+      arrayBuffers: 500930
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 406311.25 },
+  trace: [
+    {
+      column: 18,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapSafe',
+      line: 1692,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1735,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-17T12:26:59.819Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Auth\auth.services.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 17 2025 09:40:23 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 5040,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 118960128,
+      heapTotal: 65855488,
+      heapUsed: 46345328,
+      external: 4384219,
+      arrayBuffers: 500956
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 407115.203 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-17T12:40:23.772Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Auth\auth.services.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-998971358986919.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(18,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 17 2025 09:40:31 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 7112,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 118972416,
+      heapTotal: 66379776,
+      heapUsed: 45921448,
+      external: 4384219,
+      arrayBuffers: 500956
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 407123.234 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-998971358986919.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-17T12:40:31.799Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Auth/auth.controller.ts(126,3): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Auth\auth.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.controller.ts(126,3): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.controller.ts(126,3): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.controller.ts(126,3): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 17 2025 11:21:29 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 21932,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 90132480,
+      heapTotal: 54906880,
+      heapUsed: 35123280,
+      external: 2918431,
+      arrayBuffers: 247151
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 413180.765 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-17T14:21:29.381Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Auth/auth.services.ts(94,5): error TS1109: Expression expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Auth\auth.services.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8310147811249976.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(94,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(94,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Auth/auth.services.ts(94,5): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 17 2025 11:44:42 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 20816,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 119242752,
+      heapTotal: 66379776,
+      heapUsed: 46415824,
+      external: 4384219,
+      arrayBuffers: 501390
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 414574.187 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Auth\\auth.services.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8310147811249976.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-17T14:44:42.827Z'
+}

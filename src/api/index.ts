@@ -19,38 +19,35 @@ import { UserService } from "../core/users/users.service";
 import { UsersRepository } from "../core/users/users.repository";
 import { JsonWebTokenError } from "jsonwebtoken";
 
-import diContainerPlugin from './plugins/di-container'
+import diContainerPlugin from "./plugins/di-container";
 let fastifyApp: FastifyInstance;
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-console.log(isDevelopment)
+
 /**
  * Funcao responsavel para construir o servidor
  *
  * @returns {Promise<FastifyInstance>} Uma Promise que resolve para o objeto do FastifyInstance
  */
-async function buildServer(
+async function buildServer(): Promise<FastifyInstance> {
   // config: FastifyServerOptions = {}
-): Promise<FastifyInstance> {
-
   const server = Fastify({
     disableRequestLogging: true,
     logger: {
       level: isDevelopment ? "info" : "error",
       transport: isDevelopment
         ? {
-          target: "pino-pretty",
-          options: {
-            colorize: true,
-            translateTime: "HH:MM:ss Z",
-            ignore: "pid,hostname",
-          },
-        }
+            target: "pino-pretty",
+            options: {
+              colorize: true,
+              translateTime: "HH:MM:ss Z",
+              ignore: "pid,hostname",
+            },
+          }
         : undefined,
     },
     trustProxy: true,
   });
-
 
   await server.register(jwt, {
     secret: process.env.JWT_SECRET!,
@@ -69,9 +66,9 @@ async function buildServer(
     instance.log.info("✅ Banco de dados conectado com sucesso!");
 
     // Registra outros plugins que dependem de conexões externas
-    await instance.register(redisPlugin);
-    await instance.register(fastifyModule);
   });
+  await server.register(fastifyModule);
+  await server.register(redisPlugin);
   server.decorate(
     "authenticate",
     async function (request: FastifyRequest, reply: FastifyReply) {
@@ -100,7 +97,6 @@ async function buildServer(
     }
   );
   await server.register(routes);
-
 
   await server.register(fastifySocketIO, {
     cors: {
@@ -152,7 +148,9 @@ async function buildServer(
           tenantId: String(verifyValid.data.tenantId),
         };
 
-        const user = await server.services.userService.findUserById(Number(verifyValid.data.id))
+        const user = await server.services.userService.findUserById(
+          verifyValid.data.id as string
+        );
 
         socket.handshake.auth.user = user;
         return next();
@@ -215,7 +213,7 @@ export async function start() {
     app.server.keepAliveTimeout = 5 * 60 * 1000;
     // await StartAllWhatsAppsSessions();
     // await scheduleOrUpdateDnsJob();
-    app.services.whatsappService.startAllReadySessions()
+    app.services.whatsappService.startAllReadySessions();
   } catch (err: any) {
     if (app) {
       app.log.error(err, "❌ Falha ao iniciar o servidor.");

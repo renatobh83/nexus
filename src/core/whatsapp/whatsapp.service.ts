@@ -6,7 +6,6 @@ import { getIO } from "../../lib/socket";
 import { removeSession } from "../../lib/wbot";
 import { StartConnectionSession } from "../../api/helpers/StartConnectionSession";
 
-
 export class WhatsappService {
   private whatsappRepository: WhatsappRepository;
   constructor() {
@@ -91,49 +90,63 @@ export class WhatsappService {
    * @returns {Promise<Whatsapp[]>} Um array com todas as conexões. Retorna um array vazio se não houver nenhuma.
    */
   async findAll(): Promise<Whatsapp[]> {
-    return this.whatsappRepository.findAll();
-  }
-
-  /**
-  * Busca uma única conexão de WhatsApp pelo seu ID.
-  * 
-  * Este método serve como um wrapper para o método do repositório,
-  * garantindo que o ID seja convertido para um número antes da consulta.
-  * É a forma padrão de recuperar os dados completos de uma conexão específica.
-  *
-  * @param {string} id - O ID da conexão de WhatsApp em formato de string (geralmente vindo de um parâmetro de rota da API).
-  * @returns {Promise<Whatsapp | null>} Uma Promise que resolve para o objeto completo
-  * da conexão de WhatsApp, ou `null` se nenhuma conexão for encontrada com o ID fornecido.
-  */
-  async findById(id: string): Promise<Whatsapp | null> {
-    // Converte o ID de string para número, pois o banco de dados espera um inteiro.
-    const wppId = parseInt(id, 10);
-
-    // Validação para garantir que a conversão resultou em um número válido.
-    if (isNaN(wppId)) {
-      return null;
-    }
-
-    return this.whatsappRepository.findFirst({
-      id: wppId,
+    const where: Prisma.WhatsappWhereInput = {
+      isDeleted: false,
+      isActive: true,
+    };
+    return this.whatsappRepository.findMany(where, {
+      apiConfigs: false,
+      tenant: { select: { name: true } },
     });
   }
 
   /**
-     * Atualiza uma conexão de WhatsApp existente.
-     *
-     * Esta função orquestra a atualização de um registro de WhatsApp. Ela contém
-     * a lógica de negócio para garantir que apenas uma conexão por tenant seja
-     * a padrão ('isDefault'). Se uma conexão é definida como padrão, qualquer
-     * outra que anteriormente era padrão será desmarcada.
-     *
-     * @param {number} whatsappId - O ID da conexão de WhatsApp a ser atualizada.
-     * @param {number} tenantId - O ID do tenant proprietário, para garantir o escopo de segurança.
-     * @param {UpdateWhatsappDTO} dto - Um objeto contendo os dados a serem atualizados.
-     * @returns {Promise<Whatsapp>} Uma Promise que resolve para o objeto Whatsapp completo e atualizado.
-     * @throws {AppError} Lança um erro se a conexão de WhatsApp não for encontrada (ERR_NO_WAPP_FOUND).
-     */
-  async update(whatsappId: number, tenantId: number, dto: UpdateWhatsappDTO): Promise<Whatsapp> {
+   * Busca uma única conexão de WhatsApp pelo seu ID.
+   *
+   * Este método serve como um wrapper para o método do repositório,
+   * garantindo que o ID seja convertido para um número antes da consulta.
+   * É a forma padrão de recuperar os dados completos de uma conexão específica.
+   *
+   * @param {string} id - O ID da conexão de WhatsApp em formato de string (geralmente vindo de um parâmetro de rota da API).
+   * @returns {Promise<Whatsapp | null>} Uma Promise que resolve para o objeto completo
+   * da conexão de WhatsApp, ou `null` se nenhuma conexão for encontrada com o ID fornecido.
+   */
+  async findById(id: string, tenantId?: number): Promise<Whatsapp | null> {
+    // Converte o ID de string para número, pois o banco de dados espera um inteiro.
+    const wppId = parseInt(id, 10);
+    // Validação para garantir que a conversão resultou em um número válido.
+    if (isNaN(wppId)) {
+      return null;
+    }
+    const where: Prisma.WhatsappWhereInput = { id: wppId };
+    if (tenantId) {
+      where.tenantId = tenantId; // Scoped to tenant
+    }
+    return this.whatsappRepository.findFirst(where, {
+      apiConfigs: true,
+      tenant: { select: { name: true } },
+    });
+  }
+
+  /**
+   * Atualiza uma conexão de WhatsApp existente.
+   *
+   * Esta função orquestra a atualização de um registro de WhatsApp. Ela contém
+   * a lógica de negócio para garantir que apenas uma conexão por tenant seja
+   * a padrão ('isDefault'). Se uma conexão é definida como padrão, qualquer
+   * outra que anteriormente era padrão será desmarcada.
+   *
+   * @param {number} whatsappId - O ID da conexão de WhatsApp a ser atualizada.
+   * @param {number} tenantId - O ID do tenant proprietário, para garantir o escopo de segurança.
+   * @param {UpdateWhatsappDTO} dto - Um objeto contendo os dados a serem atualizados.
+   * @returns {Promise<Whatsapp>} Uma Promise que resolve para o objeto Whatsapp completo e atualizado.
+   * @throws {AppError} Lança um erro se a conexão de WhatsApp não for encontrada (ERR_NO_WAPP_FOUND).
+   */
+  async update(
+    whatsappId: number,
+    tenantId: number,
+    dto: UpdateWhatsappDTO
+  ): Promise<Whatsapp> {
     // =================================================================
     // 1. LÓGICA DE NEGÓCIO (isDefault)
     // =================================================================
@@ -148,7 +161,9 @@ export class WhatsappService {
 
       // Se encontrou uma, a desmarca.
       if (currentDefault) {
-        await this.whatsappRepository.update(currentDefault.id, { isDefault: false });
+        await this.whatsappRepository.update(currentDefault.id, {
+          isDefault: false,
+        });
       }
     }
 
@@ -173,9 +188,10 @@ export class WhatsappService {
       farewellMessage: dto.farewellMessage,
       // Lógica para conectar/desconectar o ChatFlow
       ...(dto.chatFlowId !== undefined && {
-        chatFlow: dto.chatFlowId === null || dto.chatFlowId === 0
-          ? { disconnect: true } // Desconecta se o ID for nulo ou 0
-          : { connect: { id: dto.chatFlowId } } // Conecta ao novo ID
+        chatFlow:
+          dto.chatFlowId === null || dto.chatFlowId === 0
+            ? { disconnect: true } // Desconecta se o ID for nulo ou 0
+            : { connect: { id: dto.chatFlowId } }, // Conecta ao novo ID
       }),
     };
 
@@ -183,42 +199,47 @@ export class WhatsappService {
     // 3. EXECUÇÃO DA ATUALIZAÇÃO
     // =================================================================
     try {
-      const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, dataForDb);
+      const updatedWhatsapp = await this.whatsappRepository.updateScoped(
+        whatsappId,
+        tenantId,
+        dataForDb
+      );
 
       // =================================================================
       // 4. EMISSÃO DE EVENTO (Efeito Colateral)
       // =================================================================
       const io = getIO();
       io.to(String(tenantId)).emit(`${tenantId}:whatsappSession`, {
-        action: 'update',
+        action: "update",
         session: updatedWhatsapp,
       });
 
       return updatedWhatsapp;
-
     } catch (error) {
       // O Prisma lança P2025 se o registro a ser atualizado não for encontrado.
-      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
-        throw new AppError('ERR_NO_WAPP_FOUND', 404);
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2025"
+      ) {
+        throw new AppError("ERR_NO_WAPP_FOUND", 404);
       }
       // Se for outro erro, apenas o relançamos para ser tratado em uma camada superior.
       console.error("Erro ao atualizar WhatsApp:", error);
-      throw new AppError('ERRO_AO_ATUALIZAR_WHATSAPP', 500);
+      throw new AppError("ERRO_AO_ATUALIZAR_WHATSAPP", 500);
     }
   }
 
-
   /**
-  * Busca uma única conexão de WhatsApp pelo seu ID e delete a conexao.
-  * 
-  * Este método serve como um wrapper para o método do repositório,
-  * garantindo que o ID seja convertido para um número antes da consulta e apagar.
-  * É a forma padrão de apagar uma conexao.
-  *
-  * @param {string} id - O ID da conexão de WhatsApp em formato de string (geralmente vindo de um parâmetro de rota da API).
-  * @returns {Promise<void>} Uma Promise que resolve para o objeto completo
-  * da conexão de WhatsApp, ou `null` se nenhuma conexão for encontrada com o ID fornecido.
-  */
+   * Busca uma única conexão de WhatsApp pelo seu ID e delete a conexao.
+   *
+   * Este método serve como um wrapper para o método do repositório,
+   * garantindo que o ID seja convertido para um número antes da consulta e apagar.
+   * É a forma padrão de apagar uma conexao.
+   *
+   * @param {string} id - O ID da conexão de WhatsApp em formato de string (geralmente vindo de um parâmetro de rota da API).
+   * @returns {Promise<void>} Uma Promise que resolve para o objeto completo
+   * da conexão de WhatsApp, ou `null` se nenhuma conexão for encontrada com o ID fornecido.
+   */
   async apagarCanal(id: string): Promise<void> {
     const wppId = parseInt(id, 10);
 
@@ -226,35 +247,30 @@ export class WhatsappService {
     if (isNaN(wppId)) {
       throw new AppError("ERR_NO_WAPP_ID_STRING", 404);
     }
-    const conexao = await this.whatsappRepository.findFirst({ id: wppId })
-
+    const conexao = await this.whatsappRepository.findFirst({ id: wppId });
 
     if (!conexao) {
       throw new AppError("ERR_NO_WAPP_FOUND", 404);
     }
     if (conexao.type === "whatsapp" && conexao.status === "CONNECTED") {
-      removeSession(conexao.name)
+      removeSession(conexao.name);
     }
-    await this.whatsappRepository.deleteWhasapp(wppId)
-
+    await this.whatsappRepository.deleteWhasapp(wppId);
   }
 
-
-
   /**
-     * Inicia as sessões de todas as conexões de WhatsApp ativas e prontas.
-     * 
-     * Este método busca no banco de dados todas as conexões que estão em um
-     * estado operacional (ativas, conectadas e não aguardando QR Code) e,
-     * em seguida, itera sobre elas para iniciar suas respectivas sessões.
-     * É ideal para ser chamado na inicialização do servidor ou em rotinas de
-     * reconexão.
-     *
-     * @returns {Promise<void>} Uma Promise que resolve quando a tentativa de
-     * iniciar todas as sessões for concluída.
-     */
+   * Inicia as sessões de todas as conexões de WhatsApp ativas e prontas.
+   *
+   * Este método busca no banco de dados todas as conexões que estão em um
+   * estado operacional (ativas, conectadas e não aguardando QR Code) e,
+   * em seguida, itera sobre elas para iniciar suas respectivas sessões.
+   * É ideal para ser chamado na inicialização do servidor ou em rotinas de
+   * reconexão.
+   *
+   * @returns {Promise<void>} Uma Promise que resolve quando a tentativa de
+   * iniciar todas as sessões for concluída.
+   */
   async startAllReadySessions(): Promise<void> {
-
     // 1. CHAMA O MÉTODO DO REPOSITÓRIO
     // A complexidade da busca está totalmente encapsulada no repositório.
     // O serviço apenas consome o resultado.
@@ -275,14 +291,16 @@ export class WhatsappService {
         try {
           // Aqui você colocaria a sua lógica real para iniciar uma sessão.
 
-          await StartConnectionSession(whatsapp)
+          await StartConnectionSession(whatsapp);
         } catch (error) {
-          console.error(`ERROR: Falha ao iniciar a sessão para '${whatsapp.name}' (ID: ${whatsapp.id}).`, error);
+          console.error(
+            `ERROR: Falha ao iniciar a sessão para '${whatsapp.name}' (ID: ${whatsapp.id}).`,
+            error
+          );
         }
       })
     );
   }
-
 
   /**
    * Gera um token de webhook se necessário.
@@ -313,7 +331,6 @@ export class WhatsappService {
     return data;
   }
 
-
   /**
    * Envia um webhook com o status da conexão.
    * Substitui a lógica do método estático 'HookStatus'.
@@ -333,70 +350,103 @@ export class WhatsappService {
     console.log("Enviando webhook de status:", payload);
   }
   /**
-    * Atualiza o estado de uma sessão para 'qrcode', salvando o QR Code.
-    * Emite um evento de socket para notificar o frontend.
-    */
-  async handleQrCode(whatsappId: number, tenantId: number, qrcode: string, attempts: number): Promise<void> {
-    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
-      qrcode,
-      status: 'qrcode',
-      retries: attempts,
-    });
+   * Atualiza o estado de uma sessão para 'qrcode', salvando o QR Code.
+   * Emite um evento de socket para notificar o frontend.
+   */
+  async handleQrCode(
+    whatsappId: number,
+    tenantId: number,
+    qrcode: string,
+    attempts: number
+  ): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(
+      whatsappId,
+      tenantId,
+      {
+        qrcode,
+        status: "qrcode",
+        retries: attempts,
+      }
+    );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);
   }
 
   /**
- * Atualiza o estado de uma sessão para 'CONNECTED', limpando dados antigos.
- * Emite múltiplos eventos de socket para o frontend.
- */
-  async handleConnected(whatsappId: number, tenantId: number, phoneInfo: any, sessionName: string): Promise<void> {
-    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
-      status: 'CONNECTED',
-      qrcode: '',
-      retries: 0,
-      phone: phoneInfo,
-      session: sessionName,
-      pairingCode: '',
-    });
+   * Atualiza o estado de uma sessão para 'CONNECTED', limpando dados antigos.
+   * Emite múltiplos eventos de socket para o frontend.
+   */
+  async handleConnected(
+    whatsappId: number,
+    tenantId: number,
+    phoneInfo: any,
+    sessionName: string
+  ): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(
+      whatsappId,
+      tenantId,
+      {
+        status: "CONNECTED",
+        qrcode: "",
+        retries: 0,
+        phone: phoneInfo,
+        session: sessionName,
+        pairingCode: "",
+      }
+    );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);
     this.emitSessionReady(tenantId, updatedWhatsapp);
   }
   /**
- * Atualiza o estado de uma sessão para 'DISCONNECTED' e limpa os dados da sessão.
- * Emite um evento de socket para notificar o frontend.
- */
-  async handleDisconnected(whatsappId: number, tenantId: number): Promise<void> {
-    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
-      status: 'DISCONNECTED',
-      qrcode: '',
-      session: '',
-      pairingCode: '',
-      phone: Prisma.JsonNull, // Limpa o campo JSON
-    });
+   * Atualiza o estado de uma sessão para 'DISCONNECTED' e limpa os dados da sessão.
+   * Emite um evento de socket para notificar o frontend.
+   */
+  async handleDisconnected(
+    whatsappId: number,
+    tenantId: number
+  ): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(
+      whatsappId,
+      tenantId,
+      {
+        status: "DISCONNECTED",
+        qrcode: "",
+        session: "",
+        pairingCode: "",
+        phone: Prisma.JsonNull, // Limpa o campo JSON
+      }
+    );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);
   }
   /**
-  * Atualiza o código de pareamento (Pairing Code).
-  */
-  async handlePairingCode(whatsappId: number, tenantId: number, pairingCode: string): Promise<void> {
-    const updatedWhatsapp = await this.whatsappRepository.updateScoped(whatsappId, tenantId, {
-      pairingCode,
-      status: 'qrcode', // O status também muda para qrcode neste caso
-    });
+   * Atualiza o código de pareamento (Pairing Code).
+   */
+  async handlePairingCode(
+    whatsappId: number,
+    tenantId: number,
+    pairingCode: string
+  ): Promise<void> {
+    const updatedWhatsapp = await this.whatsappRepository.updateScoped(
+      whatsappId,
+      tenantId,
+      {
+        pairingCode,
+        status: "qrcode", // O status também muda para qrcode neste caso
+      }
+    );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);
   }
   // Métodos privados para emitir eventos, evitando repetição
   private emitSessionUpdate(tenantId: number, session: Whatsapp): void {
     const io = getIO();
     io.to(String(tenantId)).emit(`${tenantId}:whatsappSession`, {
-      action: 'update',
+      action: "update",
       session,
     });
   }
   private emitSessionReady(tenantId: number, session: Whatsapp): void {
     const io = getIO();
     io.to(String(tenantId)).emit(`${tenantId}:whatsappSession`, {
-      action: 'readySession',
+      action: "readySession",
       session,
     });
   }

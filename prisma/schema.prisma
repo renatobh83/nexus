@@ -854,7 +854,7 @@ model User {
   email        String    @unique
   status       String?
   passwordHash String?   // O campo que realmente existe no banco
-  tokenVersion Int       @default(0)
+  tokenVersion Int?       @default(0)
   profile      String?
   ativo        Boolean   @default(true)
   lastLogin    DateTime?
