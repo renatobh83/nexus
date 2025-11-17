@@ -3,6 +3,7 @@ import { userController } from "../../core/users/users.controller";
 import { whatsappController } from "../../core/whatsapp/whatsapp.controller";
 import { authController } from "../../core/Auth/auth.controller";
 import { settignsController } from "../../core/Settings/settings.controller";
+import { loadInicialController } from "../../core/LoadInicial/loadInicial.controller";
 
 // Importe seus controllers
 
@@ -35,6 +36,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(whatsappController, { prefix: "/whatsapp" });
     privateScope.register(userController, { prefix: "/users" });
     privateScope.register(settignsController, { prefix: "/settings" });
+    privateScope.register(loadInicialController, { prefix: "/loadInicial" });
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
     // privateScope.register(userController, { prefix: "/users" });
