@@ -165,4 +165,93 @@ export async function empresaController(
       }
     }
   );
+  fastify.post(
+    "/:empresaId/contrato",
+    {
+      schema: {
+        body: {
+          type: "object",
+          required: ["totalHoras", "dataContrato"],
+          properties: {
+            totalHoras: { type: "string" },
+            dataContrato: { type: "string" },
+          },
+        },
+      },
+    },
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { profile, tenantId } = request.user as any;
+      if (profile !== "admin") {
+        return reply
+          .code(ERRORS.unauthorizedAccess.statusCode)
+          .send(ERRORS.unauthorizedAccess.message);
+      }
+      const { empresaId } = request.params as any;
+      const { totalHoras, dataContrato } = request.body as any;
+      try {
+        await empresaService.insertOrUpdateContrato({
+          dataContrato,
+          empresaId,
+          tenantId,
+          totalHoras,
+        });
+
+        return reply.code(200).send("dadosContrato");
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.get(
+    "/:empresaId/contacts",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        const { empresaId } = request.params as { empresaId: string };
+
+        const id = parseInt(empresaId, 10);
+        if (isNaN(id)) {
+          return [];
+        }
+        const contatos = await empresaService.contatosEmpresa(id);
+        return reply.code(200).send(contatos);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.put(
+    "/:empresaId/contacts",
+    {
+      schema: {
+        body: {
+          type: "object",
+          required: ["contactIds"],
+          properties: {
+            contactIds: {
+              type: "array",
+              items: { type: "number" },
+            },
+          },
+        },
+      },
+    },
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { empresaId } = request.params as any;
+      const { contactIds } = request.body as any;
+      try {
+        const id = parseInt(empresaId, 10);
+        if (isNaN(id)) {
+          return [];
+        }
+        const emrpesaContatos = await empresaService.updateContatoEmpresa(
+          id,
+          contactIds
+        );
+
+        return reply.code(200).send(emrpesaContatos);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
 }
