@@ -93,10 +93,7 @@ export class WhatsappService {
       isDeleted: false,
       isActive: true,
     };
-    return this.whatsappRepository.findMany(where, {
-      apiConfigs: false,
-      tenant: { select: { name: true } },
-    });
+    return this.whatsappRepository.findMany(where);
   }
 
   /**

@@ -7,6 +7,7 @@ import { WhatsappService } from "../../core/whatsapp/whatsapp.service";
 import { AuthService } from "../../core/Auth/auth.service";
 import { SettingsService } from "../../core/Settings/settings.service";
 import { LoadInicialService } from "../../core/LoadInicial/loadInicial.service";
+import { EmpresaService } from "../../core/Empresa/empresa.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -15,6 +16,7 @@ export interface AppServices {
   authService: AuthService;
   settingsService: SettingsService;
   loadInicialService: LoadInicialService;
+  empresaService: EmpresaService;
   // ... outros serviços
 }
 
@@ -36,6 +38,7 @@ async function diContainerPlugin(
   const authService = new AuthService();
   const settingsService = new SettingsService();
   const loadInicialService = new LoadInicialService();
+  const empresaService = new EmpresaService();
   // 3. Cria o objeto de serviços
   const services: AppServices = {
     userService,
@@ -43,6 +46,7 @@ async function diContainerPlugin(
     authService,
     settingsService,
     loadInicialService,
+    empresaService,
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

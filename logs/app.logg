@@ -1589,3 +1589,1433 @@
   ],
   timestamp: '2025-11-17T18:39:00.529Z'
 }
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(46,34): error TS1005: ')' expected.
+  src/core/Empresa/empresa.controller.ts(46,35): error TS1128: Declaration or statement expected.
+  src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.
+  src/core/Empresa/empresa.controller.ts(56,9): error TS1005: 'try' expected.
+  src/core/Empresa/empresa.controller.ts(59,5): error TS1128: Declaration or statement expected.
+  src/core/Empresa/empresa.controller.ts(60,3): error TS1128: Declaration or statement expected.
+  src/core/Empresa/empresa.controller.ts(61,1): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(46,34): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(46,35): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(56,9): error TS1005: 'try' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(59,5): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(60,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(61,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(46,34): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(46,35): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(56,9): error TS1005: 'try' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(59,5): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(60,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(61,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(46,34): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(46,35): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(56,9): error TS1005: 'try' expected.\r\n" +
+    'src/core/Empresa/empresa.controller.ts(59,5): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(60,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/empresa.controller.ts(61,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 10:10:34 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 14580,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 91414528,
+      heapTotal: 55169024,
+      heapUsed: 35634128,
+      external: 2918431,
+      arrayBuffers: 253769
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 495325.968 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T13:10:34.249Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-856969736380464.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(48,9): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 10:10:35 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 18752,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 92127232,
+      heapTotal: 54906880,
+      heapUsed: 36035944,
+      external: 2918431,
+      arrayBuffers: 253219
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 495327.343 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-856969736380464.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T13:10:35.626Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(123,7): error TS1109: Expression expected.
+  src/core/Empresa/empresa.controller.ts(129,2): error TS1005: ')' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(123,7): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(129,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(123,7): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(129,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(123,7): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/empresa.controller.ts(129,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:33:24 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 17260,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94248960,
+      heapTotal: 57061376,
+      heapUsed: 25857824,
+      external: 2918431,
+      arrayBuffers: 238890
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 500296.421 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:33:24.742Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(128,2): error TS1005: ')' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(128,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(128,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(128,2): error TS1005: ')' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:33:31 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 21580,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 92540928,
+      heapTotal: 55169024,
+      heapUsed: 36266544,
+      external: 2918431,
+      arrayBuffers: 253199
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 500302.953 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:33:31.276Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(168,8): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(168,8): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(168,8): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Empresa/empresa.controller.ts(168,8): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:39:06 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 18876,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94679040,
+      heapTotal: 57061376,
+      heapUsed: 25665848,
+      external: 2918431,
+      arrayBuffers: 238826
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 500637.843 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:39:06.161Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/emrpesa.repository.ts(30,58): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\emrpesa.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,58): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,58): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,58): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:47:30 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 13008,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 119734272,
+      heapTotal: 66117632,
+      heapUsed: 47386616,
+      external: 4439029,
+      arrayBuffers: 505984
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 501142.234 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:47:30.564Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/emrpesa.repository.ts(30,60): error TS1005: ',' expected.
+  src/core/Empresa/emrpesa.repository.ts(30,63): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+  src/core/Empresa/emrpesa.repository.ts(30,71): error TS1128: Declaration or statement expected.
+  src/core/Empresa/emrpesa.repository.ts(31,3): error TS1128: Declaration or statement expected.
+  src/core/Empresa/emrpesa.repository.ts(33,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Empresa/emrpesa.repository.ts(33,18): error TS1005: ')' expected.
+  src/core/Empresa/emrpesa.repository.ts(33,20): error TS1434: Unexpected keyword or identifier.
+  src/core/Empresa/emrpesa.repository.ts(33,26): error TS1128: Declaration or statement expected.
+  src/core/Empresa/emrpesa.repository.ts(33,27): error TS1128: Declaration or statement expected.
+  src/core/Empresa/emrpesa.repository.ts(33,41): error TS1109: Expression expected.
+  src/core/Empresa/emrpesa.repository.ts(34,11): error TS1005: ',' expected.
+  src/core/Empresa/emrpesa.repository.ts(34,17): error TS1005: ',' expected.
+  src/core/Empresa/emrpesa.repository.ts(34,65): error TS1005: ',' expected.
+  src/core/Empresa/emrpesa.repository.ts(36,1): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\emrpesa.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,60): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(30,63): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(30,71): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(31,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(33,18): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(33,20): error TS1434: Unexpected keyword or identifier.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,26): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,27): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,41): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(34,11): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,17): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,65): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(36,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,60): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(30,63): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(30,71): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(31,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(33,18): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(33,20): error TS1434: Unexpected keyword or identifier.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,26): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,27): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,41): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(34,11): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,17): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,65): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(36,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/emrpesa.repository.ts(30,60): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(30,63): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(30,71): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(31,3): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(33,18): error TS1005: ')' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(33,20): error TS1434: Unexpected keyword or identifier.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,26): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,27): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/Empresa/emrpesa.repository.ts(33,41): error TS1109: Expression expected.\r\n' +
+    "src/core/Empresa/emrpesa.repository.ts(34,11): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,17): error TS1005: ',' expected.\r\n" +
+    "src/core/Empresa/emrpesa.repository.ts(34,65): error TS1005: ',' expected.\r\n" +
+    'src/core/Empresa/emrpesa.repository.ts(36,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:48:15 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 18956,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 119496704,
+      heapTotal: 66641920,
+      heapUsed: 47141160,
+      external: 4439029,
+      arrayBuffers: 507210
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 501187.343 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\emrpesa.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:48:15.665Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(158,62): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(158,62): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(158,62): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(158,62): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:49:14 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 18164,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94195712,
+      heapTotal: 57323520,
+      heapUsed: 25870320,
+      external: 2918431,
+      arrayBuffers: 238806
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 501245.765 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:49:14.094Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(157,16): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-49800422360067953.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(157,16): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(157,16): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(157,16): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 18 2025 11:50:58 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 11440,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94044160,
+      heapTotal: 57323520,
+      heapUsed: 25767512,
+      external: 2918431,
+      arrayBuffers: 238806
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 501350.359 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-49800422360067953.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-18T14:50:58.691Z'
+}

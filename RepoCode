@@ -1,0 +1,5 @@
+//   findById(id: string): Promise<MinhaEntidade | null>;
+//   findAll(): Promise<MinhaEntidade[]>;
+//   create(data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
+//   update(id: string, data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
+//   delete(id: string): Promise<void>;

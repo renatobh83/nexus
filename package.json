@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./start-tunnel.sh && ts-node-dev --respawn --transpile-only src/server.ts",
-    "dev:win": "set NODE_ENV=development && start /B ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36  && ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev:win": "start /B ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36  && ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "start": "set NODE_ENV=production && node dist/server.js",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",

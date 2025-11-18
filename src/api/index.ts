@@ -15,8 +15,6 @@ import routes from "./routes/Index";
 import { initWbot } from "../lib/wbot";
 import { setupSocket } from "../lib/socket";
 import decodeTokenSocket from "../ultis/decodeTokenSocket";
-import { UserService } from "../core/users/users.service";
-import { UsersRepository } from "../core/users/users.repository";
 import { JsonWebTokenError } from "jsonwebtoken";
 
 import diContainerPlugin from "./plugins/di-container";
@@ -34,7 +32,7 @@ async function buildServer(): Promise<FastifyInstance> {
   const server = Fastify({
     disableRequestLogging: true,
     logger: {
-      level: isDevelopment ? "info" : "error",
+      // level: isDevelopment ? "info" : "error",
       transport: isDevelopment
         ? {
             target: "pino-pretty",
@@ -48,7 +46,12 @@ async function buildServer(): Promise<FastifyInstance> {
     },
     trustProxy: true,
   });
-
+  server.setSerializerCompiler(() => {
+    return (data) =>
+      JSON.stringify(data, (_, value) =>
+        typeof value === "bigint" ? value.toString() : value
+      );
+  });
   await server.register(jwt, {
     secret: process.env.JWT_SECRET!,
   });
@@ -114,6 +117,7 @@ async function buildServer(): Promise<FastifyInstance> {
       message: `A rota ${request.url} não existe`,
     });
   });
+
   server.ready((err) => {
     if (err) throw err;
 
@@ -206,6 +210,7 @@ async function buildServer(): Promise<FastifyInstance> {
  */
 export async function start() {
   const app = await buildServer();
+
   fastifyApp = app;
   try {
     await app.listen({ port: 3000, host: "0.0.0.0" });

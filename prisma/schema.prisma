@@ -323,7 +323,7 @@ model Contact {
   email            String?
   profilePicUrl    String?
   pushname         String?
-  telegramId       String?
+  telegramId       Int?
   dtaniversario    DateTime? // Data de aniversário
   identifier       String?
   serializednumber String?   @default("")
@@ -364,7 +364,7 @@ model Empresa {
   name                 String
   active               Boolean  @default(true)
   address              Json?    // Endereço da empresa
-  identifier           BigInt?  // Usamos BigInt para corresponder ao DataTypes.BIGINT
+  identifier           BigInt?  @unique// Usamos BigInt para corresponder ao DataTypes.BIGINT
   acessoExterno        Json[]   @default([]) // Array de objetos JSON para acessos DDNS
   openTicketIds        Int[]    @default([]) // Array de IDs de tickets abertos
 
@@ -390,6 +390,7 @@ model Empresa {
   // Relação com EmpresaContrato: Uma Empresa pode ter muitos contratos.
   contratos            EmpresaContrato[]
 
+
   // Relação com Ticket: Uma Empresa pode estar associada a muitos tickets.
   tickets              Ticket[]
 
@@ -398,11 +399,11 @@ model Empresa {
   empresaContacts      EmpresaContact[]
 
   chamado Chamado[]
+  notaFiscals NotaFiscal[]
+  resultadoDDNSs ResultadoDDNS[]
 
   // Mapeia para o nome da tabela existente.
   @@map("Empresas")
-  notaFiscals NotaFiscal[]
-  resultadoDDNSs ResultadoDDNS[]
 }
 
 // Definição do modelo FastReply.
