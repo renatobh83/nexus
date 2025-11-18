@@ -14,8 +14,22 @@ export class UserService {
    * Em um cenário real, poderia incluir lógica de paginação, filtros, etc.
    * @returns Uma Promise que resolve para a lista de todos os usuários.
    */
-  async findAllUsers() {
-    const users = await this.userRepository.findMany();
+  async findAllUsers(optionsFind?: { pageSize: string; pageNumber: string }) {
+    const DEFAULT_PAGE_SIZE = "40";
+    const DEFAULT_PAGE_NUMBER = "1";
+    const { pageSize = DEFAULT_PAGE_SIZE, pageNumber = DEFAULT_PAGE_NUMBER } =
+      optionsFind || {};
+
+    const limit = parseInt(pageSize, 10) || 40;
+    const currentPage = parseInt(pageNumber, 10) || 1;
+    const skip = limit * (currentPage - 1);
+
+    const options = {
+      limit,
+      currentPage,
+      skip,
+    };
+    const users = await this.userRepository.findMany(options);
     return users;
   }
 

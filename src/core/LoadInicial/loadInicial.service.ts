@@ -1,16 +1,31 @@
-import { WhatsappService } from "../whatsapp/whatsapp.service";
+import { FastifyInstance } from "fastify";
 
 export class LoadInicialService {
-  private whatsappService: WhatsappService;
-
-  constructor() {
-    this.whatsappService = new WhatsappService();
-  }
-  async loadInicial() {
-    const channels = await this.whatsappService.findAll();
+  constructor() {}
+  async loadInicial(fastify: FastifyInstance) {
+    const app = fastify.services;
+    const channels = await app.whatsappService.findAll();
+    const settings = await app.settingsService.findAllSettings();
+    const usuarios = await app.userService.findAllUsers();
+    const emrpesas = await app.empresaService.finalAllCompany({
+      empresaContacts: {
+        select: {
+          contact: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      },
+      contratos: true,
+    });
 
     return {
       channels,
+      emrpesas,
+      settings,
+      usuarios,
     };
   }
 }

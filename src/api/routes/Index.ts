@@ -34,10 +34,10 @@ async function apiV1Routes(fastify: FastifyInstance) {
   fastify.register(async (privateScope) => {
     // Aplica o hook de autenticação a TODAS as rotas registradas dentro deste escopo.
     privateScope.addHook("preHandler", fastify.authenticate);
+    privateScope.register(loadInicialController, { prefix: "/loadInicial" });
     privateScope.register(whatsappController, { prefix: "/whatsapp" });
     privateScope.register(userController, { prefix: "/users" });
     privateScope.register(settignsController, { prefix: "/settings" });
-    privateScope.register(loadInicialController, { prefix: "/loadInicial" });
     privateScope.register(empresaController, { prefix: "empresa" });
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users

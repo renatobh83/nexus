@@ -13,7 +13,7 @@ export async function loadInicialController(
   const loadInicialService = fastify.services.loadInicialService;
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      const data = await loadInicialService.loadInicial();
+      const data = await loadInicialService.loadInicial(request.server);
       return reply.code(200).send(data);
     } catch (error) {
       return handleServerError(reply, error);

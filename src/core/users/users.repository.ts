@@ -1,7 +1,20 @@
-import { Prisma } from "@prisma/client";
+import { Prisma, User } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
+interface PaginationOptions {
+  limit?: number;
+  currentPage?: number;
+  skip?: number;
+}
+interface Response {
+  users: User[];
+  count: number;
+  hasMore: boolean;
+}
+
 export class UsersRepository {
+  private DEFAULT_LIMIT = 40;
+  private DEFAULT_SKIP = 0;
   /**
    * Encontra um usuario pelo seu ID.
    * @param userId - O ID do usuario.
@@ -21,21 +34,47 @@ export class UsersRepository {
    *
    * @returns lista de usuarios ou null.
    */
-  async findMany(
-    where?: Prisma.UserWhereInput,
-    options?: {
-      select?: Prisma.UserSelect;
-      include?: Prisma.UserInclude;
-    }
-  ) {
-    // Usar select OU include, nunca ambos
-    if (options?.select) {
-      return prisma.user.findMany({ where, select: options.select });
-    } else if (options?.include) {
-      return prisma.user.findMany({ where, include: options.include });
-    } else {
-      return prisma.user.findMany({ where });
-    }
+
+  async findMany(options?: PaginationOptions): Promise<Response> {
+    const { limit = this.DEFAULT_LIMIT, skip = this.DEFAULT_SKIP } =
+      options || {};
+    const users = await prisma.user.findMany({
+      // where: whereCondition,
+      // // Paginação
+      take: limit,
+      skip: skip,
+      // Ordenação
+      orderBy: {
+        name: "asc",
+      },
+      // Seleção de campos e inclusão de relacionamento
+      select: {
+        // Campos do modelo User (equivalente a attributes: ["name", "id", "email", "profile", "ativo"])
+        name: true,
+        id: true,
+        email: true,
+        profile: true,
+        ativo: true,
+        configs: true,
+
+        // Inclusão do relacionamento (equivalente a include: [{ model: Queue, ... }])
+        queues: {
+          // Assumindo que o campo de relacionamento se chama 'queues'
+          select: {
+            queue: true, // Assumindo que o campo se chama 'queue' no modelo Queue
+          },
+        },
+      },
+    });
+    // 3. Conta o total de registros (count)
+    const count = await prisma.user.count();
+    // 4. Calcula se há mais páginas
+    const hasMore = count > skip + users.length;
+    return {
+      users: users as any, // 'as any' é usado aqui para simplificar o exemplo de tipagem
+      count,
+      hasMore,
+    };
   }
   async createOrUpdateUser(userData: any) {
     // Use um tipo/interface apropriado aqui

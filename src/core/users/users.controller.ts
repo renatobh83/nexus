@@ -85,7 +85,10 @@ export async function userController(
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
       // 1. Chama o Service
-      const users = await userService.findAllUsers();
+      const users = await userService.findAllUsers({
+        pageNumber: "1",
+        pageSize: "30",
+      });
 
       // 2. Envia a resposta de sucesso
       return reply.status(200).send(users);
