@@ -42,7 +42,7 @@ export class WhatsappRepository {
     tenantId: number,
     data: Prisma.WhatsappUpdateInput
   ) {
-    return prisma.whatsapp.update({
+    return await prisma.whatsapp.update({
       where: {
         id: parseInt(id),
         tenantId: tenantId, // Garante que só podemos atualizar um registro do nosso próprio tenant.
