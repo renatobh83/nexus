@@ -38,7 +38,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(whatsappController, { prefix: "/whatsapp" });
     privateScope.register(userController, { prefix: "/users" });
     privateScope.register(settignsController, { prefix: "/settings" });
-    privateScope.register(empresaController, { prefix: "empresa" });
+    privateScope.register(empresaController, { prefix: "/empresa" });
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
     // privateScope.register(userController, { prefix: "/users" });
