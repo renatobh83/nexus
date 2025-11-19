@@ -33,8 +33,8 @@ export class EmpresaService {
     return true;
   }
   async updateCompany(dto: any) {
-    const { id, ...restDto } = dto;
-    const company = await this.empresaRepository.update(dto.id, restDto);
+    const { id, empresaContacts, contratos, ...restDto } = dto;
+    const company = await this.empresaRepository.update(id, restDto);
     return company;
   }
   async insertOrUpdateContrato({
@@ -43,9 +43,14 @@ export class EmpresaService {
     tenantId,
     totalHoras,
   }: ContratoServiceProps): Promise<EmpresaContrato> {
+    const dataContratoObj = new Date(dataContrato);
+    if (isNaN(dataContratoObj.getTime())) {
+      throw new Error("Formato de data inválido fornecido.");
+    }
+
     // 1. Tenta encontrar o contrato existente
     const contratoUpdate = await this.empresaRepository.findByDateAndEmpresaId(
-      dataContrato,
+      dataContratoObj,
       empresaId
     );
 
@@ -60,7 +65,7 @@ export class EmpresaService {
 
     // 3. Se não for encontrado, cria um novo
     const newContrato = await this.empresaRepository.createContrato({
-      dataContrato,
+      dataContrato: dataContratoObj.toISOString(),
       tenantId,
       empresaId,
       totalHoras,

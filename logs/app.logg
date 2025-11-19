@@ -3493,3 +3493,360 @@
   ],
   timestamp: '2025-11-19T00:28:20.203Z'
 }
+{
+  message: 'Falha na verificação do token em todas as chaves.',
+  level: 'error',
+  timestamp: '2025-11-19T09:48:33.678Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Empresa/empresa.controller.ts(159,15): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Empresa\empresa.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2471839653813892.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2471839653813892.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2471839653813892.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(159,15): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(159,15): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Empresa/empresa.controller.ts(159,15): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Wed Nov 19 2025 07:06:48 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 14964,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94040064,
+      heapTotal: 56799232,
+      heapUsed: 25538040,
+      external: 2918431,
+      arrayBuffers: 238806
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 570700.812 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Empresa\\empresa.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2471839653813892.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-19T10:06:48.110Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/users/users.repository.ts(150,7): error TS1135: Argument expression expected.
+  src/core/users/users.repository.ts(150,8): error TS1128: Declaration or statement expected.
+  src/core/users/users.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.
+  src/core/users/users.repository.ts(167,27): error TS1005: ',' expected.
+  src/core/users/users.repository.ts(167,52): error TS1005: ';' expected.
+  src/core/users/users.repository.ts(178,3): error TS1434: Unexpected keyword or identifier.
+  src/core/users/users.repository.ts(178,28): error TS1005: ',' expected.
+  src/core/users/users.repository.ts(178,46): error TS1005: ',' expected.
+  src/core/users/users.repository.ts(178,60): error TS1005: ',' expected.
+  src/core/users/users.repository.ts(178,67): error TS1005: ';' expected.
+  src/core/users/users.repository.ts(200,3): error TS1434: Unexpected keyword or identifier.
+  src/core/users/users.repository.ts(200,26): error TS1005: ',' expected.
+  src/core/users/users.repository.ts(200,36): error TS1005: ';' expected.
+  src/core/users/users.repository.ts(203,1): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\users\users.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-043342898963800724.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-043342898963800724.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-043342898963800724.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/users/users.repository.ts(150,7): error TS1135: Argument expression expected.\r\n' +
+    'src/core/users/users.repository.ts(150,8): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/users/users.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(167,27): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(167,52): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(178,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(178,28): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,46): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,60): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,67): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(200,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(200,26): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(200,36): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(203,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/users/users.repository.ts(150,7): error TS1135: Argument expression expected.\r\n' +
+    'src/core/users/users.repository.ts(150,8): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/users/users.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(167,27): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(167,52): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(178,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(178,28): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,46): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,60): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,67): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(200,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(200,26): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(200,36): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(203,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\users\\users.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/users/users.repository.ts(150,7): error TS1135: Argument expression expected.\r\n' +
+    'src/core/users/users.repository.ts(150,8): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/users/users.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(167,27): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(167,52): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(178,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(178,28): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,46): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,60): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(178,67): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(200,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/users/users.repository.ts(200,26): error TS1005: ',' expected.\r\n" +
+    "src/core/users/users.repository.ts(200,36): error TS1005: ';' expected.\r\n" +
+    'src/core/users/users.repository.ts(203,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\users\\users.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Wed Nov 19 2025 13:01:22 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 9804,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 93396992,
+      heapTotal: 57065472,
+      heapUsed: 26403728,
+      external: 2918431,
+      arrayBuffers: 242142
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 591974.562 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\users\\users.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-043342898963800724.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-19T16:01:22.049Z'
+}

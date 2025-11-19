@@ -21,4 +21,5 @@ const prisma = new PrismaClient({
 //   console.log("Params: " + e.params);
 //   console.log("Duration: " + e.duration + "ms");
 // });
+
 export { prisma };

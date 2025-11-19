@@ -56,8 +56,6 @@ export class UserService {
       userDataPayload.password = await hash(userData.password, 8);
     }
 
-    // 2. Chama o método unificado do repositório.
-    // O repositório agora contém a lógica do 'upsert'.
     const user = await this.userRepository.createOrUpdateUser(userDataPayload);
 
     return user;

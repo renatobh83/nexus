@@ -2,9 +2,8 @@ import { Prisma, Queue } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
 export class QueueRepository {
- 
-  findById(id: number): Promise<Queue | null> {
-    return prisma.queue.findFirst({ where: { id } });
+  findById(where: Prisma.QueueWhereInput): Promise<Queue | null> {
+    return prisma.queue.findFirst({ where });
   }
   findAll(): Promise<Queue[]> {
     return prisma.queue.findMany();

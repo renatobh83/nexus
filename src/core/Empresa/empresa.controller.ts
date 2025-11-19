@@ -152,10 +152,12 @@ export async function empresaController(
           .send(ERRORS.unauthorizedAccess.message);
       }
       const { empresaId } = request.params as any;
+
       const payload = {
         id: empresaId,
         ...(request.body as any),
       };
+
       try {
         const empresa = await empresaService.updateCompany(payload);
 
@@ -188,15 +190,20 @@ export async function empresaController(
       }
       const { empresaId } = request.params as any;
       const { totalHoras, dataContrato } = request.body as any;
+      const id = parseInt(empresaId, 10);
+      const horasInt = parseInt(totalHoras, 10);
+      if (isNaN(id)) {
+        return null;
+      }
       try {
-        await empresaService.insertOrUpdateContrato({
+        const dadosContrato = await empresaService.insertOrUpdateContrato({
           dataContrato,
-          empresaId,
+          empresaId: id,
           tenantId,
-          totalHoras,
+          totalHoras: horasInt,
         });
 
-        return reply.code(200).send("dadosContrato");
+        return reply.code(200).send(dadosContrato);
       } catch (error) {
         return handleServerError(reply, error);
       }

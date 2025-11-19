@@ -7,7 +7,8 @@ export class LoadInicialService {
     const channels = await app.whatsappService.findAll();
     const settings = await app.settingsService.findAllSettings();
     const usuarios = await app.userService.findAllUsers();
-    const emrpesas = await app.empresaService.finalAllCompany({
+    const queues = await app.queueService.findAllQueue();
+    const empresas = await app.empresaService.finalAllCompany({
       empresaContacts: {
         select: {
           contact: {
@@ -23,9 +24,10 @@ export class LoadInicialService {
 
     return {
       channels,
-      emrpesas,
+      empresas,
       settings,
       usuarios,
+      queues,
     };
   }
 }

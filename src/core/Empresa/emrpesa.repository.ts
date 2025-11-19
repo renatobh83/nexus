@@ -9,7 +9,7 @@ export interface ContratoServiceProps {
   totalHoras: number;
 }
 type ContratoCreateData = Omit<ContratoServiceProps, "dataContrato"> & {
-  dataContrato: Date;
+  dataContrato: string;
 };
 type ContratoUpdateData = Pick<ContratoServiceProps, "totalHoras">;
 
@@ -31,6 +31,9 @@ export class EmpresaRepository {
             id: tenant as number,
           },
         },
+      },
+      include: {
+        empresaContacts: true,
       },
     });
   }

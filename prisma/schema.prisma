@@ -554,9 +554,9 @@ model Queue {
   tickets  Ticket[]
   chatFlows            ChatFlow[]
 
+  logTickets LogTicket[]
   // --- Mapeamento da Tabela ---
   @@map("Queues")
-  logTickets LogTicket[]
 }
 
 // Definição do modelo Integracoes.
@@ -631,13 +631,13 @@ model Tenant {
   settings Setting[]
   apiConfigs ApiConfig[]
   emails Email?
-
-  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
-  @@map("Tenants")
   fastReplies FastReply[]
   integracoes Integracoes[]
   logTickets LogTicket[]
   notaFiscals NotaFiscal[]
+
+  // Mapeia este modelo para o nome exato da tabela no seu banco de dados.
+  @@map("Tenants")
 }
 
 
@@ -886,9 +886,9 @@ model User {
   messages Message[]
   apiConfigs ApiConfig[]
 
-  @@map("Users") // Mapeia para a tabela "Users"
   fastReplies FastReply[]
   logTickets LogTicket[]
+  @@map("Users") // Mapeia para a tabela "Users"
 }
 
 
@@ -901,6 +901,10 @@ model UsersQueues {
   // Relação com Queue, usando o campo 'queueId'
   queue   Queue @relation(fields: [queueId], references: [id])
   queueId Int
+
+  // --- Timestamps ---
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
   // Define a chave primária composta, que é a combinação de userId e queueId.
   // Isso espelha a estrutura de uma tabela de junção padrão.

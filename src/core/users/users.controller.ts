@@ -49,11 +49,67 @@ export async function userController(
         const user = await userService.saveUser(payload);
         return reply.code(200).send(user);
       } catch (error) {
-        return reply.code(404).send({ message: "Erro create user" });
+        return reply.code(404).send({ message: error });
       }
     }
   );
 
+  fastify.put(
+    "/:userId",
+    {
+      schema: {
+        body: {
+          type: "object",
+          required: ["email", "name"],
+          properties: {
+            email: { type: "string" },
+            password: { type: "string" },
+            name: { type: "string" },
+            profile: { type: "string" },
+            queues: { type: "array", items: { type: "object" } },
+            ativo: { type: "boolean" },
+          },
+        },
+      },
+    },
+    async (
+      request: FastifyRequest<{
+        Body: {
+          email: string;
+          password: string;
+          name: string;
+          profile: string;
+          ativo: boolean;
+          queues: {
+            id?: number;
+            queue?: number;
+          }[];
+        };
+      }>,
+      reply: FastifyReply
+    ) => {
+      const { tenantId, profile } = request.user as any;
+      const { userId } = request.params as any;
+      const payload = { ...(request.body as any), tenantId, userId };
+      try {
+        if (profile !== "admin") {
+          return reply
+            .code(ERRORS.unauthorizedAccess.statusCode)
+            .send(ERRORS.unauthorizedAccess.message);
+        }
+        const user = await userService.saveUser(payload);
+        const io = getIO();
+
+        io.emit(`${tenantId}:user`, {
+          action: "update",
+          user,
+        });
+        return reply.code(200).send(user);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
   /**
    * Rota GET para buscar um usuário.
    * Exemplo de como usar o serviço injetado para outras operações.
@@ -119,9 +175,9 @@ export async function userController(
     }
   );
   fastify.delete(
-    ":userId",
+    "/:userId",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { tenantId, profile, id } = request.user as any;
+      const { tenantId, profile } = request.user as any;
       const { userId } = request.params as any;
       try {
         if (profile !== "admin") {
@@ -129,8 +185,11 @@ export async function userController(
             .code(ERRORS.unauthorizedAccess.statusCode)
             .send(ERRORS.unauthorizedAccess.message);
         }
-
-        const isDelete = await userService.removeUser(userId);
+        const id = parseInt(userId);
+        if (isNaN(id)) {
+          return null;
+        }
+        const isDelete = await userService.removeUser(id);
         const io = getIO();
 
         io.emit(`${tenantId}:user`, {

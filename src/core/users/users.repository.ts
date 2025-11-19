@@ -1,5 +1,6 @@
 import { Prisma, User } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
+import { transformUserQueues } from "../../ultis/prismaQueue";
 
 interface PaginationOptions {
   limit?: number;
@@ -13,8 +14,6 @@ interface Response {
 }
 
 export class UsersRepository {
-  private DEFAULT_LIMIT = 40;
-  private DEFAULT_SKIP = 0;
   /**
    * Encontra um usuario pelo seu ID.
    * @param userId - O ID do usuario.
@@ -35,11 +34,12 @@ export class UsersRepository {
    * @returns lista de usuarios ou null.
    */
 
-  async findMany(whereCondition?: any, options?: PaginationOptions): Promise<Response> {
-    const { limit = this.DEFAULT_LIMIT, skip = this.DEFAULT_SKIP } =
-      options || {};
+  async findMany(options?: PaginationOptions): Promise<Response> {
+    const DEFAULT_LIMIT = 40;
+    const DEFAULT_SKIP = 0;
+    const { limit = DEFAULT_LIMIT, skip = DEFAULT_SKIP } = options || {};
+
     const users = await prisma.user.findMany({
-      where: whereCondition,
       // // Paginação
       take: limit,
       skip: skip,
@@ -56,12 +56,10 @@ export class UsersRepository {
         profile: true,
         ativo: true,
         configs: true,
-
         // Inclusão do relacionamento (equivalente a include: [{ model: Queue, ... }])
         queues: {
-          // Assumindo que o campo de relacionamento se chama 'queues'
-          select: {
-            queue: true, // Assumindo que o campo se chama 'queue' no modelo Queue
+          include: {
+            queue: true,
           },
         },
       },
@@ -71,38 +69,85 @@ export class UsersRepository {
     // 4. Calcula se há mais páginas
     const hasMore = count > skip + users.length;
     return {
-      users: users as any, // 'as any' é usado aqui para simplificar o exemplo de tipagem
+      users: users.map(transformUserQueues) as any, // 'as any' é usado aqui para simplificar o exemplo de tipagem
       count,
       hasMore,
     };
   }
   async createOrUpdateUser(userData: any) {
-    // Use um tipo/interface apropriado aqui
-    const { id, queues, ...restOfUserData } = userData;
+    const { id, queues, password, tenantId, ...restUserData } = userData; // 1. Desestruture APENAS os campos conhecidos.
 
-    const dataForUpdate = {
-      ...restOfUserData,
-      // Lógica para lidar com filas em uma atualização
-      queues: queues
-        ? { deleteMany: {}, create: queues.map((id) => ({ queueId: id })) }
-        : undefined,
+    const dataForPrisma = {
+      ...restUserData,
     };
 
-    const dataForCreate = {
-      ...restOfUserData,
-      // Lógica para lidar com filas em uma criação
-      queues: queues
-        ? { create: queues.map((id: any) => ({ queueId: id })) }
-        : undefined,
-    };
+    // // 3. Adicione os campos permitidos um por um, se eles existirem.
 
-    return prisma.user.upsert({
-      // Se 'id' existir, use-o para encontrar o usuário.
-      // Se não, use um valor que garante que não encontrará nada (forçando a criação).
-      where: { id: id || -1 },
-      create: dataForCreate,
-      update: dataForUpdate,
-    });
+    if (password) dataForPrisma.passwordHash = password; // Adicione o hash da senha se uma nova foi fornecida
+
+    // // Adicione a lógica do tenant (apenas para criação, geralmente não se muda o tenant)
+    if (!id && tenantId) {
+      dataForPrisma.tenant = {
+        connect: { id: tenantId },
+      };
+    }
+
+    // // 4. Lógica para as filas (queues) - esta parte já estava correta
+    if (queues && Array.isArray(queues)) {
+      const queueIds = queues.map((q: { id: number }) => q.id);
+      if (id) {
+        const deleteOperation = prisma.usersQueues.deleteMany({
+          where: {
+            userId: id,
+          },
+        });
+        const createOperations = queueIds.map((queueId) =>
+          prisma.usersQueues.create({
+            data: {
+              userId: id, // Conecta ao usuário
+              queueId: queueId, // Conecta à fila
+            },
+          })
+        );
+        await prisma.$transaction([deleteOperation, ...createOperations]);
+      } else {
+        // Lógica de Create
+        dataForPrisma.queues = {
+          create: queueIds.map((queueId: number) => ({
+            queue: { connect: { id: queueId } },
+          })),
+        };
+      }
+    }
+
+    // // 5. Execute a operação
+    if (id) {
+      // Para update, não precisamos do tenant, então podemos removê-lo se foi adicionado
+      const user = await prisma.user.update({
+        where: { id: id },
+        data: dataForPrisma,
+        include: {
+          queues: {
+            include: {
+              queue: true,
+            },
+          },
+        },
+      });
+      return transformUserQueues(user);
+    } else {
+      const user = await prisma.user.create({
+        data: dataForPrisma,
+        include: {
+          queues: {
+            include: {
+              queue: true,
+            },
+          },
+        },
+      });
+      return transformUserQueues(user);
+    }
   }
 
   /**
