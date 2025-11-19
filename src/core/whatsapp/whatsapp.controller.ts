@@ -155,4 +155,62 @@ export async function whatsappController(
       }
     }
   );
+
+  fastify.post(
+    "/:whatsappId/session",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { whatsappId } = request.params as any;
+
+      try {
+        const id = parseInt(whatsappId, 10);
+        if (isNaN(id)) {
+          return null;
+        }
+
+        await whatsappService.startChannelSession(id);
+        return reply.code(200).send({ message: "Starting session." });
+      } catch (error) {
+        logger.error("Error in startSessionChannel", error);
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.delete(
+    "/:whatsappId/session",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { whatsappId } = request.params as any;
+      const { tenantId } = request.user as any;
+
+      try {
+        // const channel = await ShowWhatsAppService({ id: whatsappId, tenantId });
+        // const io = getIO();
+        // if (channel.type === "whatsapp") {
+        //   await removeWbot(channel.id);
+        // }
+        // if (channel.type === "telegram") {
+        //   const tbot = requireTbot(channel.id); // getTbot(channel.id);
+        //   await tbot.telegram
+        //     .logOut()
+        //     .catch((error) =>
+        //       logger.error("Erro ao fazer logout da conexão", error)
+        //     );
+        //   removeTbot(channel.id);
+        // }
+        // await channel.update({
+        //   status: "DISCONNECTED",
+        //   session: "",
+        //   qrcode: null,
+        //   retries: 0,
+        // });
+        // io.emit(`${channel.tenantId}:whatsappSession`, {
+        //   action: "update",
+        //   session: channel,
+        // });
+        return reply.code(200).send({ message: "ROTA NAO CRIADA." });
+      } catch (error) {
+        logger.error("Error in removeSessionChannel", error);
+        return handleServerError(reply, error);
+      }
+    }
+  );
 }

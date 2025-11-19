@@ -16,11 +16,10 @@ let sessionName: string;
 let tenantId: string;
 let whatsappSession: any;
 
-
 // Função auxiliar para extrair o código do URL do QR
 function extractQrCode(url: string): string | null {
   if (!url) return null;
-  return url.replace(/^https:\/\/wa\.me\/settings\/linked_devices#/, '');
+  return url.replace(/^https:\/\/wa\.me\/settings\/linked_devices#/, "");
 }
 
 /**
@@ -32,13 +31,15 @@ function extractQrCode(url: string): string | null {
  * @param whatsappService - A instância do serviço para persistir as mudanças.
  * @returns Uma Promise que resolve para a instância do cliente wbot.
  */
-export const initWbot = async (whatsapp: any, whatsappService: WhatsappService): Promise<Session> => {
+export const initWbot = async (
+  whatsapp: any,
+  whatsappService: WhatsappService
+): Promise<Session> => {
   const io = getIO();
   let wbot: Session;
   tenantId = whatsapp.tenantId;
   whatsappSession = whatsapp;
   sessionName = whatsapp.name;
-
 
   const qrCodePath = path.join(
     __dirname,
@@ -69,7 +70,12 @@ export const initWbot = async (whatsapp: any, whatsappService: WhatsappService):
           const qrCode = extractQrCode(urlCode);
           if (qrCode) {
             // Delega a lógica para o serviço
-            await whatsappService.handleQrCode(whatsapp.id, whatsapp.tenantId, qrCode, attempts);
+            await whatsappService.handleQrCode(
+              whatsapp.id,
+              whatsapp.tenantId,
+              qrCode,
+              attempts
+            );
           }
           // const matches = base64Qrimg.match(
           //   /^data:([A-Za-z-+/]+);base64,(.+)$/
@@ -99,24 +105,28 @@ export const initWbot = async (whatsapp: any, whatsappService: WhatsappService):
           //   action: "update",
           //   session: whatsapp,
           // });
-        }
-        ,
+        },
         statusFind: async (statusSession) => {
-          console.log(`INFO: Status da sessão '${whatsapp.name}': ${statusSession}`);
+          console.log(
+            `INFO: Status da sessão '${whatsapp.name}': ${statusSession}`
+          );
           switch (statusSession) {
-            case 'autocloseCalled':
-            case 'desconnectedMobile':
-            case 'browserClose':
-            case 'serverClose':
+            case "autocloseCalled":
+            case "desconnectedMobile":
+            case "browserClose":
+            case "serverClose":
               // Todos esses status levam a uma desconexão.
-              await whatsappService.handleDisconnected(whatsapp.id, whatsapp.tenantId);
+              await whatsappService.handleDisconnected(
+                whatsapp.id,
+                whatsapp.tenantId
+              );
               // Lógica para remover a sessão do array local e limpar arquivos pode ser chamada aqui.
               break;
 
-            case 'inChat':
+            case "inChat":
               // Se a sessão está conectada, remove o arquivo do QR Code.
               if (fs.existsSync(qrCodePath)) {
-                fs.unlink(qrCodePath, () => { });
+                fs.unlink(qrCodePath, () => {});
               }
               break;
 
@@ -125,7 +135,11 @@ export const initWbot = async (whatsapp: any, whatsappService: WhatsappService):
         },
 
         catchLinkCode: async (code: any) => {
-          await whatsappService.handlePairingCode(whatsapp.id, whatsapp.tenantId, code);
+          await whatsappService.handlePairingCode(
+            whatsapp.id,
+            whatsapp.tenantId,
+            code
+          );
         },
       })
     )) as unknown as Session;
@@ -136,10 +150,9 @@ export const initWbot = async (whatsapp: any, whatsappService: WhatsappService):
     } else {
       sessions[sessionIndex] = wbot;
     }
-    start(wbot, io, whatsappService)
+    start(wbot, io, whatsappService);
     return wbot;
   } catch (error) {
-
     removeSession(whatsappSession.name);
     throw new AppError("ERR_INICIAR_SESSAO_WPWEB", 403);
   }
@@ -173,7 +186,6 @@ async function waitForApiValue(apiCall: Session, interval = 1000) {
 
 const start = async (client: Session, io: any, service: WhatsappService) => {
   try {
-
     const isReady = await client.isAuthenticated();
 
     if (isReady) {
@@ -181,8 +193,13 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
       client.startTyping;
       const profileSession = await waitForApiValue(client, 1000);
 
-       await service.handleConnected(whatsappSession.id, whatsappSession.tenantId, profileSession, whatsappSession.name);
-      
+      await service.handleConnected(
+        whatsappSession.id,
+        whatsappSession.tenantId,
+        profileSession,
+        whatsappSession.name
+      );
+
       // io.emit(`${tenantId}:whatsappSession`, {
       //   action: "update",
       //   session: whatsappSession,
@@ -193,7 +210,7 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
       // });
       // wbotMessageListener(client);
     }
-  } catch (_error) { }
+  } catch (_error) {}
 };
 
 export async function removeSession(session: string) {
@@ -215,10 +232,11 @@ export async function removeSession(session: string) {
   }
 }
 
-const removeWbot = async (whatsappId: number): Promise<void> => {
+export const removeWbot = async (whatsappId: number): Promise<void> => {
   try {
     const io = getIO();
     const sessionIndex = sessions.findIndex((s) => s.id === whatsappId);
+
     if (sessionIndex !== -1) {
       const wbot = sessions[sessionIndex];
       await wbot.waPage.close();

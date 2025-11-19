@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { WhatsappRepository } from "./whatsapp.repository";
 import { AppError } from "../../errors/errors.helper";
 import { getIO } from "../../lib/socket";
-import { removeSession } from "../../lib/wbot";
+import { initWbot, removeSession, removeWbot } from "../../lib/wbot";
 import { StartConnectionSession } from "../../api/helpers/StartConnectionSession";
 
 export class WhatsappService {
@@ -296,6 +296,24 @@ export class WhatsappService {
         }
       })
     );
+  }
+  async startChannelSession(channleId: number): Promise<void> {
+    const whatsapp = await this.whatsappRepository.update(channleId, {
+      status: "OPENING",
+    });
+    const io = getIO();
+    io.emit(`${whatsapp.tenantId}:whatsappSession`, {
+      action: "update",
+      session: whatsapp,
+    });
+    try {
+      if (whatsapp.type === "whatsapp") {
+        await initWbot(whatsapp, this);
+      }
+      if (whatsapp.type === "telegram") {
+        // StartTbotSession(whatsapp);
+      }
+    } catch (error) {}
   }
 
   /**

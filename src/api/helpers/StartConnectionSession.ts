@@ -3,16 +3,12 @@ import { getIO } from "../../lib/socket";
 import { initWbot } from "../../lib/wbot";
 
 export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
-  const app = getFastifyApp()
-
-
+  const app = getFastifyApp();
   try {
     if (whatsapp.type === "whatsapp") {
       app.services.whatsappService.update(whatsapp.id, whatsapp.tenantId, {
-        status: "OPENING"
-      })
-
-
+        status: "OPENING",
+      });
       const io = getIO();
       io.emit(`${whatsapp.tenantId}:whatsappSession`, {
         action: "update",
@@ -23,10 +19,8 @@ export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
     }
     if (whatsapp.type === "telegram") {
       app.services.whatsappService.update(whatsapp.id, whatsapp.tenantId, {
-        status: "OPENING"
-      })
-
-
+        status: "OPENING",
+      });
       const io = getIO();
       io.emit(`${whatsapp.tenantId}:whatsappSession`, {
         action: "update",
