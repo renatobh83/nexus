@@ -53,10 +53,6 @@ export class AuthService {
   }
 
   async findUsersOnline(tenantid?: number) {
-    const where: Prisma.UserWhereInput = {
-      isOnline: true,
-      ativo: true,
-    };
     return this.userRepository.findMany();
   }
   async logout(userId: string) {
