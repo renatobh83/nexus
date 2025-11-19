@@ -3323,3 +3323,173 @@
   ],
   timestamp: '2025-11-18T19:08:48.081Z'
 }
+{
+  error: Error: Cannot find module 'nanoid'
+  Require stack:
+  - /Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/plugins/di-container.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/index.ts
+  - /Users/renato/Desktop/Dev/nexus/src/server.ts
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+      at Module._load (node:internal/modules/cjs/loader:1226:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+      at Module.require (node:internal/modules/cjs/loader:1503:12)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts:7:1)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      '/Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/plugins/di-container.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/server.ts'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module 'nanoid'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/di-container.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    "Error: Cannot find module 'nanoid'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/di-container.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1226:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1503:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts:7:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)',
+  stack: "Error: Cannot find module 'nanoid'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/di-container.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1226:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1503:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts:7:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)',
+  exception: true,
+  date: 'Tue Nov 18 2025 21:28:20 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1290,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 131940352,
+      heapTotal: 65683456,
+      heapUsed: 42578920,
+      external: 4029618,
+      arrayBuffers: 326172
+    }
+  },
+  os: {
+    loadavg: [ 4.1748046875, 44.0107421875, 31.69384765625 ],
+    uptime: 396
+  },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._resolveFilename',
+      line: 1420,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1058,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1063,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1226,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 244,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1503,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 152,
+      method: null,
+      native: false
+    },
+    {
+      column: 1,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Auth/auth.service.ts',
+      function: null,
+      line: 7,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-19T00:28:20.203Z'
+}

@@ -8,6 +8,7 @@ import { AuthService } from "../../core/Auth/auth.service";
 import { SettingsService } from "../../core/Settings/settings.service";
 import { LoadInicialService } from "../../core/LoadInicial/loadInicial.service";
 import { EmpresaService } from "../../core/Empresa/empresa.service";
+import { QueueSerice } from "../../core/Queue/queue.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -17,6 +18,7 @@ export interface AppServices {
   settingsService: SettingsService;
   loadInicialService: LoadInicialService;
   empresaService: EmpresaService;
+  queueService: QueueSerice
   // ... outros serviços
 }
 
@@ -39,6 +41,7 @@ async function diContainerPlugin(
   const settingsService = new SettingsService();
   const loadInicialService = new LoadInicialService();
   const empresaService = new EmpresaService();
+  const queueService = new QueueSerice()
   // 3. Cria o objeto de serviços
   const services: AppServices = {
     userService,
@@ -47,6 +50,7 @@ async function diContainerPlugin(
     settingsService,
     loadInicialService,
     empresaService,
+    queueService
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

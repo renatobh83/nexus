@@ -2,6 +2,7 @@ import { Prisma, Queue } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
 export class QueueRepository {
+ 
   findById(id: number): Promise<Queue | null> {
     return prisma.queue.findFirst({ where: { id } });
   }
@@ -11,7 +12,7 @@ export class QueueRepository {
   async create(data: Prisma.QueueCreateInput): Promise<Queue> {
     return await prisma.queue.create({ data });
   }
-  async update(id: number, data: Partial<Queue>): Promise<Queue> {
+  async update(id: number, data: Prisma.QueueUpdateInput): Promise<Queue> {
     return await prisma.queue.update({
       where: {
         id,
