@@ -35,11 +35,11 @@ export class UsersRepository {
    * @returns lista de usuarios ou null.
    */
 
-  async findMany(options?: PaginationOptions): Promise<Response> {
+  async findMany(whereCondition?: any, options?: PaginationOptions): Promise<Response> {
     const { limit = this.DEFAULT_LIMIT, skip = this.DEFAULT_SKIP } =
       options || {};
     const users = await prisma.user.findMany({
-      // where: whereCondition,
+      where: whereCondition,
       // // Paginação
       take: limit,
       skip: skip,

@@ -57,16 +57,7 @@ export class AuthService {
       isOnline: true,
       ativo: true,
     };
-    return this.userRepository.findMany(where, {
-      select: {
-        id: true,
-        status: true,
-        lastOnline: true,
-        lastLogin: true,
-        isOnline: true,
-        name: true,
-      },
-    });
+    return this.userRepository.findMany(where);
   }
   async logout(userId: string) {
     const id = parseInt(userId);
