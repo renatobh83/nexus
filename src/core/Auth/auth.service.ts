@@ -57,7 +57,7 @@ export class AuthService {
       isOnline: true,
       ativo: true,
     };
-    return this.userRepository.findMany(where);
+    return this.userRepository.findMany();
   }
   async logout(userId: string) {
     const id = parseInt(userId);
