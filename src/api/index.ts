@@ -33,6 +33,7 @@ async function buildServer(): Promise<FastifyInstance> {
     disableRequestLogging: true,
     logger: {
       // level: isDevelopment ? "info" : "error",
+      level: "info",
       transport: isDevelopment
         ? {
             target: "pino-pretty",
@@ -42,7 +43,14 @@ async function buildServer(): Promise<FastifyInstance> {
               ignore: "pid,hostname",
             },
           }
-        : undefined,
+        : {
+            target: "pino-pretty",
+            options: {
+              colorize: true,
+              translateTime: "HH:MM:ss Z",
+              ignore: "pid,hostname",
+            },
+          },
     },
     trustProxy: true,
   });
