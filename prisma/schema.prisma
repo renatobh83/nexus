@@ -422,8 +422,8 @@ model FastReply {
   // --- Relações e Chaves Estrangeiras ---
 
   // Relação com User: Uma resposta rápida é criada e pertence a um usuário.
-  user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId    Int?      // Chave estrangeira para o modelo User.
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int      // Chave estrangeira para o modelo User.
 
   // Relação com Tenant: A resposta rápida pertence a um Tenant (escopo de dados).
   tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)

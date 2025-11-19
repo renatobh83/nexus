@@ -55,14 +55,14 @@ export async function queueController(
       request: FastifyRequest<{ Body: QueueData }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, profile, id } = request.user as any;
+      const { tenantId, profile, userId } = request.user as any;
       if (profile !== "admin") {
         throw new AppError("ERR_NO_PERMISSION", 403);
       }
-      const newQueue = { ...request.body, userId: id, tenantId };
+      const newQueue = { ...request.body, userId, tenantId };
       try {
         const queue = await queueService.createQueue(newQueue);
-        return reply.code(200).send("queue");
+        return reply.code(200).send(queue);
       } catch (error) {
         return handleServerError(reply, error);
       }
@@ -86,7 +86,7 @@ export async function queueController(
       request: FastifyRequest<{ Body: QueueData }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, profile, id } = request.user as any;
+      const { tenantId, profile, userId } = request.user as any;
       const { queueId } = request.params as { queueId: string };
 
       const idQueue = parseInt(queueId, 10);
@@ -96,7 +96,7 @@ export async function queueController(
       if (profile !== "admin") {
         throw new AppError("ERR_NO_PERMISSION", 403);
       }
-      const updateQueue = { ...request.body, userId: id, tenantId };
+      const updateQueue = { ...request.body, userId, tenantId };
       try {
         const queue = await queueService.updateQueue(idQueue, updateQueue);
         return reply.code(200).send(queue);

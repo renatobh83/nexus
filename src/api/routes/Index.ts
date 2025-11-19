@@ -6,6 +6,7 @@ import { settignsController } from "../../core/Settings/settings.controller";
 import { loadInicialController } from "../../core/LoadInicial/loadInicial.controller";
 import { empresaController } from "../../core/Empresa/empresa.controller";
 import { queueController } from "../../core/Queue/queue.controller";
+import { fastReplyController } from "../../core/fastReply/fastReply.controller";
 
 // Importe seus controllers
 
@@ -41,6 +42,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(settignsController, { prefix: "/settings" });
     privateScope.register(empresaController, { prefix: "/empresas" });
     privateScope.register(queueController, { prefix: "/queue" });
+    privateScope.register(fastReplyController, { prefix: "/fastreply" });
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
     // privateScope.register(userController, { prefix: "/users" });
