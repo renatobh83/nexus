@@ -1,11 +1,18 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import "dotenv/config";
+import { Pool } from 'pg'
+import { PrismaPg } from '@prisma/adapter-pg'
+
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({ connectionString });
 /**
  * Instancia o cliente Prisma
  */
+const adapter = new PrismaPg(pool);
 
 const prisma = new PrismaClient({
   // Habilita os logs
+   adapter: adapter,
   log:
     process.env.NODE_ENV === "development"
       ? [

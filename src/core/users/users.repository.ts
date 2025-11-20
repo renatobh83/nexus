@@ -2,7 +2,7 @@ import { Prisma, User } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { transformUserQueues } from "../../ultis/prismaQueue";
 
-interface PaginationOptions {
+export interface PaginationOptions {
   limit?: number;
   currentPage?: number;
   skip?: number;

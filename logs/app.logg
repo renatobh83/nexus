@@ -4000,3 +4000,1899 @@
   ],
   timestamp: '2025-11-19T17:37:00.611Z'
 }
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-20T13:37:02.078Z'
+}
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-20T14:07:14.578Z'
+}
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-20T15:50:14.174Z'
+}
+{
+  error: PrismaClientConstructorValidationError: Using engine type "client" requires either "adapter" or "accelerateUrl" to be provided to PrismaClient constructor.
+  Read more at https://pris.ly/d/client-constructor
+      at validateDependentOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:203:11)
+      at validatePrismaClientOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:220:3)
+      at new t (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:242:9)
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:7:16)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:71:20),
+  level: 'error',
+  message: 'uncaughtException: Using engine type "client" requires either "adapter" or "accelerateUrl" to be provided to PrismaClient constructor.\n' +
+    'Read more at https://pris.ly/d/client-constructor\n' +
+    'PrismaClientConstructorValidationError: Using engine type "client" requires either "adapter" or "accelerateUrl" to be provided to PrismaClient constructor.\n' +
+    'Read more at https://pris.ly/d/client-constructor\n' +
+    '    at validateDependentOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:203:11)\n' +
+    '    at validatePrismaClientOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:220:3)\n' +
+    '    at new t (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:242:9)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:7:16)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:71:20)',
+  stack: 'PrismaClientConstructorValidationError: Using engine type "client" requires either "adapter" or "accelerateUrl" to be provided to PrismaClient constructor.\n' +
+    'Read more at https://pris.ly/d/client-constructor\n' +
+    '    at validateDependentOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:203:11)\n' +
+    '    at validatePrismaClientOptions (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts:220:3)\n' +
+    '    at new t (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:242:9)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:7:16)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js:71:20)',
+  exception: true,
+  date: 'Thu Nov 20 2025 13:45:13 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 10950,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 98451456,
+      heapTotal: 55263232,
+      heapUsed: 33815744,
+      external: 2857874,
+      arrayBuffers: 116638
+    }
+  },
+  os: {
+    loadavg: [ 4.4384765625, 3.53173828125, 2.6796875 ],
+    uptime: 60259
+  },
+  trace: [
+    {
+      column: null,
+      file: null,
+      function: null,
+      line: null,
+      method: null,
+      native: false
+    },
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts',
+      function: 'validateDependentOptions',
+      line: 203,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/utils/validatePrismaClientOptions.ts',
+      function: 'validatePrismaClientOptions',
+      line: 220,
+      method: null,
+      native: false
+    },
+    {
+      column: 9,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts',
+      function: 'new t',
+      line: 242,
+      method: null,
+      native: false
+    },
+    {
+      column: 16,
+      file: '/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts',
+      function: null,
+      line: 7,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6979327475027134.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T16:45:13.387Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:28:11 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 12965,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 248561664,
+      heapTotal: 209043456,
+      heapUsed: 85961976,
+      external: 8031384,
+      arrayBuffers: 6374133
+    }
+  },
+  os: {
+    loadavg: [ 1.74755859375, 1.71044921875, 1.74072265625 ],
+    uptime: 70037
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:28:11.482Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:28:28 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13048,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 248922112,
+      heapTotal: 209043456,
+      heapUsed: 85775664,
+      external: 8031384,
+      arrayBuffers: 6374133
+    }
+  },
+  os: {
+    loadavg: [ 1.66162109375, 1.69140625, 1.7333984375 ],
+    uptime: 70054
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:28:28.022Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:28:48 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13057,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 266944512,
+      heapTotal: 211927040,
+      heapUsed: 73109760,
+      external: 6181281,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 1.39306640625, 1.62890625, 1.7099609375 ],
+    uptime: 70074
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:28:48.154Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:29:03 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13175,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 249020416,
+      heapTotal: 209043456,
+      heapUsed: 85798808,
+      external: 6181281,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 1.8408203125, 1.71240234375, 1.73779296875 ],
+    uptime: 70089
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:29:03.042Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:29:10 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13188,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 267075584,
+      heapTotal: 211402752,
+      heapUsed: 72295056,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 1.853515625, 1.716796875, 1.7392578125 ],
+    uptime: 70096
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:29:10.853Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:29:23 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13199,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 266207232,
+      heapTotal: 211402752,
+      heapUsed: 72299320,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 1.8857421875, 1.72998046875, 1.74365234375 ],
+    uptime: 70109
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:29:23.892Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:29:32 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13280,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 253067264,
+      heapTotal: 208781312,
+      heapUsed: 83140640,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 1.8291015625, 1.72216796875, 1.74072265625 ],
+    uptime: 70118
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:29:32.627Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:29:59 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13294,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 262602752,
+      heapTotal: 210419712,
+      heapUsed: 71588448,
+      external: 6150801,
+      arrayBuffers: 4523988
+    }
+  },
+  os: {
+    loadavg: [ 1.46533203125, 1.646484375, 1.712890625 ],
+    uptime: 70145
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:29:59.294Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:30:54 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13484,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 246956032,
+      heapTotal: 208584704,
+      heapUsed: 83075976,
+      external: 6155584,
+      arrayBuffers: 4528771
+    }
+  },
+  os: {
+    loadavg: [ 6.9443359375, 3.3896484375, 2.369140625 ],
+    uptime: 70200
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:30:54.790Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:33:04 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13691,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 247742464,
+      heapTotal: 208322560,
+      heapUsed: 82800072,
+      external: 6150801,
+      arrayBuffers: 4523988
+    }
+  },
+  os: { loadavg: [ 2.47705078125, 2.9296875, 2.328125 ], uptime: 70330 },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:33:04.638Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:33:15 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 13708,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 266518528,
+      heapTotal: 211140608,
+      heapUsed: 72251792,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: { loadavg: [ 2.24951171875, 2.86572265625, 2.3125 ], uptime: 70341 },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:33:15.722Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:36:07 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 948,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 247152640,
+      heapTotal: 208257024,
+      heapUsed: 84956976,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 155.9970703125, 35.8427734375, 12.87109375 ],
+    uptime: 137
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:36:07.207Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:40:24 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1139,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 266698752,
+      heapTotal: 210878464,
+      heapUsed: 72290896,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 4.61572265625, 20.44921875, 12.57080078125 ],
+    uptime: 394
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:40:24.909Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/whatsapp/whatsapp.service.ts(274,5): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(274,5): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(274,5): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/whatsapp/whatsapp.service.ts(274,5): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:40:29 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1153,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 100253696,
+      heapTotal: 58195968,
+      heapUsed: 34287072,
+      external: 2872274,
+      arrayBuffers: 127449
+    }
+  },
+  os: {
+    loadavg: [ 4.806640625, 20.2255859375, 12.5380859375 ],
+    uptime: 399
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/whatsapp/whatsapp.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-16561502775531844.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:40:29.465Z'
+}
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:40:33 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1154,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 263847936,
+      heapTotal: 211402752,
+      heapUsed: 72305280,
+      external: 6174892,
+      arrayBuffers: 4524031
+    }
+  },
+  os: {
+    loadavg: [ 4.806640625, 20.2255859375, 12.5380859375 ],
+    uptime: 403
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:40:33.846Z'
+}

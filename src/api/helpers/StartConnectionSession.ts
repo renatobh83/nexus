@@ -1,5 +1,6 @@
 import { getFastifyApp } from "..";
 import { getIO } from "../../lib/socket";
+import { initTbot } from "../../lib/tbot";
 import { initWbot } from "../../lib/wbot";
 
 export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
@@ -26,6 +27,12 @@ export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
         action: "update",
         session: whatsapp,
       });
+      console.log("tele")
+        // const tbot = await initTbot(whatsapp, app.services.whatsappService);
+    // tbotMessageListener(tbot);
+      // tbot.on("message", async (ctx) => {
+      //   console.log(ctx)
+      // })
       // StartTbotSession(whatsapp);
     }
   } catch (error) {

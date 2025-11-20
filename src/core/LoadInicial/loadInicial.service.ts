@@ -24,7 +24,7 @@ export class LoadInicialService {
     });
 
 
-// Exemplo conceitual:
+
 const data = { queues, settigns, channels, empresas, usuarios };
 const encryptedData = encrypt(JSON.stringify(data));
 

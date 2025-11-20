@@ -10,8 +10,6 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-
 }
 
 enum ChatFlowStatus {
@@ -323,7 +321,7 @@ model Contact {
   email            String?
   profilePicUrl    String?
   pushname         String?
-  telegramId       Int?
+  telegramId       BigInt?
   dtaniversario    DateTime? // Data de aniversário
   identifier       String?
   serializednumber String?   @default("")

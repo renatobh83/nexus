@@ -271,9 +271,9 @@ export class WhatsappService {
     // A complexidade da busca está totalmente encapsulada no repositório.
     // O serviço apenas consome o resultado.
     const readyWhatsapps = await this.whatsappRepository.findActiveAndReady();
-
+    
     if (readyWhatsapps.length === 0) {
-      // console.log('INFO: Nenhuma conexão pronta para iniciar encontrada.');
+      console.log('INFO: Nenhuma conexão pronta para iniciar encontrada.');
       return;
     }
 

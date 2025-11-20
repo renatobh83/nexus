@@ -6,6 +6,7 @@ import { logger } from "../ultis/logger";
 import { getIO } from "./socket";
 import { FastifyInstance } from "fastify";
 import { WhatsappService } from "../core/whatsapp/whatsapp.service";
+import { wbotMessageListener } from "../api/helpers/Wbot/wbotMessageListener";
 
 interface Session extends Whatsapp {
   id: number;
@@ -51,7 +52,7 @@ export const initWbot = async (
 
   try {
     const options = {
-      logQR: false,
+      logQR: true,
       headless: true,
       phoneNumber: whatsapp.pairingCodeEnabled ? whatsapp.wppUser : null,
       puppeteerOptions: {
@@ -106,7 +107,7 @@ export const initWbot = async (
           //   session: whatsapp,
           // });
         },
-        statusFind: async (statusSession) => {
+        statusFind: async (statusSession: any) => {
           console.log(
             `INFO: Status da sessão '${whatsapp.name}': ${statusSession}`
           );
@@ -208,7 +209,8 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
       //   action: "readySession",
       //   session: whatsappSession,
       // });
-      // wbotMessageListener(client);
+      
+      wbotMessageListener(client);
     }
   } catch (_error) {}
 };
