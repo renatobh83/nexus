@@ -50,6 +50,7 @@ export async function authController(
         const refreshToken = request.server.jwt.sign(user, { expiresIn: "7d" });
 
         const usersOline = await authService.findUsersOnline();
+      
         const payload = {
           ...user,
           token: accessToken,

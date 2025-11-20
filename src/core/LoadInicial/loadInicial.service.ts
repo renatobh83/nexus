@@ -1,11 +1,12 @@
 import { FastifyInstance } from "fastify";
+import { encrypt } from "../../lib/crypto";
 
 export class LoadInicialService {
   constructor() {}
   async loadInicial(fastify: FastifyInstance) {
     const app = fastify.services;
     const channels = await app.whatsappService.findAll();
-    const settings = await app.settingsService.findAllSettings();
+    const settigns = await app.settingsService.findAllSettings();
     const usuarios = await app.userService.findAllUsers();
     const queues = await app.queueService.findAllQueue();
     const empresas = await app.empresaService.finalAllCompany({
@@ -22,12 +23,12 @@ export class LoadInicialService {
       contratos: true,
     });
 
-    return {
-      channels,
-      empresas,
-      settings,
-      usuarios,
-      queues,
-    };
+
+// Exemplo conceitual:
+const data = { queues, settigns, channels, empresas, usuarios };
+const encryptedData = encrypt(JSON.stringify(data));
+
+return { payload: encryptedData }; 
+
   }
 }

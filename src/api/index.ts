@@ -224,9 +224,9 @@ export async function start() {
     await app.listen({ port: 3000, host: "0.0.0.0" });
     app.log.info("Servidor rodando em http://localhost:3000");
     app.server.keepAliveTimeout = 5 * 60 * 1000;
-    // await StartAllWhatsAppsSessions();
+    
     // await scheduleOrUpdateDnsJob();
-    app.services.whatsappService.startAllReadySessions();
+    // app.services.whatsappService.startAllReadySessions();
   } catch (err: any) {
     if (app) {
       app.log.error(err, "❌ Falha ao iniciar o servidor.");

@@ -7,6 +7,7 @@ import { getIO } from "../../lib/socket";
 import { nanoid } from "nanoid";
 import jwt from "jsonwebtoken";
 import { redisClient } from "../../lib/redis";
+import { profile } from "console";
 
 export class AuthService {
   private userRepository: UsersRepository;
@@ -26,7 +27,9 @@ export class AuthService {
       throw new AppError("ERR_INVALID_CREDENTIALS", 401);
     }
     const payload = {
-      usarname: user.name,
+      name: user.name,
+      email: user.email,
+      username: user.name,
       tenantId: user.tenantId,
       profile: user.profile,
       userId: user.id,
@@ -53,11 +56,11 @@ export class AuthService {
   }
 
   async findUsersOnline(tenantid?: number) {
-    // const where: Prisma.UserWhereInput = {
-    //   isOnline: true,
-    //   ativo: true,
-    // };
-    return this.userRepository.findMany();
+    const where: Prisma.UserWhereInput = {
+      isOnline: true,
+      ativo: true,
+    };
+    return this.userRepository.findUserOnline(where);
   }
   async logout(userId: string) {
     const id = parseInt(userId);

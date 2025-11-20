@@ -25,6 +25,13 @@ export class UsersRepository {
     });
   }
 
+  async findUserOnline(where: Prisma.UserWhereInput){
+    return await prisma.user.findMany({ where, select:{
+      name: true,
+      id: true,
+      email: true
+    }})
+  }
   async findFirst(where: Prisma.UserWhereInput) {
     return prisma.user.findFirst({ where });
   }

@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 
 const getSecretKey = (): CryptoJS.lib.WordArray => {
-  const secretKey = process.env.CHAT_SECRET;
+  const secretKey = process.env.CRYPTO_KEY;
   if (!secretKey || secretKey.length !== 64) {
     throw new Error('CHAT_SECRET deve ser definido no .env e ter 64 caracteres hexadecimais (32 bytes)');
   }
