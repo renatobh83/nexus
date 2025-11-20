@@ -5896,3 +5896,115 @@
   ],
   timestamp: '2025-11-20T19:40:33.846Z'
 }
+{
+  error: FastifyError [Error]: Root plugin has already booted
+      at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)
+      at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)
+      at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)
+      at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)
+      at Object.onceWrapper (node:events:623:26)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:85:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:170:11)\n' +
+    '    at Boot.use (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts:38:15)\n' +
+    '    at Object.onceWrapper (node:events:623:26)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:85:11)',
+  exception: true,
+  date: 'Thu Nov 20 2025 16:41:45 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1313,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 246022144,
+      heapTotal: 208519168,
+      heapUsed: 84900056,
+      external: 6174891,
+      arrayBuffers: 4524030
+    }
+  },
+  os: {
+    loadavg: [ 2.57177734375, 16.10302734375, 11.6171875 ],
+    uptime: 475
+  },
+  trace: [
+    {
+      column: 11,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/avvio/boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      function: null,
+      line: 38,
+      method: null,
+      native: false
+    },
+    {
+      column: 26,
+      file: 'node:events',
+      function: 'Object.onceWrapper',
+      line: 623,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 85,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-11-20T19:41:45.619Z'
+}
