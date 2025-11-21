@@ -22,8 +22,26 @@ type ContactFindOrCondition = {
 
 export class ContatosRepository {
     async findContatoByWhere(where: Prisma.ContactWhereInput): Promise<Contact | null> {
-        return await prisma.contact.findFirst({ where })
-
+        const contato = await prisma.contact.findFirst({
+            where, include: {
+                empresaAssignments: {
+                    select: {
+                        empresa: {
+                            select:
+                            {
+                                name: true,
+                                id: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        if (!contato) {
+            return null
+        }
+        const contatoTransformado = { ...contato, empresaAssignments: contato.empresaAssignments.map(assignment => assignment.empresa) }
+        return contatoTransformado
     }
     async findAll({ searchParam = "", options }: Request): Promise<Response> {
         const DEFAULT_LIMIT = 40;

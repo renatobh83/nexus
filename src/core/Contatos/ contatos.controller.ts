@@ -101,7 +101,7 @@ export async function ContatoController(
         reply: FastifyReply
     ) => {
         const { contactId } = request.params as any;
-        const { tenantId } = request.user as any;
+        // const { tenantId } = request.user as any;
         const id = parseInt(contactId)
         if(!isNaN){
             return
