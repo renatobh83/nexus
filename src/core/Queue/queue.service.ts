@@ -45,7 +45,7 @@ export class QueueSerice {
     if (queueExists) {
       throw new AppError("QUEUE_ALREADY_EXISTS", 501);
     }
-    console.log(dataForPrisma);
+    
     await this.queueRepository.create(dataForPrisma);
   }
 }

@@ -14,11 +14,7 @@ interface Contato extends Omit<WbotContact, 'id'> {
   id: ContatoId;
 }
 export const verifyContactWbot = async (message: Message, app: AppServices, wbot: Session) => {
-
-
   let msgContact: Contato
-
-  
   try {
     if (message.fromMe) {
       if (!message.mediaData && message.type !== "chat" && message.type !== "vcard")
@@ -39,7 +35,6 @@ export const verifyContactWbot = async (message: Message, app: AppServices, wbot
         msgContact?.shortName ||
         null,
       number: msgContact.id.user.replace("55",""),
-      // tenantId,
       pushname: msgContact.pushname,
       isUser: msgContact.isUser,
       isWAContact: msgContact.isWAContact,
@@ -51,7 +46,7 @@ export const verifyContactWbot = async (message: Message, app: AppServices, wbot
     
     const contact = await app.contatoService.findOrCreate({ serializednumber: msgContact.id._serialized }, contactData)
     if (contact) {
-      await redisClient.set(key, JSON.stringify(contact), "EX",  60);
+      await redisClient.set(key, JSON.stringify(contact), "EX", 5 * 60);
     }
     return contact
   } catch (error) {

@@ -6189,3 +6189,468 @@
   ],
   timestamp: '2025-11-21T12:50:05.535Z'
 }
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/verifycontactTbot.ts:39:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:126:21)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:21:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2025-11-21T14:21:42.315Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/verifycontactTbot.ts:39:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:126:21)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:21:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2025-11-21T14:23:21.382Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/api/helpers/CreateTicketSafe.ts(85,5): error TS1128: Declaration or statement expected.
+  src/api/helpers/CreateTicketSafe.ts(93,2): error TS1005: '}' expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/CreateTicketSafe.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/api/helpers/CreateTicketSafe.ts(85,5): error TS1128: Declaration or statement expected.\n' +
+    "src/api/helpers/CreateTicketSafe.ts(93,2): error TS1005: '}' expected.\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/api/helpers/CreateTicketSafe.ts(85,5): error TS1128: Declaration or statement expected.\n' +
+    "src/api/helpers/CreateTicketSafe.ts(93,2): error TS1005: '}' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/CreateTicketSafe.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/api/helpers/CreateTicketSafe.ts(85,5): error TS1128: Declaration or statement expected.\n' +
+    "src/api/helpers/CreateTicketSafe.ts(93,2): error TS1005: '}' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/CreateTicketSafe.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Fri Nov 21 2025 12:19:09 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 16003,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 136396800,
+      heapTotal: 100876288,
+      heapUsed: 41209328,
+      external: 4082616,
+      arrayBuffers: 326953
+    }
+  },
+  os: {
+    loadavg: [ 1.4501953125, 1.95751953125, 2.14404296875 ],
+    uptime: 71120
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/api/helpers/CreateTicketSafe.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-6173046609835063.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-21T15:19:09.379Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientValidationError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:48:30\n' +
+    '\n' +
+    '  45 }\n' +
+    '  46 //   findAll(): Promise<MinhaEntidade[]>;\n' +
+    '  47  async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '→ 48     return prisma.ticket.create({\n' +
+    '           data: {\n' +
+    '             unreadMessages: 1,\n' +
+    '             groupContact: false,\n' +
+    '             msg: {\n' +
+    '               message_id: 33828,\n' +
+    '               from: {\n' +
+    '                 id: 1015137420,\n' +
+    '                 is_bot: false,\n' +
+    '                 first_name: "Renato",\n' +
+    '                 last_name: "Lucio De Mendonca",\n' +
+    '                 username: "renatotbh83",\n' +
+    '                 language_code: "pt-br"\n' +
+    '               },\n' +
+    '               chat: {\n' +
+    '                 id: 1015137420,\n' +
+    '                 first_name: "Renato",\n' +
+    '                 last_name: "Lucio De Mendonca",\n' +
+    '                 username: "renatotbh83",\n' +
+    '                 type: "private"\n' +
+    '               },\n' +
+    '               date: 1763740850,\n' +
+    '               text: "Teste",\n' +
+    '               timestamp: 1763740850000,\n' +
+    '               fromMe: false\n' +
+    '             },\n' +
+    '             channel: "telegram",\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: 105\n' +
+    '               }\n' +
+    '             },\n' +
+    '             whatsapp: {\n' +
+    '               connect: {\n' +
+    '                 id: 10\n' +
+    '               }\n' +
+    '             },\n' +
+    '         +   empresa: {\n' +
+    '         +     create: EmpresaCreateWithoutTicketsInput | EmpresaUncheckedCreateWithoutTicketsInput,\n' +
+    '         +     connectOrCreate: EmpresaCreateOrConnectWithoutTicketsInput,\n' +
+    '         +     connect: EmpresaWhereUniqueInput\n' +
+    '         +   }\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `empresa` is missing.',
+  level: 'error',
+  timestamp: '2025-11-21T16:00:56.430Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientValidationError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:48:30\n' +
+    '\n' +
+    '  45 }\n' +
+    '  46 //   findAll(): Promise<MinhaEntidade[]>;\n' +
+    '  47  async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '→ 48     return prisma.ticket.create({\n' +
+    '           data: {\n' +
+    '             unreadMessages: 1,\n' +
+    '             groupContact: false,\n' +
+    '             ~~~~~~~~~~~~\n' +
+    '             channel: "telegram",\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: 105\n' +
+    '               }\n' +
+    '             },\n' +
+    '             whatsapp: {\n' +
+    '               connect: {\n' +
+    '                 id: 10\n' +
+    '               }\n' +
+    '             },\n' +
+    '         ?   status?: String,\n' +
+    '         ?   lastMessage?: String | Null,\n' +
+    '         ?   answered?: Boolean,\n' +
+    '         ?   isGroup?: Boolean,\n' +
+    '         ?   associatedCalls?: Boolean,\n' +
+    '         ?   isActiveDemand?: Boolean,\n' +
+    '         ?   isFarewellMessage?: Boolean,\n' +
+    '         ?   sendWelcomeFlow?: Boolean,\n' +
+    '         ?   lastInteractionBot?: DateTime | Null,\n' +
+    '         ?   botRetries?: Int | Null,\n' +
+    '         ?   closedAt?: BigInt | Null,\n' +
+    '         ?   lastMessageAt?: BigInt | Null,\n' +
+    '         ?   startedAttendanceAt?: BigInt | Null,\n' +
+    '         ?   chamadoId?: BigInt | Null,\n' +
+    '         ?   lastAbsenceMessageAt?: DateTime | Null,\n' +
+    '         ?   chatClient?: Boolean | Null,\n' +
+    '         ?   socketId?: String | Null,\n' +
+    '         ?   stepChatFlow?: String | Null,\n' +
+    '         ?   chatFlowStatus?: ChatFlowStatus,\n' +
+    '         ?   apiConfig?: NullableJsonNullValueInput | Json,\n' +
+    '         ?   createdAt?: DateTime,\n' +
+    '         ?   updatedAt?: DateTime,\n' +
+    '         ?   user?: UserCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   chatFlow?: ChatFlowCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   empresa?: EmpresaCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   queue?: QueueCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   chamado?: ChamadoCreateNestedManyWithoutTicketInput,\n' +
+    '         ?   messages?: MessageCreateNestedManyWithoutTicketInput,\n' +
+    '         ?   logTickets?: LogTicketCreateNestedManyWithoutTicketInput\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Unknown argument `groupContact`. Available options are marked with ?.',
+  level: 'error',
+  timestamp: '2025-11-21T16:01:53.878Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): DriverAdapterError: type "public.ChatFlowStatus" does not exist',
+  level: 'error',
+  timestamp: '2025-11-21T16:07:09.216Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientValidationError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:48:30\n' +
+    '\n' +
+    '  45 }\n' +
+    '  46 //   findAll(): Promise<MinhaEntidade[]>;\n' +
+    '  47  async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '→ 48     return prisma.ticket.create({\n' +
+    '           data: {\n' +
+    '             unreadMessages: 1,\n' +
+    '             channel: "telegram",\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: 105\n' +
+    '               }\n' +
+    '             },\n' +
+    '             whatsapp: {\n' +
+    '               connect: {\n' +
+    '                 id: 10\n' +
+    '               }\n' +
+    '             },\n' +
+    '             isGroup: false,\n' +
+    '             ChatFlowStatus: "not_started",\n' +
+    '             ~~~~~~~~~~~~~~\n' +
+    '         ?   status?: String,\n' +
+    '         ?   lastMessage?: String | Null,\n' +
+    '         ?   answered?: Boolean,\n' +
+    '         ?   associatedCalls?: Boolean,\n' +
+    '         ?   isActiveDemand?: Boolean,\n' +
+    '         ?   isFarewellMessage?: Boolean,\n' +
+    '         ?   sendWelcomeFlow?: Boolean,\n' +
+    '         ?   lastInteractionBot?: DateTime | Null,\n' +
+    '         ?   botRetries?: Int | Null,\n' +
+    '         ?   closedAt?: BigInt | Null,\n' +
+    '         ?   lastMessageAt?: BigInt | Null,\n' +
+    '         ?   startedAttendanceAt?: BigInt | Null,\n' +
+    '         ?   chamadoId?: BigInt | Null,\n' +
+    '         ?   lastAbsenceMessageAt?: DateTime | Null,\n' +
+    '         ?   chatClient?: Boolean | Null,\n' +
+    '         ?   socketId?: String | Null,\n' +
+    '         ?   stepChatFlow?: String | Null,\n' +
+    '         ?   chatFlowStatus?: ChatFlowStatus,\n' +
+    '         ?   apiConfig?: NullableJsonNullValueInput | Json,\n' +
+    '         ?   createdAt?: DateTime,\n' +
+    '         ?   updatedAt?: DateTime,\n' +
+    '         ?   user?: UserCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   chatFlow?: ChatFlowCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   empresa?: EmpresaCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   queue?: QueueCreateNestedOneWithoutTicketsInput,\n' +
+    '         ?   chamado?: ChamadoCreateNestedManyWithoutTicketInput,\n' +
+    '         ?   messages?: MessageCreateNestedManyWithoutTicketInput,\n' +
+    '         ?   logTickets?: LogTicketCreateNestedManyWithoutTicketInput\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Unknown argument `ChatFlowStatus`. Did you mean `chatFlowStatus`? Available options are marked with ?.',
+  level: 'error',
+  timestamp: '2025-11-21T16:08:58.563Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): DriverAdapterError: type "public.ChatFlowStatus" does not exist',
+  level: 'error',
+  timestamp: '2025-11-21T16:09:34.113Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:48:30\n' +
+    '\n' +
+    '  45 }\n' +
+    '  46 //   findAll(): Promise<MinhaEntidade[]>;\n' +
+    '  47  async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '→ 48     return prisma.ticket.create(\n' +
+    'Null constraint violation on the (not available)',
+  level: 'error',
+  timestamp: '2025-11-21T16:12:55.530Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:49:30\n' +
+    '\n' +
+    '  46 //   findAll(): Promise<MinhaEntidade[]>;\n' +
+    '  47  async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '  48     \n' +
+    '→ 49     return prisma.ticket.create(\n' +
+    'Null constraint violation on the (not available)',
+  level: 'error',
+  timestamp: '2025-11-21T16:14:16.203Z'
+}
+{
+  message: '[Telegram] Erro durante a criação do ticket (com lock): PrismaClientValidationError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:50:40\n' +
+    '\n' +
+    '  47 async create(data: Prisma.TicketCreateInput): Promise<Ticket>{\n' +
+    '  48    // try {\n' +
+    '  49        \n' +
+    '→ 50        return await prisma.ticket.create({\n' +
+    '              data: {\n' +
+    '                unreadMessages: 1,\n' +
+    '                channel: "telegram",\n' +
+    '                contact: {\n' +
+    '                  connect: {\n' +
+    '                    id: 105\n' +
+    '                  }\n' +
+    '                },\n' +
+    '                whatsapp: {\n' +
+    '                  connect: {\n' +
+    '                    id: 10\n' +
+    '                  }\n' +
+    '                },\n' +
+    '                tenant: {\n' +
+    '                ~~~~~~\n' +
+    '                  connect: {\n' +
+    '                    id: 1\n' +
+    '                  }\n' +
+    '                },\n' +
+    '                isGroup: false,\n' +
+    '                chatFlowStatus: "not_started",\n' +
+    '            ?   status?: String,\n' +
+    '            ?   lastMessage?: String | Null,\n' +
+    '            ?   answered?: Boolean,\n' +
+    '            ?   associatedCalls?: Boolean,\n' +
+    '            ?   isActiveDemand?: Boolean,\n' +
+    '            ?   isFarewellMessage?: Boolean,\n' +
+    '            ?   sendWelcomeFlow?: Boolean,\n' +
+    '            ?   lastInteractionBot?: DateTime | Null,\n' +
+    '            ?   botRetries?: Int | Null,\n' +
+    '            ?   closedAt?: BigInt | Null,\n' +
+    '            ?   lastMessageAt?: BigInt | Null,\n' +
+    '            ?   startedAttendanceAt?: BigInt | Null,\n' +
+    '            ?   chamadoId?: BigInt | Null,\n' +
+    '            ?   lastAbsenceMessageAt?: DateTime | Null,\n' +
+    '            ?   chatClient?: Boolean | Null,\n' +
+    '            ?   socketId?: String | Null,\n' +
+    '            ?   stepChatFlow?: String | Null,\n' +
+    '            ?   apiConfig?: NullableJsonNullValueInput | Json,\n' +
+    '            ?   createdAt?: DateTime,\n' +
+    '            ?   updatedAt?: DateTime,\n' +
+    '            ?   user?: UserCreateNestedOneWithoutTicketsInput,\n' +
+    '            ?   chatFlow?: ChatFlowCreateNestedOneWithoutTicketsInput,\n' +
+    '            ?   empresa?: EmpresaCreateNestedOneWithoutTicketsInput,\n' +
+    '            ?   queue?: QueueCreateNestedOneWithoutTicketsInput,\n' +
+    '            ?   chamado?: ChamadoCreateNestedManyWithoutTicketInput,\n' +
+    '            ?   messages?: MessageCreateNestedManyWithoutTicketInput,\n' +
+    '            ?   logTickets?: LogTicketCreateNestedManyWithoutTicketInput\n' +
+    '              }\n' +
+    '            })\n' +
+    '\n' +
+    'Unknown argument `tenant`. Available options are marked with ?.',
+  level: 'error',
+  timestamp: '2025-11-21T16:19:46.707Z'
+}

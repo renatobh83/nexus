@@ -20,19 +20,15 @@ export const HandleMessageSend = async (
   let authorGrupMessage: any = "";
 
   if (message.isGroupMsg && !message.fromMe) {
-
-
     const numberContato = await wbot.getContactLid(message.author);
-
     const contato = await app.contatoService.findContato({ serializednumber: numberContato })
-
     authorGrupMessage = contato;
   }
+
   const ticket = await findOrCreateTicketSafe({
     contact,
     whatsappId: wbot.id,
-    unreadMessages: chat.unreadCount,
-    tenantId: 1,
+    unreadMessages: message.fromMe ? 0 : chat.unreadCount,
     groupContact: chat.isGroup,
     msg: message,
     channel: "whatsapp",

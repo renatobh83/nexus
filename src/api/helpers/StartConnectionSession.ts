@@ -2,6 +2,7 @@ import { getFastifyApp } from "..";
 import { getIO } from "../../lib/socket";
 import { initTbot } from "../../lib/tbot";
 import { initWbot } from "../../lib/wbot";
+import { tbotMessageListener } from "./Tbot/tbotMessageListener";
 
 export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
   const app = getFastifyApp();
@@ -27,13 +28,9 @@ export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
         action: "update",
         session: whatsapp,
       });
-  
-        const tbot = await initTbot(whatsapp, app.services.whatsappService);
-    // tbotMessageListener(tbot);
-      tbot.on("message", async (ctx) => {
-        console.log(await ctx.getChat())
-      })
-      // StartTbotSession(whatsapp);
+
+      const tbot = await initTbot(whatsapp, app.services.whatsappService);
+      tbotMessageListener(tbot);
     }
   } catch (error) {
     console.log(error);

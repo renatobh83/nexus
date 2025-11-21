@@ -4,7 +4,7 @@ import { Whatsapp } from "@prisma/client";
 import { logger } from "../ultis/logger";
 import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 
-interface Session extends Telegraf {
+export interface Session extends Telegraf {
   id: number;
 }
 

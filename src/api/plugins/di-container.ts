@@ -11,6 +11,7 @@ import { EmpresaService } from "../../core/Empresa/empresa.service";
 import { QueueSerice } from "../../core/Queue/queue.service";
 import { FastReplyService } from "../../core/fastReply/fastReply.service";
 import { ContatoService } from "../../core/Contatos/contatos.service";
+import { TicketService } from "../../core/Tickets/tickets.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -23,6 +24,7 @@ export interface AppServices {
   queueService: QueueSerice;
   fastReplyService: FastReplyService;
   contatoService: ContatoService
+  ticketService: TicketService
   // ... outros serviços
 }
 
@@ -48,6 +50,7 @@ async function diContainerPlugin(
   const queueService = new QueueSerice();
   const fastReplyService = new FastReplyService();
   const contatoService = new ContatoService()
+  const ticketService = new TicketService()
   // 3. Cria o objeto de serviços
   
   const services: AppServices = {
@@ -59,7 +62,8 @@ async function diContainerPlugin(
     empresaService,
     queueService,
     fastReplyService,
-    contatoService
+    contatoService,
+    ticketService
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'
