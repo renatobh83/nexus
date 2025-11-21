@@ -44,14 +44,9 @@ export class TicketRepository {
         })
     }
     //   findAll(): Promise<MinhaEntidade[]>;
-     async create(data: Prisma.TicketCreateInput): Promise<Ticket>{
-        // try {
-            
-            return await prisma.ticket.create({data: data})
-        // } catch (error) {
-        //     console.log(JSON.stringify(error,null, 2))
-        // }
-     }
+    async create(data: Prisma.TicketCreateInput): Promise<Ticket> {
+        return await prisma.ticket.create({ data: data })
+    }
     //   update(id: string, data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
     //   delete(id: string): Promise<void>;
 

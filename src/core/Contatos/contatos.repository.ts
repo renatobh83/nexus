@@ -44,14 +44,30 @@ export class ContatosRepository {
             where: whereCondition,
             take: limit,
             skip: skip,
+            include: {
+                empresaAssignments: {
+                    select: {
+                        empresa: {
+                            select: {
+                                id: true,
+                                name: true
+                            }
+                        }
+                    }
+                }
+            },
             orderBy: {
                 name: "asc",
             },
         })
+        const contatosTransformados = contatos.map(contato => ({
+            ...contato,
+            empresaAssignments: contato.empresaAssignments.map(assignment => assignment.empresa)
+        }));
         const count = await prisma.contact.count();
-        const hasMore = count > skip + contatos.length;
+        const hasMore = count > skip + contatosTransformados.length;
         return {
-            contatos: contatos as any,
+            contatos: contatosTransformados as any,
             count,
             hasMore,
         }
@@ -65,7 +81,7 @@ export class ContatosRepository {
         });
         return contact
     }
-    async updateContato(id: number, data: Partial<Contact>): Promise<Contact> {
+    async updateContato(id: number, data: Prisma.ContactUpdateInput): Promise<Contact> {
         return await prisma.contact.update({
             where: {
                 id: id
@@ -73,10 +89,10 @@ export class ContatosRepository {
             data
         })
     }
-      async delete(id: number): Promise<void>{
-         await prisma.contact.delete({
-            where:{id}
-         })
-      }
+    async delete(id: number): Promise<void> {
+        await prisma.contact.delete({
+            where: { id }
+        })
+    }
 
 }

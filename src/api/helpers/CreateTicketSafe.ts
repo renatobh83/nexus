@@ -14,6 +14,7 @@ export const findOrCreateTicketSafe = async (params: {
   whatsappId: number;
   unreadMessages: number;
   msg: any;
+  tenantId: number
   channel: string;
   groupContact: boolean;
 }): Promise<any> => {
@@ -47,12 +48,10 @@ export const findOrCreateTicketSafe = async (params: {
         );
         return { ticket: existingTicket, isNew: false };
       } 
-      
-
       // Se não existe, cria o novo ticket
       const newTicket = await Ticket.createTicket(params);
-      // logger.info(`[Telegram] Novo ticket ${newTicket.id} criado.`);
-      // return { ticket: newTicket, isNew: true };
+      logger.info(`[Telegram] Novo ticket ${newTicket.id} criado.`);
+      return { ticket: newTicket, isNew: true };
     } catch (error) {
       logger.error(
         `[Telegram] Erro durante a criação do ticket (com lock): ${error}`

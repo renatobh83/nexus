@@ -6,6 +6,7 @@ import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 
 export interface Session extends Telegraf {
   id: number;
+  tenantId: number
 }
 
 let processHandlersRegistered = false;
@@ -20,6 +21,7 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
       const tbot = new Telegraf(connection.tokenTelegram!, {}) as Session;
 
       tbot.id = connection.id;
+      tbot.tenantId = connection.tenantId
       tbot.catch((err: any, ctx: any) => {
         logger.error(
           `Erro no bot ${sessionName} | ctx: ${ctx?.updateType} | err: ${err}`

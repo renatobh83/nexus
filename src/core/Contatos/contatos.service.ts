@@ -1,5 +1,6 @@
 import { Contact, Prisma } from "@prisma/client";
 import { ContatosRepository } from "./contatos.repository";
+import { PaginationOptions } from "../users/users.repository";
 
 export class ContatoService{
     private contatosRepository: ContatosRepository
@@ -7,8 +8,12 @@ export class ContatoService{
     constructor(){
         this.contatosRepository = new ContatosRepository()
     }
-    async ListarContatos(){
-        return await this.contatosRepository.findAll({})
+    async ListarContatos(searchParam= "", options?: PaginationOptions){
+        
+        return await this.contatosRepository.findAll({
+            searchParam,
+            options
+        })
     }
     async findOrCreate(where: any, data:Prisma.ContactCreateInput): Promise<Contact>{
 
@@ -20,4 +25,8 @@ export class ContatoService{
     async findContato(where: Prisma.ContactWhereInput){
         return await this.contatosRepository.findContatoByWhere(where)
     }
+    async updateContato(id: number, data: Prisma.EmpresaContratoUpdateInput): Promise<Contact>{
+        return await this.contatosRepository.updateContato(id, data)
+    }
+
 }

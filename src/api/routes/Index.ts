@@ -7,6 +7,7 @@ import { loadInicialController } from "../../core/LoadInicial/loadInicial.contro
 import { empresaController } from "../../core/Empresa/empresa.controller";
 import { queueController } from "../../core/Queue/queue.controller";
 import { fastReplyController } from "../../core/fastReply/fastReply.controller";
+import { ContatoController } from "../../core/Contatos/ contatos.controller";
 
 // Importe seus controllers
 
@@ -25,6 +26,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
   // O prefixo final será: /api/v1/whatsapp
 
   fastify.register(authController, { prefix: "/auth" });
+  fastify.register(ContatoController, {prefix: "/contact"})
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });

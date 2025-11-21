@@ -6,6 +6,7 @@ import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 
 interface Session extends Telegraf {
   id: number;
+  tenantId: number
 }
 
 // // Constantes para chaves Redis e TTLs
@@ -128,16 +129,22 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
     const messageData = { ...message, timestamp: +message.date * 1000 };
 
 
- const ticket = await findOrCreateTicketSafe({
-    contact,
-    whatsappId: tbot.id,
-    unreadMessages: fromMe ? 0 : 1,
-    groupContact: false,
-     msg: { ...messageData, fromMe },
-    channel: "telegram",
-  })
+    const ticket = await findOrCreateTicketSafe({
+      contact,
+      whatsappId: tbot.id,
+      unreadMessages: fromMe ? 0 : 1,
+      groupContact: false,
+      tenantId: tbot.tenantId,
+      msg: { ...messageData, fromMe },
+      channel: "telegram",
+    })
+    if (ticket.isFarewellMessage) return;
 
-
+    if (!messageData.text && chat?.id) {
+      // await VerifyMediaMessage(ctx, fromMe, ticket, contact);
+    } else {
+      // await VerifyMessage(ctx, fromMe, ticket, contact);
+    }
   } catch (error) {
     logger.error("Erro fatal no HandleMessage:", error);
   }
