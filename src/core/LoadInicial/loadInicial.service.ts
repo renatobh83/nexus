@@ -9,6 +9,7 @@ export class LoadInicialService {
     const settigns = await app.settingsService.findAllSettings();
     const usuarios = await app.userService.findAllUsers();
     const queues = await app.queueService.findAllQueue();
+    const contatos = await app.contatoService.ListarContatos()
     const empresas = await app.empresaService.finalAllCompany({
       empresaContacts: {
         select: {
@@ -25,7 +26,7 @@ export class LoadInicialService {
 
 
 
-const data = { queues, settigns, channels, empresas, usuarios };
+const data = { queues, settigns, channels, empresas, usuarios, contatos };
 const encryptedData = encrypt(JSON.stringify(data));
 
 return { payload: encryptedData }; 
