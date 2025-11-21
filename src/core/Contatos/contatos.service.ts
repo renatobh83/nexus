@@ -2,6 +2,12 @@ import { Contact, Prisma } from "@prisma/client";
 import { ContatosRepository } from "./contatos.repository";
 import { PaginationOptions } from "../users/users.repository";
 
+type ContactFindWhere = {
+    email?: string;
+    serializednumber?: string;
+    telegramId?: number;
+};
+
 export class ContatoService{
     private contatosRepository: ContatosRepository
 
@@ -15,7 +21,7 @@ export class ContatoService{
             options
         })
     }
-    async findOrCreate(where: any, data:Prisma.ContactCreateInput): Promise<Contact>{
+    async findOrCreate( where: ContactFindWhere, data:Prisma.ContactCreateInput): Promise<Contact>{
 
         const contact = await this.contatosRepository.findOrCreateContact(data, where)
 

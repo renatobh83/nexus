@@ -12,6 +12,12 @@ interface Response {
     count: number;
     hasMore: boolean;
 }
+// Defina um tipo para os argumentos de busca OR
+type ContactFindOrCondition = {
+    email?: string;
+    serializednumber?: string;
+    telegramId?: number;
+};
 
 
 export class ContatosRepository {
@@ -73,13 +79,32 @@ export class ContatosRepository {
         }
     }
     async findOrCreateContact(data: Prisma.ContactCreateInput,
-        whereUnique: Prisma.ContactWhereUniqueInput): Promise<Contact> {
-        const contact = await prisma.contact.upsert({
-            where: whereUnique,
-            update: {}, // Não faz nada se encontrar (apenas retorna o existente)
-            create: data, // Cria com os dados fornecidos se não encontrar
+        whereOr: ContactFindOrCondition): Promise<Contact> {
+        const contact = await prisma.contact.findFirst({
+            where: {
+                OR: [
+                    // Filtra apenas as condições que têm valor
+                    ...(whereOr.email ? [{ email: whereOr.email }] : []),
+                    ...(whereOr.serializednumber ? [{ serializednumber: whereOr.serializednumber }] : []),
+                    ...(whereOr.telegramId ? [{ telegramId: whereOr.telegramId }] : []),
+                ],
+            },
         });
-        return contact
+        if (contact) {
+            // Opcional: Se você quiser atualizar o contato encontrado com os novos dados,
+            // você faria um update aqui. Se não, apenas retorne.
+            return contact;
+        }
+        const newContact = await prisma.contact.create({
+            data: data,
+        });
+        return newContact;
+        // const contact = await prisma.contact.upsert({
+        //     where: whereUnique,
+        //     update: {}, // Não faz nada se encontrar (apenas retorna o existente)
+        //     create: data, // Cria com os dados fornecidos se não encontrar
+        // });
+        // return contact
     }
     async updateContato(id: number, data: Prisma.ContactUpdateInput): Promise<Contact> {
         return await prisma.contact.update({
