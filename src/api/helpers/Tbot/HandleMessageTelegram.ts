@@ -1,13 +1,9 @@
-import { Telegraf } from "telegraf";
 import { logger } from "../../../ultis/logger";
 import { verifyContactTbot } from "./verifycontactTbot";
 import { getFastifyApp } from "../..";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
+import { Session } from "../../../lib/tbot";
 
-interface Session extends Telegraf {
-  id: number;
-  tenantId: number
-}
 
 // // Constantes para chaves Redis e TTLs
 // const REDIS_KEYS = {
@@ -95,6 +91,7 @@ interface Session extends Telegraf {
 // ========================================================================
 
 const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
+  
   const app = getFastifyApp().services
   try {
     // const channel = await getCachedChannel(tbot.id);

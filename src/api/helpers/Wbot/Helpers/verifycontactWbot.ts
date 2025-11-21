@@ -1,11 +1,10 @@
 import { Contact as WbotContact, Message } from "wbotconnect";
 
-
-import { Session } from "../wbotMessageListener";
 import { AppServices } from "../../../plugins/di-container";
 import { AppError } from "../../../../errors/errors.helper";
 import { REDIS_KEYS } from "../../../../ultis/redisCache";
 import { redisClient } from "../../../../lib/redis";
+import { Session } from "../../../../lib/wbot";
 interface ContatoId {
   user: string;
   _serialized: string;

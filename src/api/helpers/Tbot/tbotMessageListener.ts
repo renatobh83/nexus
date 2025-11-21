@@ -1,11 +1,9 @@
 import { Telegraf } from "telegraf";
 import { logger } from "../../../ultis/logger";
 import HandleMessageTelegram from "./HandleMessageTelegram";
+import { Session } from "../../../lib/tbot";
 
 
-interface Session extends Telegraf {
-  id: number;
-}
 function escapeMarkdownV2(text: string) {
   return String(text ?? "")
     .replace(/\\/g, "\\\\") // 1) escapa backslashes primeiro

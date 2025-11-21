@@ -1,10 +1,10 @@
 import { Chat, Message } from "wbotconnect";
-import { Session } from "./wbotMessageListener";
 import { Contact } from "@prisma/client";
 import { getFastifyApp } from "../..";
 import { verifyContactWbot } from "./Helpers/verifycontactWbot";
 import { REDIS_KEYS } from "../../../ultis/redisCache";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
+import { Session } from "../../../lib/wbot";
 
 
 
@@ -30,6 +30,7 @@ export const HandleMessageSend = async (
     whatsappId: wbot.id,
     unreadMessages: message.fromMe ? 0 : chat.unreadCount,
     groupContact: chat.isGroup,
+    tenantId: wbot.tenantId,
     msg: message,
     channel: "whatsapp",
   })

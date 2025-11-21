@@ -2,10 +2,9 @@
 import { IncomingCall, Message, Whatsapp } from "wbotconnect";
 import { HandleMessageSend } from "./HandleWbotMessager";
 import { isValidMsg } from "./Helpers/isValidMsg";
+import { Session } from "../../../lib/wbot";
 
-export interface Session extends Whatsapp {
-    id: number;
-}
+
 export interface MessageReaction {
     id: string;
     msgId: string;
