@@ -405,6 +405,7 @@ export class WhatsappService {
         phone: phoneInfo,
         session: sessionName,
         pairingCode: "",
+        
       }
     );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);

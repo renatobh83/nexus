@@ -11,6 +11,7 @@ export interface Session extends Telegraf {
 
 let processHandlersRegistered = false;
 const TelegramSessions: Session[] = [];
+let TbotappSession: any;
 
 export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappService): Promise<Session> => {
   return new Promise(async (resolve, reject) => {
@@ -19,7 +20,7 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
       const sessionName = connection.name;
       const { tenantId } = connection;
       const tbot = new Telegraf(connection.tokenTelegram!, {}) as Session;
-
+      TbotappSession = connection
       tbot.id = connection.id;
       tbot.tenantId = connection.tenantId
       tbot.catch((err: any, ctx: any) => {
@@ -43,12 +44,7 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
           "shipping_query",
         ],
       });
-      //    await whatsappService.handleConnected(
-      //   connection.id,
-      //   connection.tenantId,
-      //   profileSession,
-      //   whatsappSession.name
-      // );
+
       // await connection.update({
       //   status: "CONNECTED",
       //   qrcode: "",
@@ -59,6 +55,12 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
       //   action: "update",
       //   session: connection,
       // });
+      whatsappService.handleConnected(
+        TbotappSession.id,
+        TbotappSession.tenantId,
+        TbotappSession,
+        TbotappSession.name
+      );
 
       logger.info(`Session TELEGRAM: ${sessionName} - READY `);
 
@@ -68,7 +70,10 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
       // se falhar ao lançar, remover a sessão guardada (cleanup)
       const idx = TelegramSessions.findIndex((s) => s.id === connection.id);
       if (idx !== -1) TelegramSessions.splice(idx, 1);
-
+      whatsappService.handleDisconnected(
+        TbotappSession.id,
+        TbotappSession.name
+      )
       // await connection.update({
       //   status: "DISCONNECTED",
       //   qrcode: "",
