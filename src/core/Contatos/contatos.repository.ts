@@ -15,7 +15,7 @@ interface Response {
 
 
 export class ContatosRepository {
-    async findContatoByWhere(data: Prisma.ContactCreateInput, where: Prisma.ContactWhereInput): Promise<Contact | null> {
+    async findContatoByWhere(where: Prisma.ContactWhereInput): Promise<Contact | null> {
         return await prisma.contact.findFirst({ where })
 
     }

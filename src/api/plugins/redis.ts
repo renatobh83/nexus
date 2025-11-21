@@ -31,13 +31,7 @@ export const redisPlugin = fp(async (fastify: FastifyInstance) => {
     // Se já estiver pronto, registramos o BullMQ imediatamente.
     fastify.log.info("Redis já está pronto. Registrando BullMQ.");
     fastify.register(registerBullMQ);
-  } else {
-    // Se ainda não estiver pronto (improvável, mas seguro), esperamos pelo evento 'ready'.
-    redisClient.once("ready", () => {
-      fastify.log.info("Redis ficou pronto. Registrando BullMQ.");
-      //fastify.register(registerBullMQ);
-    });
-  }
+  } 
   // Decora a instância do Fastify para que o cliente seja acessível em outros lugares.
   fastify.decorate("redis", redisClient);
 

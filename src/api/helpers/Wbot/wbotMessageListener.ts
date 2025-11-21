@@ -20,10 +20,6 @@ export const wbotMessageListener = async (wbot: Session): Promise<void> => {
         if(!isValidMsg(msg)) return
         await HandleMessageSend(msg,wbot)
 
-
-
-
-
     })
     wbot.onIncomingCall(async (call: IncomingCall) => {
 

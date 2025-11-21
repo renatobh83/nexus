@@ -27,12 +27,12 @@ export const StartConnectionSession = async (whatsapp: any): Promise<void> => {
         action: "update",
         session: whatsapp,
       });
-      console.log("tele")
-        // const tbot = await initTbot(whatsapp, app.services.whatsappService);
+  
+        const tbot = await initTbot(whatsapp, app.services.whatsappService);
     // tbotMessageListener(tbot);
-      // tbot.on("message", async (ctx) => {
-      //   console.log(ctx)
-      // })
+      tbot.on("message", async (ctx) => {
+        console.log(await ctx.getChat())
+      })
       // StartTbotSession(whatsapp);
     }
   } catch (error) {

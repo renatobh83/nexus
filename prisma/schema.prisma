@@ -10,6 +10,7 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
+  
 }
 
 enum ChatFlowStatus {
@@ -318,13 +319,13 @@ model Contact {
   id               Int       @id @default(autoincrement())
   name             String
   number           String?
-  email            String?
+  email            String?   @unique
   profilePicUrl    String?
   pushname         String?
-  telegramId       BigInt?
+  telegramId       BigInt?   @unique
   dtaniversario    DateTime? // Data de aniversário
   identifier       String?
-  serializednumber String?   @default("")
+  serializednumber String?   @default("") @unique
   isUser           Boolean   @default(false)
   isWAContact      Boolean   @default(false)
   isGroup          Boolean   @default(false)

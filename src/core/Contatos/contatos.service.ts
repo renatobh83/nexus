@@ -17,47 +17,7 @@ export class ContatoService{
         return contact
 
     }
+    async findContato(where: Prisma.ContactWhereInput){
+        return await this.contatosRepository.findContatoByWhere(where)
+    }
 }
-
-//   const contactData: any = {
-//     name:
-//       contactChat?.name ||
-//       contactChat?.pushname ||
-//       contactChat?.shortName ||
-//       null,
-//     number: chat.id.user.replace("55",""),
-//     tenantId,
-//     pushname: contactChat?.pushname,
-//     isUser: contactChat?.isUser,
-//     isWAContact: contactChat?.isWAContact,
-//     isGroup: !contactChat?.isUser,
-//     profilePicUrl: contactChat?.profilePicThumbObj.eurl,
-//     serializednumber: chat.id._serialized
-    
-//   };
-// sender: {
-//     id: '553184251692@c.us',
-//     name: 'Renato Serviço',
-//     shortName: 'Renato Serviço',
-//     pushname: 'Renato Expert',
-//     type: 'in',
-//     verifiedName: 'Renato Expert',
-//     isBusiness: true,
-//     isEnterprise: false,
-//     isSmb: true,
-//     verifiedLevel: 0,
-//     privacyMode: null,
-//     statusMute: false,
-//     labels: [],
-//     isContactSyncCompleted: 1,
-//     textStatusLastUpdateTime: -1,
-//     syncToAddressbook: true,
-//     formattedName: 'You',
-//     isMe: true,
-//     isMyContact: true,
-//     isPSA: false,
-//     isUser: true,
-//     isWAContact: true,
-//     profilePicThumbObj: null,
-//     msgs: null
-//   },

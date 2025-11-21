@@ -19,8 +19,8 @@ export const REDIS_KEYS = {
     `cache:contact:${channelId}:${contato}`,
 
 
-  // ticketLock: (whatsappId: number, contactId: number) =>
-  //   `lock:wpp:ticket:${whatsappId}:${contactId}`,
+  ticketLock: (whatsappId: number, contactId: number) =>
+    `lock:wpp:ticket:${whatsappId}:${contactId}`,
   // settingIgnoreGroup: (tenantId: number | string) =>
   //   `cache:wpp:setting:ignoreGroup:${tenantId}`,
 };
