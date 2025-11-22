@@ -60,7 +60,6 @@ export class ContatoService {
         return await this.contatosRepository.findContatoByWhere(where)
     }
     async updateContato(id: number, data: Prisma.ContactCreateInput): Promise<Contact> {
-        const wppConnect = await this.whatsappRepository.findFirst({ type: "whatsapp", status: "CONNECTED" })
         
         if ("empresas" in data ) {
             delete data.empresas
@@ -71,7 +70,8 @@ export class ContatoService {
         if (!data.dtaniversario) {
             delete data.dtaniversario
         }
-
+        
+        const wppConnect = await this.whatsappRepository.findFirst({ type: "whatsapp", status: "CONNECTED" })
         if (wppConnect) {
             const wbot = getWbot(wppConnect.id)
             try {

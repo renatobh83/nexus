@@ -103,26 +103,26 @@ export async function ContatoController(
         const { contactId } = request.params as any;
         // const { tenantId } = request.user as any;
         const id = parseInt(contactId)
-        if(!isNaN){
+        if (!isNaN) {
             return
         }
         try {
-            const contato = await conatoService.findContato({id: id})
+            const contato = await conatoService.findContato({ id: id })
             // const contato = await ShowContactService({ id: contactId, tenantId });
             return reply.code(200).send(contato);
         } catch (error) {
-            
+
             return handleServerError(reply, error);
         }
     });
-    fastify.delete("/:contactId",async (
+    fastify.delete("/:contactId", async (
         request: FastifyRequest,
         reply: FastifyReply
     ) => {
         const { contactId } = request.params as any;
         // const { tenantId } = request.user as any;
         const id = parseInt(contactId)
-        if(!isNaN){
+        if (!isNaN) {
             return
         }
         try {
@@ -130,30 +130,30 @@ export async function ContatoController(
             // const contato = await ShowContactService({ id: contactId, tenantId });
             return reply.code(200).send("Contato Deletado");
         } catch (error) {
-            
+
             return handleServerError(reply, error);
         }
     })
     fastify.put("/:contactId", async (
-  request: FastifyRequest<{ Body: ContactData }>,
-  reply: FastifyReply
-) => {
-  const { contactId } = request.params as any;
-//   const { tenantId } = request.user as any;
-  const newContato = request.body;
+        request: FastifyRequest<{ Body: ContactData }>,
+        reply: FastifyReply
+    ) => {
+        const { contactId } = request.params as any;
 
-  newContato.number = newContato.number?.toString();
-  try {
-      const id = parseInt(contactId)
-        if(!isNaN){
-            return
+        const newContato = request.body;
+
+        newContato.number = newContato.number?.toString();
+        try {
+            const id = parseInt(contactId)
+            if (!isNaN) {
+                return
+            }
+            const contact = await conatoService.updateContato(id, newContato)
+            return reply.code(200).send(contact);
+        } catch (error) {
+
+            return handleServerError(reply, error);
         }
-    const contact = await conatoService.updateContato(id,newContato )
-    return reply.code(200).send(contact);
-  } catch (error) {
-    
-    return handleServerError(reply, error);
-  }
-})
+    })
 
 }

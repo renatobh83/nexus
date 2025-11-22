@@ -14,19 +14,7 @@ export async function empresaController(
   const empresaService = fastify.services.empresaService;
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      const empresas = await empresaService.finalAllCompany({
-        empresaContacts: {
-          select: {
-            contact: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-        contratos: true,
-      });
+      const empresas = await empresaService.finalAllCompany();
 
       return reply.code(200).send(empresas);
     } catch (error) {

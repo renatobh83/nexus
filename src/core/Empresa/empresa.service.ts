@@ -1,4 +1,4 @@
-import { EmpresaContrato, Prisma } from "@prisma/client";
+import { Empresa, EmpresaContrato, Prisma } from "@prisma/client";
 import { ContratoServiceProps, EmpresaRepository } from "./emrpesa.repository";
 import { AppError } from "../../errors/errors.helper";
 
@@ -9,8 +9,8 @@ export class EmpresaService {
     this.empresaRepository = new EmpresaRepository();
   }
 
-  async finalAllCompany(include?: Prisma.EmpresaInclude) {
-    const companies = await this.empresaRepository.findAll(include);
+  async finalAllCompany():Promise<Empresa[]> {
+    const companies = await this.empresaRepository.findAll();
     return companies;
   }
   async findyCompanyByid(where: Prisma.EmpresaWhereInput) {

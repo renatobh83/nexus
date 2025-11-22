@@ -17,8 +17,33 @@ export class EmpresaRepository {
   async findById(where: Prisma.EmpresaWhereInput): Promise<Empresa | null> {
     return prisma.empresa.findFirst({ where });
   }
-  async findAll(include?: Prisma.EmpresaInclude): Promise<Empresa[]> {
-    return prisma.empresa.findMany({ include });
+  async findAll(): Promise<Empresa[]> {
+    const empresas = await prisma.empresa.findMany({
+      include: {
+        empresaContacts: {
+          select: {
+            contact: {
+              select: {
+                id: true,
+                name: true,
+                number: true,
+                email: true,
+                profilePicUrl: true,
+              },
+            },
+          },
+        },
+        contratos: true,
+      }
+    });
+  
+    const empresaTransformado = empresas.map(empresa => {
+      const {empresaContacts, ...restData} = empresa
+      return{
+      ...restData,
+      contacts: empresa.empresaContacts.map(assignment => assignment.contact)
+    }})
+    return empresaTransformado
   }
   async create(data: Prisma.EmpresaCreateInput): Promise<Empresa> {
     const { tenant, ...restData } = data;
@@ -41,7 +66,7 @@ export class EmpresaRepository {
     id: string,
     data: Partial<Prisma.EmpresaUpdateInput>
   ): Promise<Empresa> {
-    return prisma.empresa.update({
+    const empresa = prisma.empresa.update({
       where: { id: parseInt(id) },
       data,
       include: {
@@ -51,12 +76,19 @@ export class EmpresaRepository {
               select: {
                 id: true,
                 name: true,
+                number: true,
+                email: true,
+                profilePicUrl: true,
               },
             },
           },
         },
       },
     });
+
+
+
+    return empresa
   }
 
   async delete(id: string): Promise<void> {
@@ -95,7 +127,7 @@ export class EmpresaRepository {
     });
   }
   async findContatoByEmpresa(empresaId: number) {
-    return prisma.empresa.findFirst({
+    const empresa = await prisma.empresa.findFirst({
       where: {
         id: empresaId,
       },
@@ -116,6 +148,12 @@ export class EmpresaRepository {
         },
       },
     });
+    if(!empresa) return null
+    const {empresaContacts, ...restData} = empresa
+    const empresaTransformado = empresa.empresaContacts.map(assignment => assignment.contact) 
+
+    return empresaTransformado
+
   }
   async updateContatoEmpresa(empresaId: number, contatoId: []) {
     // 1. Cria as operações de criação (create) para cada contactId
@@ -143,8 +181,7 @@ export class EmpresaRepository {
     // 4. Retorna a empresa com os novos contatos incluídos (opcional)
     const empresaAtualizada = await prisma.empresa.findUniqueOrThrow({
       where: { id: empresaId },
-      select: {
-        name: true,
+      include: {
         empresaContacts: {
           select: {
             contact: {
@@ -160,7 +197,10 @@ export class EmpresaRepository {
         },
       },
     });
+const {empresaContacts, ...restData} = empresaAtualizada
+    const empresaTransformado = { ...restData, contacts: empresaAtualizada.empresaContacts.map(assignment => assignment.contact) }
 
-    return empresaAtualizada;
+    return empresaTransformado
+
   }
 }
