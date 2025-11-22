@@ -14,10 +14,18 @@ export interface MessageReaction {
     orphanReason: any;
     timestamp: number;
 }
+let isSyncing = true;
+setTimeout(() => {
+    isSyncing = false;
+}, 5000);
 export const wbotMessageListener = async (wbot: Session): Promise<void> => {
     wbot.onAnyMessage(async (msg: Message) => {
-        if(!isValidMsg(msg)) return
-        await HandleMessageSend(msg,wbot)
+        if (isSyncing) {
+            return;
+        }
+
+        if (!isValidMsg(msg)) return
+        await HandleMessageSend(msg, wbot)
 
     })
     wbot.onIncomingCall(async (call: IncomingCall) => {
