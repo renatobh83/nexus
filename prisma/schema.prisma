@@ -137,7 +137,7 @@ model Message {
   read           Boolean         @default(false)
   fromMe         Boolean         @default(false)
   body           String          @db.Text // Corpo da mensagem, será armazenado criptografado
-  mediaName      String?
+  // mediaName      String?
   mediaUrl       String? // Armazena apenas o nome do arquivo, a URL completa é montada no serviço
   mediaType      String?
   reaction       String?
@@ -156,8 +156,8 @@ model Message {
   // --- Relações e Chaves Estrangeiras ---
 
   // Relação com Ticket: Uma mensagem pertence a um Ticket.
-  ticket   Ticket? @relation(fields: [ticketId], references: [id])
-  ticketId Int?
+  ticket   Ticket? @relation(fields: [ticketid], references: [id])
+  ticketid Int?
 
   // Relação com Contact: Uma mensagem é de/para um Contact.
   contact   Contact? @relation(fields: [contactId], references: [id])

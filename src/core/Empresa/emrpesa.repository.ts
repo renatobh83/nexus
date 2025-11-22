@@ -15,7 +15,29 @@ type ContratoUpdateData = Pick<ContratoServiceProps, "totalHoras">;
 
 export class EmpresaRepository {
   async findById(where: Prisma.EmpresaWhereInput): Promise<Empresa | null> {
-    return prisma.empresa.findFirst({ where });
+    const empresa = await prisma.empresa.findFirst({
+      where, include: {
+        empresaContacts: {
+          select: {
+            contact: {
+              select: {
+                id: true,
+                name: true,
+                number: true,
+                email: true,
+                profilePicUrl: true,
+              },
+            },
+          },
+        },
+        contratos: true,
+      }
+    });
+    if (!empresa) return null
+    const { empresaContacts, ...restData } = empresa
+    const empresaTransformado = {...restData, contacts: empresa.empresaContacts.map(assignment => assignment.contact)}
+
+    return empresaTransformado
   }
   async findAll(): Promise<Empresa[]> {
     const empresas = await prisma.empresa.findMany({
@@ -36,13 +58,14 @@ export class EmpresaRepository {
         contratos: true,
       }
     });
-  
+
     const empresaTransformado = empresas.map(empresa => {
-      const {empresaContacts, ...restData} = empresa
-      return{
-      ...restData,
-      contacts: empresa.empresaContacts.map(assignment => assignment.contact)
-    }})
+      const { empresaContacts, ...restData } = empresa
+      return {
+        ...restData,
+        contacts: empresa.empresaContacts.map(assignment => assignment.contact)
+      }
+    })
     return empresaTransformado
   }
   async create(data: Prisma.EmpresaCreateInput): Promise<Empresa> {
@@ -148,14 +171,14 @@ export class EmpresaRepository {
         },
       },
     });
-    if(!empresa) return null
-    const {empresaContacts, ...restData} = empresa
-    const empresaTransformado = empresa.empresaContacts.map(assignment => assignment.contact) 
+    if (!empresa) return null
+    const { empresaContacts, ...restData } = empresa
+    const empresaTransformado = empresa.empresaContacts.map(assignment => assignment.contact)
 
     return empresaTransformado
 
   }
-  async updateContatoEmpresa(empresaId: number, contatoId: []) {
+  async updateContatoEmpresa(empresaId: number, contatoId: number[]): Promise<Empresa> {
     // 1. Cria as operações de criação (create) para cada contactId
     const createOperations = contatoId.map((contactId) =>
       prisma.empresaContact.create({
@@ -197,7 +220,7 @@ export class EmpresaRepository {
         },
       },
     });
-const {empresaContacts, ...restData} = empresaAtualizada
+    const { empresaContacts, ...restData } = empresaAtualizada
     const empresaTransformado = { ...restData, contacts: empresaAtualizada.empresaContacts.map(assignment => assignment.contact) }
 
     return empresaTransformado

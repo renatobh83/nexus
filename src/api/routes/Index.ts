@@ -8,6 +8,7 @@ import { empresaController } from "../../core/Empresa/empresa.controller";
 import { queueController } from "../../core/Queue/queue.controller";
 import { fastReplyController } from "../../core/fastReply/fastReply.controller";
 import { ContatoController } from "../../core/Contatos/ contatos.controller";
+import { ticketController } from "../../core/Tickets/tickets.controller";
 
 // Importe seus controllers
 
@@ -26,7 +27,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
   // O prefixo final será: /api/v1/whatsapp
 
   fastify.register(authController, { prefix: "/auth" });
-  fastify.register(ContatoController, {prefix: "/contacts"})
+  
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });
@@ -45,6 +46,8 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(empresaController, { prefix: "/empresas" });
     privateScope.register(queueController, { prefix: "/queue" });
     privateScope.register(fastReplyController, { prefix: "/fastreply" });
+    privateScope.register(ContatoController, {prefix: "/contacts"})
+    privateScope.register(ticketController, {prefix: "/tickets"})
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
     // privateScope.register(userController, { prefix: "/users" });

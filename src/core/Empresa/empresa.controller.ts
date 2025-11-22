@@ -249,4 +249,51 @@ export async function empresaController(
       }
     }
   );
+  fastify.delete(
+    "/:empresaId/contacts/:contactId",
+    async (
+      request: FastifyRequest,
+      reply: FastifyReply
+    ) => {
+      const { empresaId, contactId } = request.params as {
+        empresaId: string;
+        contactId: string;
+      };
+      try {
+        const idEmpresa = parseInt(empresaId)
+        const idContato = parseInt(contactId)
+        const empresa = await empresaService.removeContatoEmpresa(idEmpresa, idContato)
+        return reply
+          .code(200)
+          .send({ message: empresa });
+      } catch (error) {
+
+        return handleServerError(reply, error);
+      }
+    }
+  );
+
+  fastify.delete(
+    "/:empresaId/deleteall/contacts",
+    async (
+      request: FastifyRequest,
+      reply: FastifyReply
+    ) => {
+      const { empresaId, contactId } = request.params as {
+        empresaId: string;
+        contactId: string;
+      };
+      try {
+        const idEmpresa = parseInt(empresaId)
+        const empresa = await empresaService.removeAllConato(idEmpresa)
+        return reply
+          .code(200)
+          .send({ message: empresa });
+      } catch (error) {
+
+        return handleServerError(reply, error);
+      }
+    }
+
+  );
 }

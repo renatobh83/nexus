@@ -7610,3 +7610,22 @@
   ],
   timestamp: '2025-11-22T00:15:27.665Z'
 }
+{
+  message: 'Unhandled Rejection: PrismaClientValidationError: \n' +
+    'Invalid `prisma.empresa.findFirst()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Empresa/emrpesa.repository.ts:18:27\n' +
+    '\n' +
+    '  15 \n' +
+    '  16 export class EmpresaRepository {\n' +
+    '  17   async findById(where: Prisma.EmpresaWhereInput): Promise<Empresa | null> {\n' +
+    '→ 18     return prisma.empresa.findFirst({\n' +
+    '           where: {\n' +
+    '             id: "13"\n' +
+    '                 ~~~~\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected IntFilter or Int, provided String.',
+  level: 'error',
+  timestamp: '2025-11-22T20:03:41.713Z'
+}

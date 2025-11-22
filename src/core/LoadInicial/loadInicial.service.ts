@@ -6,7 +6,7 @@ export class LoadInicialService {
   async loadInicial(fastify: FastifyInstance) {
     const app = fastify.services;
     const channels = await app.whatsappService.findAll();
-    const settigns = await app.settingsService.findAllSettings();
+    const settings = await app.settingsService.findAllSettings();
     const usuarios = await app.userService.findAllUsers();
     const queues = await app.queueService.findAllQueue();
     const contatos = await app.contatoService.ListarContatos()
@@ -14,7 +14,7 @@ export class LoadInicialService {
 
 
 
-const data = { queues, settigns, channels, empresas, usuarios, contatos };
+const data = { queues, settings, channels, empresas, usuarios, contatos };
 const encryptedData = encrypt(JSON.stringify(data));
 
 return { payload: encryptedData }; 
