@@ -115,5 +115,45 @@ export async function ContatoController(
             return handleServerError(reply, error);
         }
     });
+    fastify.delete("/:contactId",async (
+        request: FastifyRequest,
+        reply: FastifyReply
+    ) => {
+        const { contactId } = request.params as any;
+        // const { tenantId } = request.user as any;
+        const id = parseInt(contactId)
+        if(!isNaN){
+            return
+        }
+        try {
+            const contato = await conatoService.deleteContato(id)
+            // const contato = await ShowContactService({ id: contactId, tenantId });
+            return reply.code(200).send("Contato Deletado");
+        } catch (error) {
+            
+            return handleServerError(reply, error);
+        }
+    })
+    fastify.put("/:contactId", async (
+  request: FastifyRequest<{ Body: ContactData }>,
+  reply: FastifyReply
+) => {
+  const { contactId } = request.params as any;
+//   const { tenantId } = request.user as any;
+  const newContato = request.body;
+
+  newContato.number = newContato.number?.toString();
+  try {
+      const id = parseInt(contactId)
+        if(!isNaN){
+            return
+        }
+    const contact = await conatoService.updateContato(id,newContato )
+    return reply.code(200).send(contact);
+  } catch (error) {
+    
+    return handleServerError(reply, error);
+  }
+})
 
 }

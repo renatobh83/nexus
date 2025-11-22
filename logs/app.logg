@@ -6804,3 +6804,809 @@
   ],
   timestamp: '2025-11-21T17:13:55.192Z'
 }
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:51.587Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:51.903Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.081Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.202Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.204Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.420Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.422Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.538Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:52.725Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:53.688Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:53.690Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:53.808Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.018Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.322Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.324Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.326Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.631Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.634Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.844Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.858Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:54.859Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.155Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.157Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.159Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.383Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.590Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.592Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.682Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:55.893Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:56.112Z'
+}
+{
+  message: '[Telegram] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-11-21T23:25:56.114Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/verifycontactTbot.ts:39:11)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:125:21)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/p-timeout/index.js:50:13',
+  timestamp: '2025-11-21T23:29:17.710Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/verifycontactTbot.ts:39:11)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:125:21)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/p-timeout/index.js:50:13',
+  timestamp: '2025-11-21T23:30:46.109Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/verifycontactTbot.ts:39:11)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:125:21)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/p-timeout/index.js:50:13',
+  timestamp: '2025-11-21T23:37:20.112Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Contatos/ contatos.controller.ts(136,8): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/ contatos.controller.ts(136,8): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/ contatos.controller.ts(136,8): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/ contatos.controller.ts(136,8): error TS1128: Declaration or statement expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Fri Nov 21 2025 21:07:11 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 3988,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 99336192,
+      heapTotal: 57933824,
+      heapUsed: 33569712,
+      external: 2877385,
+      arrayBuffers: 132560
+    }
+  },
+  os: {
+    loadavg: [ 1.23974609375, 1.79296875, 2.3583984375 ],
+    uptime: 3228
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-22T00:07:11.969Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Contatos/ contatos.controller.ts(136,7): error TS1005: ';' expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/ contatos.controller.ts(136,7): error TS1005: ';' expected.\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/ contatos.controller.ts(136,7): error TS1005: ';' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/ contatos.controller.ts(136,7): error TS1005: ';' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Fri Nov 21 2025 21:07:14 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 4007,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 99041280,
+      heapTotal: 58982400,
+      heapUsed: 33499800,
+      external: 2877385,
+      arrayBuffers: 132560
+    }
+  },
+  os: {
+    loadavg: [ 1.23974609375, 1.79296875, 2.3583984375 ],
+    uptime: 3231
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Contatos/ contatos.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-22T00:07:14.176Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Contatos/contatos.service.ts(52,9): error TS1472: 'catch' or 'finally' expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/contatos.service.ts(52,9): error TS1472: 'catch' or 'finally' expected.\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/contatos.service.ts(52,9): error TS1472: 'catch' or 'finally' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Contatos/contatos.service.ts(52,9): error TS1472: 'catch' or 'finally' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Fri Nov 21 2025 21:15:20 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 4758,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 194658304,
+      heapTotal: 192741376,
+      heapUsed: 84333888,
+      external: 4089010,
+      arrayBuffers: 326953
+    }
+  },
+  os: {
+    loadavg: [ 2.11181640625, 2.7900390625, 2.6513671875 ],
+    uptime: 3717
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-22T00:15:20.635Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Contatos/contatos.service.ts(51,22): error TS1003: Identifier expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/contatos.service.ts(51,22): error TS1003: Identifier expected.\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/contatos.service.ts(51,22): error TS1003: Identifier expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Contatos/contatos.service.ts(51,22): error TS1003: Identifier expected.\n' +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Fri Nov 21 2025 21:15:27 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 4775,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 194772992,
+      heapTotal: 191954944,
+      heapUsed: 84229968,
+      external: 4089010,
+      arrayBuffers: 326953
+    }
+  },
+  os: {
+    loadavg: [ 2.1025390625, 2.77685546875, 2.6474609375 ],
+    uptime: 3724
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Contatos/contatos.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-32663865302509754.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-22T00:15:27.665Z'
+}

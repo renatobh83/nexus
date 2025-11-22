@@ -26,7 +26,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
   // O prefixo final será: /api/v1/whatsapp
 
   fastify.register(authController, { prefix: "/auth" });
-  fastify.register(ContatoController, {prefix: "/contact"})
+  fastify.register(ContatoController, {prefix: "/contacts"})
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });

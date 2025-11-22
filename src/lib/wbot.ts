@@ -264,6 +264,14 @@ export const removeWbot = async (whatsappId: number): Promise<void> => {
   }
 };
 
+export const getWbot = (whatsappId: number): Session => {
+  const sessionIndex = sessions.findIndex((s) => s.id === Number(whatsappId));
+  if (sessionIndex === -1) {
+    throw new Error("ERR_WAPP_NOT_INITIALIZED");
+  }
+  return sessions[sessionIndex];
+};
+
 function extrairParteWhatsApp(str: string) {
   if (!str) return null;
   // remove o prefixo da URL, se existir

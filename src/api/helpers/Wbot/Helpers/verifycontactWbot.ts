@@ -45,7 +45,7 @@ export const verifyContactWbot = async (message: Message, app: AppServices, wbot
     
     const contact = await app.contatoService.findOrCreate({ serializednumber: msgContact.id._serialized }, contactData)
     if (contact) {
-      await redisClient.set(key, JSON.stringify(contact), "EX", 5 * 60);
+      await redisClient.set(key, JSON.stringify(contact), "EX", 60);
     }
     return contact
   } catch (error) {

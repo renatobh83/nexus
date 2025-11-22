@@ -323,7 +323,7 @@ model Contact {
   telegramId       BigInt?   @unique
   dtaniversario    DateTime? // Data de aniversário
   identifier       String?
-  serializednumber String?   @unique @default("")
+  serializednumber String?   @unique
   isUser           Boolean   @default(false)
   isWAContact      Boolean   @default(false)
   isGroup          Boolean   @default(false)
