@@ -10,19 +10,7 @@ export class LoadInicialService {
     const usuarios = await app.userService.findAllUsers();
     const queues = await app.queueService.findAllQueue();
     const contatos = await app.contatoService.ListarContatos()
-    const empresas = await app.empresaService.finalAllCompany({
-      empresaContacts: {
-        select: {
-          contact: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
-        },
-      },
-      contratos: true,
-    });
+    const empresas = await app.empresaService.finalAllCompany()
 
 
 
