@@ -7803,3 +7803,513 @@
     '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5',
   timestamp: '2025-11-23T12:47:48.903Z'
 }
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33875",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33875",\n' +
+    '         messageId: "33875",\n' +
+    '         ticketId: 1193,\n' +
+    '         ~~~~~~~~\n' +
+    '         tenantId: 1,\n' +
+    '         contactId: 105,\n' +
+    '         body: "8c0bd7e19fcb9b3bd3a1b4330dcb4555:45Xuecmn2MQTTxiahbqgDQ==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922654000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "a73ed9e6-606b-409e-8de8-56aac4bf9dd7",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `ticketId`. Did you mean `ticket`? Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33875",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33875",\n' +
+    '         messageId: "33875",\n' +
+    '         ticketId: 1193,\n' +
+    '         ~~~~~~~~\n' +
+    '         tenantId: 1,\n' +
+    '         contactId: 105,\n' +
+    '         body: "8c0bd7e19fcb9b3bd3a1b4330dcb4555:45Xuecmn2MQTTxiahbqgDQ==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922654000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "a73ed9e6-606b-409e-8de8-56aac4bf9dd7",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `ticketId`. Did you mean `ticket`? Available options are marked with ?.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at $r.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:21)\n' +
+    '    at MessageService.createMessageSystem (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:65:24)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:55:24)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:148:6)',
+  timestamp: '2025-11-23T18:31:02.531Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33876",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33876",\n' +
+    '         messageId: "33876",\n' +
+    '         tenantId: 1,\n' +
+    '         ~~~~~~~~\n' +
+    '         contactId: 105,\n' +
+    '         body: "eb16d10bd54fb2d14154a6810eb6eee1:uLV+ZH4xsmMlAK0Ifhbifg==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922771000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "f8f7c0b9-891f-4e11-8377-d0c5b6357a01",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: undefined\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `tenantId`. Did you mean `tenant`? Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33876",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33876",\n' +
+    '         messageId: "33876",\n' +
+    '         tenantId: 1,\n' +
+    '         ~~~~~~~~\n' +
+    '         contactId: 105,\n' +
+    '         body: "eb16d10bd54fb2d14154a6810eb6eee1:uLV+ZH4xsmMlAK0Ifhbifg==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922771000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "f8f7c0b9-891f-4e11-8377-d0c5b6357a01",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: undefined\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `tenantId`. Did you mean `tenant`? Available options are marked with ?.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at $r.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:21)\n' +
+    '    at MessageService.createMessageSystem (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:65:24)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:55:24)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:148:6)',
+  timestamp: '2025-11-23T18:32:57.253Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33877",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33877",\n' +
+    '         messageId: "33877",\n' +
+    '         contactId: 105,\n' +
+    '         ~~~~~~~~~\n' +
+    '         body: "97a6864710cafc88bdda15e495d939ac:AYZI6DOtzLYiX8HMX14/+g==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922903000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "33328182-b84a-4323-b10a-c34e03f0861b",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `contactId`. Did you mean `contact`? Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:42\n' +
+    '\n' +
+    '  54   messageId_tenantId: where,\n' +
+    '  55 };\n' +
+    '  56 \n' +
+    '→ 57 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "33877",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {\n' +
+    '         ack: 2\n' +
+    '       },\n' +
+    '       create: {\n' +
+    '         id: "33877",\n' +
+    '         messageId: "33877",\n' +
+    '         contactId: 105,\n' +
+    '         ~~~~~~~~~\n' +
+    '         body: "97a6864710cafc88bdda15e495d939ac:AYZI6DOtzLYiX8HMX14/+g==",\n' +
+    '         fromMe: false,\n' +
+    '         read: false,\n' +
+    '         sendType: "chat",\n' +
+    '         quotedMsgId: undefined,\n' +
+    '         timestamp: 1763922903000,\n' +
+    '         status: "received",\n' +
+    '         ack: 2,\n' +
+    '         idFront: "33328182-b84a-4323-b10a-c34e03f0861b",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   mediaUrl?: String | Null,\n' +
+    '     ?   mediaType?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   scheduleDate?: DateTime | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `contactId`. Did you mean `contact`? Available options are marked with ?.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at $r.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:57:21)\n' +
+    '    at MessageService.createMessageSystem (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:65:24)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:55:24)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:148:6)',
+  timestamp: '2025-11-23T18:35:09.551Z'
+}

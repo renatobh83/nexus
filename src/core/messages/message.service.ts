@@ -17,7 +17,7 @@ export class MessageService {
    * Cria uma nova mensagem, aplicando a criptografia antes de salvar.
    */
   async createMessageSystem(dto: MessageDTO): Promise<void> {
-    
+
     // --- LÓGICA DO HOOK 'beforeCreate' ---
     let bodyToSave = dto.body.trim();
     if (bodyToSave === '') {
@@ -28,34 +28,32 @@ export class MessageService {
     if (!isEncrypted(bodyToSave)) {
       bodyToSave = encrypt(bodyToSave);
     }
-
+    const {ticketId, tenantId,contactId, ...restDto} = dto
     // Monta o objeto de dados para o repositório
     const dataForDb = {
-      ...dto,
+      ...restDto,
       body: bodyToSave,
       // Lógica para conectar relações (ticket, contact, etc.)
-      ticket: { connect: { id: dto.ticketId } },
-      
+      ticket: { connect: { id: dto.ticketId  as number} },
+      contact: { connect: { id: dto.contactId  as number} },
+      tenant: { connect: { id: dto.tenantId as number }  },
+      // user: { connect: { id: dto.userId } },
+
       // ...
     };
+    console.log(dataForDb)
     //   const createInput: Prisma.MessageCreateInput = filterValidAttributes({
-    //   ...messageData,
-    //   ...messageSent,
-    //   ack: 2,
-    //   // Se o messageId for nulo, gera um UUID temporário para o campo 'id'
-    //   id: messageId || uuidv4(), 
-    //   // Chaves estrangeiras diretas (para campos escalares)
-    //   userId: userId,
-    //   tenantId: tenantId,
-    //   // Relações (para campos de relação)
-    //   ticket: { connect: { id: messageData.ticketId } },
-    //   contact: { connect: { id: messageData.contactId } },
-      
-    //   body: media?.originalname || messageData.body,
-    //   mediaUrl: media?.filename,
+    //   ...dto,
+    //   body: dto.mediaUrl || dto.body,
+    //   mediaUrl: dto.mediaUrl,
     //   mediaType:
     //     media && media.mimetype ? detectMediaType(media.mimetype) : 'chat',
     // });
+    const updateInput: Prisma.MessageUpdateInput = {
+      ack: 2,
+      // timestamp: messageSent.timestamp,
+      // ... outros campos que você queira atualizar
+    };
 
     //   // 3. Definição do UPDATE (Lógica de Negócios)
     // const updateInput: Prisma.MessageUpdateInput = {
@@ -64,7 +62,11 @@ export class MessageService {
     //   // ... outros campos que você queira atualizar
     // };
 
-    //const newMessage = await this.messageRepository.findOrCreateAndReload();
+    const newMessage = await this.messageRepository.findOrCreateAndReload(
+      { messageId: dto.messageId!, tenantId: dto.tenantId! },
+      dataForDb,
+      updateInput);
+      console.log(newMessage)
     //return newMessage;
   }
 
@@ -79,7 +81,7 @@ export class MessageService {
   //   }
 
   //   // --- LÓGICA DO GETTER 'mediaUrl' E DESCRIPTOGRAFIA ---
-    
+
   //   // Descriptografa o corpo da mensagem
   //   const decryptedBody = decrypt(message.body);
 
@@ -113,4 +115,8 @@ export class MessageService {
     userEmail: ticket?.user?.email ?? "",
   });
 };*/
+
+  async findMessageBy(where: Prisma.MessageWhereInput): Promise<Message | null> {
+    return await this.messageRepository.findMessageBy(where)
+  }
 }

@@ -4,6 +4,7 @@ import { getFastifyApp } from "../..";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 import { Session } from "../../../lib/tbot";
 import { VerifyMessageTbot } from "./VerifyMessageTbot";
+import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
 
 
 // // Constantes para chaves Redis e TTLs
@@ -141,11 +142,11 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
 
 
     
-   VerifyMessageTbot(ctx, fromMe, ticket, contact)
     if (!messageData.text && chat?.id) {
-      // await VerifyMediaMessage(ctx, fromMe, ticket, contact);
+      await VerifyMediaMessageTbot(ctx, fromMe, ticket, contact, app);
     } else {
-      // await VerifyMessage(ctx, fromMe, ticket, contact);
+     await VerifyMessageTbot(ctx, fromMe, ticket, contact, app)
+      
     }
     const body = message.reply_markup
       ? ctx.update.callback_query?.data

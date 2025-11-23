@@ -1,5 +1,5 @@
 
-import { Prisma } from "@prisma/client";
+import { Message, Prisma } from "@prisma/client";
 import { MessageDTO } from "./message.type"
 import { prisma } from "../../lib/prisma";
 
@@ -62,5 +62,9 @@ export class MessageRepository {
     });
 
     return message;
+  }
+
+  async findMessageBy(where: Prisma.MessageWhereInput): Promise<Message | null>{
+    return  await prisma.message.findFirst({where})
   }
 }

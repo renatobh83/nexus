@@ -132,7 +132,7 @@ model Message {
   id             String          @id @default(uuid()) @db.Uuid
   messageId      String?         @unique // ID da mensagem vindo da plataforma (WA, IG, etc.)
   ack            Int             @default(1)
-  status         MessageStatus   @default(pending)
+  status         String //MessageStatus   @default(pending)
   wabaMediaId    String?
   read           Boolean         @default(false)
   fromMe         Boolean         @default(false)
@@ -144,7 +144,7 @@ model Message {
   reactionFromMe String?
   timestamp      BigInt?
   scheduleDate   DateTime?
-  sendType       MessageSendType @default(chat)
+  sendType       String//MessageSendType @default(chat)
   idFront        String? // ID temporário gerado pelo frontend
   isDeleted      Boolean         @default(false)
   isForwarded    Boolean         @default(false)
