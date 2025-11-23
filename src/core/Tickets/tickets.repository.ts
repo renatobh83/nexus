@@ -71,7 +71,7 @@ export class TicketRepository {
     * @param params Os parâmetros de filtragem e paginação.
     * @returns Uma promessa que resolve para a lista de tickets e a contagem total.
     */
-    async findTickets(params: {
+    async findTicketsRaw(params: {
         tenantId: number;
         status: string[];
         queuesIdsUser: number[];
@@ -315,7 +315,7 @@ export class TicketRepository {
         return await prisma.ticket.create({ data: data })
     }
 
-    async findAllNew(params: {
+    async findTickets(params: {
         tenantId: number;
         status: string[];
         queuesIdsUser: number[];
@@ -443,13 +443,13 @@ export class TicketRepository {
 
         // 2.1. Contagem Total
         const count = await prisma.ticket.count({ where });
-        
+
         // 2.2. Busca dos Tickets
         const tickets = await prisma.ticket.findMany({
             where,
             include: {
                 // Inclui as relações necessárias para replicar o SELECT da raw query
-                contact: { select: { profilePicUrl: true, name: true, id: true }},
+                contact: { select: { profilePicUrl: true, name: true, id: true } },
                 user: { select: { name: true } },
                 queue: { select: { queue: true } },
                 whatsapp: { select: { id: true, name: true } },
@@ -474,16 +474,20 @@ export class TicketRepository {
             name: ticket.contact.name,
             profilePicUrl: ticket.contact.profilePicUrl
         }))
-       
+
         // NOTA SOBRE A ORDENAÇÃO: A ordenação original com CASE WHEN (pending -> open -> closed)
         // não pode ser replicada diretamente no Prisma ORM sem um campo auxiliar no banco de dados
         // ou sem voltar para o $queryRaw. Para fins de demonstração do findMany,
         // a ordenação principal será por 'updatedAt' descendente.
 
-        return { tickets:tickeInline, count };
+        return { tickets: tickeInline, count };
 
     }
-    //   update(id: string, data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
+    async update(id: number, data: Prisma.TicketUpdateInput): Promise<Ticket> {
+        const ticket = await prisma.ticket.update({ where: { id }, data })
+        return ticket
+
+    }
     //   delete(id: string): Promise<void>;
 
 }

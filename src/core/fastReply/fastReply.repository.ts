@@ -5,8 +5,8 @@ export class FastReplyRepository {
   findByWhere(where: Prisma.FastReplyWhereInput): Promise<FastReply | null> {
     return prisma.fastReply.findFirst({ where });
   }
-  findAll(): Promise<FastReply[]> {
-    return prisma.fastReply.findMany();
+  findAll(where?: Prisma.FastReplyWhereInput): Promise<FastReply[]> {
+    return prisma.fastReply.findMany({where});
   }
   create(data: any): Promise<FastReply> {
     const { tenant, user, ...restDto } = data;

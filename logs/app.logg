@@ -7629,3 +7629,177 @@
   level: 'error',
   timestamp: '2025-11-22T20:03:41.713Z'
 }
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-23T10:48:17.163Z'
+}
+{
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-23T12:16:36.314Z'
+}
+{
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ticket.update is not a function',
+  stack: 'TypeError: ticket.update is not a function\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:139:20)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:519:21\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/node_modules/p-timeout/index.js:50:13',
+  timestamp: '2025-11-23T12:42:35.125Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:487:44\n' +
+    '\n' +
+    '  484 \n' +
+    '  485 }\n' +
+    '  486 async update(id: number, data: Prisma.TicketUpdateInput): Promise<Ticket> {\n' +
+    '→ 487     const ticket = await prisma.ticket.update({\n' +
+    '            where: {\n' +
+    '              id: undefined,\n' +
+    '          ?   AND?: TicketWhereInput | TicketWhereInput[],\n' +
+    '          ?   OR?: TicketWhereInput[],\n' +
+    '          ?   NOT?: TicketWhereInput | TicketWhereInput[],\n' +
+    '          ?   status?: StringFilter | String,\n' +
+    '          ?   unreadMessages?: IntNullableFilter | Int | Null,\n' +
+    '          ?   lastMessage?: StringNullableFilter | String | Null,\n' +
+    '          ?   channel?: StringNullableFilter | String | Null,\n' +
+    '          ?   answered?: BoolFilter | Boolean,\n' +
+    '          ?   isGroup?: BoolFilter | Boolean,\n' +
+    '          ?   associatedCalls?: BoolFilter | Boolean,\n' +
+    '          ?   isActiveDemand?: BoolFilter | Boolean,\n' +
+    '          ?   isFarewellMessage?: BoolFilter | Boolean,\n' +
+    '          ?   sendWelcomeFlow?: BoolFilter | Boolean,\n' +
+    '          ?   lastInteractionBot?: DateTimeNullableFilter | DateTime | Null,\n' +
+    '          ?   botRetries?: IntNullableFilter | Int | Null,\n' +
+    '          ?   closedAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   lastMessageAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   startedAttendanceAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   chamadoId?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   lastAbsenceMessageAt?: DateTimeNullableFilter | DateTime | Null,\n' +
+    '          ?   chatClient?: BoolNullableFilter | Boolean | Null,\n' +
+    '          ?   socketId?: StringNullableFilter | String | Null,\n' +
+    '          ?   stepChatFlow?: StringNullableFilter | String | Null,\n' +
+    '          ?   chatFlowStatus?: StringFilter | String,\n' +
+    '          ?   apiConfig?: JsonNullableFilter,\n' +
+    '          ?   createdAt?: DateTimeFilter | DateTime,\n' +
+    '          ?   updatedAt?: DateTimeFilter | DateTime,\n' +
+    '          ?   userId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   contactId?: IntFilter | Int,\n' +
+    '          ?   whatsappId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   chatFlowId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   empresaId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   queueId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   tenantId?: IntFilter | Int,\n' +
+    '          ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null,\n' +
+    '          ?   contact?: ContactScalarRelationFilter | ContactWhereInput,\n' +
+    '          ?   whatsapp?: WhatsappNullableScalarRelationFilter | WhatsappWhereInput | Null,\n' +
+    '          ?   chatFlow?: ChatFlowNullableScalarRelationFilter | ChatFlowWhereInput | Null,\n' +
+    '          ?   empresa?: EmpresaNullableScalarRelationFilter | EmpresaWhereInput | Null,\n' +
+    '          ?   queue?: QueueNullableScalarRelationFilter | QueueWhereInput | Null,\n' +
+    '          ?   tenant?: TenantScalarRelationFilter | TenantWhereInput,\n' +
+    '          ?   chamado?: ChamadoListRelationFilter,\n' +
+    '          ?   messages?: MessageListRelationFilter,\n' +
+    '          ?   logTickets?: LogTicketListRelationFilter\n' +
+    '            },\n' +
+    '            data: {\n' +
+    '              chatFlowStatus: "waiting_answer"\n' +
+    '            }\n' +
+    '          })\n' +
+    '\n' +
+    'Argument `where` of type TicketWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:487:44\n' +
+    '\n' +
+    '  484 \n' +
+    '  485 }\n' +
+    '  486 async update(id: number, data: Prisma.TicketUpdateInput): Promise<Ticket> {\n' +
+    '→ 487     const ticket = await prisma.ticket.update({\n' +
+    '            where: {\n' +
+    '              id: undefined,\n' +
+    '          ?   AND?: TicketWhereInput | TicketWhereInput[],\n' +
+    '          ?   OR?: TicketWhereInput[],\n' +
+    '          ?   NOT?: TicketWhereInput | TicketWhereInput[],\n' +
+    '          ?   status?: StringFilter | String,\n' +
+    '          ?   unreadMessages?: IntNullableFilter | Int | Null,\n' +
+    '          ?   lastMessage?: StringNullableFilter | String | Null,\n' +
+    '          ?   channel?: StringNullableFilter | String | Null,\n' +
+    '          ?   answered?: BoolFilter | Boolean,\n' +
+    '          ?   isGroup?: BoolFilter | Boolean,\n' +
+    '          ?   associatedCalls?: BoolFilter | Boolean,\n' +
+    '          ?   isActiveDemand?: BoolFilter | Boolean,\n' +
+    '          ?   isFarewellMessage?: BoolFilter | Boolean,\n' +
+    '          ?   sendWelcomeFlow?: BoolFilter | Boolean,\n' +
+    '          ?   lastInteractionBot?: DateTimeNullableFilter | DateTime | Null,\n' +
+    '          ?   botRetries?: IntNullableFilter | Int | Null,\n' +
+    '          ?   closedAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   lastMessageAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   startedAttendanceAt?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   chamadoId?: BigIntNullableFilter | BigInt | Null,\n' +
+    '          ?   lastAbsenceMessageAt?: DateTimeNullableFilter | DateTime | Null,\n' +
+    '          ?   chatClient?: BoolNullableFilter | Boolean | Null,\n' +
+    '          ?   socketId?: StringNullableFilter | String | Null,\n' +
+    '          ?   stepChatFlow?: StringNullableFilter | String | Null,\n' +
+    '          ?   chatFlowStatus?: StringFilter | String,\n' +
+    '          ?   apiConfig?: JsonNullableFilter,\n' +
+    '          ?   createdAt?: DateTimeFilter | DateTime,\n' +
+    '          ?   updatedAt?: DateTimeFilter | DateTime,\n' +
+    '          ?   userId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   contactId?: IntFilter | Int,\n' +
+    '          ?   whatsappId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   chatFlowId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   empresaId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   queueId?: IntNullableFilter | Int | Null,\n' +
+    '          ?   tenantId?: IntFilter | Int,\n' +
+    '          ?   user?: UserNullableScalarRelationFilter | UserWhereInput | Null,\n' +
+    '          ?   contact?: ContactScalarRelationFilter | ContactWhereInput,\n' +
+    '          ?   whatsapp?: WhatsappNullableScalarRelationFilter | WhatsappWhereInput | Null,\n' +
+    '          ?   chatFlow?: ChatFlowNullableScalarRelationFilter | ChatFlowWhereInput | Null,\n' +
+    '          ?   empresa?: EmpresaNullableScalarRelationFilter | EmpresaWhereInput | Null,\n' +
+    '          ?   queue?: QueueNullableScalarRelationFilter | QueueWhereInput | Null,\n' +
+    '          ?   tenant?: TenantScalarRelationFilter | TenantWhereInput,\n' +
+    '          ?   chamado?: ChamadoListRelationFilter,\n' +
+    '          ?   messages?: MessageListRelationFilter,\n' +
+    '          ?   logTickets?: LogTicketListRelationFilter\n' +
+    '            },\n' +
+    '            data: {\n' +
+    '              chatFlowStatus: "waiting_answer"\n' +
+    '            }\n' +
+    '          })\n' +
+    '\n' +
+    'Argument `where` of type TicketWhereUniqueInput needs at least one of `id` arguments. Available options are marked with ?.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at $r.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:766:24)\n' +
+    '    at TicketRepository.update (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:487:24)\n' +
+    '    at TicketService.updateTicket (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.service.ts:170:31)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:143:5)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:19:5',
+  timestamp: '2025-11-23T12:47:48.903Z'
+}

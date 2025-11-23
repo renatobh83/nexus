@@ -3,6 +3,7 @@ import { verifyContactTbot } from "./verifycontactTbot";
 import { getFastifyApp } from "../..";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 import { Session } from "../../../lib/tbot";
+import { VerifyMessageTbot } from "./VerifyMessageTbot";
 
 
 // // Constantes para chaves Redis e TTLs
@@ -91,7 +92,7 @@ import { Session } from "../../../lib/tbot";
 // ========================================================================
 
 const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
-  
+
   const app = getFastifyApp().services
   try {
     // const channel = await getCachedChannel(tbot.id);
@@ -126,7 +127,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
     const messageData = { ...message, timestamp: +message.date * 1000 };
 
 
-    const ticket = await findOrCreateTicketSafe({
+    const { ticket } = await findOrCreateTicketSafe({
       contact,
       whatsappId: tbot.id,
       unreadMessages: fromMe ? 0 : 1,
@@ -137,11 +138,20 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
     })
     if (ticket.isFarewellMessage) return;
 
+
+
+    
+   VerifyMessageTbot(ctx, fromMe, ticket, contact)
     if (!messageData.text && chat?.id) {
       // await VerifyMediaMessage(ctx, fromMe, ticket, contact);
     } else {
       // await VerifyMessage(ctx, fromMe, ticket, contact);
     }
+    const body = message.reply_markup
+      ? ctx.update.callback_query?.data
+      : message.text;
+    
+    // await app.ticketService.updateTicket(ticket.id, { chatFlowStatus: "waiting_answer"})
   } catch (error) {
     logger.error("Erro fatal no HandleMessage:", error);
   }

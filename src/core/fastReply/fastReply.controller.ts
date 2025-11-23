@@ -19,8 +19,14 @@ export async function fastReplyController(
   const fastReplyService = fastify.services.fastReplyService;
 
   fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
+    const { userId ,profile } = request.user as any
+    
     try {
-      const respostaRapida = await fastReplyService.findAll();
+      const whereConditions = profile === "admin" ? undefined : userId
+
+
+
+      const respostaRapida = await fastReplyService.findAll({userId: whereConditions});
       return reply.code(200).send(respostaRapida);
     } catch (error) {
       return handleServerError(reply, error);

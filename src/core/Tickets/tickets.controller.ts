@@ -7,6 +7,7 @@ export async function ticketController(
     opts: FastifyPluginOptions
 ) {
     const ticketService = fastify.services.ticketService
+    const settingsService = fastify.services.settingsService
     fastify.get("/", async (
         request: FastifyRequest<{
             Querystring: {
@@ -33,7 +34,7 @@ export async function ticketController(
                 status: request.query.status.split(","),
             };
             
-            const tickets = await ticketService.findAll(payload);
+            const tickets = await ticketService.findAll(payload, settingsService);
             return reply.code(200).send(tickets);
         } catch (error) {
 

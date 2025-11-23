@@ -8,8 +8,8 @@ export class FastReplyService {
     this.fastReplyRepository = new FastReplyRepository();
   }
 
-  async findAll() {
-    return await this.fastReplyRepository.findAll();
+  async findAll(where: Prisma.FastReplyWhereInput) {
+    return await this.fastReplyRepository.findAll(where);
   }
 
   async findOne(where: Prisma.FastReplyWhereInput) {
