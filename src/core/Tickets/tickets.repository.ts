@@ -176,15 +176,14 @@ export class TicketRepository {
         q.queue,
         em."name" AS empresaNome,
         jsonb_build_object('id', w.id, 'name', w."name") AS whatsapp,
-        t.*,
-        m.*
+        t.*
       FROM "Tickets" t
       INNER JOIN "Whatsapp" w ON (w.id = t."whatsappId")
       LEFT JOIN "Contacts" c ON (t."contactId" = c.id)
       LEFT JOIN "Empresas" em ON (t."empresaId" = em.id)
       LEFT JOIN "Users" u ON (u.id = t."userId")
       LEFT JOIN "Queues" q ON (t."queueId" = q.id)
-      LEFT JOIN "Messages" m On (t."id" = m.ticketid)
+      
       WHERE t."tenantId" = ${tenantId}
       AND c."tenantId" = ${tenantId}
       AND t."chatFlowId" IS NULL
@@ -314,6 +313,175 @@ export class TicketRepository {
     }
     async create(data: Prisma.TicketCreateInput): Promise<Ticket> {
         return await prisma.ticket.create({ data: data })
+    }
+
+    async findAllNew(params: {
+        tenantId: number;
+        status: string[];
+        queuesIdsUser: number[];
+        userId: number;
+        isUnread: boolean;
+        isNotAssigned: boolean;
+        isNotViewAssignedTickets: boolean;
+        isSearchParam: boolean;
+        searchParam: string;
+        limit: number;
+        offset: number;
+        profile: string;
+        isExistsQueueTenant: boolean;
+        NotQueueDefinedTicket: boolean
+    }) {
+        const {
+            tenantId,
+            status,
+            queuesIdsUser,
+            userId,
+            isUnread,
+            isNotAssigned,
+            isNotViewAssignedTickets,
+            isSearchParam,
+            searchParam,
+            limit,
+            offset,
+            profile,
+            isExistsQueueTenant,
+            NotQueueDefinedTicket,
+        } = params;
+
+        // 1. Construção da Cláusula WHERE
+        const whereConditions: Prisma.TicketWhereInput[] = [
+            // Filtro principal por tenantId
+            { tenantId },
+            // Filtro para tickets sem chatFlowId
+            { chatFlowId: null },
+            // Filtro por status
+            { status: { in: status } },
+        ];
+        // 1.1. Condição de Mensagens Não Lidas (isUnread)
+        if (isUnread) {
+            whereConditions.push({ unreadMessages: { gt: 0 } });
+        }
+
+        // 1.2. Condição de Não Atribuído (isNotAssigned)
+        if (isNotAssigned) {
+            whereConditions.push({ userId: null });
+        }
+
+        // 1.3. Condição de Filas (queuesIdsUser, profile, NotQueueDefinedTicket, isExistsQueueTenant)
+        // Esta é a lógica mais complexa, traduzindo o OR do SQL para o Prisma.
+        const queueFilter: Prisma.TicketWhereInput[] = [];
+
+        if (profile === 'admin') {
+            // Admin vê tudo, então não adicionamos restrição de fila
+        } else {
+            // Condição OR para usuários não-admin
+            const userQueueOrConditions: Prisma.TicketWhereInput[] = [];
+
+            // Condição 1: Se houver filas cadastradas E o ticket estiver em uma das filas do usuário
+            if (isExistsQueueTenant) {
+                userQueueOrConditions.push({ queueId: { in: queuesIdsUser } });
+            }
+
+            // Condição 2: Se a flag NotQueueDefinedTicket estiver ativa (tickets sem fila)
+            if (NotQueueDefinedTicket) {
+                userQueueOrConditions.push({ queueId: null });
+            }
+
+            // Condição 3: Tickets atribuídos ao próprio usuário
+            userQueueOrConditions.push({ userId });
+
+            // Condição 5: Tickets de grupo
+            userQueueOrConditions.push({ isGroup: true });
+
+            // Condição 6: Se não houver filas cadastradas (isExistsQueueTenant = false)
+            if (!isExistsQueueTenant) {
+                userQueueOrConditions.push({}); // Adiciona uma condição vazia para incluir todos
+            }
+
+            // Adiciona a condição OR ao filtro principal
+            if (userQueueOrConditions.length > 0) {
+                queueFilter.push({ OR: userQueueOrConditions });
+            }
+        }
+
+        if (queueFilter.length > 0) {
+            whereConditions.push({ AND: queueFilter });
+        }
+
+        // 1.4. Condição de Pesquisa (isSearchParam)
+        if (isSearchParam) {
+            const searchFilter: Prisma.TicketWhereInput = {
+                OR: [
+                    // Pesquisa por ID do ticket
+                    { id: { equals: parseInt(searchParam.replace(/%/g, '')) || undefined } },
+                    // Pesquisa por nome ou número do contato
+                    {
+                        contact: {
+                            OR: [
+                                { name: { contains: searchParam.replace(/%/g, ''), mode: 'insensitive' } },
+                                { number: { contains: searchParam.replace(/%/g, '') } },
+                            ],
+                        },
+                    },
+                ],
+            };
+            whereConditions.push(searchFilter);
+        }
+
+        // 1.5. Condição de Visualização de Tickets Atribuídos (isNotViewAssignedTickets)
+        if (isNotViewAssignedTickets && profile !== 'admin') {
+            whereConditions.push({
+                OR: [
+                    { userId }, // Vê os seus
+                    { userId: null }, // Vê os não atribuídos
+                ],
+            });
+        }
+
+        // 2. Execução da Consulta
+        const where: Prisma.TicketWhereInput = { AND: whereConditions };
+
+        // 2.1. Contagem Total
+        const count = await prisma.ticket.count({ where });
+        
+        // 2.2. Busca dos Tickets
+        const tickets = await prisma.ticket.findMany({
+            where,
+            include: {
+                // Inclui as relações necessárias para replicar o SELECT da raw query
+                contact: { select: { profilePicUrl: true, name: true, id: true }},
+                user: { select: { name: true } },
+                queue: { select: { queue: true } },
+                whatsapp: { select: { id: true, name: true } },
+                empresa: { select: { name: true } },
+                messages: true
+            },
+            orderBy: [
+                // Ordenação por status (replicando o CASE WHEN)
+                { status: 'asc' }, // Prisma não tem um CASE WHEN direto, mas 'asc' ou 'desc' pode ser usado se o status for um ENUM ordenado.
+                // Se 'pending', 'open', 'closed' for a ordem, o Prisma não consegue replicar o CASE WHEN
+                // sem um campo auxiliar. Vamos manter a ordenação por 'updatedAt' como principal.
+                { updatedAt: 'desc' },
+            ],
+            skip: offset,
+            take: limit,
+        });
+        const tickeInline = tickets.map(ticket => ({
+            ...ticket,
+            username: ticket.user?.name,
+            contactId: ticket.contact.id,
+            empresanome: ticket.empresa,
+            name: ticket.contact.name,
+            profilePicUrl: ticket.contact.profilePicUrl
+        }))
+       
+        // NOTA SOBRE A ORDENAÇÃO: A ordenação original com CASE WHEN (pending -> open -> closed)
+        // não pode ser replicada diretamente no Prisma ORM sem um campo auxiliar no banco de dados
+        // ou sem voltar para o $queryRaw. Para fins de demonstração do findMany,
+        // a ordenação principal será por 'updatedAt' descendente.
+
+        return { tickets:tickeInline, count };
+
     }
     //   update(id: string, data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
     //   delete(id: string): Promise<void>;

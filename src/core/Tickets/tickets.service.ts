@@ -52,79 +52,89 @@ export class TicketService {
             profile,
         }: Request
     ) {
-        const tenantId = +tenantIdStr;
-        const userId = +userIdStr;
-        const limit = 50;
-        const offset = limit * (+pageNumber - 1);
+         const tenantId = +tenantIdStr;
+    const userId = +userIdStr;
+    const limit = 50;
+    const offset = limit * (+pageNumber - 1);
 
-        // 1. Lógica de tratamento de parâmetros
-        const isAdminShowAll = showAll == "true" && profile === "admin";
-        const isUnread =  withUnreadMessages == "true";
-        const isNotAssigned =  isNotAssignedUser == "true";
-        
-        const NotQueueDefinedTicket = includeNotQueueDefined === "true";
-        const isSearchParam = !!searchParam;
+    // 1. Lógica de tratamento de parâmetros
+    const isAdminShowAll = showAll == "true" && profile === "admin";
+    const isUnread: boolean = withUnreadMessages === "true";
+    const isNotAssigned: boolean = isNotAssignedUser === "true";
+    const NotQueueDefinedTicket: boolean = includeNotQueueDefined === "true";
+    const isSearchParam: boolean = !!searchParam;
 
-        // 2. Tratamento das configurações do sistema (ListSettingsService)
-        const settings = await this.settingsRepositoy.findFirst({ tenantId: tenantId})
-       
-        // const isNotViewAssignedTickets =
-        //     settings?.find((s) => s.key === "NotViewAssignedTickets")?.value === "enabled";
+    // // 2. Tratamento das configurações do sistema (ListSettingsService)
+    // const settings = await ListSettingsService(tenantId);
 
-        // 3. Validação de Status
-        let finalStatus = status;
-        if (!finalStatus && !isAdminShowAll) {
-            throw new AppError("ERR_NO_STATUS_SELECTED", 404);
+    // const isNotViewAssignedTickets: boolean =
+    //   settings?.find((s) => s.key === "NotViewAssignedTickets")?.value === "enabled" ?? false;
+
+    // 3. Validação de Status
+    let finalStatus = status;
+    if (!finalStatus && !isAdminShowAll) {
+      throw new AppError("ERR_NO_STATUS_SELECTED", 404);
+    }
+
+    if (isAdminShowAll) {
+      finalStatus = ["open", "pending", "closed"];
+    }
+    
+    // 4. Lógica de Filas (Queues)
+    const queueCount = await this.ticketRepository.countQueuesByTenant(tenantId);
+    const isExistsQueueTenant = queueCount > 0;
+
+    const userQueues = await this.ticketRepository.findUserQueues(userId);
+    let queuesIdsUser = userQueues.map((q) => q.queueId);
+
+    // Aplica filtro de filas se houver
+    if (queuesIds) {
+      const newArray: number[] = [];
+      const userQueueIdsSet = new Set(queuesIdsUser);
+      
+      queuesIds.forEach((i) => {
+        const queueId = +i;
+        // Verifica se a fila solicitada está entre as filas do usuário
+        if (userQueueIdsSet.has(queueId)) {
+          newArray.push(queueId);
         }
+      });
+      queuesIdsUser = newArray;
+    }
 
-        if (isAdminShowAll) {
-            finalStatus = ["open", "pending", "closed"];
-        }
+    // Se não houver filas para o usuário, mantém o array vazio.
+    // A lógica de filtro será tratada no Repository.
+    if (!queuesIdsUser.length) {
+      queuesIdsUser = [];
+    }
 
-        // 4. Lógica de Filas (Queues)
-        const queueCount = await this.ticketRepository.countQueuesByTenant(tenantId);
-        const isExistsQueueTenant = queueCount > 0;
+    // 5. Chamada ao Repository
+    const { tickets, count } = await this.ticketRepository.findAllNew({
+      tenantId,
+      status: finalStatus!,
+      queuesIdsUser,
+      userId,
+      isUnread,
+      isNotAssigned,
+      isNotViewAssignedTickets: true,
+      isSearchParam,
+      searchParam,
+      limit,
+      offset,
+      profile,
+      isExistsQueueTenant,
+      NotQueueDefinedTicket,
+    });
 
-        const userQueues = await this.ticketRepository.findUserQueues(userId);
-        let queuesIdsUser = userQueues.map((q) => q.queueId);
+    // 6. Lógica de Paginação
+    const ticketsLength = tickets.length;
+    const hasMore = count > offset + ticketsLength;
 
-        // Aplica filtro de filas se houver
-        if (queuesIds) {
-            const newArray: number[] = [];
-            const userQueueIdsSet = new Set(queuesIdsUser);
-
-            queuesIds.forEach((i) => {
-                const queueId = +i;
-                // Verifica se a fila solicitada está entre as filas do usuário
-                if (userQueueIdsSet.has(queueId)) {
-                    newArray.push(queueId);
-                }
-            });
-            queuesIdsUser = newArray.length ? newArray : [0];
-        }
-
-        // Se não houver filas para o usuário, ajusta para [0] para o SQL
-        if (!queuesIdsUser.length) {
-            queuesIdsUser = [0];
-        }
-        const tickets = await this.ticketRepository.findAll()
-        console.log(tickets)
-        // return this.ticketRepository.findTickets({
-        //     tenantId,
-        //     status: finalStatus!,
-        //     queuesIdsUser,
-        //     userId,
-        //     isUnread,
-        //     isNotAssigned ,
-        //     isNotViewAssignedTickets: true,
-        //     isSearchParam,
-        //     searchParam: `%${searchParam}%`,
-        //     limit,
-        //     offset,
-        //     profile,
-        //     isExistsQueueTenant,
-        //     NotQueueDefinedTicket,
-        // })
+    return {
+      tickets: tickets || [],
+      count,
+      hasMore,
+    };
     }
     async createTicket(data: any): Promise<Ticket> {
         const { contact, whatsappId, chatFlowId, groupContact, tenantId, msg, ...restData } = data
