@@ -68,9 +68,10 @@ export class MessageRepository {
   }
 
   async findMessageBy(
-    where: Prisma.MessageWhereInput
+    where: Prisma.MessageWhereInput,
+    include?: Prisma.MessageInclude
   ): Promise<Message | null> {
-    return await prisma.message.findFirst({ where });
+    return await prisma.message.findFirst({ where, include });
   }
   async findAllMessageTicket(
     where: Prisma.MessageWhereInput,
@@ -106,6 +107,7 @@ export class MessageRepository {
         messageId: messageId,
       },
       data,
+      include: messageInclude,
     });
   }
 }

@@ -116,13 +116,14 @@ const TelegramSendMessagesSystem = async (
       ack: 1,
       sendType: "chat",
     };
-    logger.info("Message Update ok");
+
     const messageToSocket = {
       ...messageToUpdate,
       body: encrypt(messageToUpdate.body),
       ticket: { id: messageToUpdate.ticketId },
       contact: ticket.contact!.id,
       createdAt: new Date(),
+      updatedAt: new Date(),
     };
 
     socketEmit({
@@ -130,6 +131,7 @@ const TelegramSendMessagesSystem = async (
       type: "chat:create",
       payload: messageToSocket,
     });
+    logger.info("Message Update ok");
     return messageToUpdate;
   } catch (error: any) {
     const idMessage = message.id;

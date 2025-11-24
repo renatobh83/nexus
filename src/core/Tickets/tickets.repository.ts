@@ -257,6 +257,30 @@ export class TicketRepository {
     const tickeInline = {};
     return ticket;
   }
+  async findTicketForward(contatoId: number) {
+    return prisma.ticket.findFirst({
+      where: {
+        contactId: contatoId,
+        OR: [
+          {
+            status: {
+              in: ["open", "pending"],
+            },
+          },
+        ],
+      },
+      include: {
+        contact: {
+          select: {
+            id: true,
+            name: true,
+            number: true,
+            telegramId: true,
+          },
+        },
+      },
+    });
+  }
   async findOne(where: Prisma.TicketWhereInput): Promise<Ticket | null> {
     const ticket = await prisma.ticket.findFirst({
       where,
@@ -484,6 +508,9 @@ export class TicketRepository {
         messages: {
           include: {
             ticket: true,
+          },
+          orderBy: {
+            updatedAt: "asc",
           },
         },
       },

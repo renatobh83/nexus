@@ -3,7 +3,6 @@ import { logger } from "../../../ultis/logger";
 import HandleMessageTelegram from "./HandleMessageTelegram";
 import { Session } from "../../../lib/tbot";
 
-
 function escapeMarkdownV2(text: string) {
   return String(text ?? "")
     .replace(/\\/g, "\\\\") // 1) escapa backslashes primeiro

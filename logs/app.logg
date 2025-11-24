@@ -295,3 +295,676 @@
   level: 'error',
   timestamp: '2025-11-24T15:08:05.731Z'
 }
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/messages/message.controller.ts(148,9): error TS1005: 'try' expected.
+  src/core/messages/message.controller.ts(152,3): error TS1472: 'catch' or 'finally' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\messages\message.controller.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8215827277499541.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8215827277499541.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8215827277499541.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/messages/message.controller.ts(148,9): error TS1005: 'try' expected.\r\n" +
+    "src/core/messages/message.controller.ts(152,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/messages/message.controller.ts(148,9): error TS1005: 'try' expected.\r\n" +
+    "src/core/messages/message.controller.ts(152,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/messages/message.controller.ts(148,9): error TS1005: 'try' expected.\r\n" +
+    "src/core/messages/message.controller.ts(152,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.controller.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 13:24:34 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 13580,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 94519296,
+      heapTotal: 56606720,
+      heapUsed: 27776888,
+      external: 2978573,
+      arrayBuffers: 266047
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1025373.703 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.controller.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8215827277499541.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-24T16:24:34.943Z'
+}
+{
+  message: 'Unhandled Rejection: Error: 400: Bad Request: chat not found',
+  level: 'error',
+  timestamp: '2025-11-24T17:31:56.110Z'
+}
+{
+  message: 'Unhandled Rejection: Error: 400: Bad Request: message to forward not found',
+  level: 'error',
+  timestamp: '2025-11-24T17:45:52.847Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764006890545.png'",
+  stack: "Error: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764006890545.png'\n" +
+    '    at WriteStream.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMediaMessageTbot.ts:104:16)\n' +
+    '    at WriteStream.emit (node:events:520:35)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:170:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:89:21)',
+  timestamp: '2025-11-24T17:54:51.446Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764006919474.png'",
+  stack: "Error: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764006919474.png'\n" +
+    '    at WriteStream.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMediaMessageTbot.ts:104:16)\n' +
+    '    at WriteStream.emit (node:events:520:35)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:170:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:89:21)',
+  timestamp: '2025-11-24T17:55:20.393Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764007186894.png'",
+  stack: "Error: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764007186894.png'\n" +
+    '    at WriteStream.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMediaMessageTbot.ts:104:16)\n' +
+    '    at WriteStream.emit (node:events:520:35)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:170:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:89:21)',
+  timestamp: '2025-11-24T17:59:47.808Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764007460313.png'",
+  stack: "Error: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\media-1764007460313.png'\n" +
+    '    at WriteStream.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMediaMessageTbot.ts:105:16)\n' +
+    '    at WriteStream.emit (node:events:520:35)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:170:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:89:21)',
+  timestamp: '2025-11-24T18:04:21.181Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\public\\media-1764007540665.png'",
+  stack: "Error: Error: ENOENT: no such file or directory, open 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\public\\media-1764007540665.png'\n" +
+    '    at WriteStream.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMediaMessageTbot.ts:105:16)\n' +
+    '    at WriteStream.emit (node:events:520:35)\n' +
+    '    at emitErrorNT (node:internal/streams/destroy:170:8)\n' +
+    '    at emitErrorCloseNT (node:internal/streams/destroy:129:3)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:89:21)',
+  timestamp: '2025-11-24T18:05:41.575Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/messages/message.service.ts(260,72): error TS1128: Declaration or statement expected.
+  src/core/messages/message.service.ts(261,76): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\messages\message.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(260,72): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/messages/message.service.ts(261,76): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(260,72): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/messages/message.service.ts(261,76): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(260,72): error TS1128: Declaration or statement expected.\r\n' +
+    'src/core/messages/message.service.ts(261,76): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 15:17:50 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 13000,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 129392640,
+      heapTotal: 106696704,
+      heapUsed: 55757704,
+      external: 4244541,
+      arrayBuffers: 584110
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1032169.265 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-24T18:17:50.560Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/messages/message.service.ts(264,11): error TS1109: Expression expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\messages\message.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-12163079973199897.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(264,11): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(264,11): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/messages/message.service.ts(264,11): error TS1109: Expression expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 15:18:27 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 21884,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 129290240,
+      heapTotal: 106958848,
+      heapUsed: 55563824,
+      external: 4244541,
+      arrayBuffers: 583998
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1032206.5 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-12163079973199897.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-24T18:18:27.807Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Tickets/tickets.service.ts(144,9): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Tickets\tickets.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-3843210941680767.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-3843210941680767.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-3843210941680767.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Tickets/tickets.service.ts(144,9): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Tickets/tickets.service.ts(144,9): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Tickets/tickets.service.ts(144,9): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 16:58:30 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 12520,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 128393216,
+      heapTotal: 106696704,
+      heapUsed: 55292232,
+      external: 4244541,
+      arrayBuffers: 583109
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 1038209.187 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-3843210941680767.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-24T19:58:30.521Z'
+}

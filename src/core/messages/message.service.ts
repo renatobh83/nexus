@@ -12,9 +12,90 @@ import { pupa } from "../../ultis/pupa";
 import { detectMediaType } from "../../ultis/detectMediaType";
 import socketEmit from "../../api/helpers/socketEmit";
 import SendMessageSystemProxy from "../../api/helpers/SendMessageSystemProxy";
+import { AppError } from "../../errors/errors.helper";
+import { getWbot } from "../../lib/wbot";
+import { getTbot } from "../../lib/tbot";
+import { TelegramEmoji } from "telegraf/typings/core/types/typegram";
+import { getFastifyApp } from "../../api";
+import { SendMessageForward } from "../../api/helpers/SendMessageForward";
 
 export class MessageService {
   private messageRepository: MessageRepository;
+  private VALID_REACTIONS_TBOT = [
+    "👍",
+    "👎",
+    "❤",
+    "🔥",
+    "🥰",
+    "👏",
+    "😁",
+    "🤔",
+    "🤯",
+    "😱",
+    "🤬",
+    "😢",
+    "🎉",
+    "🤩",
+    "🤮",
+    "💩",
+    "🙏",
+    "👌",
+    "🕊",
+    "🤡",
+    "🥱",
+    "🥴",
+    "😍",
+    "🐳",
+    "❤‍🔥",
+    "🌚",
+    "🌭",
+    "💯",
+    "🤣",
+    "⚡",
+    "🍌",
+    "🏆",
+    "💔",
+    "🤨",
+    "😐",
+    "🍓",
+    "🍾",
+    "💋",
+    "🖕",
+    "😈",
+    "😴",
+    "😭",
+    "🤓",
+    "👻",
+    "👨‍💻",
+    "👀",
+    "🎃",
+    "🙈",
+    "😇",
+    "😨",
+    "🤝",
+    "✍",
+    "🤗",
+    "🫡",
+    "🎅",
+    "🎄",
+    "☃",
+    "💅",
+    "🤪",
+    "🗿",
+    "🆒",
+    "💘",
+    "🙉",
+    "🦄",
+    "😘",
+    "💊",
+    "🙊",
+    "😎",
+    "👾",
+    "🤷‍♂",
+    "🤷",
+    "🤷‍♀",
+    "😡",
+  ];
 
   constructor() {
     this.messageRepository = new MessageRepository();
@@ -88,17 +169,6 @@ export class MessageService {
       mediaUrl: fullMediaUrl,
     };
   }
-
-  /*private buildMessageBody = (template: string, ticket: any) => {
-  return pupa(template || "", {
-    name: ticket?.contact?.name ?? "",
-    email: ticket?.contact?.email ?? "",
-    phoneNumber: ticket?.contact?.number ?? "",
-    user: ticket?.user?.name ?? "",
-    userEmail: ticket?.user?.email ?? "",
-  });
-};*/
-
   async findAllMessageTicket(
     where: Prisma.MessageWhereInput,
     options?: PaginationOptions
@@ -164,8 +234,14 @@ export class MessageService {
             const readable = Readable.from(media.buffer);
             await pipeline(readable, createWriteStream(filepath));
           }
-          const { ticketId, contactId, tenantId, quotedMsg, ...restDto } =
-            messageData;
+          const {
+            ticketId,
+            contactId,
+            tenantId,
+            quotedMsg,
+            quotedMsgId,
+            ...restDto
+          } = messageData;
 
           const messageSent = await SendMessageSystemProxy({
             ticket,
@@ -173,17 +249,33 @@ export class MessageService {
             media,
           });
 
-          const dataForDb = {
+          const dataForDb: any = {
             ...restDto,
             id: String(messageSent.id),
             ack: 2,
             messageId: String(messageSent.messageId),
             body: encrypt(messageData.body),
-            ticket: { connect: { id: messageData.ticketId as number } },
-            contact: { connect: { id: messageData.contactId as number } },
-            tenant: { connect: { id: messageData.tenantId as number } },
-            // quotedMsg: { connect: { id: messageData.quotedMsgId as number } },
           };
+          if (messageData.ticketId) {
+            dataForDb.ticket = {
+              connect: { id: messageData.ticketId as number },
+            };
+          }
+          if (messageData.contactId) {
+            dataForDb.contact = {
+              connect: { id: messageData.contactId as number },
+            };
+          }
+          if (messageData.tenantId) {
+            dataForDb.tenant = {
+              connect: { id: messageData.tenantId as number },
+            };
+          }
+          if (messageData.quotedMsgId) {
+            dataForDb.quotedMsg = {
+              connect: { id: String(messageData.quotedMsgId) },
+            };
+          }
 
           const messagePending =
             await this.messageRepository.findOrCreateAndReload(
@@ -206,8 +298,85 @@ export class MessageService {
       )
     );
   }
+  async createForwardMessageService({
+    userId,
+    tenantId,
+    message,
+    contact,
+    ticketIdOrigin,
+  }) {
+    let ticket: Ticket | undefined | null;
+    const ticketService = getFastifyApp().services.ticketService;
+    ticket = await ticketService.findTicketForward(parseInt(contact.id));
+    if (!ticket) {
+      ticket = await ticketService.createTicket({
+        contact: contact,
+        status: "open",
+        isGroup: contact.isGroup,
+        userId,
+        tenantId,
+        unreadMessages: 0,
+        whatsappId: message.ticket.whatsappId,
+        lastMessage:
+          decrypt(message.body).length > 255
+            ? decrypt(message.body).slice(0, 252) + "..."
+            : decrypt(message.body),
+        lastMessageAt: new Date().getTime(),
+        answered: true,
+      });
+    }
+    await SendMessageForward({ ticket, messageData: message });
+  }
   async updateMessageById(messageId: string, data: any) {
     return await this.messageRepository.updateMessage(messageId, data);
+  }
+  async udpateMessageReaction(messageid: string, reaction: string) {
+    const message = (await this.messageRepository.findMessageBy(
+      {
+        messageId: messageid,
+      },
+      {
+        contact: {
+          select: { id: true, name: true, telegramId: true },
+        },
+        ticket: {
+          select: { id: true, channel: true, whatsappId: true },
+        },
+      }
+    )) as any;
+
+    if (!message) throw new AppError("ERR_SENDING_REACTION_MSG_NO_FOUND", 404);
+    if (message.ticket.channel === "whatsapp") {
+      const wbot = getWbot(message.ticket.whatsappId);
+      await wbot.sendReactionToMessage(messageid, reaction);
+    } else if (message.ticket.channel === "telegram") {
+      const chatId = message.contact.telegramId as string;
+      const tbot = getTbot(message.ticket.whatsappId);
+      if (!this.VALID_REACTIONS_TBOT.includes(reaction)) {
+        console.warn(
+          `Emoji ${reaction} não é suportado pelo Telegram como reação`
+        );
+        return;
+      }
+      await tbot.telegram.callApi("setMessageReaction", {
+        chat_id: chatId,
+        message_id: +message.messageId,
+        reaction: [
+          { type: "emoji", emoji: reaction as unknown as TelegramEmoji },
+        ],
+      });
+      const updateData = { reactionFromMe: reaction };
+      const messageToSocket = await this.messageRepository.updateMessage(
+        message.messageId,
+        updateData
+      );
+
+      socketEmit({
+        tenantId: message.tenantId,
+        type: "chat:update",
+        payload: messageToSocket,
+      });
+    }
   }
   private getDecryptedMessage(encryptedText: string): string {
     const secretKey = process.env.CRYPTO_KEY!;

@@ -93,6 +93,7 @@ const downloadFile = async (url: any, pathFile: string): Promise<void> => {
     method: "GET",
     responseType: "stream",
   });
+  console.log(pathFile);
   // const writer = createWriteStream(pathFile);
   await new Promise((resolve, reject) => {
     request.data
@@ -133,9 +134,10 @@ const VerifyMediaMessageTbot = async (
   const ext = getSafeExtension(mediaInfo.fileName, mediaInfo.mimeType);
 
   const filename = buildFilename(mediaInfo, ext);
-  const pathFile = join(__dirname, "..", "..", "..", "public", filename);
+  const pathFile = join(__dirname, "..", "..", "..", "..", "public", filename);
 
   const linkDownload = await ctx.telegram.getFileLink(mediaInfo.fileId);
+
   await downloadFile(linkDownload, pathFile);
 
   let quotedMsgId;
@@ -182,7 +184,7 @@ const VerifyMediaMessageTbot = async (
   // });
   const newMessage = await app.messageService.createMessage(messageData);
 
-  // return newMessage;
+  return newMessage;
 };
 
 export function getSafeExtension(filename: string, mimetype: any) {

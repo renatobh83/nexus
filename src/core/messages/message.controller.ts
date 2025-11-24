@@ -105,4 +105,47 @@ export async function messageController(
       }
     }
   );
+  fastify.post(
+    "/reaction/:messageid",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { messageid, emoji } = request.body as any;
+      try {
+        await messageService.udpateMessageReaction(messageid, emoji);
+        return reply.code(200).send(true);
+      } catch (error) {
+        return reply.code(500).send({ message: "sendReaction" });
+      }
+    }
+  );
+  fastify.post(
+    "/forward-messages",
+    async (
+      request: FastifyRequest<{
+        Body: {
+          messages: any[];
+          contact: any;
+        };
+      }>,
+      reply: FastifyReply
+    ) => {
+      const { contact, messages } = request.body;
+      const { userId, tenantId } = request.user as any;
+
+      try {
+        for (const message of messages) {
+          await messageService.createForwardMessageService({
+            userId,
+            tenantId: tenantId,
+            message,
+            contact,
+            ticketIdOrigin: message.ticketId,
+          });
+        }
+
+        return reply.code(200).send({ message: "messagem enviada" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
 }
