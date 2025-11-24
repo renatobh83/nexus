@@ -48,6 +48,7 @@ export const VerifyMessageTbot = async (
     read: fromMe,
     sendType: "chat" as MessageSendType,
     quotedMsgId,
+    mediaType: "chat",
     timestamp: +message.date * 1000,
     status: "received" as MessageStatus,
     ack: 2,
