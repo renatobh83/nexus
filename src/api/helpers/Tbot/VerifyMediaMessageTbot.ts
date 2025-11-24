@@ -9,8 +9,10 @@ import { Contact, Message, Ticket } from "@prisma/client";
 import { logger } from "../../../ultis/logger";
 
 import { AppServices } from "../../plugins/di-container";
-import { MessageSendType, MessageStatus } from "../../../core/messages/message.type";
-
+import {
+  MessageSendType,
+  MessageStatus,
+} from "../../../core/messages/message.type";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -19,14 +21,14 @@ const getMediaInfo = (msg: any) => {
   const mediaType = msg.photo
     ? "photo"
     : msg.video
-      ? "video"
-      : msg.audio
-        ? "audio"
-        : msg.voice
-          ? "voice"
-          : msg.sticker && !msg.sticker.is_animated
-            ? "sticker"
-            : "document";
+    ? "video"
+    : msg.audio
+    ? "audio"
+    : msg.voice
+    ? "voice"
+    : msg.sticker && !msg.sticker.is_animated
+    ? "sticker"
+    : "document";
   const mediaObj = msg[mediaType];
   // eslint-disable-next-line prettier/prettier
   const [type, mimeType, SAD, fileName, fileId, caption, SAV] = [
@@ -142,12 +144,15 @@ const VerifyMediaMessageTbot = async (
     //   message.reply_to_message.message_id,
     //   ticket.tenantId
     // );
-    const messageQuoted = await app.messageService.findMessageBy({ messageId: message.reply_to_message.message_id, tenantId: ticket.tenantId })
+    const messageQuoted = await app.messageService.findMessageBy({
+      messageId: message.reply_to_message.message_id,
+      tenantId: ticket.tenantId,
+    });
     quotedMsgId = messageQuoted?.id || undefined;
   }
 
   const messageData = {
-    id:String(message?.message_id),
+    id: String(message?.message_id),
     messageId: String(message?.message_id),
     ticketId: ticket.id,
     tenantId: ticket.tenantId,
@@ -162,20 +167,20 @@ const VerifyMediaMessageTbot = async (
     timestamp: +message.date * 1000, // compatibilizar JS
     status: (fromMe ? "sended" : "received") as MessageStatus,
     ack: 0,
-    idFront: uuidV4()
+    idFront: uuidV4(),
   };
 
   await app.ticketService.updateTicket(ticket.id, {
     lastMessage: "MEDIA FILE",
     lastMessageAt: new Date().getTime(),
     answered: fromMe || false,
-  })
+  });
   // await ticket.update({
   //   lastMessage: "MEDIA FILE",
   //   lastMessageAt: new Date().getTime(),
   //   answered: fromMe || false,
   // });
-  const newMessage = await app.messageService.createMessageSystem(messageData);
+  const newMessage = await app.messageService.createMessage(messageData);
 
   // return newMessage;
 };

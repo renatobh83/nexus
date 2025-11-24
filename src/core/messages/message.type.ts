@@ -1,17 +1,19 @@
+import { Message, Ticket } from "@prisma/client";
+
 // Tipos auxiliares que devem ser definidos em seu projeto
 export enum MessageStatus {
-  pending = 'pending',
-  sent = 'sent',
-  delivered = 'delivered',
-  read = 'read',
-  failed = 'failed',
-    
+  pending = "pending",
+  sent = "sent",
+  delivered = "delivered",
+  read = "read",
+  failed = "failed",
+
   // Adicione outros status conforme necessário
 }
 
 export enum MessageSendType {
-  chat = 'chat',
-  template = 'template',
+  chat = "chat",
+  template = "template",
   // Adicione outros tipos conforme necessário
 }
 
@@ -40,7 +42,6 @@ export interface MessageDTO {
   isDeleted?: boolean; // @default(false)
   isForwarded?: boolean; // @default(false)
 
-
   // --- Chaves Estrangeiras ---
   ticketId?: number | null; // Int?
   contactId: number | null; // Int?
@@ -60,4 +61,21 @@ export interface MessageDTO {
   quotedMsg?: MessageDTO | null;
   quotes?: MessageDTO[];
   */
+}
+
+export interface MessageRequest {
+  body: string;
+  fromMe: boolean;
+  read: boolean;
+  quotedMsg?: Message;
+  sendType?: string;
+  scheduleDate?: string;
+}
+
+export interface RequestMessage {
+  message: MessageRequest | any;
+  status: string;
+  tenantId: string | number;
+  filesArray?: any[] | [];
+  ticket: Ticket;
 }

@@ -1,10 +1,17 @@
+import { Readable } from "node:stream";
+import { createWriteStream } from "node:fs";
+import { pipeline } from "node:stream/promises";
+import { Message, Prisma, Ticket } from "@prisma/client";
 
-
-import { Message, Prisma, Ticket } from '@prisma/client';
-import { encrypt, decrypt, isEncrypted } from '../../lib/crypto'; // Importa as funções
-import { MessageRepository } from './message.repository';
-import { MessageDTO } from './message.type';
-
+import { encrypt, decrypt, isEncrypted } from "../../lib/crypto"; // Importa as funções
+import { MessageRepository, ResponseMessages } from "./message.repository";
+import { MessageDTO, RequestMessage } from "./message.type";
+import { PaginationOptions } from "../users/users.repository";
+import CryptoJS from "crypto-js";
+import { pupa } from "../../ultis/pupa";
+import { detectMediaType } from "../../ultis/detectMediaType";
+import socketEmit from "../../api/helpers/socketEmit";
+import SendMessageSystemProxy from "../../api/helpers/SendMessageSystemProxy";
 
 export class MessageService {
   private messageRepository: MessageRepository;
@@ -16,98 +23,74 @@ export class MessageService {
   /**
    * Cria uma nova mensagem, aplicando a criptografia antes de salvar.
    */
-  async createMessageSystem(dto: MessageDTO): Promise<void> {
-
+  async createMessage(dto: MessageDTO): Promise<Message> {
     // --- LÓGICA DO HOOK 'beforeCreate' ---
     let bodyToSave = dto.body.trim();
-    if (bodyToSave === '') {
-      bodyToSave = 'Bot message - sem conteudo';
+    if (bodyToSave === "") {
+      bodyToSave = "Bot message - sem conteudo";
     }
 
     // Criptografa o corpo da mensagem se ainda não estiver criptografado.
     if (!isEncrypted(bodyToSave)) {
       bodyToSave = encrypt(bodyToSave);
     }
-    const {ticketId, tenantId,contactId, ...restDto} = dto
-    // Monta o objeto de dados para o repositório
+    const { ticketId, tenantId, contactId, ...restDto } = dto;
+
     const dataForDb = {
       ...restDto,
       body: bodyToSave,
-      // Lógica para conectar relações (ticket, contact, etc.)
-      ticket: { connect: { id: dto.ticketId  as number} },
-      contact: { connect: { id: dto.contactId  as number} },
-      tenant: { connect: { id: dto.tenantId as number }  },
-      // user: { connect: { id: dto.userId } },
-
-      // ...
-    };
-    console.log(dataForDb)
-    //   const createInput: Prisma.MessageCreateInput = filterValidAttributes({
-    //   ...dto,
-    //   body: dto.mediaUrl || dto.body,
-    //   mediaUrl: dto.mediaUrl,
-    //   mediaType:
-    //     media && media.mimetype ? detectMediaType(media.mimetype) : 'chat',
-    // });
-    const updateInput: Prisma.MessageUpdateInput = {
-      ack: 2,
-      // timestamp: messageSent.timestamp,
-      // ... outros campos que você queira atualizar
+      ticket: { connect: { id: dto.ticketId as number } },
+      contact: { connect: { id: dto.contactId as number } },
+      tenant: { connect: { id: dto.tenantId as number } },
     };
 
-    //   // 3. Definição do UPDATE (Lógica de Negócios)
-    // const updateInput: Prisma.MessageUpdateInput = {
-    //   ack: 2,
-    //   timestamp: messageSent.timestamp,
-    //   // ... outros campos que você queira atualizar
-    // };
+    const updateInput: Prisma.MessageUpdateInput = {};
 
     const newMessage = await this.messageRepository.findOrCreateAndReload(
       { messageId: dto.messageId!, tenantId: dto.tenantId! },
       dataForDb,
-      updateInput);
-      console.log(newMessage)
-    //return newMessage;
+      updateInput
+    );
+
+    return newMessage;
   }
 
   /**
    * Busca uma mensagem pelo ID e a retorna com o corpo descriptografado
    * e a URL da mídia completa.
    */
-  // async findByIdAndProcess(id: string): Promise<Message | null> {
-  //   const message = await this.messageRepository.findById(id);
-  //   if (!message) {
-  //     return null;
-  //   }
+  async findByIdAndProcess(id: string): Promise<Message | null> {
+    const message = await this.messageRepository.findMessageBy({ id });
 
-  //   // --- LÓGICA DO GETTER 'mediaUrl' E DESCRIPTOGRAFIA ---
+    if (!message) {
+      return null;
+    }
 
-  //   // Descriptografa o corpo da mensagem
-  //   const decryptedBody = decrypt(message.body);
+    // --- LÓGICA DO GETTER 'mediaUrl' E DESCRIPTOGRAFIA ---
 
-  //   // Monta a URL completa da mídia
-  //   let fullMediaUrl: string | null = null;
-  //   if (message.mediaUrl) {
-  //     const { BACKEND_URL, PROXY_PORT } = process.env;
-  //     fullMediaUrl = (process.env.NODE_ENV === 'development' && PROXY_PORT)
-  //       ? `${BACKEND_URL}:${PROXY_PORT}/public/${message.mediaUrl}`
-  //       : `${BACKEND_URL}/public/${message.mediaUrl}`;
-  //   }
+    // Descriptografa o corpo da mensagem
+    const decryptedBody = decrypt(message.body);
 
-  //   // Retorna uma cópia do objeto da mensagem com os campos processados
-  //   return {
-  //     ...message,
-  //     body: decryptedBody,
-  //     mediaUrl: fullMediaUrl,
-  //   };
-  // }
+    // Monta a URL completa da mídia
+    let fullMediaUrl: string | null = null;
+    if (message.mediaUrl) {
+      const { BACKEND_URL, PROXY_PORT } = process.env;
+      fullMediaUrl =
+        process.env.NODE_ENV === "development" && PROXY_PORT
+          ? `${BACKEND_URL}:${PROXY_PORT}/public/${message.mediaUrl}`
+          : `${BACKEND_URL}/public/${message.mediaUrl}`;
+    }
 
-
+    // Retorna uma cópia do objeto da mensagem com os campos processados
+    return {
+      ...message,
+      body: decryptedBody,
+      mediaUrl: fullMediaUrl,
+    };
+  }
 
   /*private buildMessageBody = (template: string, ticket: any) => {
-    
   return pupa(template || "", {
-    
     name: ticket?.contact?.name ?? "",
     email: ticket?.contact?.email ?? "",
     phoneNumber: ticket?.contact?.number ?? "",
@@ -116,7 +99,147 @@ export class MessageService {
   });
 };*/
 
-  async findMessageBy(where: Prisma.MessageWhereInput): Promise<Message | null> {
-    return await this.messageRepository.findMessageBy(where)
+  async findAllMessageTicket(
+    where: Prisma.MessageWhereInput,
+    options?: PaginationOptions
+  ): Promise<ResponseMessages> {
+    const { messages, count, hasMore } =
+      await this.messageRepository.findAllMessageTicket(where, options);
+
+    return {
+      count,
+      hasMore,
+      messages,
+    };
   }
+
+  async findMessageBy(
+    where: Prisma.MessageWhereInput
+  ): Promise<Message | null> {
+    return await this.messageRepository.findMessageBy(where);
+  }
+
+  async createMessageSystem({
+    message,
+    status,
+    tenantId,
+    ticket,
+    filesArray,
+  }: RequestMessage) {
+    const decryptedMessage = this.getDecryptedMessage(message.body);
+
+    const messageData = {
+      ticketId: ticket.id,
+      body: decryptedMessage,
+      contactId: ticket.contactId,
+      fromMe: message.fromMe,
+      read: true,
+      sendType: "chat",
+      mediaType: "chat",
+      mediaUrl: "",
+      mediaName: undefined,
+      timestamp: Date.now(),
+      quotedMsgId: message.quotedMsg?.messageId,
+      quotedMsg: message.quotedMsg,
+      scheduleDate: message.scheduleDate,
+      status,
+      tenantId,
+      idFront: message.idFront,
+      buffer: undefined,
+    };
+
+    if (decryptedMessage && !Array.isArray(decryptedMessage)) {
+      messageData.body = this.buildMessageBody(decryptedMessage, ticket);
+    }
+    await Promise.all(
+      (filesArray && filesArray.length ? filesArray : [null]).map(
+        async (media) => {
+          if (media) {
+            messageData.mediaType = detectMediaType(media.mimetype);
+            messageData.mediaName = media.filename;
+            messageData.buffer = media.buffer;
+            const filepath = `./public/${media.filename}`;
+            messageData.mediaUrl = filepath;
+
+            const readable = Readable.from(media.buffer);
+            await pipeline(readable, createWriteStream(filepath));
+          }
+          const { ticketId, contactId, tenantId, quotedMsg, ...restDto } =
+            messageData;
+
+          const messageSent = await SendMessageSystemProxy({
+            ticket,
+            messageData,
+            media,
+          });
+
+          const dataForDb = {
+            ...restDto,
+            id: String(messageSent.id),
+            ack: 2,
+            messageId: String(messageSent.messageId),
+            body: encrypt(messageData.body),
+            ticket: { connect: { id: messageData.ticketId as number } },
+            contact: { connect: { id: messageData.contactId as number } },
+            tenant: { connect: { id: messageData.tenantId as number } },
+            // quotedMsg: { connect: { id: messageData.quotedMsgId as number } },
+          };
+
+          const messagePending =
+            await this.messageRepository.findOrCreateAndReload(
+              { messageId: String(messageSent.id), tenantId: ticket.tenantId },
+              dataForDb,
+              {}
+            );
+          const messageToSocket = {
+            ...messagePending,
+            ticket: { id: messagePending.ticket!.id },
+            contact: messagePending.contact!.id,
+          };
+
+          socketEmit({
+            tenantId,
+            type: "chat:create",
+            payload: messageToSocket,
+          });
+        }
+      )
+    );
+  }
+  async updateMessageById(messageId: string, data: any) {
+    return await this.messageRepository.updateMessage(messageId, data);
+  }
+  private getDecryptedMessage(encryptedText: string): string {
+    const secretKey = process.env.CRYPTO_KEY!;
+    if (secretKey.length !== 64) {
+      throw new Error("SECRET_KEY deve ter 64 caracteres hex (32 bytes)");
+    }
+    const key = CryptoJS.enc.Hex.parse(secretKey);
+
+    const [ivHex, encrypted] = encryptedText.split(":");
+
+    // Verifica se ambos os valores existem
+    if (!ivHex || !encrypted) {
+      throw new Error("Formato de texto criptografado inválido");
+    }
+
+    const iv = CryptoJS.enc.Hex.parse(ivHex);
+
+    const decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+      iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+    });
+
+    return decrypted.toString(CryptoJS.enc.Utf8);
+  }
+  private buildMessageBody = (template: string, ticket: any) => {
+    return pupa(template || "", {
+      name: ticket?.contact?.name ?? "",
+      email: ticket?.contact?.email ?? "",
+      phoneNumber: ticket?.contact?.number ?? "",
+      user: ticket?.user?.name ?? "",
+      userEmail: ticket?.user?.email ?? "",
+    });
+  };
 }

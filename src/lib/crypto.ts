@@ -1,9 +1,11 @@
-import CryptoJS from 'crypto-js';
+import CryptoJS from "crypto-js";
 
 const getSecretKey = (): CryptoJS.lib.WordArray => {
   const secretKey = process.env.CRYPTO_KEY;
   if (!secretKey || secretKey.length !== 64) {
-    throw new Error('CHAT_SECRET deve ser definido no .env e ter 64 caracteres hexadecimais (32 bytes)');
+    throw new Error(
+      "CRYPTO_KEY deve ser definido no .env e ter 64 caracteres hexadecimais (32 bytes)"
+    );
   }
   return CryptoJS.enc.Hex.parse(secretKey);
 };
@@ -12,7 +14,7 @@ const getSecretKey = (): CryptoJS.lib.WordArray => {
  * Verifica se um texto já está no formato criptografado (iv:encrypted).
  */
 export const isEncrypted = (text: string): boolean => {
-  return typeof text === 'string' && text.includes(':');
+  return typeof text === "string" && text.includes(":");
 };
 
 /**
@@ -26,7 +28,7 @@ export const encrypt = (text: string): string => {
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7,
   });
-  return iv.toString(CryptoJS.enc.Hex) + ':' + encrypted.toString();
+  return iv.toString(CryptoJS.enc.Hex) + ":" + encrypted.toString();
 };
 
 /**
@@ -38,7 +40,7 @@ export const decrypt = (encryptedText: string): string => {
     return encryptedText;
   }
   const key = getSecretKey();
-  const [ivHex, encrypted] = encryptedText.split(':');
+  const [ivHex, encrypted] = encryptedText.split(":");
   if (!ivHex || !encrypted) {
     return encryptedText; // Retorna o texto original se o formato for inválido
   }

@@ -1,9 +1,13 @@
-
 import { Message, Prisma } from "@prisma/client";
-import { MessageDTO } from "./message.type"
+import { MessageDTO } from "./message.type";
 import { prisma } from "../../lib/prisma";
+import { PaginationOptions } from "../users/users.repository";
 
-
+export interface ResponseMessages {
+  messages: Message[];
+  count: number;
+  hasMore: boolean;
+}
 // --- Tipos Auxiliares ---
 
 // 1. Defina o tipo de inclusão (include) que você sempre quer carregar
@@ -29,12 +33,11 @@ type MessageWithRelations = Prisma.MessageGetPayload<{
 }>;
 
 export class MessageRepository {
-    create(dto: MessageDTO) {
-        
-        return Promise<null>
-    }
+  create(dto: MessageDTO) {
+    return Promise<null>;
+  }
 
-     /**
+  /**
    * Encontra uma mensagem pelo messageId e tenantId, ou a cria se não existir.
    * Sempre retorna a mensagem com as relações especificadas.
    *
@@ -46,7 +49,7 @@ export class MessageRepository {
   async findOrCreateAndReload(
     where: { messageId: string; tenantId: number },
     createData: Prisma.MessageCreateInput,
-    updateData: Prisma.MessageUpdateInput,
+    updateData: Prisma.MessageUpdateInput
   ): Promise<MessageWithRelations> {
     // O Prisma requer que o 'where' do upsert seja um campo único.
     // Assumindo que você tem um índice único composto: @@unique([messageId, tenantId])
@@ -64,7 +67,45 @@ export class MessageRepository {
     return message;
   }
 
-  async findMessageBy(where: Prisma.MessageWhereInput): Promise<Message | null>{
-    return  await prisma.message.findFirst({where})
+  async findMessageBy(
+    where: Prisma.MessageWhereInput
+  ): Promise<Message | null> {
+    return await prisma.message.findFirst({ where });
+  }
+  async findAllMessageTicket(
+    where: Prisma.MessageWhereInput,
+    options?: PaginationOptions
+  ): Promise<ResponseMessages> {
+    const DEFAULT_LIMIT = 40;
+    const DEFAULT_SKIP = 0;
+    const { limit = DEFAULT_LIMIT, skip = DEFAULT_SKIP } = options || {};
+
+    const messages = await prisma.message.findMany({
+      take: limit,
+      skip: skip,
+      where,
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        ticket: true,
+      },
+    });
+    const count = messages.length;
+    const hasMore = count > skip + messages.length;
+
+    return {
+      messages: messages.reverse(),
+      hasMore,
+      count,
+    };
+  }
+  async updateMessage(messageId: string, data: Prisma.MessageUpdateInput) {
+    return await prisma.message.update({
+      where: {
+        messageId: messageId,
+      },
+      data,
+    });
   }
 }

@@ -6,7 +6,6 @@ import { Session } from "../../../lib/tbot";
 import { VerifyMessageTbot } from "./VerifyMessageTbot";
 import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
 
-
 // // Constantes para chaves Redis e TTLs
 // const REDIS_KEYS = {
 //   channel: (id: number) => `cache:tbot:channel:${id}`,
@@ -86,22 +85,13 @@ import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
 //   return contact;
 // };
 
-
-
 // ========================================================================
 // HANDLEMESSAGE PRINCIPAL (AGORA MAIS LIMPO)
 // ========================================================================
 
 const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
-
-  const app = getFastifyApp().services
+  const app = getFastifyApp().services;
   try {
-    // const channel = await getCachedChannel(tbot.id);
-    // if (!channel) {
-    //   logger.error(`[Telegram] Canal ${tbot.id} não encontrado.`);
-    //   return;
-    // }
-
     let message = ctx?.message || ctx.update.callback_query?.message;
 
     if (!message && ctx.update) {
@@ -127,8 +117,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
     const contact = await verifyContactTbot(ctx, app, tbot);
     const messageData = { ...message, timestamp: +message.date * 1000 };
 
-
-    const { ticket } = await findOrCreateTicketSafe({
+    const { ticket, isNew } = await findOrCreateTicketSafe({
       contact,
       whatsappId: tbot.id,
       unreadMessages: fromMe ? 0 : 1,
@@ -136,23 +125,46 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       tenantId: tbot.tenantId,
       msg: { ...messageData, fromMe },
       channel: "telegram",
-    })
+    });
+    if (!ticket) {
+      logger.error("[Telegram] Falha crítica ao criar ou obter ticket.");
+      return;
+    }
     if (ticket.isFarewellMessage) return;
 
-
-
-    
     if (!messageData.text && chat?.id) {
       await VerifyMediaMessageTbot(ctx, fromMe, ticket, contact, app);
     } else {
-     await VerifyMessageTbot(ctx, fromMe, ticket, contact, app)
-      
+      await VerifyMessageTbot(ctx, fromMe, ticket, contact, app);
     }
     const body = message.reply_markup
       ? ctx.update.callback_query?.data
       : message.text;
-    
-    // await app.ticketService.updateTicket(ticket.id, { chatFlowStatus: "waiting_answer"})
+    if (isNew) {
+      // Se o ticket foi criado AGORA, executa o flow. Apenas UM processo receberá isNew = true.
+      logger.info(
+        `[Telegram] Ticket ${ticket.id} é novo. Iniciando ChatFlow de boas-vindas.`
+      );
+      // await VerifyStepsChatFlowTicket(
+      //   { fromMe, body, type: "reply_markup" },
+      //   ticket
+      // );
+      await app.ticketService.updateTicket(ticket.id, {
+        chatFlowStatus: "waiting_answer",
+      });
+    } else if (ticket.chatFlowStatus === "waiting_answer") {
+      logger.info(
+        `[Telegram] Ticket ${ticket.id} está aguardando resposta. Processando...`
+      );
+    } else if (ticket.chatFlowStatus === "in_progress") {
+      logger.info(
+        `[Telegram] Ticket ${ticket.id} em atendimento normal. Verificando passos.`
+      );
+      //      await VerifyStepsChatFlowTicket(
+      //   { fromMe, body, type: "reply_markup" },
+      //   ticket
+      // );
+    }
   } catch (error) {
     logger.error("Erro fatal no HandleMessage:", error);
   }
