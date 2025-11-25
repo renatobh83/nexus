@@ -16,8 +16,8 @@ export class FastReplyService {
     return await this.fastReplyRepository.findByWhere(where);
   }
   async updateFastReply(fastId: number, data: any) {
-    
-    return await this.fastReplyRepository.update(fastId, data);
+      console.log(data)
+    // return await this.fastReplyRepository.update(fastId, data);
   }
   async deteleFastReply(fastId: number): Promise<void> {
     await this.fastReplyRepository.delete(fastId);
