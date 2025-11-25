@@ -98,7 +98,7 @@ export async function messageController(
           status: "pending",
         };
 
-        await messageService.createMessageSystem(messageData);
+        messageService.createMessageSystem(messageData);
         return reply.code(200).send({ message: "messagem enviada" });
       } catch (error) {
         return handleServerError(reply, error);
