@@ -30,8 +30,8 @@ export class TicketService {
   async findTicketBy(where: Prisma.TicketWhereInput): Promise<Ticket | null> {
     return this.ticketRepository.findOne(where);
   }
-  async findTicketForward(contatoId: number): Promise<Ticket | null> {
-    return this.ticketRepository.findTicketForward(contatoId);
+  async findOrCreateTicketForward(contatoId: number, data: any): Promise<Ticket | null> {
+    return this.ticketRepository.findTicketForward(contatoId, data);
   }
   async findAll(
     {

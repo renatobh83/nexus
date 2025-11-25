@@ -3,6 +3,7 @@ import { TbotSendForwardMesssage } from "./Tbot/TbotSendForwardMesssage";
 export const SendMessageForward = async ({
   ticket,
   messageData,
+  ticketIdOrigin
 }): Promise<any> => {
   let message: any | null = null;
   switch (ticket.channel) {

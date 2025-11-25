@@ -968,3 +968,311 @@
   ],
   timestamp: '2025-11-24T19:58:30.521Z'
 }
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.
+  src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 21:25:58 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1767,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 195264512,
+      heapTotal: 192479232,
+      heapUsed: 84808472,
+      external: 4089010,
+      arrayBuffers: 326953
+    }
+  },
+  os: {
+    loadavg: [ 1.9619140625, 1.91357421875, 2.9931640625 ],
+    uptime: 2182
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-25T00:25:58.123Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.
+  src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)
+      at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)
+      at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)
+      at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)
+      at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1480:32)
+      at Module._load (node:internal/modules/cjs/loader:1299:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Tickets/tickets.repository.ts(282,7): error TS1136: Property assignment expected.\n' +
+    "src/core/Tickets/tickets.repository.ts(309,1): error TS1005: ',' expected.\n" +
+    '\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)\n' +
+    '    at Module._compile (/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:114:20)\n' +
+    '    at require.extensions.<computed> (/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1480:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1299:12)',
+  exception: true,
+  date: 'Mon Nov 24 2025 21:25:59 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 1775,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 195084288,
+      heapTotal: 192217088,
+      heapUsed: 84807736,
+      external: 4089010,
+      arrayBuffers: 326953
+    }
+  },
+  os: {
+    loadavg: [ 1.9619140625, 1.91357421875, 2.9931640625 ],
+    uptime: 2183
+  },
+  trace: [
+    {
+      column: 7,
+      file: '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/source-map-support/source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: '/private/var/folders/06/twv7wyp55cscq85k5p9tlvym0000gn/T/ts-node-dev-hook-4253804880231208.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/ts-node-dev/lib/hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1480,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1299,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-25T00:25:59.379Z'
+}

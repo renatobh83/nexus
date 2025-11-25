@@ -257,30 +257,38 @@ export class TicketRepository {
     const tickeInline = {};
     return ticket;
   }
-  async findTicketForward(contatoId: number) {
-    return prisma.ticket.findFirst({
-      where: {
-        contactId: contatoId,
-        OR: [
-          {
-            status: {
-              in: ["open", "pending"],
-            },
-          },
-        ],
-      },
-      include: {
-        contact: {
-          select: {
-            id: true,
-            name: true,
-            number: true,
-            telegramId: true,
+  async findTicketForward(contatoId: number, data: Prisma.TicketCreateInput) {
+  let ticket: Ticket | null
+
+
+   ticket = await prisma.ticket.findFirst({
+    where: {
+      contactId: contatoId,
+      OR: [
+        {
+          status: {
+            in: ["open", "pending"],
           },
         },
+      ],
+    },
+    include: {
+      contact: {
+        select: {
+          id: true,
+          name: true,
+          number: true,
+          telegramId: true,
+        },
       },
-    });
+    },
+  });
+  if(!ticket) {
+    ticket = await prisma.ticket.create({data: data})
   }
+  return ticket
+  
+}
   async findOne(where: Prisma.TicketWhereInput): Promise<Ticket | null> {
     const ticket = await prisma.ticket.findFirst({
       where,
