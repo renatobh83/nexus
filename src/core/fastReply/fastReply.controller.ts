@@ -50,10 +50,8 @@ export async function fastReplyController(
       request: FastifyRequest<{ Body: FastReplyData }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, profile, userId } = request.user as any;
-      if (profile !== "admin") {
-        throw new AppError("ERR_NO_PERMISSION", 403);
-      }
+      const { tenantId, userId } = request.user as any;
+      
       const newReply: FastReplyData = {
         ...request.body,
         user: userId,
