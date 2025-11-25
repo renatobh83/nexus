@@ -13,6 +13,7 @@ import { FastReplyService } from "../../core/fastReply/fastReply.service";
 import { ContatoService } from "../../core/Contatos/contatos.service";
 import { TicketService } from "../../core/Tickets/tickets.service";
 import { MessageService } from "../../core/messages/message.service";
+import { TokenService } from "../../core/ChatClient/token.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -24,9 +25,10 @@ export interface AppServices {
   empresaService: EmpresaService;
   queueService: QueueSerice;
   fastReplyService: FastReplyService;
-  contatoService: ContatoService
-  ticketService: TicketService
-  messageService: MessageService
+  contatoService: ContatoService;
+  ticketService: TicketService;
+  messageService: MessageService;
+  tokenService: TokenService;
   // ... outros serviços
 }
 
@@ -51,11 +53,12 @@ async function diContainerPlugin(
   const empresaService = new EmpresaService();
   const queueService = new QueueSerice();
   const fastReplyService = new FastReplyService();
-  const contatoService = new ContatoService()
-  const ticketService = new TicketService()
-  const messageService = new MessageService()
+  const contatoService = new ContatoService();
+  const ticketService = new TicketService();
+  const messageService = new MessageService();
+  const tokenService = new TokenService();
   // 3. Cria o objeto de serviços
-  
+
   const services: AppServices = {
     userService,
     whatsappService,
@@ -67,7 +70,8 @@ async function diContainerPlugin(
     fastReplyService,
     contatoService,
     ticketService,
-    messageService
+    messageService,
+    tokenService,
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

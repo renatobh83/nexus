@@ -20,10 +20,18 @@ export const findOrCreateTicketSafe = async (params: {
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const Ticket = getFastifyApp().services.ticketService;
   const { contact, whatsappId } = params;
-  const lockKey = REDIS_KEYS.ticketLock(whatsappId, contact.id);
 
+  const lockKey = REDIS_KEYS.ticketLock(whatsappId, contact.id);
+  const LOCK_TIMEOUT = 30;
+  const lockId = `${process.pid}-${Date.now()}`;
   // Tenta adquirir o lock distribuído
-  const lockAcquired = await redisClient.set(lockKey, "locked", "EX", 10, "NX");
+  const lockAcquired = await redisClient.set(
+    lockKey,
+    lockId,
+    "EX",
+    LOCK_TIMEOUT,
+    "NX"
+  );
 
   if (lockAcquired) {
     // === LOCK ADQUIRIDO: Somos o primeiro processo ===
@@ -55,7 +63,10 @@ export const findOrCreateTicketSafe = async (params: {
       return { ticket: null, isNew: false };
     } finally {
       // Libera o lock para futuras operações
-      await redisClient.del(lockKey);
+      const currentLockValue = await redisClient.get(lockKey);
+      if (currentLockValue === lockId) {
+        await redisClient.del(lockKey);
+      }
       logger.info(`[Channel-${whatsappId}] Lock liberado para ${lockKey}.`);
     }
   } else {

@@ -10,6 +10,7 @@ import { fastReplyController } from "../../core/fastReply/fastReply.controller";
 import { ContatoController } from "../../core/Contatos/ contatos.controller";
 import { ticketController } from "../../core/Tickets/tickets.controller";
 import { messageController } from "../../core/messages/message.controller";
+import { chatClientController } from "../../core/ChatClient/chatClient.controller";
 
 // Importe seus controllers
 
@@ -28,6 +29,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
   // O prefixo final será: /api/v1/whatsapp
 
   fastify.register(authController, { prefix: "/auth" });
+  fastify.register(chatClientController, { prefix: "/" });
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });

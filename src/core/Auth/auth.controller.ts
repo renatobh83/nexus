@@ -6,7 +6,6 @@ import {
 } from "fastify";
 import { handleServerError } from "../../errors/errors.helper";
 import { SendRefreshToken } from "../../api/helpers/SendRefreshToken";
-import { getIO } from "../../lib/socket";
 import { RefreshTokenService } from "../../api/helpers/RefreshTokenService";
 import { ValidateTokenResetService } from "../../api/helpers/ValidTokenResetSenha";
 
@@ -50,7 +49,7 @@ export async function authController(
         const refreshToken = request.server.jwt.sign(user, { expiresIn: "7d" });
 
         const usersOline = await authService.findUsersOnline();
-      
+
         const payload = {
           ...user,
           token: accessToken,

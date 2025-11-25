@@ -126,8 +126,7 @@ export async function ContatoController(
         return;
       }
       try {
-        const contato = await conatoService.deleteContato(id);
-        // const contato = await ShowContactService({ id: contactId, tenantId });
+        await conatoService.deleteContato(id);
         return reply.code(200).send("Contato Deletado");
       } catch (error) {
         return handleServerError(reply, error);
