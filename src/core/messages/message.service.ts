@@ -61,7 +61,7 @@ export class MessageService {
       updateInput
     );
 socketEmit({
-            tenantId!,
+            tenantId: 1,
             type: "chat:create",
             payload: newMessage,
           });
