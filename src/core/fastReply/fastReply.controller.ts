@@ -50,15 +50,13 @@ export async function fastReplyController(
       request: FastifyRequest<{ Body: FastReplyData }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, userId } = request.user as any;
+      // const { tenantId, userId } = request.user as any;
 
       const newReply: FastReplyData = {
         ...request.body,
-        user: userId,
-        tenant: tenantId,
       };
       try {
-        const respostaRapida = await fastReplyService.createFasReply(newReply);
+        const respostaRapida = await fastReplyService.createFasReply(request.body);
         return reply.code(200).send(respostaRapida);
       } catch (error) {
         return handleServerError(reply, error);
