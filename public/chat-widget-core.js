@@ -11,6 +11,7 @@
 
   loadScript("https://cdn.socket.io/4.7.2/socket.io.min.js", () => {
     const API_URL = "https://fast.panelapps.site/api/v1";
+    const URL_SOCKET = "https://fast.panelapps.site";
     let socket;
     let chatVisible = false;
     let chatToken = localStorage.getItem("chat_token");
@@ -132,7 +133,7 @@
 
     function connectSocket() {
       if (formContainer) formContainer.remove();
-      socket = io(API_URL, {
+      socket = io(URL_SOCKET, {
         auth: { token: chatToken },
         transports: ["websocket"],
       });
