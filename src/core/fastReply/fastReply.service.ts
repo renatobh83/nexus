@@ -15,7 +15,7 @@ export class FastReplyService {
   async findOne(where: Prisma.FastReplyWhereInput) {
     return await this.fastReplyRepository.findByWhere(where);
   }
-  async updateFastReply(fastId: number, data: Prisma.FastReplyUpdateInput) {
+  async updateFastReply(fastId: number, data: any) {
     return await this.fastReplyRepository.update(fastId, data);
   }
   async deteleFastReply(fastId: number): Promise<void> {
