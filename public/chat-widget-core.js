@@ -100,7 +100,7 @@
           startBtn.textContent = "Iniciando...";
           startBtn.disabled = true;
           try {
-            const res = await fetch(`${API_URL}/api/chatClient/token`, {
+            const res = await fetch(`${API_URL}/chatClient/token`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ name, email, identifier }),
@@ -528,7 +528,7 @@
       formData.append("file", file);
 
       try {
-        const res = await fetch(`${API_URL}/api/chatClient/upload`, {
+        const res = await fetch(`${API_URL}/chatClient/upload`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${chatToken}`,
