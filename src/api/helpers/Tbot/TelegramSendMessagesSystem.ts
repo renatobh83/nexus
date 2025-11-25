@@ -30,7 +30,7 @@ const TelegramSendMessagesSystem = async (
 ): Promise<void> => {
   let sendedMessage: any;
   const app = getFastifyApp().services.ticketService;
-  const chatId = ticket.contact.telegramId as string;
+  const chatId = ticket.contact.number as string;
 
   const extraInfo: any = {};
 
@@ -43,9 +43,12 @@ const TelegramSendMessagesSystem = async (
   extraInfo.parse_mode = "Markdown";
 
   try {
-    if (!["chat", "text"].includes(message.mediaType) && message.mediaName) {
-      const customPath = join(__dirname, "..", "..", "..", "public");
-      const mediaPath = join(customPath, message.mediaName);
+    if (!["chat", "text"].includes(message.mediaType)) {
+      const partes = message.mediaUrl.split("/");
+      const filename = partes.slice(2).join("/");
+
+      const customPath = join(__dirname, "..", "..", "..", "..", "public");
+      const mediaPath = join(customPath, message.mediaUrl);
 
       if (message.mediaType === "audio" || message.mediaType === "ptt") {
         sendedMessage = await tbot.telegram.sendVoice(
@@ -64,7 +67,7 @@ const TelegramSendMessagesSystem = async (
           extraInfo
         );
         await app.updateTicket(ticket.id, {
-          lastMessage: message.media.filename,
+          lastMessage: filename,
           lastMessageAt: new Date().getTime(),
         });
       } else if (message.mediaType === "video") {
@@ -116,9 +119,18 @@ const TelegramSendMessagesSystem = async (
       ack: 1,
       sendType: "chat",
     };
+    let fullMediaUrl: string | null = null;
+    if (message.mediaUrl) {
+      const { MEDIA_URL, PROXY_PORT } = process.env;
+      fullMediaUrl =
+        process.env.NODE_ENV === "development" && PROXY_PORT
+          ? `${MEDIA_URL}:${PROXY_PORT}/public/${message.mediaUrl}`
+          : `${MEDIA_URL}/public/${message.mediaUrl}`;
+    }
 
     const messageToSocket = {
       ...messageToUpdate,
+      mediaUrl: fullMediaUrl,
       body: encrypt(messageToUpdate.body),
       ticket: { id: messageToUpdate.ticketId },
       contact: ticket.contact!.id,

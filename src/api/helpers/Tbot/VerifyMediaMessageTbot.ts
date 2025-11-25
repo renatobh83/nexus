@@ -93,15 +93,13 @@ const downloadFile = async (url: any, pathFile: string): Promise<void> => {
     method: "GET",
     responseType: "stream",
   });
-  console.log(pathFile);
-  // const writer = createWriteStream(pathFile);
+
   await new Promise((resolve, reject) => {
     request.data
       .pipe(createWriteStream(pathFile))
       .on("finish", async () => resolve(true))
       .on("error", (error: any) => {
         console.error("ERROR DONWLOAD", error);
-        // fs.rmdirSync(mediaDir, { recursive: true });
         reject(new Error(error));
       });
   });
@@ -114,7 +112,13 @@ const VerifyMediaMessageTbot = async (
   contact: Contact,
   app: AppServices
 ): Promise<Message | void> => {
-  let message;
+  let message: {
+    message_id: any;
+    reply_to_message: { message_id: any };
+    text: any;
+    caption: any;
+    date: string | number;
+  };
   let updateMessage: any = {};
   message = ctx?.message;
   updateMessage = ctx?.update;
@@ -172,18 +176,17 @@ const VerifyMediaMessageTbot = async (
     idFront: uuidV4(),
   };
 
-  await app.ticketService.updateTicket(ticket.id, {
-    lastMessage: "MEDIA FILE",
-    lastMessageAt: new Date().getTime(),
-    answered: fromMe || false,
-  });
   // await ticket.update({
   //   lastMessage: "MEDIA FILE",
   //   lastMessageAt: new Date().getTime(),
   //   answered: fromMe || false,
   // });
   const newMessage = await app.messageService.createMessage(messageData);
-
+  await app.ticketService.updateTicket(ticket.id, {
+    lastMessage: "MEDIA FILE",
+    lastMessageAt: new Date().getTime(),
+    answered: fromMe || false,
+  });
   return newMessage;
 };
 

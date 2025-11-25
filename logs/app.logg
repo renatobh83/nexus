@@ -1276,3 +1276,594 @@
   ],
   timestamp: '2025-11-25T00:25:59.379Z'
 }
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-11-25T11:17:21.131Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot use 'in' operator to search for 'url' in 1015137420",
+  level: 'error',
+  timestamp: '2025-11-25T12:05:28.751Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T12:05:28.762Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot use 'in' operator to search for 'url' in 1015137420",
+  level: 'error',
+  timestamp: '2025-11-25T12:06:33.420Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T12:06:33.438Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:42\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 \n' +
+    '→ 60 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "34040",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {},\n' +
+    '       create: {\n' +
+    '         body: "c0baee66e7f7a626f7873c499fa0e4db:811TlECU66kn4USgZESCJXMcTkWZyKAprNTqQ6S1wAU=",\n' +
+    '         fromMe: "true",\n' +
+    '                 ~~~~~~\n' +
+    '         read: true,\n' +
+    '         sendType: "chat",\n' +
+    '         mediaType: "text",\n' +
+    '         mediaUrl: "./public/184640-clinuxsend-lume.txt",\n' +
+    '         mediaName: "184640-clinuxsend-lume.txt",\n' +
+    '         timestamp: 1764077739342,\n' +
+    '         scheduleDate: undefined,\n' +
+    '         status: "pending",\n' +
+    '         idFront: "95996aaf54f",\n' +
+    '         buffer: Buffer.alloc(1559),\n' +
+    '         id: "34040",\n' +
+    '         ack: 2,\n' +
+    '         messageId: "34040",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         }\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Argument `fromMe`: Invalid value provided. Expected Boolean, provided String.',
+  level: 'error',
+  timestamp: '2025-11-25T13:35:42.026Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot use 'in' operator to search for 'url' in 1015137420",
+  level: 'error',
+  timestamp: '2025-11-25T13:37:53.424Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T13:37:53.433Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot use 'in' operator to search for 'url' in 1015137420",
+  level: 'error',
+  timestamp: '2025-11-25T13:38:38.264Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T13:38:38.272Z'
+}
+{
+  message: "Error send message (id: undefined):: Error: ENOENT: no such file or directory, realpath 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\public\\3Dias.png'",
+  level: 'error',
+  timestamp: '2025-11-25T13:39:44.048Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T13:39:44.055Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:42\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 \n' +
+    '→ 60 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "34041",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {},\n' +
+    '       create: {\n' +
+    '         body: "0f7ad083a4c7c122b840b26261fcff2c:l938C9qoEXG2QuxEQSuVXQ==",\n' +
+    '         fromMe: "true",\n' +
+    '                 ~~~~~~\n' +
+    '         read: true,\n' +
+    '         sendType: "chat",\n' +
+    '         mediaType: "image",\n' +
+    '         mediaUrl: "./public/1Dia.png",\n' +
+    '         mediaName: "1Dia.png",\n' +
+    '         timestamp: 1764078058503,\n' +
+    '         scheduleDate: undefined,\n' +
+    '         status: "pending",\n' +
+    '         idFront: "6aaf54f1ac2",\n' +
+    '         buffer: Buffer.alloc(397379),\n' +
+    '         id: "34041",\n' +
+    '         ack: 2,\n' +
+    '         messageId: "34041",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         }\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Argument `fromMe`: Invalid value provided. Expected Boolean, provided String.',
+  level: 'error',
+  timestamp: '2025-11-25T13:41:02.821Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:42\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 \n' +
+    '→ 60 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "34042",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {},\n' +
+    '       create: {\n' +
+    '         body: "3ed4d8fdde4dafbdc4ca42681e5b8b4b:b70xA9jz9GW3onbLJczyTg==",\n' +
+    '         fromMe: true,\n' +
+    '         read: true,\n' +
+    '         sendType: "chat",\n' +
+    '         mediaType: "image",\n' +
+    '         mediaUrl: "./public/3Dias.png",\n' +
+    '         mediaName: "3Dias.png",\n' +
+    '         ~~~~~~~~~\n' +
+    '         timestamp: 1764078791370,\n' +
+    '         scheduleDate: undefined,\n' +
+    '         status: "pending",\n' +
+    '         idFront: "aaf54f1ac2e",\n' +
+    '         buffer: Buffer.alloc(384482),\n' +
+    '         id: "34042",\n' +
+    '         ack: 2,\n' +
+    '         messageId: "34042",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `mediaName`. Did you mean `mediaType`? Available options are marked with ?.',
+  level: 'error',
+  timestamp: '2025-11-25T13:53:16.029Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:42\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 \n' +
+    '→ 60 const message = await prisma.message.upsert({\n' +
+    '       where: {\n' +
+    '         messageId_tenantId: {\n' +
+    '           messageId: "34043",\n' +
+    '           tenantId: 1\n' +
+    '         }\n' +
+    '       },\n' +
+    '       update: {},\n' +
+    '       create: {\n' +
+    '         body: "7ac99b3b30c15ed212e4905078ac990d:Ha+ZW44Rt9ga9rBcFtYNjG1djbZ6/hEQZq39SyNhv0z1UosZ2XeuFKfA3KCumRa9",\n' +
+    '         fromMe: true,\n' +
+    '         read: true,\n' +
+    '         sendType: "chat",\n' +
+    '         mediaType: "image",\n' +
+    '         mediaUrl: "./public/Captura de tela 2025-11-12 095010.png",\n' +
+    '         timestamp: 1764079320315,\n' +
+    '         scheduleDate: undefined,\n' +
+    '         status: "pending",\n' +
+    '         idFront: "af54f1ac2ef",\n' +
+    '         buffer: Buffer.alloc(116003),\n' +
+    '         ~~~~~~\n' +
+    '         id: "34043",\n' +
+    '         ack: 2,\n' +
+    '         messageId: "34043",\n' +
+    '         ticket: {\n' +
+    '           connect: {\n' +
+    '             id: 1193\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: {\n' +
+    '           connect: {\n' +
+    '             id: 105\n' +
+    '           }\n' +
+    '         },\n' +
+    '         tenant: {\n' +
+    '           connect: {\n' +
+    '             id: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '     ?   wabaMediaId?: String | Null,\n' +
+    '     ?   reaction?: String | Null,\n' +
+    '     ?   reactionFromMe?: String | Null,\n' +
+    '     ?   isDeleted?: Boolean,\n' +
+    '     ?   isForwarded?: Boolean,\n' +
+    '     ?   createdAt?: DateTime,\n' +
+    '     ?   updatedAt?: DateTime,\n' +
+    '     ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '     ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '     ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '       },\n' +
+    '       include: {\n' +
+    '         ticket: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         quotedMsg: {\n' +
+    '           include: {\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         },\n' +
+    '         contact: true\n' +
+    '       }\n' +
+    '     })\n' +
+    '\n' +
+    'Unknown argument `buffer`. Did you mean `user`? Available options are marked with ?.',
+  level: 'error',
+  timestamp: '2025-11-25T14:02:03.013Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/api/helpers/Tbot/TelegramSendMessagesSystem.ts(44,31): error TS1005: ';' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Tbot\TelegramSendMessagesSystem.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2111637705592384.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2111637705592384.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-2111637705592384.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Tbot/TelegramSendMessagesSystem.ts(44,31): error TS1005: ';' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Tbot/TelegramSendMessagesSystem.ts(44,31): error TS1005: ';' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Tbot/TelegramSendMessagesSystem.ts(44,31): error TS1005: ';' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Nov 25 2025 11:04:28 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 4828,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 130498560,
+      heapTotal: 106635264,
+      heapUsed: 56838184,
+      external: 4244541,
+      arrayBuffers: 586588
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 15963.89 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-2111637705592384.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-11-25T14:04:28.904Z'
+}
+{
+  message: 'Error send message (id: undefined):: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined',
+  level: 'error',
+  timestamp: '2025-11-25T14:07:39.120Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:07:39.130Z'
+}
+{
+  message: 'Error send message (id: undefined):: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined',
+  level: 'error',
+  timestamp: '2025-11-25T14:08:32.047Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:08:32.058Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'filename')",
+  level: 'error',
+  timestamp: '2025-11-25T14:10:43.961Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:10:43.968Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'filename')",
+  level: 'error',
+  timestamp: '2025-11-25T14:11:18.238Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:11:18.259Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Unable to upload 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\public', not a file",
+  level: 'error',
+  timestamp: '2025-11-25T14:20:33.439Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:20:33.459Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Unable to upload 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\public', not a file",
+  level: 'error',
+  timestamp: '2025-11-25T14:21:32.186Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:21:32.194Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Unable to upload 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\public', not a file",
+  level: 'error',
+  timestamp: '2025-11-25T14:52:40.395Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T14:52:40.403Z'
+}
+{
+  message: "Error send message (id: undefined):: Error: ENOENT: no such file or directory, realpath 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\public\\Captura de tela 2025-11-12 104338.png'",
+  level: 'error',
+  timestamp: '2025-11-25T15:51:24.313Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T15:51:24.338Z'
+}
+{
+  message: "Error send message (id: undefined):: Error: ENOENT: no such file or directory, realpath 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\public\\Captura de tela 2025-11-12 095010.png'",
+  level: 'error',
+  timestamp: '2025-11-25T15:52:51.805Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-11-25T15:52:51.817Z'
+}

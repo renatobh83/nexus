@@ -57,12 +57,24 @@ export class MessageService {
       dataForDb,
       updateInput
     );
+    let fullMediaUrl: string | null = null;
+    if (newMessage.mediaUrl) {
+      const { MEDIA_URL, PROXY_PORT } = process.env;
+      fullMediaUrl =
+        process.env.NODE_ENV === "development" && PROXY_PORT
+          ? `${MEDIA_URL}:${PROXY_PORT}/public/${newMessage.mediaUrl}`
+          : `${MEDIA_URL}/public/${newMessage.mediaUrl}`;
+    }
+    const message = {
+      ...newMessage,
+      mediaUrl: fullMediaUrl,
+    };
     socketEmit({
       tenantId,
       type: "chat:create",
-      payload: newMessage,
+      payload: message,
     });
-    return newMessage;
+    return message;
   }
 
   /**
@@ -87,11 +99,11 @@ export class MessageService {
     // Monta a URL completa da mídia
     let fullMediaUrl: string | null = null;
     if (message.mediaUrl) {
-      const { BACKEND_URL, PROXY_PORT } = process.env;
+      const { MEDIA_URL, PROXY_PORT } = process.env;
       fullMediaUrl =
         process.env.NODE_ENV === "development" && PROXY_PORT
-          ? `${BACKEND_URL}:${PROXY_PORT}/public/${message.mediaUrl}`
-          : `${BACKEND_URL}/public/${message.mediaUrl}`;
+          ? `${MEDIA_URL}:${PROXY_PORT}/public/${message.mediaUrl}`
+          : `${MEDIA_URL}/public/${message.mediaUrl}`;
     }
 
     return {
@@ -153,19 +165,21 @@ export class MessageService {
     tenantId,
     ticket,
     filesArray,
-  }: RequestMessage) {
+  }: RequestMessage): Promise<void> {
     const decryptedMessage = decrypt(message.body);
 
     const messageData = {
       ticketId: ticket.id,
       body: decryptedMessage,
       contactId: ticket.contactId,
-      fromMe: message.fromMe,
+      fromMe:
+        typeof message.fromMe === "string"
+          ? message.fromMe.toLowerCase() === "true"
+          : Boolean(message.fromMe),
       read: true,
       sendType: "chat",
       mediaType: "chat",
       mediaUrl: "",
-      mediaName: undefined,
       timestamp: Date.now(),
       quotedMsgId: message.quotedMsg?.messageId,
       quotedMsg: message.quotedMsg,
@@ -184,8 +198,6 @@ export class MessageService {
         async (media) => {
           if (media) {
             messageData.mediaType = detectMediaType(media.mimetype);
-            messageData.mediaName = media.filename;
-            messageData.buffer = media.buffer;
             messageData.mediaUrl = await MediaService(media);
           }
           const {
@@ -237,8 +249,18 @@ export class MessageService {
               dataForDb,
               {}
             );
+          let fullMediaUrl: string | null = null;
+          if (messagePending.mediaUrl) {
+            const { MEDIA_URL, PROXY_PORT } = process.env;
+            fullMediaUrl =
+              process.env.NODE_ENV === "development" && PROXY_PORT
+                ? `${MEDIA_URL}:${PROXY_PORT}/public/${messagePending.mediaUrl}`
+                : `${MEDIA_URL}/public/${messagePending.mediaUrl}`;
+          }
+
           const messageToSocket = {
             ...messagePending,
+            mediaUrl: fullMediaUrl,
             ticket: { id: messagePending.ticket!.id },
             contact: messagePending.contact!.id,
           };
@@ -304,7 +326,6 @@ export class MessageService {
       messageData: message,
       ticketIdOrigin,
     });
-    console.log(ticketIdOrigin);
   }
 
   /**

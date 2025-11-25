@@ -8,6 +8,7 @@ import {
 import { v4 as uuidV4 } from "uuid";
 import { getIO } from "../../../lib/socket";
 import socketEmit from "../socketEmit";
+import { logger } from "../../../ultis/logger";
 
 export const VerifyMessageTbot = async (
   ctx: Context | any,
@@ -16,7 +17,12 @@ export const VerifyMessageTbot = async (
   contact: Contact,
   app: AppServices
 ): Promise<void> => {
-  let message;
+  let message: {
+    reply_to_message: { message_id: any };
+    message_id: any;
+    text: any;
+    date: string | number;
+  };
   let updateMessage: any = {};
 
   message = ctx?.message || ctx.update.callback_query.message;
@@ -26,7 +32,7 @@ export const VerifyMessageTbot = async (
     message = updateMessage?.edited_message;
   }
 
-  let quotedMsgId;
+  let quotedMsgId: string | undefined;
   if (message?.reply_to_message?.message_id) {
     const messageQuoted = await app.messageService.findMessageBy({
       messageId: message.reply_to_message.message_id,
@@ -60,12 +66,13 @@ export const VerifyMessageTbot = async (
     lastMessageAt: new Date().getTime(),
     answered: fromMe || false,
   });
+
   //    VER SE NESSE PONTO VALE ENVIAR UM UPDATE NO TICKET PARA A BARRA ATUALIZAR O LASTMESSAG
-  //   socketEmit({
-  //     tenantId: ticket.tenantId,
-  //     type: "ticket:update",
-  //     payload: updatedTicket,
-  //   });
+  socketEmit({
+    tenantId: ticket.tenantId,
+    type: "ticket:update",
+    payload: updatedTicket,
+  });
 
   await app.messageService.createMessage(messageData);
 };

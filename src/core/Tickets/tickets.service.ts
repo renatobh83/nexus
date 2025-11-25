@@ -2,6 +2,7 @@ import { Prisma, Ticket } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { SettingsService } from "../Settings/settings.service";
 import { TicketRepository } from "./tickets.repository";
+import { TicketWithMessages } from "./tickets.type";
 
 interface Request {
   searchParam?: string;
@@ -24,13 +25,41 @@ export class TicketService {
     this.ticketRepository = new TicketRepository();
   }
 
-  async findTicketId(id: number) {
-    return this.ticketRepository.findById(id);
+  async findTicketId(id: number): Promise<TicketWithMessages | null> {
+    const ticket = await this.ticketRepository.findById(id);
+
+    if (!ticket) return null;
+    const message = ticket.messages.map((message) => {
+      return {
+        ...message,
+        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
+      };
+    });
+    return {
+      ...ticket,
+      messages: message,
+    };
   }
-  async findTicketBy(where: Prisma.TicketWhereInput): Promise<Ticket | null> {
-    return this.ticketRepository.findOne(where);
+  async findTicketBy(
+    where: Prisma.TicketWhereInput
+  ): Promise<TicketWithMessages | null> {
+    const ticket = await this.ticketRepository.findOne(where);
+    if (!ticket) return null;
+    const message = ticket.messages.map((message) => {
+      return {
+        ...message,
+        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
+      };
+    });
+    return {
+      ...ticket,
+      messages: message,
+    };
   }
-  async findOrCreateTicketForward(contatoId: number, data: any): Promise<Ticket | null> {
+  async findOrCreateTicketForward(
+    contatoId: number,
+    data: any
+  ): Promise<Ticket | null> {
     return this.ticketRepository.findTicketForward(contatoId, data);
   }
   async findAll(
@@ -130,13 +159,8 @@ export class TicketService {
     // 6. Lógica de Paginação
     const ticketsLength = tickets.length;
     const hasMore = count > offset + ticketsLength;
-    // const trasnformedMessages = tickets.messages.map((message) => {
-    //   return {
-    //     ...message,
-    //     mediaUrl: this.getFullMediaUrl(message.mediaUrl),
-    //   };
-    // });
-    const ticketsNew = tickets.map((ticket) => {
+
+    const ticketsRetorno = tickets.map((ticket: { messages: any[] }) => {
       const message = ticket.messages.map((message) => {
         return {
           ...message,
@@ -150,7 +174,7 @@ export class TicketService {
     });
 
     return {
-      tickets: ticketsNew || [],
+      tickets: ticketsRetorno || [],
       count,
       hasMore,
     };
@@ -208,9 +232,18 @@ export class TicketService {
     return ticket;
   }
 
-  async updateTicket(ticketId: number, data: any): Promise<Ticket> {
+  async updateTicket(ticketId: number, data: any): Promise<TicketWithMessages> {
     const tickdtUpdated = await this.ticketRepository.update(ticketId, data);
-    return tickdtUpdated;
+    const messageTransformaded = tickdtUpdated.messages.map((message) => {
+      return {
+        ...message,
+        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
+      };
+    });
+    return {
+      ...tickdtUpdated,
+      messages: messageTransformaded,
+    };
   }
   // Função para construir a URL completa da mídia
   private getFullMediaUrl(filename: string | null): string | null {
