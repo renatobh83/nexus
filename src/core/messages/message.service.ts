@@ -60,7 +60,11 @@ export class MessageService {
       dataForDb,
       updateInput
     );
-
+socketEmit({
+            tenantId,
+            type: "chat:create",
+            payload: newMessage,
+          });
     return newMessage;
   }
 
