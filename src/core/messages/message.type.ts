@@ -24,7 +24,7 @@ export enum MessageSendType {
 export interface MessageDTO {
   // --- Campos Principais ---
   id: string; // @id @default(uuid()) @db.Uuid
-  messageId: string | null; // ID da mensagem vindo da plataforma (WA, IG, etc.)
+  messageId: string; // ID da mensagem vindo da plataforma (WA, IG, etc.)
   ack: number; // @default(1)
   status: MessageStatus; // @default(pending)
   wabaMediaId?: string | null;
@@ -46,7 +46,7 @@ export interface MessageDTO {
   ticketId?: number | null; // Int?
   contactId: number | null; // Int?
   userId?: number | null; // Int?
-  tenantId?: number | null; // Int?
+  tenantId: number;
   quotedMsgId?: string | null; // String? @db.Uuid
 
   // --- Relações (Opcional em DTOs, mas incluído para completude) ---
