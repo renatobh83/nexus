@@ -338,6 +338,7 @@ export class TicketService {
     userIdRequest,
     ticketId,
     tenantId,
+    chaflowId,
   }): Promise<any> {
     let ticket: Ticket;
     const logService = getFastifyApp().services.logTicketService;
@@ -356,12 +357,6 @@ export class TicketService {
     let data: any = {
       status: statusData,
     };
-
-    if (ticketId) {
-      data.ticket = {
-        connect: { id: parseInt(ticketId) },
-      };
-    }
 
     if (queueId) {
       data.queue = {
@@ -387,9 +382,12 @@ export class TicketService {
     }
     // se iniciar atendimento, retirar o bot e informar a data
     if (oldStatus === "pending" && statusData === "open") {
-      data.chatFlowId = null;
+      if (ticket.chatFlowId) {
+        data.chaflowId = null;
+      }
       data.startedAttendanceAt = new Date().getTime();
     }
+
     ticket = await this.ticketRepository.update(ticket.id, data);
 
     if (oldStatus === "pending" && statusData === "open") {

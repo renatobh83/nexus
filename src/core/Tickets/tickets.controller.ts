@@ -175,6 +175,7 @@ export async function ticketController(
           ticketId,
           isTransference,
           userIdRequest: userId,
+          chaflowId: null,
         };
 
         const ticket = await ticketService.updateStatusTicket(payload);
