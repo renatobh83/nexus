@@ -356,8 +356,12 @@ export class TicketService {
 
     const data: any = {
       status: statusData,
-      queueId,
-      userId: ticket.isGroup ? null : userId,
+      queue: {
+        connect: { id: queueId },
+      },
+      user: {
+        connect: { id: ticket.isGroup ? null : userId },
+      },
     };
 
     if (statusData === "closed") {
