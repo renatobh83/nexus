@@ -178,7 +178,7 @@ export class TicketService {
     });
 
     return {
-      tickets: ticketsRetorno || [],
+      tickets: tickets || [],
       count,
       hasMore,
     };
