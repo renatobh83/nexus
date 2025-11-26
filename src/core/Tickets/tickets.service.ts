@@ -6,7 +6,6 @@ import { TicketWithMessages } from "./tickets.type";
 import { getFastifyApp } from "../../api";
 import { getIO } from "../../lib/socket";
 import socketEmit from "../../api/helpers/socketEmit";
-import { connect } from "http2";
 
 interface Request {
   searchParam?: string;
@@ -353,14 +352,28 @@ export class TicketService {
     const oldStatus = ticket.status;
     const oldUserId = ticket.userId;
     const statusData = status === "close" ? "closed" : status;
-    const queueConnect = queueId ? { connect: { id: queueId } } : undefined;
-    const data: any = {
+
+    let data: any = {
       status: statusData,
-      queue: queueConnect,
-      user: {
-        connect: { id: ticket.isGroup ? null : userId },
-      },
     };
+
+    if (ticketId) {
+      data.ticket = {
+        connect: { id: parseInt(ticketId) },
+      };
+    }
+
+    if (queueId) {
+      data.queue = {
+        connect: { id: parseInt(queueId) },
+      };
+    }
+
+    if (userId) {
+      data.user = {
+        connect: { id: parseInt(userId) },
+      };
+    }
 
     if (statusData === "closed") {
       data.closedAt = new Date().getTime();
@@ -374,9 +387,7 @@ export class TicketService {
     }
     // se iniciar atendimento, retirar o bot e informar a data
     if (oldStatus === "pending" && statusData === "open") {
-      data.autoReplyId = null;
       data.chatFlowId = null;
-      data.stepAutoReplyId = null;
       data.startedAttendanceAt = new Date().getTime();
     }
     ticket = await this.ticketRepository.update(ticket.id, data);
