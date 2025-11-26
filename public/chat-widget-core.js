@@ -10,8 +10,8 @@
   };
 
   loadScript("https://cdn.socket.io/4.7.2/socket.io.min.js", () => {
-    const API_URL = "http://localhost:3000/api/v1";
-    const URL_SOCKET = "http://localhost:3000";
+    const API_URL = "https://fast.panelapps.site/api/v1";
+    const URL_SOCKET = "https://fast.panelapps.site";
     let socket;
     let chatVisible = false;
     let chatToken = localStorage.getItem("chat_token");
