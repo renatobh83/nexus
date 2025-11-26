@@ -394,7 +394,7 @@ export class TicketRepository {
       messages: MessageForResponse,
       username: ticket.user?.name,
       contactId: ticket.contact.id,
-      empresanome: ticket.empresa,
+      empresanome: ticket.empresa?.name,
       name: ticket.contact.name,
       profilePicUrl: ticket.contact.profilePicUrl,
     };

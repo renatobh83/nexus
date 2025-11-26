@@ -15,6 +15,7 @@ import { TicketService } from "../../core/Tickets/tickets.service";
 import { MessageService } from "../../core/messages/message.service";
 import { TokenService } from "../../core/ChatClient/token.service";
 import { LogTicketService } from "../../core/LogTickets/logTickets.service";
+import { TenantService } from "../../core/Tenant/tenant.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -31,6 +32,7 @@ export interface AppServices {
   messageService: MessageService;
   tokenService: TokenService;
   logTicketService: LogTicketService;
+  tenantService: TenantService;
   // ... outros serviços
 }
 
@@ -60,6 +62,7 @@ async function diContainerPlugin(
   const messageService = new MessageService();
   const tokenService = new TokenService();
   const logTicketService = new LogTicketService();
+  const tenantService = new TenantService();
   // 3. Cria o objeto de serviços
 
   const services: AppServices = {
@@ -76,6 +79,7 @@ async function diContainerPlugin(
     messageService,
     tokenService,
     logTicketService,
+    tenantService,
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

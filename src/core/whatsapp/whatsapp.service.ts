@@ -96,6 +96,9 @@ export class WhatsappService {
     return this.whatsappRepository.findMany(where);
   }
 
+  async findWhere(where: Prisma.WhatsappWhereInput) {
+    return await this.whatsappRepository.findFirst(where);
+  }
   /**
    * Busca uma única conexão de WhatsApp pelo seu ID.
    *

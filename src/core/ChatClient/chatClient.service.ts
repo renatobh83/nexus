@@ -1,1 +1,3 @@
-export class ChatClientService {}
+export class ChatClientService {
+  handel;
+}

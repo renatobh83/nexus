@@ -56,15 +56,18 @@ export class MessageRepository {
     const whereClause: Prisma.MessageWhereUniqueInput = {
       messageId_tenantId: where,
     };
+    try {
+      const message = await prisma.message.upsert({
+        where: whereClause,
+        update: updateData,
+        create: createData,
+        include: messageInclude, // O include garante que as relações sejam carregadas
+      });
 
-    const message = await prisma.message.upsert({
-      where: whereClause,
-      update: updateData,
-      create: createData,
-      include: messageInclude, // O include garante que as relações sejam carregadas
-    });
-
-    return message;
+      return message;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async findMessageBy(

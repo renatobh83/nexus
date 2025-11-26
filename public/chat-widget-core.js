@@ -10,8 +10,8 @@
   };
 
   loadScript("https://cdn.socket.io/4.7.2/socket.io.min.js", () => {
-    const API_URL = "https://fast.panelapps.site/api/v1";
-    const URL_SOCKET = "https://fast.panelapps.site";
+    const API_URL = "http://localhost:3000/api/v1";
+    const URL_SOCKET = "http://localhost:3000";
     let socket;
     let chatVisible = false;
     let chatToken = localStorage.getItem("chat_token");
@@ -161,7 +161,7 @@
         //  notify("Nova mensagem", msg);
       });
       socket.on("chat:image", (data) =>
-        appendImage(data.url, Date.now(), true)
+        appendImage(data.url, Date.now(), "Atendente", true)
       );
 
       socket.on("chat:previousMessages", (messages) => {
@@ -173,8 +173,13 @@
           const timestamp = msg.timestamp || Date.now();
           let el;
           if (msg.mediaType === "image") {
-            const link = `${API_URL}/public/${msg.mediaUrl}`;
-            el = createImageElement(link, timestamp, msg.fromMe, msg.id);
+            if (msg.fromMe) {
+              const nome = extrairNome(msg.body);
+              const mensagemSemNome = msg.body.replace(/\*(.*?)\*:\s*/, "");
+              el = createImageElement(msg.mediaUrl, timestamp, nome, msg.id);
+            } else {
+              el = createImageElement(msg.mediaUrl, timestamp, "Você", msg.id);
+            }
           } else {
             if (msg.fromMe) {
               const nome = extrairNome(msg.body);
@@ -483,17 +488,21 @@
 
     function appendImage(url, timestamp = Date.now(), sender, id = Date.now()) {
       const el = document.createElement("div");
-      el.className = !sender
-        ? "chat-message chat-client"
-        : "chat-message chat-agent";
+      el.className =
+        sender === "Você"
+          ? "chat-message chat-client"
+          : "chat-message chat-agent";
       el.innerHTML = `
                     <div class="message-content" id=${id}>
                           <a href="${url}" target="_blank" rel="noopener noreferrer">
                             <img src="${url}" style="max-width: 100%; border-radius: 8px; margin-top: 8px;" crossorigin="anonymous" />
                           </a>
-                        <div style="font-size: 11px; color: #777; margin-top: 4px;">${formatTime(
-                          timestamp
-                        )}</div>
+                        <div class="message-meta">
+                           <span class="message-sender">${sender}</span>
+                          <span class="message-time">
+                            ${formatTime(timestamp)}
+                            </span>
+                        </div>
                     </div>
             `;
 
@@ -507,17 +516,21 @@
       id = Date.now()
     ) {
       const el = document.createElement("div");
-      el.className = !sender
-        ? "chat-message chat-client"
-        : "chat-message chat-agent";
+      el.className =
+        sender === "Você"
+          ? "chat-message chat-client"
+          : "chat-message chat-agent";
       el.innerHTML = `
                     <div class="message-content" id=${id}>
                         <a href="${url}" target="_blank" rel="noopener noreferrer">
-                            // <img src="${url}" style="max-width: 100%; border-radius: 8px; margin-top: 8px;" crossorigin="anonymous" />
+                             <img src="${url}" style="max-width: 100%; border-radius: 8px; margin-top: 8px;" crossorigin="anonymous" />
                          </a>
-                        <div style="font-size: 11px; color: #777; margin-top: 4px;">${formatTime(
-                          timestamp
-                        )}</div>
+                    <div class="message-meta">
+                           <span class="message-sender">${sender}</span>
+                          <span class="message-time">
+                            ${formatTime(timestamp)}
+                            </span>
+                        </div>
                     </div>
             `;
       return el;
@@ -537,9 +550,10 @@
           body: formData,
         });
         const data = await res.json();
+
         if (data.url) {
           socket.emit("chat:image", data.url);
-          appendImage(data.url, Date.now(), false);
+          appendImage(data.url, Date.now(), "Você", false);
         } else {
           showToast("Erro ao enviar imagem", "error");
         }

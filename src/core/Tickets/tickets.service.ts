@@ -6,6 +6,7 @@ import { TicketWithMessages } from "./tickets.type";
 import { getFastifyApp } from "../../api";
 import { getIO } from "../../lib/socket";
 import socketEmit from "../../api/helpers/socketEmit";
+import { connect } from "http2";
 
 interface Request {
   searchParam?: string;
@@ -188,6 +189,7 @@ export class TicketService {
       contact,
       whatsappId,
       chatFlowId,
+      empresaId,
       groupContact,
       tenantId,
       msg,
@@ -222,7 +224,11 @@ export class TicketService {
         connect: { id: chatFlowId },
       };
     }
-
+    if (empresaId) {
+      dataForPrisma.empresa = {
+        connect: { id: empresaId },
+      };
+    }
     if (userId) {
       dataForPrisma.user = {
         connect: { id: userId },
@@ -236,7 +242,10 @@ export class TicketService {
     return ticket;
   }
 
-  async updateTicket(ticketId: number, data: any): Promise<TicketWithMessages> {
+  async updateTicket(
+    ticketId: number,
+    data: Prisma.TicketUpdateInput
+  ): Promise<TicketWithMessages> {
     const tickdtUpdated = await this.ticketRepository.update(ticketId, data);
     const messageTransformaded = tickdtUpdated.messages.map((message) => {
       return {

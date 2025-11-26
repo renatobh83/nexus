@@ -4,13 +4,12 @@ import fs, { promises } from "node:fs";
 import { AppError } from "../errors/errors.helper";
 import { logger } from "../ultis/logger";
 import { getIO } from "./socket";
-import { FastifyInstance } from "fastify";
 import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 import { wbotMessageListener } from "../api/helpers/Wbot/wbotMessageListener";
 
 export interface Session extends Whatsapp {
   id: number;
-  tenantId: number
+  tenantId: number;
 }
 
 const sessions: Session[] = [];
@@ -148,7 +147,7 @@ export const initWbot = async (
     const sessionIndex = sessions.findIndex((s) => s.id === whatsapp.id);
     if (sessionIndex === -1) {
       wbot.id = whatsapp.id;
-      wbot.tenantId= parseInt(tenantId)
+      wbot.tenantId = parseInt(tenantId);
       sessions.push(wbot);
     } else {
       sessions[sessionIndex] = wbot;
@@ -211,7 +210,7 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
       //   action: "readySession",
       //   session: whatsappSession,
       // });
-      
+
       wbotMessageListener(client);
     }
   } catch (_error) {}

@@ -1,6 +1,8 @@
 import type { Message as WbotMessage } from "wbotconnect";
 import TelegramSendMessagesSystem from "./Tbot/TelegramSendMessagesSystem";
 import { requireTbot } from "../../lib/tbot";
+import { SendMessageChatClient } from "./WebChat/SendMessageChatClient";
+import { SendMessageMediaChatClient } from "./WebChat/SendMessageMediaChatClient";
 
 type Payload = {
   ticket: any;
@@ -19,7 +21,7 @@ const SendMessageSystemProxy = async ({
   media,
   userId,
 }: Payload): Promise<any> => {
-  const hasMedia = Boolean(messageData.mediaName && media);
+  const hasMedia = Boolean(messageData.mediaType === "image" && media);
   let message: any | null = null;
 
   switch (ticket.channel) {
@@ -49,9 +51,9 @@ const SendMessageSystemProxy = async ({
       break;
 
     default:
-    // message = hasMedia
-    //   ? await SendMessageMediaChatClient(media, ticket)
-    //   : await SendMessageChatClient(messageData, ticket);
+      message = hasMedia
+        ? await SendMessageMediaChatClient(media, ticket)
+        : await SendMessageChatClient(messageData, ticket);
   }
 
   // Se a mensagem foi enviada mas ainda está "pendente"

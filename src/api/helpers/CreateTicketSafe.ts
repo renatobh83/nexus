@@ -13,10 +13,12 @@ export const findOrCreateTicketSafe = async (params: {
   contact: any;
   whatsappId: number;
   unreadMessages: number;
-  msg: any;
+  msg?: any;
   tenantId: number;
   channel: string;
   groupContact: boolean;
+  empresaId?: number;
+  socketId?: number;
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const Ticket = getFastifyApp().services.ticketService;
   const { contact, whatsappId } = params;
@@ -43,6 +45,9 @@ export const findOrCreateTicketSafe = async (params: {
       const existingTicket = await Ticket.findTicketBy({
         contactId: contact.id,
         whatsappId,
+        status: {
+          in: ["pending", "open"],
+        },
       });
       if (existingTicket) {
         logger.info(
@@ -55,7 +60,7 @@ export const findOrCreateTicketSafe = async (params: {
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
-      getFastifyApp().services.logTicketService.createLogTicket({
+      await getFastifyApp().services.logTicketService.createLogTicket({
         ticketId: newTicket.id,
         tenantId: newTicket.tenantId,
         type: "create",

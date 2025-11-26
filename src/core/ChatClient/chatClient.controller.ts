@@ -99,7 +99,7 @@ export async function chatClientController(
             console.log(error);
           }
         }
-        const fileUrl = `${process.env.BACKEND_URL}/public/${filename}`;
+        const fileUrl = `${process.env.MEDIA_URL}/public/${filename}`;
 
         return reply.code(200).send({ url: fileUrl });
       } catch (error) {

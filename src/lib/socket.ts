@@ -1,7 +1,7 @@
 import { Server as SocketIOServer, Socket } from "socket.io";
 import { logger } from "../ultis/logger";
+import { HandleMessageChatClient } from "../api/helpers/WebChat/HandleMessageChatClient";
 // import { HandleMessageChatClient } from "../services/ChatClientService/HandleMessageChatClient";
-
 
 // 1. A variável `io` continua a existir para ser acessada por outras partes da aplicação através do `getIO`.
 let io: SocketIOServer | null = null;
@@ -35,7 +35,8 @@ export const setupSocket = (ioInstance: SocketIOServer): void => {
 
       // A lógica de autenticação já foi executada no middleware, então os dados estão em `socket.handshake.auth`.
       if (type === "chat-client") {
-        // await HandleMessageChatClient(socket);
+        console.log(type);
+        await HandleMessageChatClient(socket);
         return;
       }
 
