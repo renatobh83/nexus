@@ -61,12 +61,13 @@ export class MessageRepository {
         where: whereClause,
         update: updateData,
         create: createData,
-        include: messageInclude, // O include garante que as relações sejam carregadas
+        include: messageInclude,
       });
 
       return message;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 
