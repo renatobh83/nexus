@@ -353,12 +353,10 @@ export class TicketService {
     const oldStatus = ticket.status;
     const oldUserId = ticket.userId;
     const statusData = status === "close" ? "closed" : status;
-
+    const queueConnect = queueId ? { connect: { id: queueId } } : undefined;
     const data: any = {
       status: statusData,
-      queue: {
-        connect: { id: queueId },
-      },
+      queue: queueConnect,
       user: {
         connect: { id: ticket.isGroup ? null : userId },
       },
