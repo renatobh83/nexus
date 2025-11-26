@@ -639,7 +639,7 @@ export class TicketRepository {
           mediaUrl: message.quotedMsg?.mediaUrl
             ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
             : null,
-        };
+        };console.log(message.mediaUrl)
         return {
           ...message,
           mediaUrl: getFullMediaUrl(message.mediaUrl),
