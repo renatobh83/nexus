@@ -107,6 +107,7 @@ export class ContatosRepository {
     data: Prisma.ContactCreateInput,
     whereOr: ContactFindOrCondition
   ): Promise<Contact> {
+    console.log(whereOr)
     const contact = await prisma.contact.findFirst({
       where: {
         OR: [
