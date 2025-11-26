@@ -120,6 +120,7 @@ export class ContatosRepository {
         ],
       },
     });
+    console.log(contact)
     if (contact) {
       // Opcional: Se você quiser atualizar o contato encontrado com os novos dados,
       // você faria um update aqui. Se não, apenas retorne.
