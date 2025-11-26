@@ -4,22 +4,22 @@ import { TicketWithMessages } from "./tickets.type";
 import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
 
 export interface ITicketRepository {
-  findTickets(params: {
-    tenantId: number;
-    status: string[];
-    queuesIdsUser: number[];
-    userId: number;
-    isUnread: boolean;
-    isNotAssigned: boolean;
-    isNotViewAssignedTickets: boolean;
-    isSearchParam: boolean;
-    searchParam: string;
-    limit: number;
-    offset: number;
-    profile: string;
-    isExistsQueueTenant: boolean;
-    NotQueueDefinedTicket: boolean;
-  }): Promise<{ tickets: Ticket[]; count: number }>;
+  // findTickets(params: {
+  //   tenantId: number;
+  //   status: string[];
+  //   queuesIdsUser: number[];
+  //   userId: number;
+  //   isUnread: boolean;
+  //   isNotAssigned: boolean;
+  //   isNotViewAssignedTickets: boolean;
+  //   isSearchParam: boolean;
+  //   searchParam: string;
+  //   limit: number;
+  //   offset: number;
+  //   profile: string;
+  //   isExistsQueueTenant: boolean;
+  //   NotQueueDefinedTicket: boolean;
+  // }): Promise<{ tickets: Ticket[]; count: number }>;
 
   countQueuesByTenant(tenantId: number): Promise<number>;
 
@@ -73,152 +73,152 @@ export class TicketRepository {
    * @param params Os parâmetros de filtragem e paginação.
    * @returns Uma promessa que resolve para a lista de tickets e a contagem total.
    */
-  async findTicketsRaw(params: {
-    tenantId: number;
-    status: string[];
-    queuesIdsUser: number[];
-    userId: number;
-    isUnread: boolean;
-    isNotAssigned: boolean;
-    isNotViewAssignedTickets: boolean;
-    isSearchParam: boolean;
-    searchParam: string;
-    limit: number;
-    offset: number;
-    profile: string;
-    isExistsQueueTenant: boolean;
-    NotQueueDefinedTicket: boolean;
-  }): Promise<{ tickets: Ticket[]; count: number }> {
-    const {
-      tenantId,
-      status,
-      queuesIdsUser,
-      userId,
-      isUnread,
-      isNotAssigned,
-      isNotViewAssignedTickets,
-      isSearchParam,
-      searchParam,
-      limit,
-      offset,
-      profile,
-      isExistsQueueTenant,
-      NotQueueDefinedTicket,
-    } = params;
+  // async findTicketsRaw(params: {
+  //   tenantId: number;
+  //   status: string[];
+  //   queuesIdsUser: number[];
+  //   userId: number;
+  //   isUnread: boolean;
+  //   isNotAssigned: boolean;
+  //   isNotViewAssignedTickets: boolean;
+  //   isSearchParam: boolean;
+  //   searchParam: string;
+  //   limit: number;
+  //   offset: number;
+  //   profile: string;
+  //   isExistsQueueTenant: boolean;
+  //   NotQueueDefinedTicket: boolean;
+  // }): Promise<{ tickets: Ticket[]; count: number }> {
+  //   const {
+  //     tenantId,
+  //     status,
+  //     queuesIdsUser,
+  //     userId,
+  //     isUnread,
+  //     isNotAssigned,
+  //     isNotViewAssignedTickets,
+  //     isSearchParam,
+  //     searchParam,
+  //     limit,
+  //     offset,
+  //     profile,
+  //     isExistsQueueTenant,
+  //     NotQueueDefinedTicket,
+  //   } = params;
 
-    // A query original é muito complexa e usa recursos específicos do PostgreSQL
-    // como jsonb_build_object e count(*) OVER ().
-    // Para manter a funcionalidade exata, usamos $queryRaw.
-    // Os nomes das tabelas e colunas foram ajustados para o padrão do Prisma (PascalCase para tabelas, camelCase para colunas)
-    // e para corresponder ao SQL original (entre aspas duplas).
+  //   // A query original é muito complexa e usa recursos específicos do PostgreSQL
+  //   // como jsonb_build_object e count(*) OVER ().
+  //   // Para manter a funcionalidade exata, usamos $queryRaw.
+  //   // Os nomes das tabelas e colunas foram ajustados para o padrão do Prisma (PascalCase para tabelas, camelCase para colunas)
+  //   // e para corresponder ao SQL original (entre aspas duplas).
 
-    // NOTA: O Prisma.$queryRaw não suporta substituição de parâmetros nomeados (:paramName)
-    // como o Sequelize. É necessário usar interpolação de tags de template (Prisma.sql)
-    // ou passar os parâmetros na ordem correta para $queryRawUnsafe.
-    // Usaremos a tag de template Prisma.sql para segurança e legibilidade.
+  //   // NOTA: O Prisma.$queryRaw não suporta substituição de parâmetros nomeados (:paramName)
+  //   // como o Sequelize. É necessário usar interpolação de tags de template (Prisma.sql)
+  //   // ou passar os parâmetros na ordem correta para $queryRawUnsafe.
+  //   // Usaremos a tag de template Prisma.sql para segurança e legibilidade.
 
-    // Prepara as condições dinâmicas para a cláusula WHERE
-    const statusCondition = Prisma.sql`t.status IN (${Prisma.join(status)})`;
+  //   // Prepara as condições dinâmicas para a cláusula WHERE
+  //   const statusCondition = Prisma.sql`t.status IN (${Prisma.join(status)})`;
 
-    const queueCondition = Prisma.sql`
-      (
-        (${profile} = 'admin')
-        OR
-        (${isExistsQueueTenant} = true AND t."queueId" IN (${Prisma.join(
-      queuesIdsUser
-    )}))
-        OR
-        (${NotQueueDefinedTicket} = true)
-        OR
-        (t."userId" = ${userId})
-        OR
-        (t."isGroup" = true)
-        OR
-        (${isExistsQueueTenant} = false)
-      )
-    `;
+  //   const queueCondition = Prisma.sql`
+  //     (
+  //       (${profile} = 'admin')
+  //       OR
+  //       (${isExistsQueueTenant} = true AND t."queueId" IN (${Prisma.join(
+  //     queuesIdsUser
+  //   )}))
+  //       OR
+  //       (${NotQueueDefinedTicket} = true)
+  //       OR
+  //       (t."userId" = ${userId})
+  //       OR
+  //       (t."isGroup" = true)
+  //       OR
+  //       (${isExistsQueueTenant} = false)
+  //     )
+  //   `;
 
-    const unreadCondition = isUnread
-      ? Prisma.sql`t."unreadMessages" > 0`
-      : Prisma.sql`TRUE`;
+  //   const unreadCondition = isUnread
+  //     ? Prisma.sql`t."unreadMessages" > 0`
+  //     : Prisma.sql`TRUE`;
 
-    const notAssignedCondition = isNotAssigned
-      ? Prisma.sql`t."userId" IS NULL`
-      : Prisma.sql`TRUE`;
+  //   const notAssignedCondition = isNotAssigned
+  //     ? Prisma.sql`t."userId" IS NULL`
+  //     : Prisma.sql`TRUE`;
 
-    const searchCondition = isSearchParam
-      ? Prisma.sql`
-        (
-          (t.id::text LIKE ${searchParam}) OR
-          (EXISTS (
-            SELECT 1 FROM "Contact" c
-            WHERE c.id = t."contactId" AND
-            (UPPER(c."name") LIKE UPPER(${searchParam}) OR c."number" LIKE ${searchParam})
-          ))
-        )
-      `
-      : Prisma.sql`TRUE`;
+  //   const searchCondition = isSearchParam
+  //     ? Prisma.sql`
+  //       (
+  //         (t.id::text LIKE ${searchParam}) OR
+  //         (EXISTS (
+  //           SELECT 1 FROM "Contact" c
+  //           WHERE c.id = t."contactId" AND
+  //           (UPPER(c."name") LIKE UPPER(${searchParam}) OR c."number" LIKE ${searchParam})
+  //         ))
+  //       )
+  //     `
+  //     : Prisma.sql`TRUE`;
 
-    const viewAssignedCondition = isNotViewAssignedTickets
-      ? Prisma.sql`
-        (
-          (${profile} = 'admin')
-          OR
-          (t."userId" = ${userId} OR t."userId" IS NULL)
-        )
-      `
-      : Prisma.sql`TRUE`; // Se a config estiver desligada, não restringe
+  //   const viewAssignedCondition = isNotViewAssignedTickets
+  //     ? Prisma.sql`
+  //       (
+  //         (${profile} = 'admin')
+  //         OR
+  //         (t."userId" = ${userId} OR t."userId" IS NULL)
+  //       )
+  //     `
+  //     : Prisma.sql`TRUE`; // Se a config estiver desligada, não restringe
 
-    // Reconstruindo a query com Prisma.sql
-    const query = Prisma.sql`
-      SELECT
-        COUNT(*) OVER () AS count,
-        c."profilePicUrl",
-        c."name",
-        u."name" AS username,
-        q.queue,
-        em."name" AS empresaNome,
-        jsonb_build_object('id', w.id, 'name', w."name") AS whatsapp,
-        t.*
-      FROM "Tickets" t
-      INNER JOIN "Whatsapp" w ON (w.id = t."whatsappId")
-      LEFT JOIN "Contacts" c ON (t."contactId" = c.id)
-      LEFT JOIN "Empresas" em ON (t."empresaId" = em.id)
-      LEFT JOIN "Users" u ON (u.id = t."userId")
-      LEFT JOIN "Queues" q ON (t."queueId" = q.id)
+  //   // Reconstruindo a query com Prisma.sql
+  //   const query = Prisma.sql`
+  //     SELECT
+  //       COUNT(*) OVER () AS count,
+  //       c."profilePicUrl",
+  //       c."name",
+  //       u."name" AS username,
+  //       q.queue,
+  //       em."name" AS empresaNome,
+  //       jsonb_build_object('id', w.id, 'name', w."name") AS whatsapp,
+  //       t.*
+  //     FROM "Tickets" t
+  //     INNER JOIN "Whatsapp" w ON (w.id = t."whatsappId")
+  //     LEFT JOIN "Contacts" c ON (t."contactId" = c.id)
+  //     LEFT JOIN "Empresas" em ON (t."empresaId" = em.id)
+  //     LEFT JOIN "Users" u ON (u.id = t."userId")
+  //     LEFT JOIN "Queues" q ON (t."queueId" = q.id)
 
-      WHERE t."tenantId" = ${tenantId}
-      AND c."tenantId" = ${tenantId}
-      AND t."chatFlowId" IS NULL
-      AND ${statusCondition}
-      AND ${queueCondition}
-      AND ${unreadCondition}
-      AND ${notAssignedCondition}
-      AND ${searchCondition}
-      AND ${viewAssignedCondition}
-      ORDER BY
-        CASE t.status
-          WHEN 'pending' THEN 0
-          WHEN 'open' THEN 1
-          WHEN 'closed' THEN 2
-          ELSE 3
-        END,
-        t."updatedAt" DESC
-      LIMIT ${limit} OFFSET ${offset};
-    `;
+  //     WHERE t."tenantId" = ${tenantId}
+  //     AND c."tenantId" = ${tenantId}
+  //     AND t."chatFlowId" IS NULL
+  //     AND ${statusCondition}
+  //     AND ${queueCondition}
+  //     AND ${unreadCondition}
+  //     AND ${notAssignedCondition}
+  //     AND ${searchCondition}
+  //     AND ${viewAssignedCondition}
+  //     ORDER BY
+  //       CASE t.status
+  //         WHEN 'pending' THEN 0
+  //         WHEN 'open' THEN 1
+  //         WHEN 'closed' THEN 2
+  //         ELSE 3
+  //       END,
+  //       t."updatedAt" DESC
+  //     LIMIT ${limit} OFFSET ${offset};
+  //   `;
 
-    // Executa a query
-    const ticketsRaw: any[] = await prisma.$queryRaw(query);
+  //   // Executa a query
+  //   const ticketsRaw: any[] = await prisma.$queryRaw(query);
 
-    // O Prisma.$queryRaw retorna um array de objetos.
-    // O campo 'count' vem de 'COUNT(*) OVER ()' e está em cada objeto.
-    const count = ticketsRaw.length > 0 ? Number(ticketsRaw[0].count) : 0;
+  //   // O Prisma.$queryRaw retorna um array de objetos.
+  //   // O campo 'count' vem de 'COUNT(*) OVER ()' e está em cada objeto.
+  //   const count = ticketsRaw.length > 0 ? Number(ticketsRaw[0].count) : 0;
 
-    // Remove o campo 'count' dos tickets para retornar apenas os dados do ticket
-    const tickets = ticketsRaw.map(({ count, ...ticket }) => ticket as Ticket);
+  //   // Remove o campo 'count' dos tickets para retornar apenas os dados do ticket
+  //   const tickets = ticketsRaw.map(({ count, ...ticket }) => ticket as Ticket);
 
-    return { tickets, count };
-  }
+  //   return { tickets, count };
+  // }
   async findById(id: number): Promise<TicketWithMessages | null> {
     const ticket = await prisma.ticket.findUnique({
       where: {
@@ -253,6 +253,7 @@ export class TicketRepository {
         messages: {
           include: {
             ticket: true,
+            quotedMsg: true,
           },
           orderBy: {
             updatedAt: "asc",
@@ -263,8 +264,23 @@ export class TicketRepository {
       },
     });
     if (!ticket) return null;
-
-    return ticket;
+    const MessageForResponse = ticket.messages.map((message) => {
+      const newQuot = {
+        ...message.quotedMsg,
+        mediaUrl: message.quotedMsg?.mediaUrl
+          ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
+          : null,
+      };
+      return {
+        ...message,
+        mediaUrl: getFullMediaUrl(message.mediaUrl),
+        quotedMsg: newQuot,
+      };
+    });
+    return {
+      ...ticket,
+      messages: MessageForResponse,
+    };
   }
   async findTicketForward(contatoId: number, data: Prisma.TicketCreateInput) {
     let ticket: Ticket | null;
@@ -296,13 +312,19 @@ export class TicketRepository {
     }
     return ticket;
   }
-  async findOne(
-    where: Prisma.TicketWhereInput
-  ): Promise<TicketWithMessages | null> {
+  async findOne(where: Prisma.TicketWhereInput): Promise<any | null> {
     const ticket = await prisma.ticket.findFirst({
       where,
       include: {
-        contact: true,
+        contact: {
+          select: {
+            id: true,
+            name: true,
+            number: true,
+            email: true,
+            profilePicUrl: true,
+          },
+        },
         user: {
           select: {
             name: true,
@@ -315,19 +337,37 @@ export class TicketRepository {
             id: true,
           },
         },
-        chamado: true,
-        chatFlow: true,
-        empresa: true,
+        chamado: {
+          select: {
+            id: true,
+          },
+        },
+        chatFlow: {
+          select: {
+            id: true,
+          },
+        },
+        empresa: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
         messages: {
           include: {
             ticket: true,
+            quotedMsg: true,
           },
           orderBy: {
             updatedAt: "asc",
           },
         },
         queue: true,
-        tenant: true,
+        tenant: {
+          select: {
+            id: true,
+          },
+        },
       },
       orderBy: {
         createdAt: "desc", // Ordena do mais recente para o mais antigo
@@ -335,40 +375,77 @@ export class TicketRepository {
     });
     if (!ticket) return null;
 
-    return ticket;
+    const MessageForResponse = ticket.messages.map((message) => {
+      const newQuot = {
+        ...message.quotedMsg,
+        mediaUrl: message.quotedMsg?.mediaUrl
+          ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
+          : null,
+      };
+      return {
+        ...message,
+        mediaUrl: getFullMediaUrl(message.mediaUrl),
+        quotedMsg: newQuot,
+      };
+    });
+
+    return {
+      ...ticket,
+      messages: MessageForResponse,
+      username: ticket.user?.name,
+      contactId: ticket.contact.id,
+      empresanome: ticket.empresa,
+      name: ticket.contact.name,
+      profilePicUrl: ticket.contact.profilePicUrl,
+    };
   }
-  async findAll(): Promise<Ticket[]> {
-    return await prisma.ticket.findMany({
+  // async findAll(): Promise<Ticket[]> {
+  //   return await prisma.ticket.findMany({
+  //     include: {
+  //       contact: {
+  //         select: {
+  //           id: true,
+  //           name: true,
+  //           email: true,
+  //           number: true,
+  //         },
+  //       },
+  //       user: {
+  //         select: {
+  //           name: true,
+  //           id: true,
+  //         },
+  //       },
+  //       chamado: true,
+  //       chatFlow: {
+  //         select: {
+  //           id: true,
+  //         },
+  //       },
+  //       empresa: true,
+  //       messages: true,
+  //       queue: true,
+  //       tenant: {
+  //         select: {
+  //           id: true,
+  //         },
+  //       },
+  //       whatsapp: {
+  //         select: {
+  //           id: true,
+  //           name: true,
+  //         },
+  //       },
+  //     },
+  //   });
+  // }
+  async create(data: Prisma.TicketCreateInput): Promise<any> {
+    const ticket = await prisma.ticket.create({
+      data: data,
       include: {
-        contact: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            number: true,
-          },
-        },
-        user: {
-          select: {
-            name: true,
-            id: true,
-          },
-        },
-        chamado: true,
-        chatFlow: {
-          select: {
-            id: true,
-          },
-        },
+        contact: true,
         empresa: true,
-        messages: true,
-        queue: true,
-        tenant: {
-          select: {
-            id: true,
-          },
-        },
-        whatsapp: {
+        user: {
           select: {
             id: true,
             name: true,
@@ -376,9 +453,14 @@ export class TicketRepository {
         },
       },
     });
-  }
-  async create(data: Prisma.TicketCreateInput): Promise<Ticket> {
-    return await prisma.ticket.create({ data: data });
+    return {
+      ...ticket,
+      username: ticket.user?.name,
+      contactId: ticket.contact.id,
+      empresanome: ticket.empresa,
+      name: ticket.contact.name,
+      profilePicUrl: ticket.contact.profilePicUrl,
+    };
   }
 
   async findTickets(params: {
@@ -560,6 +642,7 @@ export class TicketRepository {
         };
         return {
           ...message,
+          mediaUrl: getFullMediaUrl(message.mediaUrl),
           quotedMsg: newQuot,
         };
       });
@@ -582,10 +665,7 @@ export class TicketRepository {
 
     return { tickets: tickeInline, count };
   }
-  async update(
-    id: number,
-    data: Prisma.TicketUpdateInput
-  ): Promise<TicketWithMessages> {
+  async update(id: number, data: Prisma.TicketUpdateInput): Promise<any> {
     const ticket = await prisma.ticket.update({
       where: { id },
       data,
@@ -593,14 +673,58 @@ export class TicketRepository {
         messages: {
           include: {
             ticket: true,
+            quotedMsg: true,
           },
           orderBy: {
             updatedAt: "asc",
           },
         },
+        user: {
+          select: {
+            name: true,
+            id: true,
+          },
+        },
+        empresa: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        contact: {
+          select: {
+            id: true,
+            name: true,
+            number: true,
+            email: true,
+            profilePicUrl: true,
+          },
+        },
       },
     });
-    return ticket;
+    const MessageForResponse = ticket.messages.map((message) => {
+      const newQuot = {
+        ...message.quotedMsg,
+        mediaUrl: message.quotedMsg?.mediaUrl
+          ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
+          : null,
+      };
+      return {
+        ...message,
+        mediaUrl: getFullMediaUrl(message.mediaUrl),
+        quotedMsg: newQuot,
+      };
+    });
+
+    return {
+      ...ticket,
+      messages: MessageForResponse,
+      username: ticket.user?.name,
+      contactId: ticket.contact.id,
+      empresanome: ticket.empresa,
+      name: ticket.contact.name,
+      profilePicUrl: ticket.contact.profilePicUrl,
+    };
   }
 
   //   delete(id: string): Promise<void>;

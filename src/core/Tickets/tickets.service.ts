@@ -3,6 +3,9 @@ import { AppError } from "../../errors/errors.helper";
 import { SettingsService } from "../Settings/settings.service";
 import { TicketRepository } from "./tickets.repository";
 import { TicketWithMessages } from "./tickets.type";
+import { getFastifyApp } from "../../api";
+import { getIO } from "../../lib/socket";
+import socketEmit from "../../api/helpers/socketEmit";
 
 interface Request {
   searchParam?: string;
@@ -62,6 +65,7 @@ export class TicketService {
   ): Promise<Ticket | null> {
     return this.ticketRepository.findTicketForward(contatoId, data);
   }
+
   async findAll(
     {
       searchParam = "",
@@ -265,5 +269,184 @@ export class TicketService {
     } else {
       return `${MEDIA_URL}/public/${filename}`;
     }
+  }
+  async createTicketRoute({
+    userId,
+    tenantId,
+    contactId,
+    status,
+    channelId,
+    channel,
+    isTransference,
+  }) {
+    try {
+      const findTicketForContatc = await this.ticketRepository.findOne({
+        contactId: parseInt(contactId, 10),
+        status: {
+          in: ["open", "pending"],
+        },
+      });
+      if (findTicketForContatc) {
+        return {
+          existingTicketId: findTicketForContatc,
+          message:
+            "Já existe um ticket aberto para este contato. Deseja abri-lo?",
+        };
+      }
+      const contactService = getFastifyApp().services.contatoService;
+      const contact = await contactService.findContato({
+        id: parseInt(contactId, 10),
+      });
+      const dataForCreateTicket = {
+        contact,
+        status,
+        isGroup: contact?.isGroup,
+        userId,
+        isActiveDemand: true,
+        channel,
+        tenantId,
+        whatsappId: channelId,
+      };
+      const ticket = await this.createTicket(dataForCreateTicket);
+
+      await getFastifyApp().services.logTicketService.createLogTicket({
+        userId,
+        queueId: null,
+        chamadoId: null,
+        ticketId: ticket.id,
+        type: "open",
+        tenantId: ticket.tenantId,
+      });
+      return ticket;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async updateStatusTicket({
+    userId,
+    queueId,
+    status,
+    isTransference,
+    userIdRequest,
+    ticketId,
+    tenantId,
+  }): Promise<any> {
+    let ticket: Ticket;
+    const logService = getFastifyApp().services.logTicketService;
+    ticket = await this.ticketRepository.findOne({
+      id: parseInt(ticketId),
+    });
+    if (!ticket) {
+      throw new AppError("ERR_NO_TICKET_FOUND", 404);
+    }
+    const toPending = ticket.status !== "pending" && status === "pending";
+
+    const oldStatus = ticket.status;
+    const oldUserId = ticket.userId;
+    const statusData = status === "close" ? "closed" : status;
+
+    const data: any = {
+      status: statusData,
+      queueId,
+      userId: ticket.isGroup ? null : userId,
+    };
+
+    if (statusData === "closed") {
+      data.closedAt = new Date().getTime();
+      if (ticket.channel === "chatClient") {
+        const io = getIO();
+        const socket = io.sockets.sockets.get(ticket.socketId!);
+        if (socket && socket.connected) {
+          socket.emit("chat:closedTicket", "Seu ticket foi fechado. Obrigado!");
+        }
+      }
+    }
+    // se iniciar atendimento, retirar o bot e informar a data
+    if (oldStatus === "pending" && statusData === "open") {
+      data.autoReplyId = null;
+      data.chatFlowId = null;
+      data.stepAutoReplyId = null;
+      data.startedAttendanceAt = new Date().getTime();
+    }
+    ticket = await this.ticketRepository.update(ticket.id, data);
+
+    if (oldStatus === "pending" && statusData === "open") {
+      await logService.createLogTicket({
+        userId: userIdRequest,
+        chamadoId: null,
+        queueId: null,
+        ticketId,
+        type: "open",
+        tenantId: ticket.tenantId,
+      });
+    }
+    if (statusData === "closed") {
+      await logService.createLogTicket({
+        userId: userIdRequest,
+        ticketId,
+        type: "closed",
+        tenantId: ticket.tenantId,
+        chamadoId: null,
+        queueId: null,
+      });
+    }
+    if (oldStatus === "open" && statusData === "pending") {
+      await logService.createLogTicket({
+        userId: userIdRequest,
+        ticketId,
+        chamadoId: null,
+        queueId: null,
+        type: "pending",
+        tenantId: ticket.tenantId,
+      });
+    }
+    if (oldStatus === "closed" && statusData === "open") {
+      await logService.createLogTicket({
+        userId: userIdRequest,
+        chamadoId: null,
+        queueId: null,
+        ticketId,
+        type: "open",
+        tenantId: ticket.tenantId,
+      });
+    }
+    if (isTransference) {
+      // tranferiu o atendimento
+      await logService.createLogTicket({
+        userId: userIdRequest,
+        ticketId,
+        chamadoId: null,
+        queueId: null,
+        type: "transfered",
+        tenantId: ticket.tenantId,
+      });
+      // recebeu o atendimento tansferido
+      if (userId) {
+        await logService.createLogTicket({
+          userId,
+          ticketId,
+          chamadoId: null,
+          queueId: null,
+          type: "receivedTransfer",
+          tenantId: ticket.tenantId,
+        });
+      }
+    }
+    if (isTransference) {
+      await this.ticketRepository.update(ticket.id, { isTransference: true });
+    }
+    if (toPending) {
+      socketEmit({
+        tenantId,
+        type: "notification:new",
+        payload: ticket,
+      });
+    }
+    socketEmit({
+      tenantId,
+      type: "ticket:update",
+      payload: ticket,
+    });
+    return ticket;
   }
 }

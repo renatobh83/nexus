@@ -55,6 +55,14 @@ export const findOrCreateTicketSafe = async (params: {
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
+      getFastifyApp().services.logTicketService.createLogTicket({
+        ticketId: newTicket.id,
+        tenantId: newTicket.tenantId,
+        type: "create",
+        chamadoId: null,
+        queueId: null,
+        userId: null,
+      });
       return { ticket: newTicket, isNew: true };
     } catch (error) {
       logger.error(

@@ -683,6 +683,7 @@ model Ticket {
   isActiveDemand       Boolean   @default(false)
   isFarewellMessage    Boolean   @default(false)
   sendWelcomeFlow      Boolean   @default(true)
+  isTransference       Boolean   @default(false)
   lastInteractionBot   DateTime?
   botRetries           Int?
   closedAt             BigInt? // Prisma suporta BigInt para números muito grandes

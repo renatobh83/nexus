@@ -107,14 +107,8 @@ export class WhatsappService {
    * @returns {Promise<Whatsapp | null>} Uma Promise que resolve para o objeto completo
    * da conexão de WhatsApp, ou `null` se nenhuma conexão for encontrada com o ID fornecido.
    */
-  async findById(id: string, tenantId?: number): Promise<Whatsapp | null> {
-    // Converte o ID de string para número, pois o banco de dados espera um inteiro.
-    const wppId = parseInt(id, 10);
-    // Validação para garantir que a conversão resultou em um número válido.
-    if (isNaN(wppId)) {
-      return null;
-    }
-    const where: Prisma.WhatsappWhereInput = { id: wppId };
+  async findById(id: number, tenantId?: number): Promise<Whatsapp | null> {
+    const where: Prisma.WhatsappWhereInput = { id: id };
     if (tenantId) {
       where.tenantId = tenantId; // Scoped to tenant
     }
@@ -271,9 +265,9 @@ export class WhatsappService {
     // A complexidade da busca está totalmente encapsulada no repositório.
     // O serviço apenas consome o resultado.
     const readyWhatsapps = await this.whatsappRepository.findActiveAndReady();
-    
+
     if (readyWhatsapps.length === 0) {
-      console.log('INFO: Nenhuma conexão pronta para iniciar encontrada.');
+      console.log("INFO: Nenhuma conexão pronta para iniciar encontrada.");
       return;
     }
 
@@ -405,7 +399,6 @@ export class WhatsappService {
         phone: phoneInfo,
         session: sessionName,
         pairingCode: "",
-        
       }
     );
     this.emitSessionUpdate(tenantId, updatedWhatsapp);

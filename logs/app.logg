@@ -1872,3 +1872,28 @@
   level: 'error',
   timestamp: '2025-11-25T16:02:09.871Z'
 }
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2025-11-26T11:33:08.238Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2025-11-26T11:33:57.317Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2025-11-26T11:34:45.331Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of null (reading 'id')",
+  level: 'error',
+  timestamp: '2025-11-26T11:35:09.147Z'
+}
+{
+  message: 'Unhandled Rejection: TypeError: ticket.toLowerCase is not a function',
+  level: 'error',
+  timestamp: '2025-11-26T11:35:54.616Z'
+}
