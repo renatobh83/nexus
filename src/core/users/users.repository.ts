@@ -25,12 +25,15 @@ export class UsersRepository {
     });
   }
 
-  async findUserOnline(where: Prisma.UserWhereInput){
-    return await prisma.user.findMany({ where, select:{
-      name: true,
-      id: true,
-      email: true
-    }})
+  async findUserOnline(where: Prisma.UserWhereInput) {
+    return await prisma.user.findMany({
+      where,
+      select: {
+        name: true,
+        id: true,
+        email: true,
+      },
+    });
   }
   async findFirst(where: Prisma.UserWhereInput) {
     return prisma.user.findFirst({ where });
@@ -196,6 +199,9 @@ export class UsersRepository {
         lastLogin: data.lastLogin,
         lastLogout: data.lastLogout,
         lastOnline: data.lastOnline,
+      },
+      omit: {
+        passwordHash: true,
       },
       // O 'update' retorna o registro atualizado por padrão.
       // Não precisamos de 'select' ou 'include' se quisermos o objeto completo.

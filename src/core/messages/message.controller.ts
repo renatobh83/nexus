@@ -6,6 +6,7 @@ import {
 } from "fastify";
 import { AppError, handleServerError } from "../../errors/errors.helper";
 import { Message } from "wbotconnect";
+import { startTypingWbot } from "../../api/helpers/Wbot/StartTypingWbot";
 
 export async function messageController(
   fastify: FastifyInstance,
@@ -21,11 +22,6 @@ export async function messageController(
       const { pageNumber } = request.query as { pageNumber: string };
       const numberTicket = parseInt(ticketId);
       try {
-        // const { count, messages, ticket, hasMore } = await ListMessagesService({
-        //   tenantId,
-        //   ticketId,
-        //   pageNumber,
-        // });
         const { count, messages, hasMore } =
           await messageService.findAllMessageTicket(
             {
@@ -143,6 +139,47 @@ export async function messageController(
         }
 
         return reply.code(200).send({ message: "messagem enviada" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.post(
+    "/startTyping/:ticketId",
+    async (
+      request: FastifyRequest<{
+        Body: {
+          messages: any[];
+          contact: any;
+        };
+      }>,
+      reply: FastifyReply
+    ) => {
+      const { ticketId } = request.params as any;
+      try {
+        console.log(ticketId);
+        await startTypingWbot(ticketId);
+        return reply.code(200).send({ message: "stratTyping" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.post(
+    "/stopTyping/:ticketId",
+    async (
+      request: FastifyRequest<{
+        Body: {
+          messages: any[];
+          contact: any;
+        };
+      }>,
+      reply: FastifyReply
+    ) => {
+      const { ticketId } = request.params as any;
+      try {
+        // await stopTypingWbot(ticketId);
+        return reply.code(200).send({ message: "stopTyping" });
       } catch (error) {
         return handleServerError(reply, error);
       }

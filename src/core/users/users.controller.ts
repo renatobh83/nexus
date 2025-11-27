@@ -157,17 +157,17 @@ export async function userController(
     }
   });
   fastify.put(
-    "usersIsOnline/:id",
+    "/usersIsOnline/:id",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { tenantId, profile, id } = request.user as any;
-      const { userId } = request.params as any;
+      const { tenantId, userId } = request.user as any;
       const payload = { userData: request.body, userId, tenantId };
       try {
-        const userUpdate = await userService.updateUserStatus(
+        const userUpdate = await userService.updateUserStatusLogin(
           userId,
           tenantId,
           payload
         );
+
         return reply.code(200).send(userUpdate);
       } catch (error) {
         return reply.code(404).send({ message: "Erro updateStatus user" });

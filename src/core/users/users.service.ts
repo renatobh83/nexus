@@ -78,17 +78,19 @@ export class UserService {
    * @param dto - Os novos dados de status.
    * @returns O objeto do usuário completo e atualizado.
    */
-  async updateUserStatus(
+  async updateUserStatusLogin(
     userId: number,
     tenantId: number,
     dto: any
   ): Promise<User> {
     try {
       // O repositório faz tudo em uma única chamada!
+      const { userData } = dto;
+
       const updatedUser = await this.userRepository.updateStatus(
         userId,
         tenantId,
-        dto
+        userData
       );
       return updatedUser;
     } catch (error) {
