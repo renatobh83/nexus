@@ -141,9 +141,10 @@ export class MessageService {
    * @returns {Promise<Message | null>} A mensagem encontrada ou `null` se não for encontrada.
    */
   async findMessageBy(
-    where: Prisma.MessageWhereInput
+    where: Prisma.MessageWhereInput,
+    include?: Prisma.MessageInclude
   ): Promise<Message | null> {
-    return await this.messageRepository.findMessageBy(where);
+    return await this.messageRepository.findMessageBy(where, include);
   }
 
   /**

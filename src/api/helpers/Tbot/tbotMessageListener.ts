@@ -2,6 +2,7 @@ import { Telegraf } from "telegraf";
 import { logger } from "../../../ultis/logger";
 import HandleMessageTelegram from "./HandleMessageTelegram";
 import { Session } from "../../../lib/tbot";
+import { HandleReactionTelegram } from "./HandleReactionTelegram";
 
 function escapeMarkdownV2(text: string) {
   return String(text ?? "")
@@ -19,7 +20,7 @@ const tbotMessageListener = (tbot: Session): void => {
   });
 
   tbot.on("message_reaction", async (ctx: any) => {
-    // await HandleReactionTelegram(ctx, tbot);
+    await HandleReactionTelegram(ctx, tbot);
     // console.log(`Received a reaction on message ${JSON.stringify(messageId, null,2)} in chat ${chatId}`);
   });
 
