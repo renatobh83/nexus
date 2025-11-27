@@ -52,7 +52,8 @@
     "socket.io": "^4.8.1",
     "telegraf": "^4.16.3",
     "wbotconnect": "^1.0.19",
-    "xss": "^1.0.15"
+    "xss": "^1.0.15",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",

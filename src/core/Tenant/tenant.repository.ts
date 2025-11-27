@@ -13,8 +13,17 @@ export class TenantRepository {
       select,
     });
   }
+  update(id: number, data: any, select?: Prisma.TenantSelect): Promise<Tenant> {
+    return prisma.tenant.update({
+      where: {
+        id: id,
+      },
+      data,
+
+      select,
+    });
+  }
   //   findAll(): Promise<MinhaEntidade[]>;
   //   create(data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
-  //   update(id: string, data: Partial<MinhaEntidade>): Promise<MinhaEntidade>;
   //   delete(id: string): Promise<void>;
 }
