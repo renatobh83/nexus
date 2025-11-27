@@ -1,7 +1,7 @@
 import { Message, Prisma } from "@prisma/client";
 import { MessageDTO } from "./message.type";
 import { prisma } from "../../lib/prisma";
-import { PaginationOptions } from "../Users/users.repository";
+import { PaginationOptions } from "../users/users.repository";
 
 export interface ResponseMessages {
   messages: Message[];

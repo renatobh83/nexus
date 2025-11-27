@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { userController } from "../../core/Users/users.controller";
+import { userController } from "../../core/users/users.controller";
 import { whatsappController } from "../../core/Whatsapp/whatsapp.controller";
 import { authController } from "../../core/Auth/auth.controller";
 import { settignsController } from "../../core/Settings/settings.controller";
@@ -8,7 +8,7 @@ import { empresaController } from "../../core/Empresa/empresa.controller";
 import { queueController } from "../../core/Queue/queue.controller";
 import { fastReplyController } from "../../core/FastReply/fastReply.controller";
 import { ContatoController } from "../../core/Contatos/ contatos.controller";
-import { ticketController } from "../../core/Tickets/tickets.controller";
+import { ticketController } from "../../core/tickets/tickets.controller";
 import { messageController } from "../../core/Messages/message.controller";
 import { chatClientController } from "../../core/ChatClient/chatClient.controller";
 import { extenalApiController } from "../../core/ApiExterna/apiExterna.controller";

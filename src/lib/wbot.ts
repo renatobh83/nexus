@@ -4,8 +4,9 @@ import fs, { promises } from "node:fs";
 import { AppError } from "../errors/errors.helper";
 import { logger } from "../ultis/logger";
 import { getIO } from "./socket";
-import { WhatsappService } from "../core/Whatsapp/whatsapp.service";
+
 import { wbotMessageListener } from "../api/helpers/Wbot/wbotMessageListener";
+import { WhatsappService } from "../core/Whatsapp/whatsapp.service";
 
 export interface Session extends Whatsapp {
   id: number;
