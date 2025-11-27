@@ -4,7 +4,7 @@ import { getFastifyApp } from "../..";
 import {
   MessageSendType,
   MessageStatus,
-} from "../../../core/Messages/message.type";
+} from "../../../core/messages/message.type";
 import { AppError } from "../../../errors/errors.helper";
 
 export const VerifyMessageChatClient = async (msg: any, ticket: Ticket) => {

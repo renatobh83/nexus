@@ -12,7 +12,7 @@ import { AppServices } from "../../plugins/di-container";
 import {
   MessageSendType,
   MessageStatus,
-} from "../../../core/Messages/message.type";
+} from "../../../core/messages/message.type";
 
 const writeFileAsync = promisify(writeFile);
 

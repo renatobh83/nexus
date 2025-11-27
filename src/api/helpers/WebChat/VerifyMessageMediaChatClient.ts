@@ -5,7 +5,7 @@ import { getFastifyApp } from "../..";
 import {
   MessageSendType,
   MessageStatus,
-} from "../../../core/Messages/message.type";
+} from "../../../core/messages/message.type";
 
 export const VerifyMessageMediaChatClient = async (
   mediaUrl: any,
