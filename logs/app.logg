@@ -3372,3 +3372,8 @@
   level: 'error',
   timestamp: '2025-11-26T18:29:38.826Z'
 }
+{
+  message: 'Falha na verificação do token em todas as chaves.',
+  level: 'error',
+  timestamp: '2025-11-27T13:19:25.094Z'
+}

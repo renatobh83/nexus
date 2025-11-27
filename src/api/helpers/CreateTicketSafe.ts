@@ -19,6 +19,7 @@ export const findOrCreateTicketSafe = async (params: {
   groupContact: boolean;
   empresaId?: number;
   socketId?: number;
+  chatClient?: boolean;
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const Ticket = getFastifyApp().services.ticketService;
   const { contact, whatsappId } = params;

@@ -36,6 +36,12 @@ export const HandleMessageChatClient = async (socket: any) => {
         isUser: true,
       }
     );
+
+    await services.empresaService.insertContatoEmpresa(
+      auth.empresaId,
+      contact.id
+    );
+
     const { ticket, isNew } = await findOrCreateTicketSafe({
       contact,
       whatsappId: channel.id,
@@ -45,6 +51,7 @@ export const HandleMessageChatClient = async (socket: any) => {
       channel: channel.type,
       empresaId: parseInt(auth.empresaId),
       socketId: id,
+      chatClient: true,
     });
     if (isNew) {
       await services.logTicketService.createLogTicket({

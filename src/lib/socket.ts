@@ -35,7 +35,6 @@ export const setupSocket = (ioInstance: SocketIOServer): void => {
 
       // A lógica de autenticação já foi executada no middleware, então os dados estão em `socket.handshake.auth`.
       if (type === "chat-client") {
-        console.log(type);
         await HandleMessageChatClient(socket);
         return;
       }

@@ -16,7 +16,8 @@ type ContratoUpdateData = Pick<ContratoServiceProps, "totalHoras">;
 export class EmpresaRepository {
   async findById(where: Prisma.EmpresaWhereInput): Promise<Empresa | null> {
     const empresa = await prisma.empresa.findFirst({
-      where, include: {
+      where,
+      include: {
         empresaContacts: {
           select: {
             contact: {
@@ -31,13 +32,16 @@ export class EmpresaRepository {
           },
         },
         contratos: true,
-      }
+      },
     });
-    if (!empresa) return null
-    const { empresaContacts, ...restData } = empresa
-    const empresaTransformado = {...restData, contacts: empresa.empresaContacts.map(assignment => assignment.contact)}
+    if (!empresa) return null;
+    const { empresaContacts, ...restData } = empresa;
+    const empresaTransformado = {
+      ...restData,
+      contacts: empresa.empresaContacts.map((assignment) => assignment.contact),
+    };
 
-    return empresaTransformado
+    return empresaTransformado;
   }
   async findAll(): Promise<Empresa[]> {
     const empresas = await prisma.empresa.findMany({
@@ -56,17 +60,19 @@ export class EmpresaRepository {
           },
         },
         contratos: true,
-      }
+      },
     });
 
-    const empresaTransformado = empresas.map(empresa => {
-      const { empresaContacts, ...restData } = empresa
+    const empresaTransformado = empresas.map((empresa) => {
+      const { empresaContacts, ...restData } = empresa;
       return {
         ...restData,
-        contacts: empresa.empresaContacts.map(assignment => assignment.contact)
-      }
-    })
-    return empresaTransformado
+        contacts: empresa.empresaContacts.map(
+          (assignment) => assignment.contact
+        ),
+      };
+    });
+    return empresaTransformado;
   }
   async create(data: Prisma.EmpresaCreateInput): Promise<Empresa> {
     const { tenant, ...restData } = data;
@@ -109,9 +115,7 @@ export class EmpresaRepository {
       },
     });
 
-
-
-    return empresa
+    return empresa;
   }
 
   async delete(id: string): Promise<void> {
@@ -171,14 +175,18 @@ export class EmpresaRepository {
         },
       },
     });
-    if (!empresa) return null
-    const { empresaContacts, ...restData } = empresa
-    const empresaTransformado = empresa.empresaContacts.map(assignment => assignment.contact)
+    if (!empresa) return null;
+    const { empresaContacts, ...restData } = empresa;
+    const empresaTransformado = empresa.empresaContacts.map(
+      (assignment) => assignment.contact
+    );
 
-    return empresaTransformado
-
+    return empresaTransformado;
   }
-  async updateContatoEmpresa(empresaId: number, contatoId: number[]): Promise<Empresa> {
+  async updateContatoEmpresa(
+    empresaId: number,
+    contatoId: number[]
+  ): Promise<Empresa> {
     // 1. Cria as operações de criação (create) para cada contactId
     const createOperations = contatoId.map((contactId) =>
       prisma.empresaContact.create({
@@ -220,10 +228,29 @@ export class EmpresaRepository {
         },
       },
     });
-    const { empresaContacts, ...restData } = empresaAtualizada
-    const empresaTransformado = { ...restData, contacts: empresaAtualizada.empresaContacts.map(assignment => assignment.contact) }
+    const { empresaContacts, ...restData } = empresaAtualizada;
+    const empresaTransformado = {
+      ...restData,
+      contacts: empresaAtualizada.empresaContacts.map(
+        (assignment) => assignment.contact
+      ),
+    };
 
-    return empresaTransformado
-
+    return empresaTransformado;
+  }
+  async insertContatoEmpresa(empresaId: number, contatoId: number) {
+    return await prisma.empresaContact.upsert({
+      where: {
+        // Assumindo chave composta definida no schema
+        empresaId_contactId: { empresaId: empresaId, contactId: contatoId },
+      },
+      create: {
+        empresa: { connect: { id: empresaId } },
+        contact: { connect: { id: contatoId } },
+      },
+      update: {
+        // Deixe vazio se for apenas uma tabela de ligação sem campos de atualização
+      },
+    });
   }
 }

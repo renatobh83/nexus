@@ -640,7 +640,7 @@ export class TicketRepository {
             ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
             : null,
         };
-        console.log(getFullMediaUrl(message.mediaUrl));
+
         return {
           ...message,
           mediaUrl: getFullMediaUrl(message.mediaUrl),
@@ -653,7 +653,7 @@ export class TicketRepository {
         messages: message,
         username: ticket.user?.name,
         contactId: ticket.contact.id,
-        empresanome: ticket.empresa,
+        empresanome: ticket.empresa?.name,
         name: ticket.contact.name,
         profilePicUrl: ticket.contact.profilePicUrl,
       };

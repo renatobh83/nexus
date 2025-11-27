@@ -9,7 +9,7 @@ export class EmpresaService {
     this.empresaRepository = new EmpresaRepository();
   }
 
-  async finalAllCompany():Promise<Empresa[]> {
+  async finalAllCompany(): Promise<Empresa[]> {
     const companies = await this.empresaRepository.findAll();
     return companies;
   }
@@ -83,14 +83,27 @@ export class EmpresaService {
       dataSetContatos
     );
   }
-  async removeContatoEmpresa(empresaId: number, contactId: number): Promise<Empresa | null>{
-    const contatosInCompany = await this.empresaRepository.findById({id: empresaId}) as any
-    if(!contatosInCompany) return null
-     const contatoUpdate = contatosInCompany.contacts.filter((c: { id: number; }) => c.id !== contactId).map((c: { id: any; }) => c.id)
-     const contatos = await this.empresaRepository.updateContatoEmpresa(empresaId, contatoUpdate)     
-     return contatos
+  async removeContatoEmpresa(
+    empresaId: number,
+    contactId: number
+  ): Promise<Empresa | null> {
+    const contatosInCompany = (await this.empresaRepository.findById({
+      id: empresaId,
+    })) as any;
+    if (!contatosInCompany) return null;
+    const contatoUpdate = contatosInCompany.contacts
+      .filter((c: { id: number }) => c.id !== contactId)
+      .map((c: { id: any }) => c.id);
+    const contatos = await this.empresaRepository.updateContatoEmpresa(
+      empresaId,
+      contatoUpdate
+    );
+    return contatos;
   }
-  async removeAllConato(empresaId: number){
-    return await this.empresaRepository.updateContatoEmpresa(empresaId, [])
+  async removeAllConato(empresaId: number) {
+    return await this.empresaRepository.updateContatoEmpresa(empresaId, []);
+  }
+  async insertContatoEmpresa(empresaId: number, contatoId: number) {
+    return this.empresaRepository.insertContatoEmpresa(empresaId, contatoId);
   }
 }
