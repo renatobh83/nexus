@@ -23,7 +23,7 @@ export async function extenalApiController(
 ) {
   const services = fastify.services;
   fastify.post(
-    "/api/external/:apiId",
+    "/external/:apiId",
     { preHandler: [fastify.authenticate] },
     async (
       request: FastifyRequest<{
@@ -161,7 +161,7 @@ export async function extenalApiController(
     }
   );
   fastify.post(
-    "/api/external/:apiId/:idIntegracao/:authToken",
+    "/:apiId/:idIntegracao/:authToken",
     { preHandler: [] },
     async (
       request: FastifyRequest<{
