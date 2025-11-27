@@ -6,13 +6,14 @@ export class FastReplyRepository {
     return prisma.fastReply.findFirst({ where });
   }
   findAll(where?: Prisma.FastReplyWhereInput): Promise<FastReply[]> {
-    return prisma.fastReply.findMany({where});
+    return prisma.fastReply.findMany({ where });
   }
   create(data: any): Promise<FastReply> {
     const { tenant, user, ...restDto } = data;
     const dataForPrisma = {
       ...restDto,
     };
+
     dataForPrisma.tenant = {
       connect: { id: tenant },
     };

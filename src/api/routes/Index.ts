@@ -11,6 +11,7 @@ import { ContatoController } from "../../core/Contatos/ contatos.controller";
 import { ticketController } from "../../core/Tickets/tickets.controller";
 import { messageController } from "../../core/Messages/message.controller";
 import { chatClientController } from "../../core/ChatClient/chatClient.controller";
+import { extenalApiController } from "../../core/ApiExterna/apiExterna.controller";
 
 // Importe seus controllers
 
@@ -30,6 +31,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
 
   fastify.register(authController, { prefix: "/auth" });
   fastify.register(chatClientController, { prefix: "/" });
+  fastify.register(extenalApiController, { prefix: "/" });
 
   // Exemplo de outra rota pública
   // fastify.register(authController, { prefix: "/auth" });
@@ -51,6 +53,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(ContatoController, { prefix: "/contacts" });
     privateScope.register(ticketController, { prefix: "/tickets" });
     privateScope.register(messageController, { prefix: "/messages" });
+
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users
     // privateScope.register(userController, { prefix: "/users" });

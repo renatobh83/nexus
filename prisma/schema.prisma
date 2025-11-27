@@ -97,9 +97,9 @@ model Email {
 }
 
 model ApiConfig {
-  id               String  @id @default(uuid()) @db.Uuid
-  name             String // Nome descritivo para a configuração da API
-  token            String? // Token de API (opcional)
+  id               String  @id @default(uuid()) @db.Uuid @unique
+  name   I
+  token            String? // Token de API (opcional)          String // Nome descritivo para a configuração da AP
   authToken        String  @unique // Token de autenticação, deve ser único para segurança
   urlServiceStatus String? // URL para enviar status do serviço (online, offline)
   urlMessageStatus String? // URL para enviar status de mensagens (enviada, recebida)
