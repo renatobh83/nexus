@@ -3,7 +3,7 @@ import { Message, Prisma } from "@prisma/client";
 import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
 import { MessageRepository, ResponseMessages } from "./message.repository";
 import { MessageDTO, RequestMessage } from "./message.type";
-import { PaginationOptions } from "../users/users.repository";
+import { PaginationOptions } from "../Users/users.repository";
 import { pupa } from "../../ultis/pupa";
 import { detectMediaType } from "../../ultis/detectMediaType";
 import socketEmit from "../../api/helpers/socketEmit";

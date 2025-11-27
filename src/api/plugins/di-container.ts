@@ -2,17 +2,17 @@
 
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
 import fp from "fastify-plugin"; // Usado para garantir que o plugin funcione corretamente
-import { UserService } from "../../core/users/users.service";
-import { WhatsappService } from "../../core/whatsapp/whatsapp.service";
+import { UserService } from "../../core/Users/users.service";
+import { WhatsappService } from "../../core/Whatsapp/whatsapp.service";
 import { AuthService } from "../../core/Auth/auth.service";
 import { SettingsService } from "../../core/Settings/settings.service";
 import { LoadInicialService } from "../../core/LoadInicial/loadInicial.service";
 import { EmpresaService } from "../../core/Empresa/empresa.service";
 import { QueueSerice } from "../../core/Queue/queue.service";
-import { FastReplyService } from "../../core/fastReply/fastReply.service";
+import { FastReplyService } from "../../core/FastReply/fastReply.service";
 import { ContatoService } from "../../core/Contatos/contatos.service";
 import { TicketService } from "../../core/Tickets/tickets.service";
-import { MessageService } from "../../core/messages/message.service";
+import { MessageService } from "../../core/Messages/message.service";
 import { TokenService } from "../../core/ChatClient/token.service";
 import { LogTicketService } from "../../core/LogTickets/logTickets.service";
 import { TenantService } from "../../core/Tenant/tenant.service";

@@ -2,27 +2,30 @@ import { Telegraf } from "telegraf";
 import { getIO } from "./socket";
 import { Whatsapp } from "@prisma/client";
 import { logger } from "../ultis/logger";
-import { WhatsappService } from "../core/whatsapp/whatsapp.service";
+import { WhatsappService } from "../core/Whatsapp/whatsapp.service";
 
 export interface Session extends Telegraf {
   id: number;
-  tenantId: number
+  tenantId: number;
 }
 
 let processHandlersRegistered = false;
 const TelegramSessions: Session[] = [];
 let TbotappSession: any;
 
-export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappService): Promise<Session> => {
+export const initTbot = async (
+  connection: Whatsapp,
+  whatsappService: WhatsappService
+): Promise<Session> => {
   return new Promise(async (resolve, reject) => {
     try {
       const io = getIO();
       const sessionName = connection.name;
       const { tenantId } = connection;
       const tbot = new Telegraf(connection.tokenTelegram!, {}) as Session;
-      TbotappSession = connection
+      TbotappSession = connection;
       tbot.id = connection.id;
-      tbot.tenantId = connection.tenantId
+      tbot.tenantId = connection.tenantId;
       tbot.catch((err: any, ctx: any) => {
         logger.error(
           `Erro no bot ${sessionName} | ctx: ${ctx?.updateType} | err: ${err}`
@@ -73,7 +76,7 @@ export const initTbot = async (connection: Whatsapp, whatsappService: WhatsappSe
       whatsappService.handleDisconnected(
         TbotappSession.id,
         TbotappSession.name
-      )
+      );
       // await connection.update({
       //   status: "DISCONNECTED",
       //   qrcode: "",

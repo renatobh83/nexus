@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { UsersRepository } from "../users/users.repository";
+import { UsersRepository } from "../Users/users.repository";
 import { compare, hash } from "bcryptjs";
 import { AppError } from "../../errors/errors.helper";
 import { getIO } from "../../lib/socket";

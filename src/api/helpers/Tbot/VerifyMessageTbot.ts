@@ -4,7 +4,7 @@ import { AppServices } from "../../plugins/di-container";
 import {
   MessageSendType,
   MessageStatus,
-} from "../../../core/messages/message.type";
+} from "../../../core/Messages/message.type";
 import { v4 as uuidV4 } from "uuid";
 import { getIO } from "../../../lib/socket";
 import socketEmit from "../socketEmit";

@@ -7,7 +7,7 @@ import { getFastifyApp } from "../..";
 import {
   MessageSendType,
   MessageStatus,
-} from "../../../core/messages/message.type";
+} from "../../../core/Messages/message.type";
 import { VerifyMessageChatClient } from "./VerifyMessageChatClient";
 import { VerifyMessageMediaChatClient } from "./VerifyMessageMediaChatClient";
 import { decrypt } from "../../../lib/crypto";

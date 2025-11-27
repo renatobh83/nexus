@@ -1,6 +1,6 @@
 import { Contact, Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
-import { PaginationOptions } from "../users/users.repository";
+import { PaginationOptions } from "../Users/users.repository";
 
 interface Request {
   searchParam?: string;
