@@ -11,7 +11,7 @@ import { EmpresaService } from "../../core/Empresa/empresa.service";
 import { QueueSerice } from "../../core/Queue/queue.service";
 import { FastReplyService } from "../../core/fastReply/fastReply.service";
 import { ContatoService } from "../../core/Contatos/contatos.service";
-import { TicketService } from "../../core/tickets/tickets.service";
+import { TicketService } from "../../core/Tickets/tickets.service";
 import { MessageService } from "../../core/messages/message.service";
 import { TokenService } from "../../core/ChatClient/token.service";
 import { LogTicketService } from "../../core/LogTickets/logTickets.service";

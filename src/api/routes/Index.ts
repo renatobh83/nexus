@@ -8,7 +8,7 @@ import { empresaController } from "../../core/Empresa/empresa.controller";
 import { queueController } from "../../core/Queue/queue.controller";
 import { fastReplyController } from "../../core/fastReply/fastReply.controller";
 import { ContatoController } from "../../core/Contatos/ contatos.controller";
-import { ticketController } from "../../core/tickets/tickets.controller";
+import { ticketController } from "../../core/Tickets/tickets.controller";
 import { messageController } from "../../core/messages/message.controller";
 import { chatClientController } from "../../core/ChatClient/chatClient.controller";
 import { extenalApiController } from "../../core/ApiExterna/apiExterna.controller";
