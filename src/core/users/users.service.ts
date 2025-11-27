@@ -82,7 +82,7 @@ export class UserService {
     userId: number,
     tenantId: number,
     dto: any
-  ): Promise<User> {
+  ): Promise<any> {
     try {
       // O repositório faz tudo em uma única chamada!
       const { userData } = dto;
