@@ -161,7 +161,7 @@ export async function extenalApiController(
     }
   );
   fastify.post(
-    "/:apiId/:idIntegracao/:authToken",
+    "/external/:apiId/:idIntegracao/:authToken",
     { preHandler: [] },
     async (
       request: FastifyRequest<{
