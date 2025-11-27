@@ -2,7 +2,7 @@ import { Telegraf } from "telegraf";
 import { getIO } from "./socket";
 import { Whatsapp } from "@prisma/client";
 import { logger } from "../ultis/logger";
-import { WhatsappService } from "../core/Whatsapp/whatsapp.service";
+import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 
 export interface Session extends Telegraf {
   id: number;

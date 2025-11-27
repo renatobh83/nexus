@@ -6,7 +6,7 @@ import { logger } from "../ultis/logger";
 import { getIO } from "./socket";
 
 import { wbotMessageListener } from "../api/helpers/Wbot/wbotMessageListener";
-import { WhatsappService } from "../core/Whatsapp/whatsapp.service";
+import { WhatsappService } from "../core/whatsapp/whatsapp.service";
 
 export interface Session extends Whatsapp {
   id: number;

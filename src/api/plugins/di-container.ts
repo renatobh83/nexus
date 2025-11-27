@@ -3,7 +3,7 @@
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
 import fp from "fastify-plugin"; // Usado para garantir que o plugin funcione corretamente
 import { UserService } from "../../core/users/users.service";
-import { WhatsappService } from "../../core/Whatsapp/whatsapp.service";
+import { WhatsappService } from "../../core/whatsapp/whatsapp.service";
 import { AuthService } from "../../core/Auth/auth.service";
 import { SettingsService } from "../../core/Settings/settings.service";
 import { LoadInicialService } from "../../core/LoadInicial/loadInicial.service";

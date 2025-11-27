@@ -1,7 +1,7 @@
 import { Contact, Prisma } from "@prisma/client";
 import { ContatosRepository } from "./contatos.repository";
 import { PaginationOptions } from "../users/users.repository";
-import { WhatsappRepository } from "../Whatsapp/whatsapp.repository";
+import { WhatsappRepository } from "../whatsapp/whatsapp.repository";
 import { getWbot } from "../../lib/wbot";
 import { AppError } from "../../errors/errors.helper";
 

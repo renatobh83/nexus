@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
 import { userController } from "../../core/users/users.controller";
-import { whatsappController } from "../../core/Whatsapp/whatsapp.controller";
+import { whatsappController } from "../../core/whatsapp/whatsapp.controller";
 import { authController } from "../../core/Auth/auth.controller";
 import { settignsController } from "../../core/Settings/settings.controller";
 import { loadInicialController } from "../../core/LoadInicial/loadInicial.controller";
