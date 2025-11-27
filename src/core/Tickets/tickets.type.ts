@@ -1,4 +1,4 @@
-import { Prisma } from "@prisma/client";
+import { Prisma, Ticket } from "@prisma/client";
 
 // 1. Defina o tipo de inclusão (o mesmo objeto que você passa para o 'include')
 const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
@@ -16,3 +16,10 @@ const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
 export type TicketWithMessages = Prisma.TicketGetPayload<{
   include: typeof ticketWithMessagesInclude;
 }>;
+export type TicketMessageUsername = Ticket &
+  TicketWithMessages & {
+    username: string | undefined;
+    empresanome: string | undefined;
+    name: string | undefined;
+    profilePicUrl: string | null;
+  };

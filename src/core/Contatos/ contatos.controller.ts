@@ -84,7 +84,7 @@ export async function ContatoController(
 
       newContato.number = newContato.number.toString();
       try {
-        const contact = await conatoService.findOrCreate(
+        const contact = await conatoService.createContact(
           {
             email: newContato.email,
             serializednumber: newContato.serializednumber,

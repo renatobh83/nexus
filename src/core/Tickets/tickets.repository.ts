@@ -1,6 +1,6 @@
 import { Prisma, Ticket } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
-import { TicketWithMessages } from "./tickets.type";
+import { TicketMessageUsername, TicketWithMessages } from "./tickets.type";
 import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
 
 export interface ITicketRepository {
@@ -457,7 +457,7 @@ export class TicketRepository {
       ...ticket,
       username: ticket.user?.name,
       contactId: ticket.contact.id,
-      empresanome: ticket.empresa,
+      empresanome: ticket.empresa?.name,
       name: ticket.contact.name,
       profilePicUrl: ticket.contact.profilePicUrl,
     };
@@ -639,7 +639,8 @@ export class TicketRepository {
           mediaUrl: message.quotedMsg?.mediaUrl
             ? getFullMediaUrl(message.quotedMsg?.mediaUrl)
             : null,
-        };console.log(getFullMediaUrl(message.mediaUrl))
+        };
+        console.log(getFullMediaUrl(message.mediaUrl));
         return {
           ...message,
           mediaUrl: getFullMediaUrl(message.mediaUrl),
@@ -665,7 +666,10 @@ export class TicketRepository {
 
     return { tickets: tickeInline, count };
   }
-  async update(id: number, data: Prisma.TicketUpdateInput): Promise<any> {
+  async update(
+    id: number,
+    data: Prisma.TicketUpdateInput
+  ): Promise<TicketMessageUsername> {
     const ticket = await prisma.ticket.update({
       where: { id },
       data,
@@ -721,7 +725,7 @@ export class TicketRepository {
       messages: MessageForResponse,
       username: ticket.user?.name,
       contactId: ticket.contact.id,
-      empresanome: ticket.empresa,
+      empresanome: ticket.empresa?.name,
       name: ticket.contact.name,
       profilePicUrl: ticket.contact.profilePicUrl,
     };

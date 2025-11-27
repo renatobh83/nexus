@@ -2,10 +2,11 @@ import { Prisma, Ticket } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { SettingsService } from "../Settings/settings.service";
 import { TicketRepository } from "./tickets.repository";
-import { TicketWithMessages } from "./tickets.type";
+import { TicketMessageUsername, TicketWithMessages } from "./tickets.type";
 import { getFastifyApp } from "../../api";
 import { getIO } from "../../lib/socket";
 import socketEmit from "../../api/helpers/socketEmit";
+import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
 
 interface Request {
   searchParam?: string;
@@ -32,32 +33,15 @@ export class TicketService {
     const ticket = await this.ticketRepository.findById(id);
 
     if (!ticket) return null;
-    const message = ticket.messages.map((message) => {
-      return {
-        ...message,
-        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
-      };
-    });
-    return {
-      ...ticket,
-      messages: message,
-    };
+
+    return ticket;
   }
   async findTicketBy(
     where: Prisma.TicketWhereInput
   ): Promise<TicketWithMessages | null> {
     const ticket = await this.ticketRepository.findOne(where);
     if (!ticket) return null;
-    const message = ticket.messages.map((message) => {
-      return {
-        ...message,
-        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
-      };
-    });
-    return {
-      ...ticket,
-      messages: message,
-    };
+    return ticket;
   }
   async findOrCreateTicketForward(
     contatoId: number,
@@ -164,19 +148,6 @@ export class TicketService {
     const ticketsLength = tickets.length;
     const hasMore = count > offset + ticketsLength;
 
-    const ticketsRetorno = tickets.map((ticket: { messages: any[] }) => {
-      const message = ticket.messages.map((message) => {
-        return {
-          ...message,
-          mediaUrl: this.getFullMediaUrl(message.mediaUrl),
-        };
-      });
-      return {
-        ...ticket,
-        messages: message,
-      };
-    });
-
     return {
       tickets: tickets || [],
       count,
@@ -246,38 +217,10 @@ export class TicketService {
     data: Prisma.TicketUpdateInput
   ): Promise<TicketWithMessages> {
     const tickdtUpdated = await this.ticketRepository.update(ticketId, data);
-    const messageTransformaded = tickdtUpdated.messages.map((message) => {
-      return {
-        ...message,
-        mediaUrl: this.getFullMediaUrl(message.mediaUrl),
-      };
-    });
-    return {
-      ...tickdtUpdated,
-      messages: messageTransformaded,
-    };
+
+    return tickdtUpdated;
   }
-  // Função para construir a URL completa da mídia
-  private getFullMediaUrl(filename: string | null): string | null {
-    if (!filename) {
-      return null;
-    }
 
-    const { MEDIA_URL, NODE_ENV, PROXY_PORT } = process.env;
-
-    // Garante que a URL base existe
-    if (!MEDIA_URL) {
-      console.error("Variável de ambiente BACKEND_URL não definida!");
-      return null; // Ou lança um erro
-    }
-
-    // Lógica idêntica à do seu getter no Sequelize
-    if (NODE_ENV === "development" && PROXY_PORT) {
-      return `${MEDIA_URL}:${PROXY_PORT}/public/${filename}`;
-    } else {
-      return `${MEDIA_URL}/public/${filename}`;
-    }
-  }
   async createTicketRoute({
     userId,
     tenantId,

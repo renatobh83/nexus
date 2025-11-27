@@ -107,7 +107,6 @@ export class ContatosRepository {
     data: Prisma.ContactCreateInput,
     whereOr: ContactFindOrCondition
   ): Promise<Contact> {
-    console.log(whereOr)
     const contact = await prisma.contact.findFirst({
       where: {
         OR: [
@@ -120,7 +119,7 @@ export class ContatosRepository {
         ],
       },
     });
-    console.log(contact)
+
     if (contact) {
       // Opcional: Se você quiser atualizar o contato encontrado com os novos dados,
       // você faria um update aqui. Se não, apenas retorne.
@@ -152,5 +151,25 @@ export class ContatosRepository {
     await prisma.contact.delete({
       where: { id },
     });
+  }
+
+  async finUnique(whereOr: ContactFindOrCondition): Promise<Contact | null> {
+    const contact = await prisma.contact.findFirst({
+      where: {
+        OR: [
+          // Filtra apenas as condições que têm valor
+          ...(whereOr.email ? [{ email: whereOr.email }] : []),
+          ...(whereOr.serializednumber
+            ? [{ serializednumber: whereOr.serializednumber }]
+            : []),
+          ...(whereOr.telegramId ? [{ telegramId: whereOr.telegramId }] : []),
+        ],
+      },
+    });
+    if (!contact) return null;
+    return contact;
+  }
+  async createContat(data: Prisma.ContactCreateInput): Promise<Contact> {
+    return await prisma.contact.create({ data: data });
   }
 }
