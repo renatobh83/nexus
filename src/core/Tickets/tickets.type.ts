@@ -4,7 +4,7 @@ import { Prisma, Ticket } from "@prisma/client";
 const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
   messages: {
     include: {
-      ticket: true,
+      quotedMsg: true,
     },
     orderBy: {
       updatedAt: "asc",
@@ -16,6 +16,62 @@ const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
 export type TicketWithMessages = Prisma.TicketGetPayload<{
   include: typeof ticketWithMessagesInclude;
 }>;
+// 1. Definição do objeto de include reutilizável
+export const TICKET_INCLUDE_CONFIG = {
+  contact: {
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      number: true,
+      telegramId: true,
+      profilePicUrl: true,
+      serializednumber: true,
+    },
+  },
+  user: {
+    select: {
+      name: true,
+      id: true,
+      email: true,
+    },
+  },
+  whatsapp: {
+    select: {
+      name: true,
+      id: true,
+    },
+  },
+  chamado: true,
+  chatFlow: true,
+  empresa: {
+    select: {
+      id: true,
+      name: true,
+    },
+  },
+  messages: {
+    include: {
+      // ticket: true,
+      quotedMsg: true,
+    },
+    orderBy: {
+      updatedAt: "asc",
+    },
+  },
+  queue: {
+    select: {
+      id: true,
+      queue: true,
+    },
+  },
+  tenant: { select: { id: true } },
+} satisfies Prisma.TicketInclude;
+
+export type TicketWithStandardIncludes = Prisma.TicketGetPayload<{
+  include: typeof TICKET_INCLUDE_CONFIG;
+}>;
+
 export type TicketMessageUsername = Ticket &
   TicketWithMessages & {
     username: string | undefined;

@@ -185,6 +185,19 @@ model Message {
   @@map("Messages")
 }
 
+model ChamadoContatos {
+  chamadoId   Int
+  contactId   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chamado     Chamado @relation(fields: [chamadoId], references: [id])
+  contact     Contact @relation(fields: [contactId], references: [id])
+
+  @@id([chamadoId, contactId]) // Chave primária composta
+  @@map("ChamadoContatos")
+}
+
 model Whatsapp {
   id                 Int      @id @default(autoincrement())
   name               String   @unique
@@ -239,7 +252,7 @@ enum ChamadoStatus {
 }
 
 model Chamado {
-  id                Int           @id @default(autoincrement())
+  id                Int           @id
   descricao         String?       @db.Text
   assunto           String?       @db.Text
   conclusao         String?       @db.Text
@@ -276,6 +289,7 @@ model Chamado {
 
   // Relação Muitos-para-Muitos com Contact (via ChamadoContatos).
   contatos   Contact[]   @relation("ChamadoContatos")
+  chamadoContatos ChamadoContatos[]
   logTickets LogTicket[]
 
   // --- Mapeamento da Tabela ---
@@ -350,6 +364,7 @@ model Contact {
 
   // Mapeia para o nome da tabela existente.
   @@map("Contacts")
+  chamadoContatos ChamadoContatos[]
 }
 
 model Empresa {

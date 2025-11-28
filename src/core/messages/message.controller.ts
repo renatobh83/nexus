@@ -7,6 +7,9 @@ import {
 import { AppError, handleServerError } from "../../errors/errors.helper";
 import { Message } from "wbotconnect";
 import { startTypingWbot } from "../../api/helpers/Wbot/StartTypingWbot";
+import SetTicketMessagesAsRead, {
+  TicketContato,
+} from "../../ultis/SetTicketMessagesAsRead";
 
 export async function messageController(
   fastify: FastifyInstance,
@@ -77,13 +80,15 @@ export async function messageController(
         fields = request.body as any;
       }
       try {
-        const ticket = await ticketService.findTicketId(parseInt(ticketId));
+        const ticket = (await ticketService.findTicketId(
+          parseInt(ticketId)
+        )) as unknown as TicketContato;
 
         if (!ticket) {
           throw new AppError("TICKET_NO_FOUND", 404);
         }
 
-        // await SetTicketMessagesAsRead(ticket);
+        await SetTicketMessagesAsRead(ticket);
 
         const messageData = {
           message: fields,
@@ -157,7 +162,6 @@ export async function messageController(
     ) => {
       const { ticketId } = request.params as any;
       try {
-        console.log(ticketId);
         await startTypingWbot(ticketId);
         return reply.code(200).send({ message: "stratTyping" });
       } catch (error) {

@@ -294,7 +294,6 @@ export class TicketService {
     const toPending = ticket.status !== "pending" && status === "pending";
 
     const oldStatus = ticket.status;
-    const oldUserId = ticket.userId;
     const statusData = status === "close" ? "closed" : status;
 
     let data: any = {

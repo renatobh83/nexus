@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { SettingsRepository } from "./settings.repository";
 
@@ -24,5 +25,8 @@ export class SettingsService {
       data.tenantId
     );
     return settingUpdate;
+  }
+  async findBySettings(where: Prisma.SettingWhereInput) {
+    return await this.settginsRepository.findFirst(where);
   }
 }
