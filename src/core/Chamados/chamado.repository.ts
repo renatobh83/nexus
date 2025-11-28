@@ -80,7 +80,7 @@ export class ChamadoRepository {
     }
     return transformChamados(chamadoCompleto);
   }
-  async findById(id: number): Promise<Chamado | null> {
+  async findById(id: number): Promise<any | null> {
     const chamado = await prisma.chamado.findFirst({
       where: { id: id },
       include: CHAMADO_INCLUDE_CONFIG,
@@ -91,9 +91,7 @@ export class ChamadoRepository {
 
     return transformChamados(chamado);
   }
-  async findOneByWhere(
-    where: Prisma.ChamadoWhereInput
-  ): Promise<Chamado | null> {
+  async findOneByWhere(where: Prisma.ChamadoWhereInput): Promise<any | null> {
     const chamado = await prisma.chamado.findFirst({
       where,
       include: CHAMADO_INCLUDE_CONFIG,
@@ -156,7 +154,7 @@ export class ChamadoRepository {
     });
     return transformChamados(chamadoCompleto);
   }
-  async findAll(where?: Prisma.ChamadoWhereInput): Promise<void> {
+  async findAll(where?: Prisma.ChamadoWhereInput): Promise<any> {
     const chamados = await prisma.chamado.findMany({
       where,
       include: CHAMADO_INCLUDE_CONFIG,
@@ -194,7 +192,14 @@ export class ChamadoRepository {
     });
     return historicoAtualizado;
   }
-  async update(id: number, data: Prisma.ChamadoUpdateInput): Promise<Chamado> {
+  async getPauseHistoryChamado(chamadoId: number) {
+    return await prisma.pauseHistory.findMany({
+      where: {
+        chamadoId: chamadoId,
+      },
+    });
+  }
+  async update(id: number, data: Prisma.ChamadoUpdateInput): Promise<any> {
     const chamado = await prisma.chamado.update({
       where: {
         id: id,

@@ -1,3 +1,5 @@
+import { Chamado } from "@prisma/client";
+
 function _trransformSingleChamado(chamado: any) {
   const { chamadoContatos, ...restChamado } = chamado;
 
@@ -5,7 +7,7 @@ function _trransformSingleChamado(chamado: any) {
     (item: { contact: any }) => item.contact
   );
   return {
-    ...restChamado,
+    ...(restChamado as Chamado),
     contatos: dadoContato,
   };
 }

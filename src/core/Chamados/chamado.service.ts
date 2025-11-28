@@ -2,7 +2,7 @@ import { number } from "yup";
 import { ChamadoRepository } from "./chamado.repository";
 import { CreateDTOChamado, IUpdateChamadoService } from "./chamado.types";
 import { AppError } from "../../errors/errors.helper";
-import { Chamado, Prisma, Ticket } from "@prisma/client";
+import { Chamado, PauseHistory, Prisma, Ticket } from "@prisma/client";
 import { getFastifyApp } from "../../api";
 import socketEmit from "../../api/helpers/socketEmit";
 
@@ -208,9 +208,22 @@ export class ChamadoService {
       // sendEmailOpenClose(ticket, conclusao);
     }
 
+    const closeTime = new Date();
+    const createdAt = new Date(chamado.createdAt!);
+    const closedAt = new Date(closeTime);
+    let totalTime = closedAt.getTime() - createdAt.getTime();
+    const pauseHistory = await this.chamadoRepository.getPauseHistoryChamado(
+      chamado.id
+    );
+    pauseHistory.forEach((pause: PauseHistory) => {
+      const pauseStart = new Date(pause.startTime);
+      const pauseEnd = pause.endTime ? new Date(pause.endTime) : new Date();
+      totalTime -= pauseEnd.getTime() - pauseStart.getTime();
+    });
     await this.chamadoRepository.update(chamado.id, {
       status: "CONCLUIDO",
-      closedAt: new Date(),
+      closedAt: closeTime,
+      tempoChamado: (chamado.tempoChamado ?? 0) + totalTime,
     });
   }
 }
