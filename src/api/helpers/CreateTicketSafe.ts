@@ -76,7 +76,7 @@ export const findOrCreateTicketSafe = async (params: {
       if ((msg && !msg.fromMe) || (!newTicket.userId && !msg.author)) {
         console.log(await ChatFlow.CheckChatBotFlowWelcome(
           newTicket
-        );
+     )   );
       }
       socketEmit({
         tenantId: newTicket.tenantId,
