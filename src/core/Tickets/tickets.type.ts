@@ -79,3 +79,66 @@ export type TicketMessageUsername = Ticket &
     name: string | undefined;
     profilePicUrl: string | null;
   };
+
+export interface Step {
+  id: string;
+  data: {
+    conditions: StepCondition[];
+    interactions: any[]; // Melhorar tipagem aqui se possível
+  };
+  type?: string; // Ex: 'boasVindas', 'configurations'
+}
+export interface StepCondition {
+  action: ChatFlowAction;
+  nextStepId?: string;
+  queueId?: string;
+  userIdDestination?: string;
+  closeTicket?: string;
+  type: ConditionType;
+  condition?: string[];
+}
+export interface FlowConfig {
+  type: "configurations";
+  data: {
+    autoDistributeTickets?: boolean;
+    maxRetryBotMessage?: {
+      number: number;
+      type: RetryDestinyType;
+      destiny: string; // queueId ou userId
+    };
+    notOptionsSelectMessage?: {
+      message: string;
+    };
+    welcomeMessage?: {
+      message: string;
+    };
+    notResponseMessage?: {
+      message: string;
+    };
+    answerCloseTicket?: string[];
+  };
+}
+export enum ChatFlowAction {
+  NextStep = 0,
+  QueueDefine = 1,
+  UserDefine = 2,
+  CloseTicket = 3,
+  AdvancedStep = 4,
+}
+
+export enum ConditionType {
+  UserSelection = "US",
+  Automatic = "A",
+}
+export enum RetryDestinyType {
+  Queue = 1,
+  User = 2,
+  Close = 3,
+}
+
+export interface MessageData {
+  body: string;
+  fromMe: boolean;
+  read: boolean;
+  sendType: "bot" | "chat";
+}

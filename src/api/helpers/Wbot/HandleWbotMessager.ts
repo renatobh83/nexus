@@ -24,7 +24,7 @@ export const HandleMessageSend = async (
     authorGrupMessage = contato;
   }
 
-  const ticket = await findOrCreateTicketSafe({
+  const { ticket, isNew } = await findOrCreateTicketSafe({
     contact,
     whatsappId: wbot.id,
     unreadMessages: message.fromMe ? 0 : chat.unreadCount,

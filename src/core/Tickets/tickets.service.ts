@@ -1,12 +1,15 @@
+import type { Message as WbotMessage } from "wbotconnect";
 import { Prisma, Ticket } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { SettingsService } from "../Settings/settings.service";
 import { TicketRepository } from "./tickets.repository";
-import { TicketMessageUsername, TicketWithMessages } from "./tickets.type";
+import { FlowConfig, Step, TicketWithMessages } from "./tickets.type";
 import { getFastifyApp } from "../../api";
 import { getIO } from "../../lib/socket";
 import socketEmit from "../../api/helpers/socketEmit";
-import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
+import { logger } from "../../ultis/logger";
+import { findStepCondition, isRetriesLimit } from "./tickets.utils";
+import BuildSendMessageService from "../../api/helpers/BuildSendMessage";
 
 interface Request {
   searchParam?: string;
@@ -268,6 +271,7 @@ export class TicketService {
         type: "open",
         tenantId: ticket.tenantId,
       });
+
       return ticket;
     } catch (error) {
       console.log(error);
@@ -410,5 +414,112 @@ export class TicketService {
       payload: ticket,
     });
     return ticket;
+  }
+
+  async VerifyStepsChatFlowTicket(
+    message: WbotMessage | any,
+    ticket: Ticket,
+    isNew = false
+  ) {
+    if (
+      !ticket.chatFlowId ||
+      ticket.status !== "pending" ||
+      message.fromMe ||
+      ticket.isGroup
+    ) {
+      return false;
+    }
+    const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
+      ticket.chatFlowId
+    );
+
+    if (!chatFlow) {
+      logger.warn(`ChatFlow não encontrado para o ticket ${ticket.id}`);
+      return false;
+    }
+    const step = (chatFlow.flow! as any).nodeList.find(
+      (node: { id: any }) => node.id === ticket.stepChatFlow
+    ) as Step;
+
+    if (!step) {
+      logger.warn(
+        `Passo do ChatFlow não encontrado para o ticket ${ticket.id} e stepChatFlow ${ticket.stepChatFlow}`
+      );
+      return false;
+    }
+    const flowConfig = (chatFlow.flow as any).nodeList.find(
+      (node: { type: string }) => node.type === "configurations"
+    ) as FlowConfig;
+
+    const stepCondition = findStepCondition(step.data.conditions, message);
+    // Verificar se a mensagem é para fechar o ticket automaticamente
+    if (
+      !isNew
+      //(await isAnswerCloseTicket(flowConfig, ticket, getMessageBody(msg)))
+    ) {
+      console.log("TODO");
+      return false;
+    }
+    if (stepCondition && !isNew) {
+      if (await isRetriesLimit(ticket, flowConfig)) return false;
+    } else {
+      if (!isNew) {
+        if (await isRetriesLimit(ticket, flowConfig)) return false;
+        const defaultMessage =
+          "Desculpe! Não entendi sua resposta. Vamos tentar novamente! Escolha uma opção válida.";
+        const messageBody =
+          flowConfig.data.notOptionsSelectMessage?.message || defaultMessage;
+        // await sendBotMessage(ticket.tenantId, ticket, messageBody);
+      }
+      for (const interaction of step.data.interactions) {
+        await BuildSendMessageService({
+          msg: interaction,
+          tenantId: ticket.tenantId,
+          ticket,
+        });
+        if (step.type === "boasVindas") {
+          try {
+            logger.info(
+              `Tentando enviar mensagem de boas-vindas para o ticket ${ticket.id}`
+            );
+            if (ticket.channel === "telegram") {
+              console.log("Send MEssage");
+              // await SendTbotAppMessageList({
+              //   ticket,
+              //   options: ListMessageWelcomeTelegram(),
+              // });
+            } else {
+              // await SendWhatsMessageList({
+              //   ticket,
+              //   options: ListMessageWelcome(),
+              // });
+            }
+
+            logger.info(
+              `Mensagem de boas-vindas enviada com sucesso para o ticket ${ticket.id} e estado atualizado.`
+            );
+          } catch (error) {
+            logger.error(
+              `Falha ao enviar mensagem de boas-vindas ou atualizar ticket ${ticket.id}:`,
+              error
+            );
+          }
+        }
+        return false;
+      }
+    }
+  }
+
+  async updateTicketAndEmit(
+    ticket: Ticket,
+    data: Partial<any>,
+    socketType: "ticket:update" | "ticket:update_chatflow" = "ticket:update"
+  ): Promise<void> {
+    await this.ticketRepository.update(ticket.id, data);
+    socketEmit({
+      tenantId: ticket.tenantId,
+      type: socketType,
+      payload: ticket,
+    });
   }
 }

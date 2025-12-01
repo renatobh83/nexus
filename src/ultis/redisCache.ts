@@ -1,4 +1,3 @@
-
 import { redisClient } from "../lib/redis";
 
 // Buscar do cache
@@ -18,9 +17,18 @@ export const REDIS_KEYS = {
   contact: (channelId: number, contato: string) =>
     `cache:contact:${channelId}:${contato}`,
 
-
   ticketLock: (whatsappId: number, contactId: number) =>
     `lock:wpp:ticket:${whatsappId}:${contactId}`,
   // settingIgnoreGroup: (tenantId: number | string) =>
   //   `cache:wpp:setting:ignoreGroup:${tenantId}`,
+  sessao: (ticketId: number) => `sessao:${ticketId}`,
 };
+
+/// INTEGRACAO
+
+export async function salvarSessaoUsuario(
+  userId: number,
+  sessao: any
+): Promise<void> {
+  await setCache(REDIS_KEYS.sessao(userId), sessao);
+}

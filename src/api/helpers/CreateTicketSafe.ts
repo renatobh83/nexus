@@ -1,7 +1,9 @@
+import { Ticket } from "@prisma/client";
 import { getFastifyApp } from "..";
 import { redisClient } from "../../lib/redis";
 import { logger } from "../../ultis/logger";
 import { REDIS_KEYS } from "../../ultis/redisCache";
+import socketEmit from "./socketEmit";
 
 // const commonIncludes = [
 //   { model: Contact, as: "contact" },
@@ -22,7 +24,8 @@ export const findOrCreateTicketSafe = async (params: {
   chatClient?: boolean;
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const Ticket = getFastifyApp().services.ticketService;
-  const { contact, whatsappId } = params;
+  const ChatFlow = getFastifyApp().services.chatFlowService;
+  const { contact, whatsappId, msg } = params;
 
   const lockKey = REDIS_KEYS.ticketLock(whatsappId, contact.id);
   const LOCK_TIMEOUT = 30;
@@ -57,7 +60,7 @@ export const findOrCreateTicketSafe = async (params: {
         return { ticket: existingTicket, isNew: false };
       }
       // Se não existe, cria o novo ticket
-      const newTicket = await Ticket.createTicket(params);
+      let newTicket = await Ticket.createTicket(params);
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
@@ -68,6 +71,16 @@ export const findOrCreateTicketSafe = async (params: {
         chamadoId: null,
         queueId: null,
         userId: null,
+      });
+      if ((msg && !msg.fromMe) || (!newTicket.userId && !msg.author)) {
+        newTicket = (await ChatFlow.CheckChatBotFlowWelcome(
+          newTicket
+        )) as unknown as Ticket;
+      }
+      socketEmit({
+        tenantId: newTicket.tenantId,
+        type: "ticket:update",
+        payload: newTicket,
       });
       return { ticket: newTicket, isNew: true };
     } catch (error) {

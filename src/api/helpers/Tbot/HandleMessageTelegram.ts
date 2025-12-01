@@ -5,6 +5,9 @@ import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 import { Session } from "../../../lib/tbot";
 import { VerifyMessageTbot } from "./VerifyMessageTbot";
 import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
+import { isValidFlowAnswer } from "../isValidFlowAnswer";
+import { isRetriesLimit } from "../../../core/Tickets/tickets.utils";
+import { SendBotMessage } from "../SendBotMessage";
 
 // // Constantes para chaves Redis e TTLs
 // const REDIS_KEYS = {
@@ -145,10 +148,11 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       logger.info(
         `[Telegram] Ticket ${ticket.id} é novo. Iniciando ChatFlow de boas-vindas.`
       );
-      // await VerifyStepsChatFlowTicket(
-      //   { fromMe, body, type: "reply_markup" },
-      //   ticket
-      // );
+      await app.ticketService.VerifyStepsChatFlowTicket(
+        { fromMe, body, type: "reply_markup" },
+        ticket,
+        isNew
+      );
       await app.ticketService.updateTicket(ticket.id, {
         chatFlowStatus: "waiting_answer",
       });
@@ -156,14 +160,53 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       logger.info(
         `[Telegram] Ticket ${ticket.id} está aguardando resposta. Processando...`
       );
+      const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
+        ticket.chaflowId
+      );
+      const step = (chatFlow?.flow as any).nodeList.find(
+        (node: any) => node.id === ticket.stepChatFlow
+      );
+
+      if (step) {
+        if (isValidFlowAnswer({ fromMe, body, type: "reply_markup" }, step)) {
+          logger.info(
+            `[Telegram] Ticket ${ticket.id}: Resposta inicial válida. Processando passo.`
+          );
+          await app.ticketService.VerifyStepsChatFlowTicket(
+            { fromMe, body, type: "reply_markup" },
+            ticket
+          );
+
+          await app.ticketService.updateTicket(ticket.id, {
+            chatFlowStatus: "in_progress",
+          });
+        } else {
+          logger.warn(
+            `[Telegram] Ticket ${ticket.id}: Resposta inválida recebida no estado 'waiting_answer'. Ignorando e notificando.`
+          );
+          const flowConfig = (chatFlow!.flow as any).nodeList.find(
+            (node: any) => node.type === "configurations"
+          );
+          if (await isRetriesLimit(ticket, flowConfig)) return;
+          const defaultMessage =
+            "Por favor, escolha uma das opções do menu para continuar.";
+          const messageBody =
+            flowConfig?.data?.notOptionsSelectMessage?.message ||
+            defaultMessage;
+          await SendBotMessage(ticket.tenantId, ticket, messageBody);
+          await app.ticketService.updateTicket(ticket.id, {
+            botRetries: ticket.botRetries + 1,
+          });
+        }
+      }
     } else if (ticket.chatFlowStatus === "in_progress") {
       logger.info(
         `[Telegram] Ticket ${ticket.id} em atendimento normal. Verificando passos.`
       );
-      //      await VerifyStepsChatFlowTicket(
-      //   { fromMe, body, type: "reply_markup" },
-      //   ticket
-      // );
+      await app.ticketService.VerifyStepsChatFlowTicket(
+        { fromMe, body, type: "reply_markup" },
+        ticket
+      );
     }
   } catch (error) {
     logger.error("Erro fatal no HandleMessage:", error);

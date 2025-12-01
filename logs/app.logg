@@ -6470,3 +6470,39 @@
   ],
   timestamp: '2025-12-01T10:12:42.580Z'
 }
+{
+  code: 'P2025',
+  meta: { modelName: 'Ticket', operation: 'an update' },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at TicketRepository.update (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:20)\n' +
+    '    at TicketService.updateTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:219:27)\n' +
+    '    at VerifyMessageTbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMessageTbot.ts:64:25)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:138:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
+  timestamp: '2025-12-01T15:35:55.107Z'
+}

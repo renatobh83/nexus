@@ -5,6 +5,17 @@ export class ChatFlowRepository {
   findOne(id: number): Promise<ChatFlow | null> {
     return prisma.chatFlow.findFirst({ where: { id: id } });
   }
+  async findBy(id: number) {
+    return prisma.chatFlow.findFirst({
+      where: {
+        whatsappDefaults: {
+          some: {
+            id: id,
+          },
+        },
+      },
+    });
+  }
   async findAll(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow[]> {
     return await prisma.chatFlow.findMany({ where });
   }

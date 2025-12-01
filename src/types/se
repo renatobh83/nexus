@@ -1,0 +1,25 @@
+export type SessaoUsuario = {
+  dadosPaciente: any;
+  unidadeSelecionada: any;
+  planoSelecionado: any;
+  examesParaAgendar: any[];
+  ultimaDataConsulta: any;
+  horarioSelecionado: any;
+  cadastro: any;
+  cdHorario: any;
+  intervaloSelecionado: string;
+  medicosSelecionados: any;
+  ultimoExameSelecionado: any;
+  errosResponse: number;
+  // Adicionados
+  listaAtendimentos: ResponseListaAtendimento[];
+  listaAgendamentos: ResponseListaAgendamentos[];
+  listaPlanos: ResponseListaPlanos[];
+  listaUnidades: any[];
+  listaExames: any[];
+  valorTotalExames: number;
+  examesComMedicos: {
+    cd_procedimento: string;
+    medicos: any[];
+  }[];
+};
