@@ -59,6 +59,7 @@ export const findOrCreateTicketSafe = async (params: {
         );
         return { ticket: existingTicket, isNew: false };
       }
+      
       // Se não existe, cria o novo ticket
       let newTicket = await Ticket.createTicket(params);
       logger.info(
@@ -82,6 +83,7 @@ export const findOrCreateTicketSafe = async (params: {
         type: "ticket:update",
         payload: newTicket,
       });
+      console.log(newTicket)
       return { ticket: newTicket, isNew: true };
     } catch (error) {
       logger.error(
