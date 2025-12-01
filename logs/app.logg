@@ -6167,3 +6167,306 @@
   ],
   timestamp: '2025-11-28T19:21:20.620Z'
 }
+{
+  error: FastifyError: Root plugin has already booted
+      at Boot._addPlugin (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:170:11)
+      at Boot.use (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:139:25)
+      at Object.server.<computed> [as register] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:213:14)
+      at EventEmitter.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts:34:13)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:84:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  exception: true,
+  date: 'Mon Dec 01 2025 07:10:10 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 8956,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 192200704,
+      heapTotal: 127291392,
+      heapUsed: 54912448,
+      external: 6138319,
+      arrayBuffers: 4323769
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 348271.953 },
+  trace: [
+    {
+      column: 11,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      function: null,
+      line: 34,
+      method: null,
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 84,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-01T10:10:10.531Z'
+}
+{
+  error: FastifyError: Root plugin has already booted
+      at Boot._addPlugin (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:170:11)
+      at Boot.use (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:139:25)
+      at Object.server.<computed> [as register] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:213:14)
+      at EventEmitter.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts:34:13)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:84:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  exception: true,
+  date: 'Mon Dec 01 2025 07:12:11 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 18380,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 192991232,
+      heapTotal: 127553536,
+      heapUsed: 54723008,
+      external: 6113328,
+      arrayBuffers: 4323727
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 348392.734 },
+  trace: [
+    {
+      column: 11,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      function: null,
+      line: 34,
+      method: null,
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 84,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-01T10:12:11.305Z'
+}
+{
+  error: FastifyError: Root plugin has already booted
+      at Boot._addPlugin (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:170:11)
+      at Boot.use (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:139:25)
+      at Object.server.<computed> [as register] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\avvio\boot.js:213:14)
+      at EventEmitter.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts:34:13)
+      at EventEmitter.emit (node:events:520:35)
+      at processTicksAndRejections (node:internal/process/task_queues:84:11) {
+    code: 'AVV_ERR_ROOT_PLG_BOOTED',
+    statusCode: 500
+  },
+  level: 'error',
+  message: 'uncaughtException: Root plugin has already booted\n' +
+    'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  stack: 'FastifyError: Root plugin has already booted\n' +
+    '    at Boot._addPlugin (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:170:11)\n' +
+    '    at Boot.use (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:139:25)\n' +
+    '    at Object.server.<computed> [as register] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js:213:14)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts:34:13)\n' +
+    '    at EventEmitter.emit (node:events:520:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  exception: true,
+  date: 'Mon Dec 01 2025 07:12:42 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 21068,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 192200704,
+      heapTotal: 127553536,
+      heapUsed: 54732176,
+      external: 6113328,
+      arrayBuffers: 4323727
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 348424.015 },
+  trace: [
+    {
+      column: 11,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot._addPlugin',
+      line: 170,
+      method: '_addPlugin',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Boot.use',
+      line: 139,
+      method: 'use',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\avvio\\boot.js',
+      function: 'Object.server.<computed> [as register]',
+      line: 213,
+      method: '<computed> [as register]',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      function: null,
+      line: 34,
+      method: null,
+      native: false
+    },
+    {
+      column: 35,
+      file: 'node:events',
+      function: 'EventEmitter.emit',
+      line: 520,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 11,
+      file: 'node:internal/process/task_queues',
+      function: 'processTicksAndRejections',
+      line: 84,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-01T10:12:42.580Z'
+}

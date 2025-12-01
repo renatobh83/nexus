@@ -26,19 +26,12 @@ import { registerBullMQ } from "./bullMq";
  */
 export const redisPlugin = fp(async (fastify: FastifyInstance) => {
   fastify.log.info("🔌 Registrando plugin do Redis...");
-  // redisClient.on("ready", () => {
-  //   // Se já estiver pronto, registramos o BullMQ imediatamente.
-  //   fastify.log.info(`Redis status. ${redisClient.status}`);
-  //   fastify.log.info("Redis já está pronto. Registrando BullMQ.");
-  //   // fastify.register(registerBullMQ);
-  // });
+  fastify.log.info(`Redis status . ${redisClient.status}`);
+  redisClient.on("ready", () => {
+    fastify.log.info(`Redis status. ${redisClient.status}`);
+    fastify.log.info("Redis já está pronto. Registrando BullMQ.");
+  });
   fastify.register(registerBullMQ);
-  // if (redisClient.status === "ready") {
-  //   // Se já estiver pronto, registramos o BullMQ imediatamente.
-  // } else {
-  //   // Se já estiver pronto, registramos o BullMQ imediatamente.
-  //   fastify.log.info(`Redis status. ${redisClient.status}`);
-  // }
   // Decora a instância do Fastify para que o cliente seja acessível em outros lugares.
   fastify.decorate("redis", redisClient);
 

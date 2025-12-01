@@ -1,10 +1,15 @@
-import { number } from "yup";
 import { ChamadoRepository } from "./chamado.repository";
-import { CreateDTOChamado, IUpdateChamadoService } from "./chamado.types";
+import {
+  CHAMADO_INCLUDE_CONFIG,
+  CreateDTOChamado,
+  IUpdateChamadoService,
+} from "./chamado.types";
 import { AppError } from "../../errors/errors.helper";
-import { Chamado, PauseHistory, Prisma, Ticket } from "@prisma/client";
+import { Chamado, Media, PauseHistory, Prisma, Ticket } from "@prisma/client";
 import { getFastifyApp } from "../../api";
 import socketEmit from "../../api/helpers/socketEmit";
+import { prisma } from "../../lib/prisma";
+import { prepareMediaFile } from "../../ultis/prepareMediaFile";
 
 export class ChamadoService {
   private chamadoRepository: ChamadoRepository;
@@ -161,6 +166,101 @@ export class ChamadoService {
         payload: ticket,
       });
       return chamado;
+    }
+  }
+  async getMediaChamado(id: number) {
+    const findMedia = await prisma.media.findFirst({
+      where: {
+        id: id,
+      },
+    });
+    if (!findMedia) {
+      throw new AppError("MEDIA_NO_FOUND", 404);
+    }
+    return findMedia;
+  }
+
+  async deleteMediaChamado(id: number) {
+    const findMedia = await prisma.media.findFirst({
+      where: {
+        id: id,
+      },
+    });
+    if (!findMedia) {
+      throw new AppError("MEDIA_NO_FOUND", 404);
+    }
+    await prisma.media.delete({ where: { id: id } });
+  }
+  async updateMediaFileChamado(anexo: any) {
+    const findMedia = await prisma.media.findFirst({
+      where: {
+        id: anexo.id,
+      },
+    });
+    if (!findMedia) {
+      throw new AppError("MEDIA_NO_FOUND", 404);
+    }
+    const novoDado = anexo.dadosenvio;
+
+    if (!novoDado || typeof novoDado !== "object" || Array.isArray(novoDado)) {
+      throw new AppError("INVALID_DADOSENVIO", 400);
+    }
+    const chaveNova = Object.keys(novoDado)[0]!;
+    if (!["mensagemEnviadoEm", "emailEnviadoEm"].includes(chaveNova)) {
+      throw new AppError("CHAVE_DADOSENVIO_INVALIDA", 400);
+    }
+    const dadosAnteriores = Array.isArray(findMedia.dadosenvio)
+      ? findMedia.dadosenvio
+      : [];
+
+    const dadosAtualizados = [
+      ...dadosAnteriores.filter((item: any) => !item.hasOwnProperty(chaveNova)),
+      novoDado, // adiciona o novo dado
+    ];
+    await prisma.media.update({
+      where: {
+        id: anexo.id,
+      },
+      data: {
+        dadosenvio: dadosAtualizados,
+      },
+    });
+  }
+
+  async createMediaChamado(chamadoId: number, files: any) {
+    if (Array.isArray(files) && files.length > 0) {
+      const mediaData = files.map((file) => {
+        const { url, type } = prepareMediaFile(file);
+        return { url, type, chamadoId };
+      }) as unknown as any;
+
+      await prisma.media.createMany({
+        data: mediaData,
+        skipDuplicates: true, // Opcional: ignora a inserção se um registro único já existir
+      });
+    }
+    const chamado = await prisma.chamado.findFirst({
+      where: { id: chamadoId },
+      include: CHAMADO_INCLUDE_CONFIG,
+    });
+    return chamado;
+  }
+  async sendMessageChamado(data: any) {
+    const { tenantId, sendTo } = data;
+    if (Array.isArray(sendTo) && sendTo.length > 0) {
+      const messagensParaEnviar: any[] = [];
+      sendTo.forEach((to) => {
+        const messageOptions = {
+          ...data,
+          sendTo: to,
+          tenantId,
+        };
+
+        messagensParaEnviar.push(messageOptions);
+      });
+      messagensParaEnviar.forEach((options) => {
+        //addJOB
+      });
     }
   }
   private async pausarTicket(chamado: Chamado) {

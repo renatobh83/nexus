@@ -8,6 +8,7 @@ import {
   FastifyRequest,
 } from "fastify";
 import { handleServerError } from "../../errors/errors.helper";
+import { saveFile } from "../../ultis/saveFile";
 
 const ATTACHMENTSFOLDER = path.join(process.cwd(), "public", "attachments");
 // Garantir que a pasta existe
@@ -219,6 +220,83 @@ export async function chamadoController(
       }
     }
   );
+  fastify.get(
+    "/media/:id/arquivo",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        const { id } = request.params as { id: string };
+        const data = await chamadoService.getMediaChamado(parseInt(id));
+
+        return reply.code(200).send(data);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.delete(
+    "/media/:id",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        const { id } = request.params as { id: string };
+
+        await chamadoService.deleteMediaChamado(parseInt(id));
+        return reply.code(200).send({ message: "Sucess" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.post(
+    "/media/",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        const dataBody = request.body as any;
+        await chamadoService.updateMediaFileChamado(dataBody);
+        return reply.code(200).send({ message: "Sucess" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.put(
+    "/:chamadoId/anexo",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const files = request.files();
+      const { chamadoId } = request.params as any;
+      try {
+        const uploadedFiles: { filename: string; path: string }[] = [];
+        for await (const file of files) {
+          try {
+            const filename = await saveFile(file, ATTACHMENTSFOLDER);
+            uploadedFiles.push({ filename, path: `/attachments/${filename}` });
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        const chamado = await chamadoService.createMediaChamado(
+          parseInt(chamadoId),
+          uploadedFiles
+        );
+
+        return reply.code(200).send(chamado);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.post(
+    "/:chamadoId/sendMessage",
+    async (request: FastifyRequest<{ Body: any }>, reply: FastifyReply) => {
+      try {
+        const { tenantId } = request.user as any;
+        const dataBody = request.body as any;
+        const payload = { ...dataBody, tenantId };
+
+        return reply.code(200).send({ message: "Sucess" });
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
   //   fastify.get("/:empresaId/time", ChamadoController.listaTempoChamados);
-  // fastify.put("/:chamadoId/anexo", ChamadoController.updateAnexoChamado);
 }

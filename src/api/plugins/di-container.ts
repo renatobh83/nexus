@@ -18,6 +18,8 @@ import { LogTicketService } from "../../core/LogTickets/logTickets.service";
 import { TenantService } from "../../core/Tenant/tenant.service";
 import { ApiExternaService } from "../../core/ApiExterna/apiExterna.service";
 import { ChamadoService } from "../../core/Chamados/chamado.service";
+import { EmailService } from "../../core/Email/email.service";
+import { ChatFlowService } from "../../core/ChatFlow/chatFlow.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -37,6 +39,8 @@ export interface AppServices {
   tenantService: TenantService;
   apiExternaService: ApiExternaService;
   chamadoService: ChamadoService;
+  emailService: EmailService;
+  chatFlowService: ChatFlowService;
   // ... outros serviços
 }
 
@@ -69,6 +73,8 @@ async function diContainerPlugin(
   const tenantService = new TenantService();
   const apiExternaService = new ApiExternaService();
   const chamadoService = new ChamadoService();
+  const emailService = new EmailService();
+  const chatFlowService = new ChatFlowService();
   // 3. Cria o objeto de serviços
 
   const services: AppServices = {
@@ -88,6 +94,8 @@ async function diContainerPlugin(
     tenantService,
     apiExternaService,
     chamadoService,
+    emailService,
+    chatFlowService,
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

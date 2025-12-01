@@ -498,7 +498,7 @@ model Media {
   id         Int    @id @default(autoincrement())
   url        String // URL ou caminho para o arquivo de mídia
   type       String // Tipo do arquivo (ex: 'image/png', 'application/pdf')
-  dadosenvio Json // Metadados sobre o envio, armazenados como JSON
+  dadosenvio Json? // Metadados sobre o envio, armazenados como JSON
 
   // --- Metadados ---
   createdAt DateTime @default(now())
