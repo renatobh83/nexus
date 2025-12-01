@@ -166,7 +166,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       const step = (chatFlow?.flow as any).nodeList.find(
         (node: any) => node.id === ticket.stepChatFlow
       );
-
+console.log(step)
       if (step) {
         if (isValidFlowAnswer({ fromMe, body, type: "reply_markup" }, step)) {
           logger.info(
