@@ -20,6 +20,7 @@ import { ApiExternaService } from "../../core/ApiExterna/apiExterna.service";
 import { ChamadoService } from "../../core/Chamados/chamado.service";
 import { EmailService } from "../../core/Email/email.service";
 import { ChatFlowService } from "../../core/ChatFlow/chatFlow.service";
+import { IntegracoesService } from "../../core/Integracoes/integracoes.service";
 
 // Defina uma interface para o objeto que será injetado
 export interface AppServices {
@@ -41,6 +42,7 @@ export interface AppServices {
   chamadoService: ChamadoService;
   emailService: EmailService;
   chatFlowService: ChatFlowService;
+  integracaoService: IntegracoesService;
   // ... outros serviços
 }
 
@@ -75,6 +77,7 @@ async function diContainerPlugin(
   const chamadoService = new ChamadoService();
   const emailService = new EmailService();
   const chatFlowService = new ChatFlowService();
+  const integracaoService = new IntegracoesService();
   // 3. Cria o objeto de serviços
 
   const services: AppServices = {
@@ -96,6 +99,7 @@ async function diContainerPlugin(
     chamadoService,
     emailService,
     chatFlowService,
+    integracaoService,
   };
 
   // 4. Decora a instância do Fastify com o objeto 'services'

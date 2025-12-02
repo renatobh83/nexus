@@ -6,9 +6,8 @@ import {
   MessageStatus,
 } from "../../../core/messages/message.type";
 import { v4 as uuidV4 } from "uuid";
-import { getIO } from "../../../lib/socket";
+
 import socketEmit from "../socketEmit";
-import { logger } from "../../../ultis/logger";
 
 export const VerifyMessageTbot = async (
   ctx: Context | any,

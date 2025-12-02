@@ -153,6 +153,21 @@ export class EmpresaRepository {
       data,
     });
   }
+  async findEmpresasByContato(contatoId: number) {
+    return prisma.empresa.findMany({
+      select: {
+        id: true,
+        name: true,
+      },
+      where: {
+        empresaContacts: {
+          some: {
+            contactId: contatoId,
+          },
+        },
+      },
+    });
+  }
   async findContatoByEmpresa(empresaId: number) {
     const empresa = await prisma.empresa.findFirst({
       where: {

@@ -3,6 +3,7 @@ import TelegramSendMessagesSystem from "./Tbot/TelegramSendMessagesSystem";
 import { requireTbot } from "../../lib/tbot";
 import { SendMessageChatClient } from "./WebChat/SendMessageChatClient";
 import { SendMessageMediaChatClient } from "./WebChat/SendMessageMediaChatClient";
+import { Message } from "@prisma/client";
 
 type Payload = {
   ticket: any;
@@ -20,7 +21,8 @@ const SendMessageSystemProxy = async ({
   messageData,
   media,
   userId,
-}: Payload): Promise<any> => {
+}: Payload): Promise<Message> => {
+  // TODO VER OS TIPOS DE MEDIA TYPE
   const hasMedia = Boolean(messageData.mediaType === "image" && media);
   let message: any | null = null;
 
@@ -57,7 +59,7 @@ const SendMessageSystemProxy = async ({
   }
 
   // Se a mensagem foi enviada mas ainda está "pendente"
-  if (message?.ack === 0) return null;
+  // if (message?.ack === 0) return null;
 
   return message;
 };

@@ -54,17 +54,18 @@ async function buildServer(): Promise<FastifyInstance> {
     },
     trustProxy: true,
   });
-  server.setSerializerCompiler(() => {
-    return (data) =>
-      JSON.stringify(data, (_, value) =>
-        typeof value === "bigint" ? value.toString() : value
-      );
-  });
+  // server.setSerializerCompiler(() => {
+  //   return (data) =>
+  //     JSON.stringify(data, (_, value) =>
+  //       typeof value === "bigint" ? value.toString() : value
+  //     );
+  // });
   await server.register(jwt, {
     secret: process.env.JWT_SECRET!,
   });
 
   server.register(diContainerPlugin);
+
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };
   });
@@ -224,7 +225,7 @@ export async function start() {
     await app.listen({ port: 3000, host: "0.0.0.0" });
     app.log.info("Servidor rodando em http://localhost:3000");
     app.server.keepAliveTimeout = 5 * 60 * 1000;
-      
+
     // await scheduleOrUpdateDnsJob();
     app.services.whatsappService.startAllReadySessions();
   } catch (err: any) {

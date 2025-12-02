@@ -140,5 +140,6 @@ export interface MessageData {
   body: string;
   fromMe: boolean;
   read: boolean;
+  mediaType: "chat";
   sendType: "bot" | "chat";
 }

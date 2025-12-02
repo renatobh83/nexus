@@ -59,13 +59,22 @@ export const findOrCreateTicketSafe = async (params: {
         );
         return { ticket: existingTicket, isNew: false };
       }
-      
+
       // Se não existe, cria o novo ticket
-      let newTicket = await Ticket.createTicket(params);
+      let newTicket: Ticket = await Ticket.createTicket(params);
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
-      await getFastifyApp().services.logTicketService.createLogTicket({
+
+      if ((msg && !msg.fromMe) || (!newTicket.userId && !msg.author)) {
+        newTicket = await ChatFlow.CheckChatBotFlowWelcome(newTicket);
+      }
+      socketEmit({
+        tenantId: newTicket.tenantId,
+        type: "ticket:update",
+        payload: newTicket,
+      });
+      getFastifyApp().services.logTicketService.createLogTicket({
         ticketId: newTicket.id,
         tenantId: newTicket.tenantId,
         type: "create",
@@ -73,17 +82,6 @@ export const findOrCreateTicketSafe = async (params: {
         queueId: null,
         userId: null,
       });
-      if ((msg && !msg.fromMe) || (!newTicket.userId && !msg.author)) {
-        console.log(await ChatFlow.CheckChatBotFlowWelcome(
-          newTicket
-     )   );
-      }
-      socketEmit({
-        tenantId: newTicket.tenantId,
-        type: "ticket:update",
-        payload: newTicket,
-      });
-      
       return { ticket: newTicket, isNew: true };
     } catch (error) {
       logger.error(

@@ -7,7 +7,7 @@ import { VerifyMessageTbot } from "./VerifyMessageTbot";
 import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
 import { isValidFlowAnswer } from "../isValidFlowAnswer";
 import { isRetriesLimit } from "../../../core/Tickets/tickets.utils";
-import { SendBotMessage } from "../SendBotMessage";
+import { sendBotMessage } from "../SendBotMessage";
 
 // // Constantes para chaves Redis e TTLs
 // const REDIS_KEYS = {
@@ -166,7 +166,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       const step = (chatFlow?.flow as any).nodeList.find(
         (node: any) => node.id === ticket.stepChatFlow
       );
-console.log(step)
+
       if (step) {
         if (isValidFlowAnswer({ fromMe, body, type: "reply_markup" }, step)) {
           logger.info(
@@ -193,7 +193,7 @@ console.log(step)
           const messageBody =
             flowConfig?.data?.notOptionsSelectMessage?.message ||
             defaultMessage;
-          await SendBotMessage(ticket.tenantId, ticket, messageBody);
+          await sendBotMessage(ticket.tenantId, ticket, messageBody);
           await app.ticketService.updateTicket(ticket.id, {
             botRetries: ticket.botRetries + 1,
           });

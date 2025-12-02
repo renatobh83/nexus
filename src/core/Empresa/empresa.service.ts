@@ -77,6 +77,10 @@ export class EmpresaService {
     return this.empresaRepository.findContatoByEmpresa(empresaId);
   }
 
+  async EmpresasContato(contatoId: number) {
+    return this.empresaRepository.findEmpresasByContato(contatoId);
+  }
+
   async updateContatoEmpresa(emrpesaId: number, dataSetContatos: []) {
     return this.empresaRepository.updateContatoEmpresa(
       emrpesaId,

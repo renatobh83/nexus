@@ -2,6 +2,9 @@ import { Prisma, Ticket } from "@prisma/client";
 import { ChatFlowRepository } from "./chatFlow.repository";
 import { AppError } from "../../errors/errors.helper";
 import { getFastifyApp } from "../../api";
+import { REDIS_KEYS, setCache } from "../../ultis/redisCache";
+
+import { flows } from "./chatFlow.utils";
 
 export class ChatFlowService {
   private chatFlowRepository: ChatFlowRepository;
@@ -54,23 +57,29 @@ export class ChatFlowService {
     return chatFlow;
   }
 
-  async CheckChatBotFlowWelcome(ticket: any) {
-    if (ticket.userId || ticket.isGroup) return;
+  async CheckChatBotFlowWelcome(ticket: any): Promise<Ticket> {
+    if (ticket.userId || ticket.isGroup) {
+      throw new AppError("ERR_TICKE_USER_OR_GROUP", 403);
+    }
     const setting =
       await getFastifyApp().services.settingsService.findBySettings({
         key: "botTicketActive",
       });
     const chatFlow = await this.chatFlowRepository.findBy(ticket.whatsappId!);
 
-    if (!chatFlow) return;
+    if (!chatFlow) {
+      throw new AppError("ERR_NO_FOUND_CHAT_FLOW", 403);
+    }
 
     const chatFlowId = chatFlow.id || setting?.value;
-    if (!chatFlowId) return;
+    if (!chatFlowId) {
+      throw new AppError("ERR_NO_FOUND_CHAT_FLOW", 403);
+    }
 
     if (
       ticket.contact.number.indexOf(chatFlow?.celularTeste?.substring(1)) === -1
     ) {
-      return;
+      throw new AppError("ERR_IS_CELULAR_TESTING", 403);
     }
 
     const lineFlow = (chatFlow.flow! as any).lineList.find(
@@ -86,7 +95,7 @@ export class ChatFlowService {
         lastInteractionBot: new Date(),
       });
 
-    await getFastifyApp().services.logTicketService.createLogTicket({
+    getFastifyApp().services.logTicketService.createLogTicket({
       chamadoId: null,
       queueId: null,
       userId: null,
@@ -94,6 +103,14 @@ export class ChatFlowService {
       tenantId: ticket.tenantId,
       type: "chatBot",
     });
+
     return ticketUpdate;
+  }
+
+  async actionsFlow(message: any, ticket: Ticket) {
+    const action = message.data.webhook?.acao;
+    await setCache(REDIS_KEYS.previousStepId(ticket.id), ticket.stepChatFlow!);
+    const options = await flows(action, ticket, message);
+    return options;
   }
 }

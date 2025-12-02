@@ -13,6 +13,7 @@ import { getFastifyApp } from "../../api";
 import { SendMessageForward } from "../../api/helpers/SendMessageForward";
 import { MediaService } from "../../api/helpers/MediaService";
 import { SendMessageReaction } from "../../api/helpers/SendMessageReaction";
+import { buildMessageBody } from "./message.utils";
 
 export class MessageService {
   private messageRepository: MessageRepository;
@@ -42,18 +43,22 @@ export class MessageService {
     }
     const { ticketId, tenantId, contactId, ...restDto } = dto;
 
-    const dataForDb = {
+    const dataForDb: any = {
       ...restDto,
       body: bodyToSave,
       ticket: { connect: { id: ticketId as number } },
-      contact: { connect: { id: contactId as number } },
+
       tenant: { connect: { id: tenantId as number } },
     };
-
+    if (contactId) {
+      dataForDb.contact = {
+        connect: { id: contactId as number },
+      };
+    }
     const updateInput: Prisma.MessageUpdateInput = {};
 
     const newMessage = await this.messageRepository.findOrCreateAndReload(
-      { messageId: dto.messageId, tenantId: tenantId },
+      { messageId: String(dto.messageId), tenantId: tenantId },
       dataForDb,
       updateInput
     );
@@ -192,7 +197,7 @@ export class MessageService {
     };
 
     if (decryptedMessage && !Array.isArray(decryptedMessage)) {
-      messageData.body = this.buildMessageBody(decryptedMessage, ticket);
+      messageData.body = buildMessageBody(decryptedMessage, ticket);
     }
     await Promise.all(
       (filesArray && filesArray.length ? filesArray : [null]).map(
@@ -393,13 +398,4 @@ export class MessageService {
    * @param {any} ticket - O objeto do ticket contendo dados do contato e do usuário.
    * @returns {string} O corpo da mensagem com os placeholders substituídos.
    */
-  private buildMessageBody = (template: string, ticket: any): string => {
-    return pupa(template || "", {
-      name: ticket?.contact?.name ?? "",
-      email: ticket?.contact?.email ?? "",
-      phoneNumber: ticket?.contact?.number ?? "",
-      user: ticket?.user?.name ?? "",
-      userEmail: ticket?.user?.email ?? "",
-    });
-  };
 }

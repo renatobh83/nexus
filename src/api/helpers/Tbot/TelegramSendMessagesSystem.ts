@@ -28,6 +28,7 @@ const TelegramSendMessagesSystem = async (
   ticket: TicketContato,
   message: any
 ): Promise<void> => {
+  console.log(message.mediaType);
   let sendedMessage: any;
   const app = getFastifyApp().services.ticketService;
   const chatId = ticket.contact.number as string;
@@ -40,6 +41,7 @@ const TelegramSendMessagesSystem = async (
   if (message.hasButtons) {
     extraInfo.reply_markup = message.reply_markup;
   }
+
   extraInfo.parse_mode = "Markdown";
 
   try {

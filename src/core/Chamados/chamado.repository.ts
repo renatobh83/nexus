@@ -170,7 +170,24 @@ export class ChamadoRepository {
       },
     });
   }
-
+  async findChamadoEmpresaContato(empresaId: number, contatoId: number) {
+    return await prisma.chamado.findMany({
+      where: {
+        empresaId: empresaId,
+      },
+      include: {
+        chamadoContatos: {
+          where: {
+            contactId: contatoId,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 5,
+    });
+  }
   async updatePauseHistory(
     chamadoId: number,
     data: Prisma.PauseHistoryUpdateInput

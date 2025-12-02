@@ -25,7 +25,7 @@ const tbotMessageListener = (tbot: Session): void => {
 
   tbot.on("callback_query", async (ctx: any) => {
     const data = ctx.update.callback_query.data;
-
+    // TODO Completar Codigo
     // if (data.startsWith("selecEmpresa_")) {
     //   const empresaId = parseInt(data.split("_")[1]);
 
@@ -66,7 +66,7 @@ const tbotMessageListener = (tbot: Session): void => {
 
     ctx.reply(" 🤖 Só um momento que estamos processando a sua solicitação!");
 
-    // await HandleMessageTelegram(ctx, tbot);
+    await HandleMessageTelegram(ctx, tbot);
   });
 
   tbot.on("edited_message", async (ctx) => {

@@ -6506,3 +6506,1443 @@
     '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
   timestamp: '2025-12-01T15:35:55.107Z'
 }
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'settingsService')",
+  level: 'error',
+  timestamp: '2025-12-02T10:01:49.583Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-02T10:01:50.044Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'settingsService')",
+  level: 'error',
+  timestamp: '2025-12-02T10:04:35.964Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-02T10:04:36.420Z'
+}
+{
+  message: '[Channel-10] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-02T10:14:43.196Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-02T10:14:43.198Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'split')",
+  level: 'error',
+  timestamp: '2025-12-02T10:38:41.236Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-12-02T10:38:41.257Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'split')",
+  level: 'error',
+  timestamp: '2025-12-02T10:44:49.635Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-12-02T10:44:49.662Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'split')",
+  level: 'error',
+  timestamp: '2025-12-02T10:47:22.233Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-12-02T10:47:22.251Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'split')",
+  level: 'error',
+  timestamp: '2025-12-02T10:52:46.060Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-12-02T10:52:46.077Z'
+}
+{
+  message: "Error send message (id: undefined):: TypeError: Cannot read properties of undefined (reading 'split')",
+  level: 'error',
+  timestamp: '2025-12-02T11:02:55.727Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR',
+  level: 'error',
+  timestamp: '2025-12-02T11:02:55.746Z'
+}
+{
+  message: 'Error send message (id: undefined):: Error: 400: Bad Request: message text is empty',
+  level: 'error',
+  timestamp: '2025-12-02T11:16:01.307Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1171: ERR',
+  stack: 'Error: ERR\n' +
+    '    at TelegramSendMessagesSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:158:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at SendMessageSystemProxy (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendMessageSystemProxy.ts:30:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:213:31\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at MessageService.createMessageSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:197:5)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:36:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:151:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
+  timestamp: '2025-12-02T11:16:01.322Z'
+}
+{
+  message: 'Error send message (id: undefined):: Error: 400: Bad Request: message text is empty',
+  level: 'error',
+  timestamp: '2025-12-02T11:27:20.983Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1173: ERR',
+  stack: 'Error: ERR\n' +
+    '    at TelegramSendMessagesSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:158:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at SendMessageSystemProxy (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendMessageSystemProxy.ts:30:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:213:31\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at MessageService.createMessageSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:197:5)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:36:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:151:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
+  timestamp: '2025-12-02T11:27:21.003Z'
+}
+{
+  message: 'Error send message (id: undefined):: Error: 400: Bad Request: message text is empty',
+  level: 'error',
+  timestamp: '2025-12-02T11:31:18.120Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1174: ERR',
+  stack: 'Error: ERR\n' +
+    '    at TelegramSendMessagesSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:158:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at SendMessageSystemProxy (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendMessageSystemProxy.ts:30:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:213:31\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at MessageService.createMessageSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:197:5)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:36:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:151:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
+  timestamp: '2025-12-02T11:31:18.143Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1177: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: 34275,\n' +
+    '       +     tenantId: Int\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34275,\n' +
+    '           timestamp: 1764675984000,\n' +
+    '           messageId: 34275,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "672e51df-6720-4c25-a873-35e09b68656b",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1177\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `tenantId` is missing.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: 34275,\n' +
+    '       +     tenantId: Int\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34275,\n' +
+    '           timestamp: 1764675984000,\n' +
+    '           messageId: 34275,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "672e51df-6720-4c25-a873-35e09b68656b",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1177\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `tenantId` is missing.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:55:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:43:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)',
+  timestamp: '2025-12-02T11:43:02.343Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1178: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: 34278,\n' +
+    '                        ~~~~~\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34278,\n' +
+    '           timestamp: 1764676048000,\n' +
+    '           messageId: 34278,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "c566af00-d3bf-4c31-b8f5-01d4c9c55a8c",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1178\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `messageId`: Invalid value provided. Expected String, provided Int.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: 34278,\n' +
+    '                        ~~~~~\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34278,\n' +
+    '           timestamp: 1764676048000,\n' +
+    '           messageId: 34278,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "c566af00-d3bf-4c31-b8f5-01d4c9c55a8c",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1178\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `messageId`: Invalid value provided. Expected String, provided Int.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:55:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:44:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)',
+  timestamp: '2025-12-02T11:44:06.131Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1179: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34281",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           ~~~~~~~~~~\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34281,\n' +
+    '           timestamp: 1764676175000,\n' +
+    '           messageId: 34281,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "696ad2c2-f3aa-40ce-a2f7-c8f927582538",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1179\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           },\n' +
+    '       ?   wabaMediaId?: String | Null,\n' +
+    '       ?   mediaUrl?: String | Null,\n' +
+    '       ?   reaction?: String | Null,\n' +
+    '       ?   reactionFromMe?: String | Null,\n' +
+    '       ?   scheduleDate?: DateTime | Null,\n' +
+    '       ?   isDeleted?: Boolean,\n' +
+    '       ?   isForwarded?: Boolean,\n' +
+    '       ?   createdAt?: DateTime,\n' +
+    '       ?   updatedAt?: DateTime,\n' +
+    '       ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '       ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '       ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Unknown argument `hasButtons`. Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34281",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           hasButtons: true,\n' +
+    '           ~~~~~~~~~~\n' +
+    '           reply_markup: {\n' +
+    '             inline_keyboard: [\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🏷️ Falar no suporte",\n' +
+    '                   callback_data: "abrir"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "🔎 Consultar chamado",\n' +
+    '                   callback_data: "consultar"\n' +
+    '                 }\n' +
+    '               ],\n' +
+    '               [\n' +
+    '                 {\n' +
+    '                   text: "❌ Finalizar atendimento",\n' +
+    '                   callback_data: "3"\n' +
+    '                 }\n' +
+    '               ]\n' +
+    '             ]\n' +
+    '           },\n' +
+    '           mediaType: "chat",\n' +
+    '           fromMe: true,\n' +
+    '           sendType: "chat",\n' +
+    '           read: true,\n' +
+    '           id: 34281,\n' +
+    '           timestamp: 1764676175000,\n' +
+    '           messageId: 34281,\n' +
+    '           status: "sended",\n' +
+    '           ack: 1,\n' +
+    '           idFront: "696ad2c2-f3aa-40ce-a2f7-c8f927582538",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1179\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: undefined\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           },\n' +
+    '       ?   wabaMediaId?: String | Null,\n' +
+    '       ?   mediaUrl?: String | Null,\n' +
+    '       ?   reaction?: String | Null,\n' +
+    '       ?   reactionFromMe?: String | Null,\n' +
+    '       ?   scheduleDate?: DateTime | Null,\n' +
+    '       ?   isDeleted?: Boolean,\n' +
+    '       ?   isForwarded?: Boolean,\n' +
+    '       ?   createdAt?: DateTime,\n' +
+    '       ?   updatedAt?: DateTime,\n' +
+    '       ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '       ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '       ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Unknown argument `hasButtons`. Available options are marked with ?.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:55:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:44:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)',
+  timestamp: '2025-12-02T11:46:13.206Z'
+}
+{
+  message: '[Channel-10] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-02T11:53:10.632Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-02T11:53:10.635Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1180: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34285",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: 34285,\n' +
+    '               ~~~~~\n' +
+    '           messageId: 34285,\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           mediaType: "chat",\n' +
+    '           sendType: "bot",\n' +
+    '           fromMe: true,\n' +
+    '           ack: 2,\n' +
+    '           read: true,\n' +
+    '           status: "sended",\n' +
+    '           timestamp: 1764676629000,\n' +
+    '           idFront: "71bf5ca3-a54c-4479-890d-d726927801fd",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1180\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: null\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected String, provided Int.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34285",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: 34285,\n' +
+    '               ~~~~~\n' +
+    '           messageId: 34285,\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           mediaType: "chat",\n' +
+    '           sendType: "bot",\n' +
+    '           fromMe: true,\n' +
+    '           ack: 2,\n' +
+    '           read: true,\n' +
+    '           status: "sended",\n' +
+    '           timestamp: 1764676629000,\n' +
+    '           idFront: "71bf5ca3-a54c-4479-890d-d726927801fd",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1180\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '               id: null\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected String, provided Int.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:55:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:58:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)',
+  timestamp: '2025-12-02T11:53:47.405Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1181: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34288",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: "34288",\n' +
+    '           messageId: "34288",\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           mediaType: "chat",\n' +
+    '           sendType: "bot",\n' +
+    '           fromMe: true,\n' +
+    '           ack: 2,\n' +
+    '           read: true,\n' +
+    '           status: "sended",\n' +
+    '           timestamp: 1764676705000,\n' +
+    '           idFront: "5de986ce-cb1e-4076-86bc-f81e5a424ee9",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1181\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '       +       id: Int\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `id` must not be null.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34288",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: "34288",\n' +
+    '           messageId: "34288",\n' +
+    '           body: "🤖 Para começarmos, escolha a opção desejada: 👇",\n' +
+    '           mediaType: "chat",\n' +
+    '           sendType: "bot",\n' +
+    '           fromMe: true,\n' +
+    '           ack: 2,\n' +
+    '           read: true,\n' +
+    '           status: "sended",\n' +
+    '           timestamp: 1764676705000,\n' +
+    '           idFront: "5de986ce-cb1e-4076-86bc-f81e5a424ee9",\n' +
+    '           buffer: undefined,\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1181\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             connect: {\n' +
+    '       +       id: Int\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `id` must not be null.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:55:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:58:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:15)',
+  timestamp: '2025-12-02T11:55:03.080Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34289",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: "34289",\n' +
+    '           messageId: "34289",\n' +
+    '           body: "ce4177e065aee5a11e7d1942420f2b40:8sVYaIZw7H+bdRP9KTDgmg==",\n' +
+    '           fromMe: false,\n' +
+    '           read: false,\n' +
+    '           sendType: "chat",\n' +
+    '           quotedMsgId: undefined,\n' +
+    '           mediaType: "chat",\n' +
+    '           timestamp: 1764676776000,\n' +
+    '           status: "received",\n' +
+    '           ack: 2,\n' +
+    '           idFront: "56a893f3-0862-43eb-b4c0-000e0c05d664",\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1182\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             contact: {\n' +
+    '             ~~~~~~~\n' +
+    '               connect: {\n' +
+    '                 id: 77\n' +
+    '               }\n' +
+    '             },\n' +
+    '       ?     create?: ContactCreateWithoutMessagesInput | ContactUncheckedCreateWithoutMessagesInput,\n' +
+    '       ?     connectOrCreate?: ContactCreateOrConnectWithoutMessagesInput,\n' +
+    '       ?     connect?: ContactWhereUniqueInput\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Unknown argument `contact`. Did you mean `connect`? Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert({\n' +
+    '         where: {\n' +
+    '           messageId_tenantId: {\n' +
+    '             messageId: "34289",\n' +
+    '             tenantId: 1\n' +
+    '           }\n' +
+    '         },\n' +
+    '         update: {},\n' +
+    '         create: {\n' +
+    '           id: "34289",\n' +
+    '           messageId: "34289",\n' +
+    '           body: "ce4177e065aee5a11e7d1942420f2b40:8sVYaIZw7H+bdRP9KTDgmg==",\n' +
+    '           fromMe: false,\n' +
+    '           read: false,\n' +
+    '           sendType: "chat",\n' +
+    '           quotedMsgId: undefined,\n' +
+    '           mediaType: "chat",\n' +
+    '           timestamp: 1764676776000,\n' +
+    '           status: "received",\n' +
+    '           ack: 2,\n' +
+    '           idFront: "56a893f3-0862-43eb-b4c0-000e0c05d664",\n' +
+    '           ticket: {\n' +
+    '             connect: {\n' +
+    '               id: 1182\n' +
+    '             }\n' +
+    '           },\n' +
+    '           tenant: {\n' +
+    '             connect: {\n' +
+    '               id: 1\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: {\n' +
+    '             contact: {\n' +
+    '             ~~~~~~~\n' +
+    '               connect: {\n' +
+    '                 id: 77\n' +
+    '               }\n' +
+    '             },\n' +
+    '       ?     create?: ContactCreateWithoutMessagesInput | ContactUncheckedCreateWithoutMessagesInput,\n' +
+    '       ?     connectOrCreate?: ContactCreateOrConnectWithoutMessagesInput,\n' +
+    '       ?     connect?: ContactWhereUniqueInput\n' +
+    '           }\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: {\n' +
+    '             include: {\n' +
+    '               contact: true\n' +
+    '             }\n' +
+    '           },\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Unknown argument `contact`. Did you mean `connect`? Available options are marked with ?.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:59:24)\n' +
+    '    at VerifyMessageTbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMessageTbot.ts:76:3)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:141:7)',
+  timestamp: '2025-12-02T11:56:35.754Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of undefined (reading 'id')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'id')\n" +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:43:28)\n' +
+    '    at sendWelcomeMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:121:25)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:504:54)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:175:11)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21',
+  timestamp: '2025-12-02T13:08:39.211Z'
+}
+{
+  level: 'error',
+  message: "Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1191: Cannot read properties of undefined (reading 'body')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'body')\n" +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:30:44)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:534:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:151:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-02T13:33:26.952Z'
+}
+{
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1195: processedTemplate.replace is not a function',
+  stack: 'TypeError: processedTemplate.replace is not a function\n' +
+    '    at pupa (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\pupa.ts:109:43)\n' +
+    '    at buildMessageBody (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.utils.ts:4:14)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:22:33)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:536:35)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:151:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-02T13:44:36.196Z'
+}
+{
+  message: 'Error send message (id: undefined):: Error: 400: Bad Request: message text is empty',
+  level: 'error',
+  timestamp: '2025-12-02T13:56:46.156Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR',
+  stack: 'Error: ERR\n' +
+    '    at TelegramSendMessagesSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:158:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at SendMessageSystemProxy (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendMessageSystemProxy.ts:31:17)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:43:19)\n' +
+    '    at sendWelcomeMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:122:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:507:11)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:175:11)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21',
+  timestamp: '2025-12-02T13:56:46.169Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Integracoes/integracoes.service.ts(14,26): error TS1005: ',' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Integracoes\integracoes.service.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-37773060018360527.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-37773060018360527.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-37773060018360527.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Integracoes/integracoes.service.ts(14,26): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Integracoes/integracoes.service.ts(14,26): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Integracoes\\integracoes.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/core/Integracoes/integracoes.service.ts(14,26): error TS1005: ',' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Integracoes\\integracoes.service.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Tue Dec 02 2025 11:44:30 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 16648,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 137805824,
+      heapTotal: 107462656,
+      heapUsed: 61027840,
+      external: 4043973,
+      arrayBuffers: 409032
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 451131.156 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Integracoes\\integracoes.service.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-37773060018360527.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-02T14:44:30.024Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:524:9)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-02T17:17:24.221Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:524:9)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-02T17:18:29.607Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleNextStep (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21',
+  timestamp: '2025-12-02T17:28:41.210Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleNextStep (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:487:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21',
+  timestamp: '2025-12-02T17:46:59.478Z'
+}

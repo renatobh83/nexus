@@ -4,6 +4,8 @@ import SendMessageSystemProxy from "./SendMessageSystemProxy";
 import { AppError } from "../../errors/errors.helper";
 import socketEmit from "./socketEmit";
 import { pupa } from "../../ultis/pupa";
+import { getFastifyApp } from "..";
+import { sendBotMessage } from "./SendBotMessage";
 
 export interface MessageData {
   id?: string;
@@ -79,7 +81,7 @@ const BuildSendMessageService = async ({
       status: "pending",
       tenantId,
     };
-    console.log(messageData);
+
     // ------------------------------------------------------------
     // 🧩 1. MEDIA FIELD
     // ------------------------------------------------------------
@@ -149,6 +151,11 @@ const BuildSendMessageService = async ({
       const integracao = msg.data.webhook?.apiId;
 
       if (!integracao) {
+        options = await getFastifyApp().services.chatFlowService.actionsFlow(
+          msg,
+          ticket
+        );
+        console.log(options);
         // options = await actionsChatFlow({
         //   action: msg.data.webhook?.acao,
         //   msg,
@@ -169,10 +176,10 @@ const BuildSendMessageService = async ({
 
       let messageSent: any;
       if (typeof options === "object") {
-        // messageSent =
-        //   ticket.channel === "telegram"
-        //     ? await SendTbotAppMessageList({ options, ticket })
-        //     : await SendWhatsMessageList({ options, ticket });
+        messageSent = sendBotMessage(ticket.tenantId, ticket, options);
+        // ticket.channel === "telegram"
+        //   ? await se({ options, ticket })
+        //   : await SendWhatsMessageList({ options, ticket });
       } else {
         messageSent = await SendMessageSystemProxy({
           ticket,

@@ -3,13 +3,32 @@ import { Prisma, Ticket } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { SettingsService } from "../Settings/settings.service";
 import { TicketRepository } from "./tickets.repository";
-import { FlowConfig, Step, TicketWithMessages } from "./tickets.type";
+import {
+  ChatFlowAction,
+  FlowConfig,
+  Step,
+  TicketWithMessages,
+} from "./tickets.type";
 import { getFastifyApp } from "../../api";
 import { getIO } from "../../lib/socket";
 import socketEmit from "../../api/helpers/socketEmit";
 import { logger } from "../../ultis/logger";
-import { findStepCondition, isRetriesLimit } from "./tickets.utils";
+import {
+  findStepCondition,
+  handleCloseTicket,
+  handleNextStep,
+  handleQueueAssignment,
+  handleUserAssignment,
+  isRetriesLimit,
+  sendWelcomeMessage,
+} from "./tickets.utils";
 import BuildSendMessageService from "../../api/helpers/BuildSendMessage";
+import { sendBotMessage } from "../../api/helpers/SendBotMessage";
+import {
+  ListMessageWelcome,
+  ListMessageWelcomeTelegram,
+} from "../../api/helpers/Templates/optionsListMessagens";
+import VerifyBusinessHoursFlow from "../../api/helpers/VerifyBusinessHoursFlow";
 
 interface Request {
   searchParam?: string;
@@ -415,7 +434,7 @@ export class TicketService {
     });
     return ticket;
   }
-
+  // TODO codigo incompleto
   async VerifyStepsChatFlowTicket(
     message: WbotMessage | any,
     ticket: Ticket,
@@ -429,6 +448,7 @@ export class TicketService {
     ) {
       return false;
     }
+    let ticketEmit: null | Ticket = null;
     const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
       ticket.chatFlowId
     );
@@ -452,16 +472,45 @@ export class TicketService {
     ) as FlowConfig;
 
     const stepCondition = findStepCondition(step.data.conditions, message);
-    // Verificar se a mensagem é para fechar o ticket automaticamente
-    if (
-      !isNew
-      //(await isAnswerCloseTicket(flowConfig, ticket, getMessageBody(msg)))
-    ) {
-      console.log("TODO");
-      return false;
-    }
+
+    // TODO Verificar se a mensagem é para fechar o ticket automaticamente
+    // if (
+    //   !isNew
+    //   //(await isAnswerCloseTicket(flowConfig, ticket, getMessageBody(msg)))
+    // ) {
+    //   return false;
+    // }
+
     if (stepCondition && !isNew) {
       if (await isRetriesLimit(ticket, flowConfig)) return false;
+
+      await handleNextStep(ticket, chatFlow, stepCondition, message);
+      await handleQueueAssignment(ticket, flowConfig, stepCondition);
+      await handleUserAssignment(ticket, stepCondition);
+      await handleCloseTicket(ticket, stepCondition);
+      const ticketSocket =
+        await getFastifyApp().services.ticketService.findTicketId(ticket.id);
+      socketEmit({
+        tenantId: ticketSocket!.tenantId,
+        type: "ticket:update",
+        payload: ticketSocket!,
+      });
+      // Enviar mensagem de boas-vindas se o ticket foi atribuído a fila/usuário
+      if (
+        stepCondition.action === ChatFlowAction.QueueDefine ||
+        stepCondition.action === ChatFlowAction.UserDefine
+      ) {
+        const isBusinessHours = await VerifyBusinessHoursFlow(ticketSocket!);
+
+        if (isBusinessHours) {
+          await sendWelcomeMessage(ticketSocket!, flowConfig);
+        }
+      }
+      // Se chegamos aqui, a resposta foi válida e o fluxo avançou.
+      logger.info(
+        `[whatsapp] Ticket ${ticket.id}: Resposta válida encontrada. Fluxo avançou.`
+      );
+      return true; // <--- RETORNO DE SUCESSO
     } else {
       if (!isNew) {
         if (await isRetriesLimit(ticket, flowConfig)) return false;
@@ -469,7 +518,7 @@ export class TicketService {
           "Desculpe! Não entendi sua resposta. Vamos tentar novamente! Escolha uma opção válida.";
         const messageBody =
           flowConfig.data.notOptionsSelectMessage?.message || defaultMessage;
-        // await sendBotMessage(ticket.tenantId, ticket, messageBody);
+        await sendBotMessage(ticket.tenantId, ticket, messageBody);
       }
       for (const interaction of step.data.interactions) {
         await BuildSendMessageService({
@@ -483,16 +532,17 @@ export class TicketService {
               `Tentando enviar mensagem de boas-vindas para o ticket ${ticket.id}`
             );
             if (ticket.channel === "telegram") {
-              console.log("Send MEssage");
-              // await SendTbotAppMessageList({
-              //   ticket,
-              //   options: ListMessageWelcomeTelegram(),
-              // });
+              await sendBotMessage(
+                ticket.tenantId,
+                ticket,
+                ListMessageWelcomeTelegram()
+              );
             } else {
-              // await SendWhatsMessageList({
-              //   ticket,
-              //   options: ListMessageWelcome(),
-              // });
+              await sendBotMessage(
+                ticket.tenantId,
+                ticket,
+                ListMessageWelcome()
+              );
             }
 
             logger.info(

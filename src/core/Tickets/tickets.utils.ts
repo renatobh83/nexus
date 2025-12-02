@@ -1,4 +1,5 @@
 import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
+import { v4 as uuidV4 } from "uuid";
 import type { Message as WbotMessage } from "wbotconnect";
 import {
   TicketWithStandardIncludes,
@@ -13,8 +14,11 @@ import {
 import { ChatFlow, Ticket } from "@prisma/client";
 
 import { getFastifyApp } from "../../api";
-import { SendBotMessage } from "../../api/helpers/SendBotMessage";
-import BuildSendMessageService from "../../api/helpers/BuildSendMessage";
+import { sendBotMessage } from "../../api/helpers/SendBotMessage";
+import BuildSendMessageService, {
+  MessageType,
+} from "../../api/helpers/BuildSendMessage";
+import { handleBusinessHoursCheck } from "../../api/helpers/BusinessHoursCheck";
 
 type TicketInput = TicketWithStandardIncludes | TicketWithStandardIncludes[];
 type TicketOutput = TicketWithMessages | TicketWithMessages[];
@@ -105,7 +109,7 @@ export const sendCloseMessage = async (
 ): Promise<void> => {
   if (flowConfig?.data?.notResponseMessage?.message) {
     const messageBody = flowConfig.data.notResponseMessage.message;
-    await SendBotMessage(ticket.tenantId, ticket, messageBody);
+    await sendBotMessage(ticket.tenantId, ticket, messageBody);
   }
 };
 export const sendWelcomeMessage = async (
@@ -114,7 +118,8 @@ export const sendWelcomeMessage = async (
 ): Promise<void> => {
   if (flowConfig?.data?.welcomeMessage?.message) {
     const messageBody = flowConfig.data.welcomeMessage.message;
-    await SendBotMessage(ticket.tenantId, ticket, messageBody);
+
+    await sendBotMessage(ticket.tenantId, ticket, messageBody);
   }
 };
 
@@ -200,5 +205,110 @@ export const handleNextStep = async (
         ticket,
       });
     }
+  }
+};
+
+export const handleQueueAssignment = async (
+  ticket: Ticket,
+  flowConfig: any,
+  stepCondition: any
+): Promise<void> => {
+  try {
+    if (stepCondition.action === ChatFlowAction.QueueDefine) {
+      if (!(await handleBusinessHoursCheck(ticket))) return;
+
+      const ticketUpdate =
+        await getFastifyApp().services.ticketService.updateTicketAndEmit(
+          ticket,
+          {
+            queueId: stepCondition.queueId,
+            chatFlowId: null,
+            stepChatFlow: null,
+            botRetries: 0,
+            lastInteractionBot: new Date(),
+          },
+          "ticket:update_chatflow"
+        );
+
+      await getFastifyApp().services.logTicketService.createLogTicket({
+        chamadoId: null,
+        userId: null,
+        ticketId: ticket.id,
+        type: "queue",
+        queueId: stepCondition.queueId,
+        tenantId: ticket.tenantId,
+      });
+
+      if (flowConfig?.data?.autoDistributeTickets) {
+        // TODO criar regra de autodistribuicao na fila
+        // await DefinedUserBotService(
+        //   ticket,
+        //   stepCondition.queueId,
+        //   ticket.tenantId,
+        //   flowConfig.data.autoDistributeTickets
+        // );
+        // await ticket.reload();
+      }
+      return ticketUpdate;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const handleUserAssignment = async (
+  ticket: Ticket,
+  stepCondition: StepCondition
+): Promise<void> => {
+  if (stepCondition.action === ChatFlowAction.UserDefine) {
+    if (!(await handleBusinessHoursCheck(ticket))) return;
+
+    await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
+      userId: stepCondition.userIdDestination,
+      chatFlowId: null,
+      stepChatFlow: null,
+      botRetries: 0,
+      lastInteractionBot: new Date(),
+    });
+
+    await getFastifyApp().services.logTicketService.createLogTicket({
+      chamadoId: null,
+      queueId: null,
+      userId: stepCondition.userIdDestination as unknown as number,
+      ticketId: ticket.id,
+      type: "userDefine",
+      tenantId: ticket.tenantId,
+    });
+  }
+};
+export const handleCloseTicket = async (
+  ticket: Ticket,
+  actionDetails: StepCondition
+): Promise<void> => {
+  if (actionDetails.action === ChatFlowAction.CloseTicket) {
+    const closeTicketMessage = {
+      message:
+        actionDetails.closeTicket ||
+        "🤖 Estamos finalizando o seu atendimento.",
+    };
+
+    const messageField = {
+      data: closeTicketMessage,
+      id: uuidV4(),
+      type: "MessageField" as MessageType,
+    };
+
+    await BuildSendMessageService({
+      msg: messageField,
+      tenantId: ticket.tenantId,
+      ticket: ticket,
+    });
+
+    await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
+      status: "closed",
+      closedAt: new Date().getTime(),
+      botRetries: 0,
+      lastInteractionBot: new Date(),
+    });
   }
 };

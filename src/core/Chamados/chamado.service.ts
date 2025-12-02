@@ -263,6 +263,12 @@ export class ChamadoService {
       });
     }
   }
+  async chamadosEmpresaContato(empresaId: number, conttoId: number) {
+    return await this.chamadoRepository.findChamadoEmpresaContato(
+      empresaId,
+      conttoId
+    );
+  }
   private async pausarTicket(chamado: Chamado) {
     if (chamado.status.includes("PAUSADO")) {
       return;

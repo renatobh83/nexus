@@ -22,6 +22,7 @@ export const REDIS_KEYS = {
   // settingIgnoreGroup: (tenantId: number | string) =>
   //   `cache:wpp:setting:ignoreGroup:${tenantId}`,
   sessao: (ticketId: number) => `sessao:${ticketId}`,
+  previousStepId: (ticketId: number) => `stepFromTicket:${ticketId}`,
 };
 
 /// INTEGRACAO
