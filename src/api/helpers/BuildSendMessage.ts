@@ -155,7 +155,7 @@ const BuildSendMessageService = async ({
           msg,
           ticket
         );
-        console.log(options);
+
         // options = await actionsChatFlow({
         //   action: msg.data.webhook?.acao,
         //   msg,

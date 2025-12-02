@@ -13,7 +13,7 @@ export class ChatFlowService {
     this.chatFlowRepository = new ChatFlowRepository();
   }
   async findOne(id: number) {
-    return await this.chatFlowRepository.findOne(id);
+    return await this.chatFlowRepository.findOne({ id: id });
   }
   async listaAllChatFlow(where?: Prisma.ChatFlowWhereInput) {
     return await this.chatFlowRepository.findAll(where);
@@ -37,7 +37,7 @@ export class ChatFlowService {
     return await this.chatFlowRepository.update(id, data);
   }
   async exportChatFlow(id: number) {
-    const chatFlow = await this.chatFlowRepository.findOne(id);
+    const chatFlow = await this.chatFlowRepository.findOne({ id: id });
     if (!chatFlow) {
       throw new AppError("ERR_NO_CHAT_FLOW_FOUND", 404);
     }
@@ -45,7 +45,7 @@ export class ChatFlowService {
     return jsonContent;
   }
   async importChatFlow(chatFlowId: number, chatFlowData: any) {
-    let chatFlow = await this.chatFlowRepository.findOne(chatFlowId);
+    let chatFlow = await this.chatFlowRepository.findOne({ id: chatFlowId });
     if (!chatFlow) {
       throw new AppError("ERR_NO_CHAT_FLOW_FOUND", 404);
     }
@@ -57,29 +57,30 @@ export class ChatFlowService {
     return chatFlow;
   }
 
-  async CheckChatBotFlowWelcome(ticket: any): Promise<Ticket> {
-    if (ticket.userId || ticket.isGroup) {
-      throw new AppError("ERR_TICKE_USER_OR_GROUP", 403);
-    }
+  async CheckChatBotFlowWelcome(ticket: any): Promise<Ticket | null> {
+    if (ticket.userId || ticket.isGroup) return null;
     const setting =
       await getFastifyApp().services.settingsService.findBySettings({
         key: "botTicketActive",
       });
-    const chatFlow = await this.chatFlowRepository.findBy(ticket.whatsappId!);
 
-    if (!chatFlow) {
-      throw new AppError("ERR_NO_FOUND_CHAT_FLOW", 403);
-    }
+    const channel = await getFastifyApp().services.whatsappService.findById(
+      ticket.whatsappId
+    );
 
-    const chatFlowId = chatFlow.id || setting?.value;
-    if (!chatFlowId) {
-      throw new AppError("ERR_NO_FOUND_CHAT_FLOW", 403);
-    }
+    const chatFlowId = ((channel && channel.id) || setting?.value) as string;
 
+    if (!chatFlowId) return null;
+    const chatFlow = await this.chatFlowRepository.findOne({
+      id: parseInt(chatFlowId),
+      isActive: true,
+      isDeleted: false,
+    });
+    if (!chatFlow) return null;
     if (
       ticket.contact.number.indexOf(chatFlow?.celularTeste?.substring(1)) === -1
     ) {
-      throw new AppError("ERR_IS_CELULAR_TESTING", 403);
+      throw new AppError("ERR_IN_CELULAR_TESTING", 403);
     }
 
     const lineFlow = (chatFlow.flow! as any).lineList.find(

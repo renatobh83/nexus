@@ -1,8 +1,9 @@
-import { IncomingCall, Message, Whatsapp } from "wbotconnect";
-import { HandleMessageSend } from "./HandleWbotMessager";
+import { IncomingCall, Message } from "wbotconnect";
 
 import { Session } from "../../../lib/wbot";
 import { isValidMsg } from "./isValidMsg";
+import { HandleMessage } from "./HandleWbotMessager";
+import { blockedMessages } from "./BlockedMessages";
 
 export interface MessageReaction {
   id: string;
@@ -22,9 +23,15 @@ export const wbotMessageListener = async (wbot: Session): Promise<void> => {
     if (isSyncing) {
       return;
     }
-
+    if (msg.chatId === "status@broadcast") return;
+    if (msg.type === "list") return;
+    const messageContent = msg.body || msg.caption || "";
+    const isBlocked = blockedMessages.some((blocked) => {
+      return messageContent.includes(blocked);
+    });
+    if (isBlocked) return;
     if (!isValidMsg(msg)) return;
-    await HandleMessageSend(msg, wbot);
+    await HandleMessage(msg, wbot);
   });
   wbot.onIncomingCall(async (call: IncomingCall) => {});
 

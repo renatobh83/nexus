@@ -105,6 +105,7 @@ export class MessageRepository {
       count,
     };
   }
+
   async updateMessage(messageId: string, data: Prisma.MessageUpdateInput) {
     return await prisma.message.update({
       where: {

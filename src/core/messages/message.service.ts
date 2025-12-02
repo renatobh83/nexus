@@ -389,13 +389,7 @@ export class MessageService {
     });
   }
 
-  /**
-   * Constrói o corpo da mensagem a partir de um template, substituindo placeholders
-   * com dados do ticket (contato e usuário).
-   *
-   * @private
-   * @param {string} template - O template da mensagem com placeholders.
-   * @param {any} ticket - O objeto do ticket contendo dados do contato e do usuário.
-   * @returns {string} O corpo da mensagem com os placeholders substituídos.
-   */
+  async findByMessageId(messageId: string) {
+    return this.messageRepository.findMessageBy({ messageId });
+  }
 }

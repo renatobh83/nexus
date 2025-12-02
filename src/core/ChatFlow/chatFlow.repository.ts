@@ -2,8 +2,8 @@ import { ChatFlow, Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 
 export class ChatFlowRepository {
-  findOne(id: number): Promise<ChatFlow | null> {
-    return prisma.chatFlow.findFirst({ where: { id: id } });
+  findOne(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow | null> {
+    return prisma.chatFlow.findFirst({ where });
   }
   async findBy(id: number) {
     return prisma.chatFlow.findFirst({

@@ -101,9 +101,9 @@ export const flows = async (action: string, ticket: Ticket, msg: any) => {
         msg.msg.listResponse?.singleSelectReply.selectedRowId.split("_")[1] ||
         msg.msg.body.split("_")[1];
       const chamadoDetails =
-        await getFastifyApp().services.chamadoService.findAllBy({
-          id: parseInt(chamadoId),
-        });
+        await getFastifyApp().services.chamadoService.findById(
+          parseInt(chamadoId)
+        );
       return TemplateMessage(chamadoDetails);
       break;
   }

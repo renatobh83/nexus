@@ -5,8 +5,10 @@ import { REDIS_KEYS } from "../../../ultis/redisCache";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 import { verifyContactWbot } from "./verifycontactWbot";
 import { Session } from "../../../lib/wbot";
+import VerifyMediaMessage from "./VerifyMediaMessage";
+import VerifyMessage from "./VerifyMessage";
 
-export const HandleMessageSend = async (
+export const HandleMessage = async (
   message: Message,
   wbot: Session
 ): Promise<void> => {
@@ -33,4 +35,13 @@ export const HandleMessageSend = async (
     msg: message,
     channel: "whatsapp",
   });
+
+  // if (ticket.isFarewellMessage) return;
+
+  //TODO Colocar a integracao externa
+  if (message.filehash) {
+    await VerifyMediaMessage(message, ticket, contact, wbot, authorGrupMessage);
+  } else {
+    await VerifyMessage(message, ticket, contact, authorGrupMessage);
+  }
 };

@@ -14,6 +14,7 @@ export enum MessageStatus {
 export enum MessageSendType {
   chat = "chat",
   template = "template",
+  bot = "bot",
   // Adicione outros tipos conforme necessário
 }
 
