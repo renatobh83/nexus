@@ -701,9 +701,9 @@ model Ticket {
   isTransference       Boolean   @default(false)
   lastInteractionBot   DateTime?
   botRetries           Int?
-  closedAt             BigInt? // Prisma suporta BigInt para números muito grandes
-  lastMessageAt        BigInt?
-  startedAttendanceAt  BigInt?
+  closedAt             DateTime? // Prisma suporta BigInt para números muito grandes
+  lastMessageAt        DateTime?
+  startedAttendanceAt  DateTime?
   chamadoId            BigInt?
   lastAbsenceMessageAt DateTime?
   chatClient           Boolean?
