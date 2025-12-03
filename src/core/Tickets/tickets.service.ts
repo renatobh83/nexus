@@ -29,6 +29,7 @@ import {
   ListMessageWelcomeTelegram,
 } from "../../api/helpers/Templates/optionsListMessagens";
 import VerifyBusinessHoursFlow from "../../api/helpers/VerifyBusinessHoursFlow";
+import { SendWhatsMessageList } from "../../api/helpers/Wbot/SendWhatsAppMessageList";
 
 interface Request {
   searchParam?: string;
@@ -448,7 +449,7 @@ export class TicketService {
     ) {
       return false;
     }
-    let ticketEmit: null | Ticket = null;
+
     const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
       ticket.chatFlowId
     );
@@ -538,11 +539,10 @@ export class TicketService {
                 ListMessageWelcomeTelegram()
               );
             } else {
-              await sendBotMessage(
-                ticket.tenantId,
+              await SendWhatsMessageList({
                 ticket,
-                ListMessageWelcome()
-              );
+                options: ListMessageWelcome(),
+              });
             }
 
             logger.info(

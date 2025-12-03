@@ -1,10 +1,7 @@
-import { Contact, Ticket } from "@prisma/client";
+import { Contact, enum_Messages_sendType, Ticket } from "@prisma/client";
 import { Context } from "telegraf";
 import { AppServices } from "../../plugins/di-container";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../../core/messages/message.type";
+import { MessageDTO, MessageStatus } from "../../../core/messages/message.type";
 import { v4 as uuidV4 } from "uuid";
 
 import socketEmit from "../socketEmit";
@@ -40,7 +37,7 @@ export const VerifyMessageTbot = async (
     quotedMsgId = messageQuoted?.id || undefined;
   }
 
-  const messageData = {
+  const messageData: MessageDTO = {
     id: String(message?.message_id),
     messageId: String(message?.message_id),
     ticketId: ticket.id,
@@ -51,7 +48,7 @@ export const VerifyMessageTbot = async (
       : message.text,
     fromMe,
     read: fromMe,
-    sendType: "chat" as MessageSendType,
+    sendType: "chat" as enum_Messages_sendType,
     quotedMsgId,
     mediaType: "chat",
     timestamp: +message.date * 1000,

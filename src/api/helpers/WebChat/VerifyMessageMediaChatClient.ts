@@ -1,11 +1,8 @@
-import { Ticket } from "@prisma/client";
+import { enum_Messages_sendType, Ticket } from "@prisma/client";
 import { v4 as uuidV4 } from "uuid";
 import { AppError } from "../../../errors/errors.helper";
 import { getFastifyApp } from "../..";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../../core/messages/message.type";
+import { MessageDTO, MessageStatus } from "../../../core/messages/message.type";
 
 export const VerifyMessageMediaChatClient = async (
   mediaUrl: any,
@@ -14,7 +11,7 @@ export const VerifyMessageMediaChatClient = async (
   try {
     const relativePath = new URL(mediaUrl.trim()).pathname;
 
-    const messageData = {
+    const messageData: MessageDTO = {
       id: Date.now() + Math.random().toString(),
       idFront: Date.now() + Math.random().toString(),
       messageId: Date.now() + Math.random().toString(),
@@ -28,7 +25,7 @@ export const VerifyMessageMediaChatClient = async (
       timestamp: new Date().getTime(),
       ack: 2,
       status: "received" as MessageStatus,
-      sendType: "chat" as MessageSendType,
+      sendType: "chat" as enum_Messages_sendType,
       tenantId: ticket.tenantId,
     };
 

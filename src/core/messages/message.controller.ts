@@ -162,7 +162,8 @@ export async function messageController(
     ) => {
       const { ticketId } = request.params as any;
       try {
-        await startTypingWbot(ticketId);
+        const id = parseInt(ticketId);
+        await startTypingWbot(id);
         return reply.code(200).send({ message: "stratTyping" });
       } catch (error) {
         return handleServerError(reply, error);

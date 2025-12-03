@@ -4,6 +4,7 @@ import { requireTbot } from "../../lib/tbot";
 import { SendMessageChatClient } from "./WebChat/SendMessageChatClient";
 import { SendMessageMediaChatClient } from "./WebChat/SendMessageMediaChatClient";
 import { Message } from "@prisma/client";
+import SendWhatsAppMessage from "./Wbot/SendWhatsAppMessage";
 
 type Payload = {
   ticket: any;
@@ -44,11 +45,11 @@ const SendMessageSystemProxy = async ({
         //   userId,
         // });
       } else {
-        //   message = await SendWhatsAppMessage({
-        //     body: messageData.body,
-        //     ticket,
-        //     quotedMsg: messageData?.quotedMsg,
-        //   });
+        message = await SendWhatsAppMessage({
+          body: messageData.body,
+          ticket,
+          quotedMsg: messageData?.quotedMsg,
+        });
       }
       break;
 

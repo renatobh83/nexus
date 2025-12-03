@@ -1,12 +1,9 @@
-import { Ticket } from "@prisma/client";
+import { enum_Messages_sendType, Ticket } from "@prisma/client";
 import { MessageData } from "../../core/Tickets/tickets.type";
 import { getFastifyApp } from "..";
 import SendMessageSystemProxy from "./SendMessageSystemProxy";
 import { v4 as uuidV4 } from "uuid";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../core/messages/message.type";
+import { MessageDTO, MessageStatus } from "../../core/messages/message.type";
 import { encrypt } from "../../lib/crypto";
 import { buildMessageBody } from "../../core/messages/message.utils";
 
@@ -48,12 +45,12 @@ export const sendBotMessage = async (
     });
   }
   const body = buildMessageBody(messageSent.body, ticket);
-  const messageData = {
+  const messageData: MessageDTO = {
     id: String(messageSent.id),
     messageId: String(messageSent.id),
     body: encrypt(body),
     mediaType: "chat",
-    sendType: "bot" as MessageSendType,
+    sendType: "bot" as enum_Messages_sendType,
     fromMe: true,
     ack: 2,
     read: true,
@@ -65,5 +62,7 @@ export const sendBotMessage = async (
     buffer: undefined,
     tenantId,
   };
+
+  console.log(messageData);
   await getFastifyApp().services.messageService.createMessage(messageData);
 };

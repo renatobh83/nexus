@@ -1,13 +1,8 @@
-import { v4 as uuidV4 } from "uuid";
 import { AppError } from "../../../errors/errors.helper";
 import { findOrCreateTicketSafe } from "../CreateTicketSafe";
 import socketEmit from "../socketEmit";
 import VerifyBusinessHoursFlow from "../VerifyBusinessHoursFlow";
 import { getFastifyApp } from "../..";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../../core/messages/message.type";
 import { VerifyMessageChatClient } from "./VerifyMessageChatClient";
 import { VerifyMessageMediaChatClient } from "./VerifyMessageMediaChatClient";
 import { decrypt } from "../../../lib/crypto";

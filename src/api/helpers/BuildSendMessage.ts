@@ -6,6 +6,7 @@ import socketEmit from "./socketEmit";
 import { pupa } from "../../ultis/pupa";
 import { getFastifyApp } from "..";
 import { sendBotMessage } from "./SendBotMessage";
+import { SendWhatsMessageList } from "./Wbot/SendWhatsAppMessageList";
 
 export interface MessageData {
   id?: string;
@@ -176,10 +177,10 @@ const BuildSendMessageService = async ({
 
       let messageSent: any;
       if (typeof options === "object") {
-        messageSent = sendBotMessage(ticket.tenantId, ticket, options);
-        // ticket.channel === "telegram"
-        //   ? await se({ options, ticket })
-        //   : await SendWhatsMessageList({ options, ticket });
+        messageSent =
+          ticket.channel === "telegram"
+            ? await sendBotMessage(ticket.tenantId, ticket, options)
+            : await SendWhatsMessageList({ options, ticket });
       } else {
         messageSent = await SendMessageSystemProxy({
           ticket,

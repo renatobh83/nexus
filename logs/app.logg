@@ -1,0 +1,422 @@
+{
+  level: 'error',
+  message: "Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1256: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:47:45)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:34:5)',
+  timestamp: '2025-12-03T10:28:16.035Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "Messages_pkey"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ 'id' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1257: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`id`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:44\n' +
+    '\n' +
+    '  57   messageId_tenantId: where,\n' +
+    '  58 };\n' +
+    '  59 try {\n' +
+    '→ 60   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`id`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:60:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:60:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)',
+  timestamp: '2025-12-03T10:34:08.710Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "Messages_pkey"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ 'id' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1258: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`id`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`id`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:60:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)',
+  timestamp: '2025-12-03T10:37:12.552Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "unique_messageId_constraint"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ '"messageId"' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1259: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:66:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)',
+  timestamp: '2025-12-03T10:55:19.281Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "unique_messageId_constraint"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ '"messageId"' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1261: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:66:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)',
+  timestamp: '2025-12-03T10:58:14.192Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "unique_messageId_constraint"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ '"messageId"' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1262: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.upsert()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:44\n' +
+    '\n' +
+    '  60   messageId_tenantId: where,\n' +
+    '  61 };\n' +
+    '  62 try {\n' +
+    '→ 63   const message = await prisma.message.upsert(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageRepository.findOrCreateAndReload (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:63:23)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:66:24)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)',
+  timestamp: '2025-12-03T11:00:32.314Z'
+}
+{
+  code: 'P2002',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: UniqueConstraintViolation
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:261:41) {
+      cause: {
+        originalCode: '23505',
+        originalMessage: 'duplicate key value violates unique constraint "unique_messageId_constraint"',
+        kind: 'UniqueConstraintViolation',
+        constraint: { fields: [ '"messageId"' ] }
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Falha ao enviar mensagem de boas-vindas ou atualizar ticket 1263: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:74:22)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:65:3)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:541:15)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleWbotMessager.ts:57:5)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:34:5)',
+  timestamp: '2025-12-03T11:18:51.983Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T11:29:05.542Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T11:50:00.220Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:43.382Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:45.271Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:45.503Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:45.709Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:46.133Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:46.136Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:46.145Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:46.348Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:48.678Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:49.108Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:49.111Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:49.113Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T12:43:49.114Z'
+}

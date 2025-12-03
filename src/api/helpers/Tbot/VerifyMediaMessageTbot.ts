@@ -5,14 +5,16 @@ import { writeFile, createWriteStream } from "fs";
 import { v4 as uuidV4 } from "uuid";
 import { Context } from "telegraf";
 import axios from "axios";
-import { Contact, Message, Ticket } from "@prisma/client";
+import {
+  Contact,
+  enum_Messages_sendType,
+  Message,
+  Ticket,
+} from "@prisma/client";
 import { logger } from "../../../ultis/logger";
 
 import { AppServices } from "../../plugins/di-container";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../../core/messages/message.type";
+import { MessageDTO, MessageStatus } from "../../../core/messages/message.type";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -157,7 +159,7 @@ const VerifyMediaMessageTbot = async (
     quotedMsgId = messageQuoted?.id || undefined;
   }
 
-  const messageData = {
+  const messageData: MessageDTO = {
     id: String(message?.message_id),
     messageId: String(message?.message_id),
     ticketId: ticket.id,
@@ -165,7 +167,7 @@ const VerifyMediaMessageTbot = async (
     contactId: fromMe ? null : contact.id,
     body: message.text || message.caption || filename,
     fromMe,
-    sendType: "chat" as MessageSendType,
+    sendType: "chat" as enum_Messages_sendType,
     read: fromMe,
     mediaUrl: filename,
     mediaType: mediaInfo.mimeType.split("/")[0],

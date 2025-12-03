@@ -1,14 +1,10 @@
-import { Ticket } from "@prisma/client";
+import { enum_Messages_sendType, Ticket } from "@prisma/client";
 import { Contact } from "wbotconnect";
 import { v4 as uuidV4 } from "uuid";
 import VerifyQuotedMessage from "./VerifyQuotedMessage";
 import { getFastifyApp } from "../..";
 import socketEmit from "../socketEmit";
-import {
-  MessageSendType,
-  MessageStatus,
-} from "../../../core/messages/message.type";
-import { MessagaToCreate } from "./Types";
+import { MessageDTO, MessageStatus } from "../../../core/messages/message.type";
 
 const VerifyMessage = async (
   msg: any,
@@ -34,7 +30,7 @@ const VerifyMessage = async (
   // TODO ver essa parte
   // const quotedMsg = await VerifyQuotedMessage(msg);
 
-  const messageData: MessagaToCreate = {
+  const messageData: MessageDTO = {
     id: msg.id,
     messageId: msg.id,
     ticketId: ticket.id,
@@ -50,11 +46,10 @@ const VerifyMessage = async (
       ? ("sended" as MessageStatus)
       : ("received" as MessageStatus),
     tenantId: ticket.tenantId,
-    sendType: "chat " as MessageSendType,
+    sendType: "chat" as enum_Messages_sendType,
     idFront: uuidV4(),
   };
 
-  // await CreateMessageService({ messageData, tenantId: ticket.tenantId });
   await app.messageService.createMessage(messageData);
 
   // // Normalizar lastMessage

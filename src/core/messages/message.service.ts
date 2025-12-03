@@ -1,4 +1,4 @@
-import { Message, Prisma } from "@prisma/client";
+import { enum_Messages_sendType, Message, Prisma } from "@prisma/client";
 
 import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
 import { MessageRepository, ResponseMessages } from "./message.repository";
@@ -41,13 +41,12 @@ export class MessageService {
     if (!isEncrypted(bodyToSave)) {
       bodyToSave = encrypt(bodyToSave);
     }
-    const { ticketId, tenantId, contactId, ...restDto } = dto;
+    const { ticketId, tenantId, contactId, id, messageId, ...restDto } = dto;
 
     const dataForDb: any = {
       ...restDto,
       body: bodyToSave,
       ticket: { connect: { id: ticketId as number } },
-
       tenant: { connect: { id: tenantId as number } },
     };
     if (contactId) {
@@ -55,23 +54,45 @@ export class MessageService {
         connect: { id: contactId as number },
       };
     }
-    const updateInput: Prisma.MessageUpdateInput = {};
 
-    const newMessage = await this.messageRepository.findOrCreateAndReload(
-      { messageId: String(dto.messageId), tenantId: tenantId },
-      dataForDb,
-      updateInput
-    );
+    const forUpdated = await this.messageRepository.findMessageBy({
+      messageId: dto.messageId,
+    });
+
+    let savedMessage;
+
+    if (forUpdated) {
+      const updateInput: Prisma.MessageUpdateInput = {
+        ...dataForDb,
+      };
+      savedMessage = await this.messageRepository.updateMessage(
+        dto.messageId,
+        updateInput
+      );
+    } else {
+      savedMessage = await this.messageRepository.create(dataForDb);
+    }
+
+    // const updateInput: Prisma.MessageUpdateInput = {
+    //   ...dataForDb,
+    // };
+
+    // const newMessage = await this.messageRepository.findOrCreateAndReload(
+    //   { messageId: String(dto.messageId), tenantId: tenantId },
+    //   dataForDb,
+    //   forUpdated ? updateInput : {}
+    // );
+
     let fullMediaUrl: string | null = null;
-    if (newMessage.mediaUrl) {
+    if (savedMessage.mediaUrl) {
       const { MEDIA_URL, PROXY_PORT } = process.env;
       fullMediaUrl =
         process.env.NODE_ENV === "development" && PROXY_PORT
-          ? `${MEDIA_URL}:${PROXY_PORT}/public/${newMessage.mediaUrl}`
-          : `${MEDIA_URL}/public/${newMessage.mediaUrl}`;
+          ? `${MEDIA_URL}:${PROXY_PORT}/public/${savedMessage.mediaUrl}`
+          : `${MEDIA_URL}/public/${savedMessage.mediaUrl}`;
     }
     const message = {
-      ...newMessage,
+      ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
     socketEmit({
@@ -183,7 +204,7 @@ export class MessageService {
           ? message.fromMe.toLowerCase() === "true"
           : Boolean(message.fromMe),
       read: true,
-      sendType: "chat",
+      sendType: "chat" as enum_Messages_sendType,
       mediaType: "chat",
       mediaUrl: "",
       timestamp: Date.now(),

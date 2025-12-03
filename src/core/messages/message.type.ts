@@ -1,4 +1,4 @@
-import { Message, Ticket } from "@prisma/client";
+import { enum_Messages_sendType, Message, Ticket } from "@prisma/client";
 
 // Tipos auxiliares que devem ser definidos em seu projeto
 export enum MessageStatus {
@@ -11,12 +11,12 @@ export enum MessageStatus {
   // Adicione outros status conforme necessário
 }
 
-export enum MessageSendType {
-  chat = "chat",
-  template = "template",
-  bot = "bot",
-  // Adicione outros tipos conforme necessário
-}
+// export enum MessageSendType {
+//   chat = "chat",
+//   template = "template",
+//   bot = "bot",
+//   // Adicione outros tipos conforme necessário
+// }
 
 /**
  * Representa a Estrutura de Dados de Transferência (DTO) para uma Mensagem.
@@ -38,10 +38,11 @@ export interface MessageDTO {
   reactionFromMe?: string | null;
   timestamp: number | null; // BigInt? - Usado como number para timestamps JS
   scheduleDate?: Date | null; // DateTime?
-  sendType: MessageSendType; // @default(chat)
+  sendType: enum_Messages_sendType; // @default(chat)
   idFront: string | null; // ID temporário gerado pelo frontend
   isDeleted?: boolean; // @default(false)
   isForwarded?: boolean; // @default(false)
+  buffer?: string;
 
   // --- Chaves Estrangeiras ---
   ticketId?: number | null; // Int?
