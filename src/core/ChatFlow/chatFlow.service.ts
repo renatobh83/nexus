@@ -67,8 +67,7 @@ export class ChatFlowService {
     const channel = await getFastifyApp().services.whatsappService.findById(
       ticket.whatsappId
     );
-console.log(channel)
-    const chatFlowId = ((channel && channel.id) || setting?.value) as string;
+    const chatFlowId = ((channel && channel.chatFlowId) || setting?.value) as string;
 
     if (!chatFlowId) return null;
     const chatFlow = await this.chatFlowRepository.findOne({
