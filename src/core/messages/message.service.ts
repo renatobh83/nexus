@@ -270,26 +270,46 @@ export class MessageService {
             };
           }
 
-          const messagePending =
-            await this.messageRepository.findOrCreateAndReload(
-              { messageId: String(messageSent.id), tenantId: ticket.tenantId },
-              dataForDb,
-              {}
+
+          const forUpdated = await this.messageRepository.findMessageBy({
+            messageId: dataForDb.messageId,
+          });
+
+          let savedMessage;
+
+
+          if (forUpdated) {
+            const updateInput: Prisma.MessageUpdateInput = {
+              ...dataForDb,
+            };
+            savedMessage = await this.messageRepository.updateMessage(
+              dataForDb.messageId,
+              updateInput
             );
+          } else {
+            savedMessage = await this.messageRepository.create(dataForDb);
+          }
+
+          // const messagePending =
+          //   await this.messageRepository.findOrCreateAndReload(
+          //     { messageId: String(messageSent.id), tenantId: ticket.tenantId },
+          //     dataForDb,
+          //     {}
+          //   );
           let fullMediaUrl: string | null = null;
-          if (messagePending.mediaUrl) {
+          if (savedMessage.mediaUrl) {
             const { MEDIA_URL, PROXY_PORT } = process.env;
             fullMediaUrl =
               process.env.NODE_ENV === "development" && PROXY_PORT
-                ? `${MEDIA_URL}:${PROXY_PORT}/public/${messagePending.mediaUrl}`
-                : `${MEDIA_URL}/public/${messagePending.mediaUrl}`;
+                ? `${MEDIA_URL}:${PROXY_PORT}/public/${savedMessage.mediaUrl}`
+                : `${MEDIA_URL}/public/${savedMessage.mediaUrl}`;
           }
 
           const messageToSocket = {
-            ...messagePending,
+            ...savedMessage,
             mediaUrl: fullMediaUrl,
-            ticket: { id: messagePending.ticket!.id },
-            contact: messagePending.contact!.id,
+            ticket: { id: savedMessage.ticket!.id },
+            contact: savedMessage.contact!.id,
           };
 
           socketEmit({
