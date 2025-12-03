@@ -63,6 +63,5 @@ export const sendBotMessage = async (
     tenantId,
   };
 
-  console.log(messageData);
   await getFastifyApp().services.messageService.createMessage(messageData);
 };

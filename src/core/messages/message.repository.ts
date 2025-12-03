@@ -51,9 +51,6 @@ export class MessageRepository {
     createData: Prisma.MessageCreateInput,
     updateData: Prisma.MessageUpdateInput
   ): Promise<MessageWithRelations> {
-    console.log("C", createData);
-    console.log("********************************");
-    console.log("U", updateData);
     // O Prisma requer que o 'where' do upsert seja um campo único.
     // Assumindo que você tem um índice único composto: @@unique([messageId, tenantId])
     const whereClause: Prisma.MessageWhereUniqueInput = {

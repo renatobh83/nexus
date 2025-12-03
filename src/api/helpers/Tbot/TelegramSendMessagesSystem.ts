@@ -28,7 +28,6 @@ const TelegramSendMessagesSystem = async (
   ticket: TicketContato,
   message: any
 ): Promise<void> => {
-  console.log(message.mediaType);
   let sendedMessage: any;
   const app = getFastifyApp().services.ticketService;
   const chatId = ticket.contact.number as string;

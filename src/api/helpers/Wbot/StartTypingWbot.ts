@@ -16,7 +16,7 @@ export const startTypingWbot = async (ticketId: number) => {
   if (!canSend) {
     return; // já está digitando, não envia de novo
   }
-  console.log(ticket);
+
   // const wbot = getWbot(ticket.whatsappId!);
 
   // wbot.startTyping(ticket.contact.serializednumber!);

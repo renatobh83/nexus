@@ -10,7 +10,7 @@ const VerifyMessage = async (
   msg: any,
   ticket: Ticket,
   contact: Contact,
-  authorGroupMessage?: number
+  authorGroupMessage?: Contact
 ) => {
   const app = getFastifyApp().services;
   // Definir o contactId de forma clara
@@ -20,7 +20,7 @@ const VerifyMessage = async (
     if (msg.fromMe) {
       contactId = parseInt(contact.id, 10);
     } else {
-      contactId = authorGroupMessage ? authorGroupMessage : undefined;
+      contactId = authorGroupMessage ? +authorGroupMessage.id : undefined;
     }
   } else {
     contactId = msg.fromMe ? parseInt(contact.id) : parseInt(contact.id);

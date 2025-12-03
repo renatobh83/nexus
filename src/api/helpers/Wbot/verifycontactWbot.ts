@@ -19,16 +19,21 @@ export const verifyContactWbot = async (
 ) => {
   let msgContact: Contato;
   try {
-    if (message.fromMe) {
-      if (
-        !message.mediaData &&
-        message.type !== "chat" &&
-        message.type !== "vcard"
-      )
-        return;
-      msgContact = await wbot.getContact(message.to);
+    if (message.isGroupMsg) {
+      const numberContato = await wbot.getContactLid(message.author);
+      msgContact = await wbot.getContact(numberContato);
     } else {
-      msgContact = await wbot.getContact(message.from);
+      if (message.fromMe) {
+        if (
+          !message.mediaData &&
+          message.type !== "chat" &&
+          message.type !== "vcard"
+        )
+          return;
+        msgContact = await wbot.getContact(message.to);
+      } else {
+        msgContact = await wbot.getContact(message.from);
+      }
     }
     const key = REDIS_KEYS.contact(wbot.id, msgContact.id._serialized);
 

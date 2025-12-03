@@ -420,3 +420,1320 @@
   level: 'error',
   timestamp: '2025-12-03T12:43:49.114Z'
 }
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/api/helpers/Wbot/HandleMessageReceived.ts(143,3): error TS1472: 'catch' or 'finally' expected.
+  src/api/helpers/Wbot/HandleMessageReceived.ts(143,5): error TS1005: ',' expected.
+  src/api/helpers/Wbot/HandleMessageReceived.ts(146,1): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\HandleMessageReceived.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8015167880983468.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8015167880983468.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8015167880983468.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,5): error TS1005: ',' expected.\r\n" +
+    'src/api/helpers/Wbot/HandleMessageReceived.ts(146,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,5): error TS1005: ',' expected.\r\n" +
+    'src/api/helpers/Wbot/HandleMessageReceived.ts(146,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,3): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMessageReceived.ts(143,5): error TS1005: ',' expected.\r\n" +
+    'src/api/helpers/Wbot/HandleMessageReceived.ts(146,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Wed Dec 03 2025 13:10:05 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 8000,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 125886464,
+      heapTotal: 105771008,
+      heapUsed: 52085168,
+      external: 4150363,
+      arrayBuffers: 372574
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 4087.921 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8015167880983468.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-03T16:10:05.515Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764778462,\n' +
+    '             body: "997c904d82e839d7e4875ecf4b127af0:tlIvAq/32CmW97OMyualA3sj4MKB53+Hw0/I/dM45eKrUg5+UHR/QG0VGlIpb9sMzXTDojR9EQB7YeATEtUEbkFtou3IUidc6snVd2Li8AoQv9pe7CRcS6ldvWezO/rJOgTZ4GQCB4vA703AjmbNUA==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "cf2d9ab0-dd60-4132-b928-cdce79964d82",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1275\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 33,\n' +
+    '                   name: "Expert Corporativo Welberti Vieira",\n' +
+    '                   number: "3187262484",\n' +
+    '                   email: "",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/102909688_727889821318233_3227943885628458943_n.jpg?ccb=11-4&oh=01_Q5Aa2wEQHa8NOpNztqd0rdqJYaBhYyVAAu7konbvE1GcNpIesQ&oe=691863EE&_nc_sid=5e03e0&_nc_cat=101",\n' +
+    '                   pushname: "Expert Corporativo Welberti Vieira",\n' +
+    '                   telegramId: null,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553187262484@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: true,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-01T17:12:06.561Z"),\n' +
+    '                   updatedAt: new Date("2025-11-05T16:37:54.300Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764778462,\n' +
+    '             body: "997c904d82e839d7e4875ecf4b127af0:tlIvAq/32CmW97OMyualA3sj4MKB53+Hw0/I/dM45eKrUg5+UHR/QG0VGlIpb9sMzXTDojR9EQB7YeATEtUEbkFtou3IUidc6snVd2Li8AoQv9pe7CRcS6ldvWezO/rJOgTZ4GQCB4vA703AjmbNUA==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "cf2d9ab0-dd60-4132-b928-cdce79964d82",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1275\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 33,\n' +
+    '                   name: "Expert Corporativo Welberti Vieira",\n' +
+    '                   number: "3187262484",\n' +
+    '                   email: "",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/102909688_727889821318233_3227943885628458943_n.jpg?ccb=11-4&oh=01_Q5Aa2wEQHa8NOpNztqd0rdqJYaBhYyVAAu7konbvE1GcNpIesQ&oe=691863EE&_nc_sid=5e03e0&_nc_cat=101",\n' +
+    '                   pushname: "Expert Corporativo Welberti Vieira",\n' +
+    '                   telegramId: null,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553187262484@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: true,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-01T17:12:06.561Z"),\n' +
+    '                   updatedAt: new Date("2025-11-05T16:37:54.300Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:58:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:10:59.333Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764778502,\n' +
+    '             body: "2322a74360bf926755c5805b0a4c5828:ybyuxzpAo9aEa6QpVrlrug==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "0495ef7d-4fce-4d69-812f-2fa4be248713",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1275\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 31,\n' +
+    '                   name: "Suporte Expert",\n' +
+    '                   number: "3187388243",\n' +
+    '                   email: "",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/119460940_183359649934669_2156270514972649651_n.jpg?ccb=11-4&oh=01_Q5Aa2gGyuZYxmBrMdL-VEhIfViHhQVFHQ5LbRrQTknBIPlEMzA&oe=68EA9A31&_nc_sid=5e03e0&_nc_cat=101",\n' +
+    '                   pushname: "Suporte Expert",\n' +
+    '                   telegramId: null,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553187388243@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: true,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-01T16:07:42.437Z"),\n' +
+    '                   updatedAt: new Date("2025-10-01T16:07:43.467Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764778502,\n' +
+    '             body: "2322a74360bf926755c5805b0a4c5828:ybyuxzpAo9aEa6QpVrlrug==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "0495ef7d-4fce-4d69-812f-2fa4be248713",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1275\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 31,\n' +
+    '                   name: "Suporte Expert",\n' +
+    '                   number: "3187388243",\n' +
+    '                   email: "",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/119460940_183359649934669_2156270514972649651_n.jpg?ccb=11-4&oh=01_Q5Aa2gGyuZYxmBrMdL-VEhIfViHhQVFHQ5LbRrQTknBIPlEMzA&oe=68EA9A31&_nc_sid=5e03e0&_nc_cat=101",\n' +
+    '                   pushname: "Suporte Expert",\n' +
+    '                   telegramId: null,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553187388243@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: true,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-01T16:07:42.437Z"),\n' +
+    '                   updatedAt: new Date("2025-10-01T16:07:43.467Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:58:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:11:37.756Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of undefined (reading 'id')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'id')\n" +
+    '    at findOrCreateTicketSafe (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\CreateTicketSafe.ts:30:61)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:35:59)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:25:48.203Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of undefined (reading 'id')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'id')\n" +
+    '    at findOrCreateTicketSafe (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\CreateTicketSafe.ts:30:61)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:35:59)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:30:12.841Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764779724,\n' +
+    '             body: "4baa1198a0adabe02a5a2bea5da0ff37:/TqDHjDYwE6J+vu8FR1Qlw==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "5ab0cbdb-9a5f-4eb0-9d0d-0254db4cc5b6",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764779724,\n' +
+    '             body: "4baa1198a0adabe02a5a2bea5da0ff37:/TqDHjDYwE6J+vu8FR1Qlw==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "5ab0cbdb-9a5f-4eb0-9d0d-0254db4cc5b6",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:60:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:32:01.972Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764779935,\n' +
+    '             body: "4790a0fd245df1cd7aa144f9937ee2ae:AtNP7gQASWvvngixmN4fSg==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "ceb4b20d-e85f-4bae-8773-5dfe716d6d72",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764779935,\n' +
+    '             body: "4790a0fd245df1cd7aa144f9937ee2ae:AtNP7gQASWvvngixmN4fSg==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "ceb4b20d-e85f-4bae-8773-5dfe716d6d72",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:60:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:35:31.655Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780104,\n' +
+    '             body: "4b229cccf788f09fffa4a9c38a4f5267:v8aqoqoBrfr2G8G7f1RxEQ==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "9015eea0-b876-4e65-80a0-ba7f8f7c055e",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780104,\n' +
+    '             body: "4b229cccf788f09fffa4a9c38a4f5267:v8aqoqoBrfr2G8G7f1RxEQ==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "9015eea0-b876-4e65-80a0-ba7f8f7c055e",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:60:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:38:20.602Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780273,\n' +
+    '             body: "c3bcd5ec8c330d0dd819e27a3f0d05d8:gig1QMWJAz/Pjl5+cErITQ==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "14aa9596-83bf-4dd1-9a07-08971d1f176f",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780273,\n' +
+    '             body: "c3bcd5ec8c330d0dd819e27a3f0d05d8:gig1QMWJAz/Pjl5+cErITQ==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "14aa9596-83bf-4dd1-9a07-08971d1f176f",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:61:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:41:09.574Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.0.1',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780399,\n' +
+    '             body: "d1910b81b19025f35116e469825b19cc:EA0vbvXzMlgqWgAIDNOowA==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "d440c121-873f-4e76-b534-1e1be759bb9a",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             ack: 2,\n' +
+    '             fromMe: false,\n' +
+    '             timestamp: 1764780399,\n' +
+    '             body: "d1910b81b19025f35116e469825b19cc:EA0vbvXzMlgqWgAIDNOowA==",\n' +
+    '             mediaType: "chat",\n' +
+    '             read: false,\n' +
+    '             quotedMsgId: undefined,\n' +
+    '             status: "received",\n' +
+    '             sendType: "chat",\n' +
+    '             idFront: "d440c121-873f-4e76-b534-1e1be759bb9a",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 1295\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: {\n' +
+    '                   id: 74,\n' +
+    '                   name: "Renato",\n' +
+    '                   number: "3185683733",\n' +
+    '                   email: "suporte2@exp.net.br",\n' +
+    '                   profilePicUrl: "https://pps.whatsapp.net/v/t61.24694-24/55462098_2120559661570838_9195481867854282752_n.jpg?ccb=11-4&oh=01_Q5Aa2wHkJUml-rvfAZIRStPZI5pDG3SL5ByhuJFkbPSxmPiJzg&oe=6919D849&_nc_sid=5e03e0&_nc_cat=109",\n' +
+    '                   pushname: "Renato",\n' +
+    '                   telegramId: 0n,\n' +
+    '                   dtaniversario: null,\n' +
+    '                   identifier: "",\n' +
+    '                   serializednumber: "553185683733@c.us",\n' +
+    '                   isUser: true,\n' +
+    '                   isWAContact: false,\n' +
+    '                   isGroup: false,\n' +
+    '                   createdAt: new Date("2025-10-02T21:27:25.201Z"),\n' +
+    '                   updatedAt: new Date("2025-11-07T04:58:41.864Z"),\n' +
+    '                   empresaAssignments: []\n' +
+    '                 }\n' +
+    '                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: {\n' +
+    '               include: {\n' +
+    '                 contact: true\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Argument `id`: Invalid value provided. Expected Int, provided Object.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:61:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:44:5)',
+  timestamp: '2025-12-03T16:43:17.885Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of undefined (reading 'fromMe')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'fromMe')\n" +
+    '    at VerifyBusinessHoursFlow (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\VerifyBusinessHoursFlow.ts:35:61)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:504:62)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:89:11)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:45:5)',
+  timestamp: '2025-12-03T17:44:52.390Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:46:48.642Z'
+}
+{
+  message: '[whatsapp] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-03T17:46:48.645Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:46:59.088Z'
+}
+{
+  message: '[whatsapp] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-03T17:46:59.090Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:56:38.633Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:56:38.646Z'
+}
+{
+  message: '[whatsapp] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-03T17:56:38.648Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:57:41.379Z'
+}
+{
+  message: '[whatsapp] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-03T17:57:41.380Z'
+}
+{
+  message: '[Channel-2] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.',
+  level: 'error',
+  timestamp: '2025-12-03T17:57:47.684Z'
+}

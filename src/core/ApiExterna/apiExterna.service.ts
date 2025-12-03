@@ -26,7 +26,7 @@ export class ApiExternaService {
       sessionId: whereApi.sessionId,
       tenantId: whereApi.tenantId,
     };
-    console.log(messageData);
+    // TODO criar JOB
   }
   async createApiConfig({
     authToken,

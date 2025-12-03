@@ -5,12 +5,8 @@ import { logger } from "../../ultis/logger";
 import { REDIS_KEYS } from "../../ultis/redisCache";
 import socketEmit from "./socketEmit";
 
-// const commonIncludes = [
-//   { model: Contact, as: "contact" },
-//   { model: User, as: "user", attributes: ["id", "name"] },
-//   { association: "whatsapp", attributes: ["id", "name"] },
-// ];
-
+// Função auxiliar para esperar um determinado tempo
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const findOrCreateTicketSafe = async (params: {
   contact: any;
   whatsappId: number;
@@ -23,7 +19,7 @@ export const findOrCreateTicketSafe = async (params: {
   socketId?: number;
   chatClient?: boolean;
 }): Promise<{ ticket: any; isNew: boolean }> => {
-  const Ticket = getFastifyApp().services.ticketService;
+  const TicketService = getFastifyApp().services.ticketService;
   const ChatFlow = getFastifyApp().services.chatFlowService;
   const { contact, whatsappId, msg } = params;
 
@@ -46,7 +42,7 @@ export const findOrCreateTicketSafe = async (params: {
     );
     try {
       // Verifica se um ticket aberto já existe (pode ter sido criado em uma interação anterior)
-      const existingTicket = await Ticket.findTicketBy({
+      const existingTicket = await TicketService.findTicketBy({
         contactId: contact.id,
         whatsappId,
         status: {
@@ -61,7 +57,7 @@ export const findOrCreateTicketSafe = async (params: {
       }
 
       // Se não existe, cria o novo ticket
-      let newTicket: Ticket = await Ticket.createTicket(params);
+      let newTicket: Ticket = await TicketService.createTicket(params);
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
@@ -103,26 +99,40 @@ export const findOrCreateTicketSafe = async (params: {
     logger.info(
       `[Channel-${whatsappId}] Lock para ${lockKey} já existe. Aguardando ticket...`
     );
-    // Espera um pouco para dar tempo ao primeiro processo de criar o ticket
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Delay de 500ms
+    const MAX_WAIT_TIME_MS = 5000; // Tempo máximo de espera (5 segundos)
+    const POLLING_INTERVAL_MS = 200; // Intervalo de checagem (200ms)
+    const startTime = Date.now();
+    let ticket: Awaited<ReturnType<typeof TicketService.findTicketBy>> = null;
 
-    // Busca o ticket que o outro processo DEVE ter criado
-    const ticket = await Ticket.findTicketBy({
-      contactId: contact.id,
-      whatsappId,
-      status: "pending",
-    });
+    // Loop de polling
+    while (Date.now() - startTime < MAX_WAIT_TIME_MS) {
+      // 1. Tenta encontrar o ticket que o processo líder deve estar criando/usando
+      ticket = await TicketService.findTicketBy({
+        contactId: contact.id,
+        whatsappId,
+        // Busca por 'pending' ou 'open' para ser consistente com o líder
+        status: {
+          in: ["pending", "open"],
+        },
+      });
 
-    if (ticket) {
-      logger.info(
-        `[Channel-${whatsappId}] Ticket ${ticket.id} encontrado após aguardar.`
-      );
-      return { ticket, isNew: false };
-    } else {
-      logger.error(
-        `[Channel-${whatsappId}] Aguardou pelo lock, mas o ticket não foi encontrado. Isso pode indicar uma falha na criação pelo processo líder.`
-      );
-      return { ticket: null, isNew: false };
+      if (ticket) {
+        logger.info(
+          `[Channel-${whatsappId}] Ticket ${ticket.id} encontrado após ${
+            Date.now() - startTime
+          }ms de espera.`
+        );
+        return { ticket, isNew: false };
+      }
+
+      // 2. Espera o intervalo antes da próxima checagem
+      await sleep(POLLING_INTERVAL_MS);
     }
+
+    // Se o loop terminar sem encontrar o ticket
+    logger.error(
+      `[Channel-${whatsappId}] Aguardou pelo lock por ${MAX_WAIT_TIME_MS}ms, mas o ticket não foi encontrado. Isso indica falha na criação pelo processo líder ou tempo de espera insuficiente.`
+    );
+    return { ticket: null, isNew: false };
   }
 };

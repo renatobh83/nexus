@@ -8,7 +8,7 @@ const VerifyQuotedMessage = async (
   let quotedMsg: Message | null = null;
 
   const wbotQuotedMsg = msg.quotedMsgId;
-  console.log(msg);
+
   if (!wbotQuotedMsg) return null;
 
   if (wbotQuotedMsg) {

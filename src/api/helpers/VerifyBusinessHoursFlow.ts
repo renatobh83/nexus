@@ -18,10 +18,7 @@ function parseTimestamp(timestamp: any) {
 
   return fromUnixTime(timestamp);
 }
-const VerifyBusinessHoursFlow = async (
-  ticket: Ticket,
-  msg?: any
-): Promise<boolean> => {
+const VerifyBusinessHoursFlow = async (ticket: Ticket): Promise<boolean> => {
   let isBusinessHours = true;
 
   // Considerar o envio da mensagem de ausência se:
@@ -29,7 +26,7 @@ const VerifyBusinessHoursFlow = async (
   // Ticket não estiver fechado
   // Mensagem não enviada por usuário via sistema
   // Não é um ticket referente a um grupo do whatsapp
-  if (ticket.status === "closed" && msg && msg.fromMe && ticket.isGroup) {
+  if (ticket.status === "closed") {
     return false;
   }
   if (ticket.status !== "closed" && !ticket.isGroup) {

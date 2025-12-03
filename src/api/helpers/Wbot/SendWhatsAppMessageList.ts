@@ -21,9 +21,9 @@ export const SendWhatsMessageList = async ({
       options
     );
 
-    const chat: Chat = await wbot.getChatById(sendedMessage.to);
+    // const chat: Chat = await wbot.getChatById(sendedMessage.to);
     // const contact = await VerifyContact(chat, ticket.tenantId);
-    // await VerifyMessage(sendedMessage, ticket, contact);
+    await VerifyMessage(sendedMessage, ticket, ticket.contact);
 
     return sendedMessage;
   } catch (err: any) {

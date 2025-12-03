@@ -186,7 +186,7 @@ async function waitForApiValue(apiCall: Session, interval = 1000) {
     checkValue(); // Inicia a verificação
   });
 }
-let isSyncing = true;
+
 const start = async (client: Session, io: any, service: WhatsappService) => {
   try {
     const isReady = await client.isAuthenticated();
@@ -204,13 +204,6 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
       );
 
       if (await client.isAuthenticated()) {
-        setTimeout(() => {
-          isSyncing = true;
-          logger.warn(`Sync ${new Date().toLocaleTimeString()}`);
-        }, 5000);
-      }
-
-      if (isSyncing) {
         await wbotMessageListener(client);
       }
     }
