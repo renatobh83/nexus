@@ -2171,3 +2171,14 @@
     '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
   timestamp: '2025-12-04T15:53:43.454Z'
 }
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:64:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:25:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:47:5)',
+  timestamp: '2025-12-04T19:24:20.000Z'
+}

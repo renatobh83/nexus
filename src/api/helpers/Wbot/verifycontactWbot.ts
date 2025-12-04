@@ -43,7 +43,6 @@ export const verifyContactWbot = async (
         null,
       number: msgContact.id.user.replace("55", ""),
       pushname: msgContact.pushname,
-      isUser: msgContact.isUser,
       isWAContact: msgContact.isWAContact,
       isGroup: !msgContact.isUser,
       profilePicUrl: msgContact.profilePicThumbObj.eurl,
