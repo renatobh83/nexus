@@ -48,6 +48,7 @@ export const HandleMessageReceived = async (
       logger.error("[whatsapp] Falha crítica ao criar ou obter ticket.");
       return;
     }
+
     if (message.filehash) {
       await VerifyMediaMessage(
         message,

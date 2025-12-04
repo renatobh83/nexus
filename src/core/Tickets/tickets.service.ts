@@ -63,6 +63,7 @@ export class TicketService {
     where: Prisma.TicketWhereInput
   ): Promise<TicketWithMessages | null> {
     const ticket = await this.ticketRepository.findOne(where);
+
     if (!ticket) return null;
     return ticket;
   }

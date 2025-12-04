@@ -49,6 +49,7 @@ export const findOrCreateTicketSafe = async (params: {
           in: ["pending", "open"],
         },
       });
+
       if (existingTicket) {
         logger.info(
           `[Channel-${whatsappId}] Ticket ${existingTicket.id} já existia. Usando-o.`

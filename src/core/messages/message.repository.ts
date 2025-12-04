@@ -16,14 +16,15 @@ const messageInclude = {
   ticket: {
     include: {
       contact: true,
-      messages: true,
+      messages: {
+        include: {
+          quotedMsg: true,
+        },
+      },
     },
   },
-  quotedMsg: {
-    include: {
-      contact: true,
-    },
-  },
+
+  quotedMsg: true,
   contact: true,
 } satisfies Prisma.MessageInclude;
 
@@ -42,7 +43,7 @@ export class MessageRepository {
     where: Prisma.MessageWhereInput,
     include?: Prisma.MessageInclude
   ): Promise<Message | null> {
-    return await prisma.message.findFirst({ where, include });
+    return await prisma.message.findFirst({ where, include: messageInclude });
   }
   async findAllMessageTicket(
     where: Prisma.MessageWhereInput,
@@ -59,9 +60,7 @@ export class MessageRepository {
       orderBy: {
         createdAt: "desc",
       },
-      include: {
-        ticket: true,
-      },
+      include: messageInclude,
     });
     const count = messages.length;
     const hasMore = count > skip + messages.length;

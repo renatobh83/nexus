@@ -86,6 +86,7 @@ export class MessageService {
       ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
+
     socketEmit({
       tenantId,
       type: "chat:create",

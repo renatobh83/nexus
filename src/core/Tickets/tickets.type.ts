@@ -52,7 +52,7 @@ export const TICKET_INCLUDE_CONFIG = {
   },
   messages: {
     include: {
-      // ticket: true,
+      contact: true,
       quotedMsg: true,
     },
     orderBy: {

@@ -65,7 +65,7 @@ const VerifyMediaMessage = async (
     contactId = msg.fromMe ? parseInt(contact.id) : parseInt(contact.id);
   }
 
-  const messageData: MessageDTO = {
+  const messageData: MessageDTO | any = {
     id: msg.id,
     ack: msg.ack,
     messageId: msg.id,
@@ -86,6 +86,12 @@ const VerifyMediaMessage = async (
     idFront: uuidV4(),
     tenantId: ticket.tenantId,
   };
+  if (quotedMsg) {
+    messageData.quotedMsg = {
+      connect: { id: quotedMsg.id },
+    };
+  }
+
   const message = await getFastifyApp().services.messageService.createMessage(
     messageData
   );

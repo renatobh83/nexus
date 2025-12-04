@@ -7,12 +7,10 @@ const VerifyQuotedMessage = async (
 ): Promise<Message | null> => {
   let quotedMsg: Message | null = null;
 
-  const wbotQuotedMsg = msg.quotedMsgId;
-
-  if (!wbotQuotedMsg) return null;
-
-  if (wbotQuotedMsg) {
-    // quotedMsg = await getFastifyApp().services.messageService.findMessageBy({messageId: quotedMsg.id})
+  if (msg.quotedMsgId) {
+    quotedMsg = await getFastifyApp().services.messageService.findMessageBy({
+      messageId: msg.quotedMsgId,
+    });
   }
 
   return quotedMsg;

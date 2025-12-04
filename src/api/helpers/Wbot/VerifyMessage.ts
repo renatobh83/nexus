@@ -28,9 +28,9 @@ const VerifyMessage = async (
 
   const body = msg.type === "list" ? msg.list.description : msg.content;
   // TODO ver essa parte
-  // const quotedMsg = await VerifyQuotedMessage(msg);
+  const quotedMsg = await VerifyQuotedMessage(msg);
 
-  const messageData: MessageDTO = {
+  const messageData: MessageDTO | any = {
     id: msg.id,
     messageId: msg.id,
     ticketId: ticket.id,
@@ -41,7 +41,7 @@ const VerifyMessage = async (
     body,
     mediaType: msg.type,
     read: msg.fromMe,
-    quotedMsgId: undefined, //quotedMsg?.messageId,
+
     status: msg.fromMe
       ? ("sended" as MessageStatus)
       : ("received" as MessageStatus),
@@ -49,9 +49,13 @@ const VerifyMessage = async (
     sendType: "chat" as enum_Messages_sendType,
     idFront: uuidV4(),
   };
+  if (quotedMsg) {
+    messageData.quotedMsg = {
+      connect: { id: quotedMsg.id },
+    };
+  }
 
   await app.messageService.createMessage(messageData);
-
   // // Normalizar lastMessage
   let lastMessage: string;
   if (msg.type === "list") {
