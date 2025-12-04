@@ -1,6 +1,7 @@
 import { Contact, Prisma } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { PaginationOptions } from "../users/users.repository";
+import emitEvent from "../../api/helpers/socketEmit";
 
 interface Request {
   searchParam?: string;
@@ -127,6 +128,11 @@ export class ContatosRepository {
     }
     const newContact = await prisma.contact.create({
       data: data,
+    });
+    emitEvent({
+      tenantId: 1,
+      type: "contact:create",
+      payload: newContact,
     });
     return newContact;
     // const contact = await prisma.contact.upsert({

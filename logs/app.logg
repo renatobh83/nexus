@@ -2182,3 +2182,41 @@
     '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:47:5)',
   timestamp: '2025-12-04T19:24:20.000Z'
 }
+{
+  message: '[Channel-2] Erro durante a criação do ticket (com lock): PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:136:40\n' +
+    '\n' +
+    '  133 }\n' +
+    '  134 \n' +
+    '  135 async create(data: Prisma.TicketCreateInput): Promise<any> {\n' +
+    '→ 136   const ticket = await prisma.ticket.create(\n' +
+    "An operation failed because it depends on one or more records that were required but not found. No 'Contact' record (needed to inline the relation on 'Ticket' record(s)) was found for a nested connect on one-to-many relation 'ContactToTicket'.",
+  level: 'error',
+  timestamp: '2025-12-04T19:31:58.438Z'
+}
+{
+  message: '[whatsapp] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-04T19:31:58.902Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-04T19:40:19.998Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-04T19:52:36.341Z'
+}
