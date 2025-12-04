@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./start-tunnel.sh && ts-node-dev --respawn --transpile-only src/server.ts",
-    "dev:win": "taskkill /F /IM ssh.exe /T && start /B ssh -p 2290 -f -N -L 6432:localhost:6432 root@109.199.105.36  && ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev:win": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "start": "set NODE_ENV=production && node dist/server.js",
     "prisma:generate": "dotenv -e .env -- npx prisma generate",
@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
+    "@types/mime-types": "^3.0.1",
     "@types/node": "^24.10.1",
     "@types/nodemailer": "^7.0.4",
     "@types/pg": "^8.15.6",

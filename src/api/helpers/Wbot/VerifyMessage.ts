@@ -68,18 +68,6 @@ const VerifyMessage = async (
     lastMessageAt: new Date().getTime(),
     answered: !!msg.fromMe,
   });
-
-  //    VER SE NESSE PONTO VALE ENVIAR UM UPDATE NO TICKET PARA A BARRA ATUALIZAR O LASTMESSAG
-  socketEmit({
-    tenantId: ticket.tenantId,
-    type: "ticket:update",
-    payload: updatedTicket,
-  });
-  // await ticket.update({
-  //   lastMessage,
-  //   lastMessageAt: Date.now(),
-  //   answered: !!msg.fromMe,
-  // });
 };
 
 export default VerifyMessage;

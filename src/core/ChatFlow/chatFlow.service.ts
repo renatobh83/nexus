@@ -58,7 +58,7 @@ export class ChatFlowService {
   }
 
   async CheckChatBotFlowWelcome(ticket: any): Promise<Ticket | null> {
-    if (ticket.userId || ticket.isGroup) return null;
+    if (ticket.userId || ticket.isGroup || ticket.chatClient) return null;
     const setting =
       await getFastifyApp().services.settingsService.findBySettings({
         key: "botTicketActive",
@@ -67,7 +67,8 @@ export class ChatFlowService {
     const channel = await getFastifyApp().services.whatsappService.findById(
       ticket.whatsappId
     );
-    const chatFlowId = ((channel && channel.chatFlowId) || setting?.value) as string;
+    const chatFlowId = ((channel && channel.chatFlowId) ||
+      setting?.value) as string;
 
     if (!chatFlowId) return null;
     const chatFlow = await this.chatFlowRepository.findOne({

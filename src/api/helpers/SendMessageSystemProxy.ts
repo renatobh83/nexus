@@ -5,6 +5,8 @@ import { SendMessageChatClient } from "./WebChat/SendMessageChatClient";
 import { SendMessageMediaChatClient } from "./WebChat/SendMessageMediaChatClient";
 import { Message } from "@prisma/client";
 import SendWhatsAppMessage from "./Wbot/SendWhatsAppMessage";
+import SendWhatsAppMedia from "./Wbot/SendWhatsAppMedia";
+import { transformFile } from "../../ultis/transformFile";
 
 type Payload = {
   ticket: any;
@@ -38,12 +40,12 @@ const SendMessageSystemProxy = async ({
 
     case "whatsapp":
       if (hasMedia) {
-        // const mediaTransforme = await transformFile(media);
-        // message = await SendWhatsAppMedia({
-        //   media: mediaTransforme,
-        //   ticket,
-        //   userId,
-        // });
+        const mediaTransforme = await transformFile(media);
+        message = await SendWhatsAppMedia({
+          media: mediaTransforme,
+          ticket,
+          userId,
+        });
       } else {
         message = await SendWhatsAppMessage({
           body: messageData.body,

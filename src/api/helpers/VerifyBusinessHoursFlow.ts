@@ -82,8 +82,6 @@ const VerifyBusinessHoursFlow = async (ticket: Ticket): Promise<boolean> => {
 
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastAbsenceMessageAt: new Date(),
-        closedAt: new Date().getTime(),
-        status: "closed",
       });
 
       isBusinessHours = false;

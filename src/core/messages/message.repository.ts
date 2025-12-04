@@ -37,40 +37,6 @@ export class MessageRepository {
     return prisma.message.create({ data: dto, include: messageInclude });
   }
 
-  /**
-   * Encontra uma mensagem pelo messageId e tenantId, ou a cria se não existir.
-   * Sempre retorna a mensagem com as relações especificadas.
-   *
-   * @param where - Condição única para busca (messageId e tenantId).
-   * @param createData - Dados completos para criação da mensagem.
-   * @param updateData - Dados para atualização se a mensagem for encontrada.
-   * @returns A mensagem encontrada ou criada, com as relações carregadas.
-   */
-  async findOrCreateAndReload(
-    where: { messageId: string; tenantId: number },
-    createData: Prisma.MessageCreateInput,
-    updateData: Prisma.MessageUpdateInput
-  ): Promise<MessageWithRelations> {
-    // O Prisma requer que o 'where' do upsert seja um campo único.
-    // Assumindo que você tem um índice único composto: @@unique([messageId, tenantId])
-    const whereClause: Prisma.MessageWhereUniqueInput = {
-      messageId_tenantId: where,
-    };
-    try {
-      const message = await prisma.message.upsert({
-        where: whereClause,
-        update: updateData,
-        create: createData,
-        include: messageInclude,
-      });
-
-      return message;
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
-  }
-
   async findMessageBy(
     where: Prisma.MessageWhereInput,
     include?: Prisma.MessageInclude

@@ -349,8 +349,11 @@ export class TicketService {
     // se iniciar atendimento, retirar o bot e informar a data
     if (oldStatus === "pending" && statusData === "open") {
       if (ticket.chatFlowId) {
-        data.chaflowId = null;
+        data.chatFlow = {
+          disconnect: true,
+        };
       }
+      data.chatFlowStatus = "not_started";
       data.startedAttendanceAt = new Date().getTime();
     }
 

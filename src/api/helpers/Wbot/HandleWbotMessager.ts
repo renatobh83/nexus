@@ -26,7 +26,7 @@ export const HandleMessage = async (
     authorGrupMessage = contato;
   }
 
-  const { ticket, isNew } = await findOrCreateTicketSafe({
+  const { ticket } = await findOrCreateTicketSafe({
     contact,
     whatsappId: wbot.id,
     unreadMessages: message.fromMe ? 0 : chat.unreadCount,
@@ -44,6 +44,4 @@ export const HandleMessage = async (
   } else {
     await VerifyMessage(message, ticket, contact, authorGrupMessage);
   }
-
-  await app.ticketService.VerifyStepsChatFlowTicket(message, ticket, isNew);
 };

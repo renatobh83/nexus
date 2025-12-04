@@ -116,7 +116,7 @@ export const HandleMessageReceived = async (
       logger.info(
         `[Telegram] Ticket ${ticket.id} em atendimento normal. Verificando passos.`
       );
-      console.log("AQUIII");
+
       await app.ticketService.VerifyStepsChatFlowTicket(message, ticket);
     }
     // TODO WEBHOOK

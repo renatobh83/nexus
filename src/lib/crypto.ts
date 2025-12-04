@@ -14,7 +14,18 @@ const getSecretKey = (): CryptoJS.lib.WordArray => {
  * Verifica se um texto já está no formato criptografado (iv:encrypted).
  */
 export const isEncrypted = (text: string): boolean => {
-  return typeof text === "string" && text.includes(":");
+  if (typeof text !== "string") return false;
+
+  const parts = text.split(":");
+
+  if (parts.length !== 2) return false;
+
+  const [iv, encrypted] = parts;
+
+  // Checa se parecem base64
+  const base64Regex = /^[A-Za-z0-9+/=]+$/;
+
+  return base64Regex.test(iv) && base64Regex.test(encrypted);
 };
 
 /**

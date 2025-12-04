@@ -4,7 +4,6 @@ import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
 import { MessageRepository, ResponseMessages } from "./message.repository";
 import { MessageDTO, RequestMessage } from "./message.type";
 import { PaginationOptions } from "../users/users.repository";
-import { pupa } from "../../ultis/pupa";
 import { detectMediaType } from "../../ultis/detectMediaType";
 import socketEmit from "../../api/helpers/socketEmit";
 import SendMessageSystemProxy from "../../api/helpers/SendMessageSystemProxy";
@@ -41,6 +40,7 @@ export class MessageService {
     if (!isEncrypted(bodyToSave)) {
       bodyToSave = encrypt(bodyToSave);
     }
+
     const { ticketId, tenantId, contactId, id, messageId, ...restDto } = dto;
 
     const dataForDb: any = {
@@ -72,16 +72,6 @@ export class MessageService {
     } else {
       savedMessage = await this.messageRepository.create(dataForDb);
     }
-
-    // const updateInput: Prisma.MessageUpdateInput = {
-    //   ...dataForDb,
-    // };
-
-    // const newMessage = await this.messageRepository.findOrCreateAndReload(
-    //   { messageId: String(dto.messageId), tenantId: tenantId },
-    //   dataForDb,
-    //   forUpdated ? updateInput : {}
-    // );
 
     let fullMediaUrl: string | null = null;
     if (savedMessage.mediaUrl) {
@@ -270,13 +260,11 @@ export class MessageService {
             };
           }
 
-
           const forUpdated = await this.messageRepository.findMessageBy({
             messageId: dataForDb.messageId,
           });
 
           let savedMessage;
-
 
           if (forUpdated) {
             const updateInput: Prisma.MessageUpdateInput = {
@@ -290,12 +278,6 @@ export class MessageService {
             savedMessage = await this.messageRepository.create(dataForDb);
           }
 
-          // const messagePending =
-          //   await this.messageRepository.findOrCreateAndReload(
-          //     { messageId: String(messageSent.id), tenantId: ticket.tenantId },
-          //     dataForDb,
-          //     {}
-          //   );
           let fullMediaUrl: string | null = null;
           if (savedMessage.mediaUrl) {
             const { MEDIA_URL, PROXY_PORT } = process.env;
