@@ -16,6 +16,7 @@ const messageInclude = {
   ticket: {
     include: {
       contact: true,
+      messages: true,
     },
   },
   quotedMsg: {
