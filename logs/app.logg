@@ -1752,3 +1752,412 @@
   level: 'error',
   timestamp: '2025-12-04T10:29:07.135Z'
 }
+{
+  code: 'P2020',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: ValueOutOfRange
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:261:41) {
+      cause: {
+        originalCode: '22003',
+        originalMessage: 'value "553185683733" is out of range for type integer',
+        kind: 'ValueOutOfRange',
+        cause: 'value "553185683733" is out of range for type integer'
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:57:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:45:5)',
+  timestamp: '2025-12-04T11:51:20.641Z'
+}
+{
+  code: 'P2020',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: ValueOutOfRange
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:261:41) {
+      cause: {
+        originalCode: '22003',
+        originalMessage: 'value "553185683733" is out of range for type integer',
+        kind: 'ValueOutOfRange',
+        cause: 'value "553185683733" is out of range for type integer'
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:57:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:45:5)',
+  timestamp: '2025-12-04T11:54:46.065Z'
+}
+{
+  code: 'P2020',
+  meta: {
+    modelName: 'Message',
+    driverAdapterError: DriverAdapterError: ValueOutOfRange
+        at PgTransaction.onError (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:693:11)
+        at PgTransaction.performIO (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:688:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PgTransaction.queryRaw (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\adapter-pg\dist\index.js:608:30)
+        at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:68:22
+        at mr (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\tracing.ts:56:10)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:175:26)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:202:41)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:119:29)
+        at e.interpretNode (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:261:41) {
+      cause: {
+        originalCode: '22003',
+        originalMessage: 'value "553185683733" is out of range for type integer',
+        kind: 'ValueOutOfRange',
+        cause: 'value "553185683733" is out of range for type integer'
+      }
+    }
+  },
+  clientVersion: '7.0.1',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Value out of range for the type: value "553185683733" is out of range for type integer\n' +
+    '    at $r.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at $r.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at $r.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:766:24)\n' +
+    '    at MessageService.createMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.service.ts:73:22)\n' +
+    '    at VerifyMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\VerifyMessage.ts:53:3)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:57:7)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:45:5)',
+  timestamp: '2025-12-04T11:56:01.723Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-04T12:09:28.172Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`id`)',
+  level: 'error',
+  timestamp: '2025-12-04T12:52:56.879Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-04T12:54:25.196Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-04T12:56:57.369Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-04T12:58:09.328Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'mediaUrl')",
+  level: 'error',
+  timestamp: '2025-12-04T12:59:09.125Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'mediaUrl')",
+  level: 'error',
+  timestamp: '2025-12-04T13:00:24.182Z'
+}
+{
+  message: "Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'mediaUrl')",
+  level: 'error',
+  timestamp: '2025-12-04T13:01:39.830Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:37:27\n' +
+    '\n' +
+    '  34 \n' +
+    '  35 export class MessageRepository {\n' +
+    '  36   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 37     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-04T13:06:16.386Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/api/helpers/Wbot/HandleMsgReaction.ts(57,5): error TS1005: 'try' expected.
+  src/api/helpers/Wbot/HandleMsgReaction.ts(59,1): error TS1472: 'catch' or 'finally' expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\HandleMsgReaction.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-795057611503212.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-795057611503212.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-795057611503212.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(57,5): error TS1005: 'try' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(59,1): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(57,5): error TS1005: 'try' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(59,1): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMsgReaction.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(57,5): error TS1005: 'try' expected.\r\n" +
+    "src/api/helpers/Wbot/HandleMsgReaction.ts(59,1): error TS1472: 'catch' or 'finally' expected.\r\n" +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMsgReaction.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Thu Dec 04 2025 10:15:53 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 5180,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 129323008,
+      heapTotal: 106373120,
+      heapUsed: 54069184,
+      external: 4043973,
+      arrayBuffers: 385551
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 14130.953 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMsgReaction.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-795057611503212.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-04T13:15:53.577Z'
+}

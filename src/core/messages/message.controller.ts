@@ -114,7 +114,7 @@ export async function messageController(
         await messageService.udpateMessageReaction(messageid, emoji);
         return reply.code(200).send(true);
       } catch (error) {
-        return reply.code(500).send({ message: "sendReaction" });
+        return reply.code(500).send({ message: error });
       }
     }
   );

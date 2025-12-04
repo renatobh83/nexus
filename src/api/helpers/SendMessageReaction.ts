@@ -83,7 +83,8 @@ export const SendMessageReaction = async (
 ): Promise<{ reactionFromMe: string } | void> => {
   if (message.ticket.channel === "whatsapp") {
     const wbot = getWbot(message.ticket.whatsappId);
-    await wbot.sendReactionToMessage(message.messageid, reaction);
+
+    await wbot.sendReactionToMessage(message.messageId, reaction);
   } else if (message.ticket.channel === "telegram") {
     const chatId = message.contact.telegramId as string;
     const tbot = getTbot(message.ticket.whatsappId);

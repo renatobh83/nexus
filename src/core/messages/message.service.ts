@@ -45,6 +45,7 @@ export class MessageService {
 
     const dataForDb: any = {
       ...restDto,
+      messageId,
       body: bodyToSave,
       ticket: { connect: { id: ticketId as number } },
       tenant: { connect: { id: tenantId as number } },
@@ -56,7 +57,7 @@ export class MessageService {
     }
 
     const forUpdated = await this.messageRepository.findMessageBy({
-      messageId: dto.messageId,
+      messageId: messageId,
     });
 
     let savedMessage;
@@ -231,14 +232,16 @@ export class MessageService {
             messageData,
             media,
           });
+          if (ticket.channel === "whatsapp") return;
 
           const dataForDb: any = {
             ...restDto,
             id: String(messageSent.id),
             ack: 2,
-            messageId: String(messageSent.messageId),
+            messageId: String(messageSent.id),
             body: encrypt(messageData.body),
           };
+
           if (messageData.ticketId) {
             dataForDb.ticket = {
               connect: { id: messageData.ticketId as number },
@@ -382,7 +385,7 @@ export class MessageService {
   ): Promise<void> {
     const message = (await this.messageRepository.findMessageBy(
       {
-        messageId: messageid,
+        id: messageid,
       },
       {
         contact: {

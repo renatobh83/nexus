@@ -6,8 +6,8 @@ export class SettingsRepository {
   async findFirst(where: Prisma.SettingWhereInput) {
     return prisma.setting.findFirst({ where });
   }
-  async findMany() {
-    return prisma.setting.findMany();
+  async findMany(where?: Prisma.SettingWhereInput) {
+    return prisma.setting.findMany({ where });
   }
   async update(key: string, data: Prisma.SettingCreateInput, tenantId: string) {
     return prisma.setting.update({

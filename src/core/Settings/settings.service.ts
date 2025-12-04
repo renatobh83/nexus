@@ -9,8 +9,8 @@ export class SettingsService {
     this.settginsRepository = new SettingsRepository();
   }
 
-  async findAllSettings() {
-    return this.settginsRepository.findMany();
+  async findAllSettings(where?: Prisma.SettingWhereInput) {
+    return this.settginsRepository.findMany(where);
   }
   async updateSetting(key: string, data: any) {
     const setting = await this.settginsRepository.findFirst({

@@ -63,7 +63,7 @@ const VerifyMessage = async (
         : msg.content;
   }
 
-  const updatedTicket = await app.ticketService.updateTicket(ticket.id, {
+  await app.ticketService.updateTicket(ticket.id, {
     lastMessage: lastMessage,
     lastMessageAt: new Date().getTime(),
     answered: !!msg.fromMe,

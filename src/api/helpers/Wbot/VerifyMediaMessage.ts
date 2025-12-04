@@ -19,7 +19,7 @@ const VerifyMediaMessage = async (
   ticket: Ticket,
   contact: Contact,
   wbot: Whatsapp,
-  authorGroupMessage?: any
+  authorGroupMessage?: Contact
 ): Promise<Message | void> => {
   const quotedMsg = await VerifyQuotedMessage(msg);
 

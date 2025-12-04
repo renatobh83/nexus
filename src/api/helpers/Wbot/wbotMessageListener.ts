@@ -6,6 +6,8 @@ import { HandleMessage } from "./HandleWbotMessager";
 import { blockedMessages } from "./BlockedMessages";
 import { logger } from "../../../ultis/logger";
 import { HandleMessageReceived } from "./HandleMessageReceived";
+import { HandleMsgReaction } from "./HandleMsgReaction";
+import { VerifyCall } from "./VerifyCall";
 
 export interface MessageReaction {
   id: string;
@@ -44,9 +46,11 @@ export const wbotMessageListener = async (wbot: Session): Promise<void> => {
 
     await HandleMessageReceived(msg, wbot);
   });
-  wbot.onIncomingCall(async (call: IncomingCall) => {});
+  wbot.onIncomingCall(async (call: IncomingCall) => {
+    await VerifyCall(call, wbot);
+  });
 
   wbot.onReactionMessage(async (msg: MessageReaction) => {
-    console.log(msg);
+    await HandleMsgReaction(msg);
   });
 };
