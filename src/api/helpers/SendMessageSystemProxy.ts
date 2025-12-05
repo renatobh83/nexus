@@ -64,9 +64,9 @@ const SendMessageSystemProxy = async ({
 
   // Se a mensagem foi enviada mas ainda está "pendente"
   // if (message?.ack === 0) return null;
-  const savedMessage = await waitForMessageSaved(message.id);
-console.log(savedMessage)
-  return savedMessage as Message;
+  // const savedMessage = await waitForMessageSaved(message.id);
+// console.log(savedMessage)
+  return message as Message;
 };
 
 export default SendMessageSystemProxy;
