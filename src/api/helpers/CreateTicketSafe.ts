@@ -20,7 +20,9 @@ export const findOrCreateTicketSafe = async (params: {
   chatClient?: boolean;
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const TicketService = getFastifyApp().services.ticketService;
+  
   const ChatFlow = getFastifyApp().services.chatFlowService;
+  
   const { contact, whatsappId, msg } = params;
 
   const lockKey = REDIS_KEYS.ticketLock(whatsappId, contact.id);

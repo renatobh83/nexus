@@ -309,7 +309,11 @@ export class TicketService {
     chaflowId,
   }): Promise<any> {
     let ticket: Ticket;
+   
+   
     const logService = getFastifyApp().services.logTicketService;
+   
+   
     ticket = await this.ticketRepository.findOne({
       id: parseInt(ticketId),
     });
@@ -379,6 +383,16 @@ export class TicketService {
         chamadoId: null,
         queueId: null,
       });
+
+
+      
+
+
+
+
+
+
+
     }
     if (oldStatus === "open" && statusData === "pending") {
       await logService.createLogTicket({

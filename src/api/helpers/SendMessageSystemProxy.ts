@@ -7,6 +7,7 @@ import { Message } from "@prisma/client";
 import SendWhatsAppMessage from "./Wbot/SendWhatsAppMessage";
 import SendWhatsAppMedia from "./Wbot/SendWhatsAppMedia";
 import { transformFile } from "../../ultis/transformFile";
+import { waitForMessageSaved } from "../../core/messages/message.utils";
 
 type Payload = {
   ticket: any;
@@ -63,8 +64,9 @@ const SendMessageSystemProxy = async ({
 
   // Se a mensagem foi enviada mas ainda está "pendente"
   // if (message?.ack === 0) return null;
+  const savedMessage = await waitForMessageSaved(message.id);
 
-  return message;
+  return savedMessage as Message;
 };
 
 export default SendMessageSystemProxy;

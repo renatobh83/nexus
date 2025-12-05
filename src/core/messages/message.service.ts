@@ -1,5 +1,5 @@
 import { enum_Messages_sendType, Message, Prisma } from "@prisma/client";
-
+import { eventBus } from "../eventBus";
 import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
 import { MessageRepository, ResponseMessages } from "./message.repository";
 import { MessageDTO, RequestMessage } from "./message.type";
@@ -86,7 +86,7 @@ export class MessageService {
       ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
-
+  eventBus.emit(`messageSaved:${message.messageId}`, message);
     socketEmit({
       tenantId,
       type: "chat:create",
@@ -233,7 +233,7 @@ export class MessageService {
             messageData,
             media,
           });
-          if (ticket.channel === "whatsapp") return;
+        //  if (ticket.channel === "whatsapp") return;
 
           const dataForDb: any = {
             ...restDto,

@@ -5,7 +5,6 @@ import { verifyContactWbot } from "./verifycontactWbot";
 import { Session } from "../../../lib/wbot";
 import VerifyMediaMessage from "./VerifyMediaMessage";
 import VerifyMessage from "./VerifyMessage";
-import VerifyBusinessHoursFlow from "../VerifyBusinessHoursFlow";
 
 export const HandleMessage = async (
   message: Message,
@@ -35,8 +34,7 @@ export const HandleMessage = async (
     msg: message,
     channel: "whatsapp",
   });
-
-  // if (ticket.isFarewellMessage) return;
+  if (ticket.isFarewellMessage) return;
 
   //TODO Colocar a integracao externa
   if (message.filehash) {

@@ -200,10 +200,10 @@ export async function ticketController(
               isTransfer: false,
               note: false,
             };
-            await messageService.createMessageSystem(messageData);
             await ticketService.updateTicket(ticket.id, {
               isFarewellMessage: true,
             });
+            await messageService.createMessageSystem(messageData);
           }
         }
 
