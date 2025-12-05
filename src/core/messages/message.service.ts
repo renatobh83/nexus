@@ -87,7 +87,7 @@ export class MessageService {
       ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
-  eventBus.emit(`messageSaved:${message.messageId}`, message);
+  eventBus.emit(`messageSaved:${savedMessage.messageId}`, message);
     socketEmit({
       tenantId,
       type: "chat:create",
