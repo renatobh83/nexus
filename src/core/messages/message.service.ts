@@ -1,5 +1,5 @@
 import { enum_Messages_sendType, Message, Prisma } from "@prisma/client";
-import { eventBus } from "../eventBus";
+
 import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
 import { MessageRepository, ResponseMessages } from "./message.repository";
 import { MessageDTO, RequestMessage } from "./message.type";
@@ -13,6 +13,7 @@ import { SendMessageForward } from "../../api/helpers/SendMessageForward";
 import { MediaService } from "../../api/helpers/MediaService";
 import { SendMessageReaction } from "../../api/helpers/SendMessageReaction";
 import { buildMessageBody } from "./message.utils";
+import { eventBus } from "../../ultis/eventBus";
 
 export class MessageService {
   private messageRepository: MessageRepository;
