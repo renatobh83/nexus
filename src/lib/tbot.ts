@@ -18,14 +18,17 @@ export const initTbot = async (
   whatsappService: WhatsappService
 ): Promise<Session> => {
   return new Promise(async (resolve, reject) => {
-    try {
+    try
+     {
       const io = getIO();
       const sessionName = connection.name;
       const { tenantId } = connection;
+      
       const tbot = new Telegraf(connection.tokenTelegram!, {}) as Session;
       TbotappSession = connection;
       tbot.id = connection.id;
       tbot.tenantId = connection.tenantId;
+      
       tbot.catch((err: any, ctx: any) => {
         logger.error(
           `Erro no bot ${sessionName} | ctx: ${ctx?.updateType} | err: ${err}`
@@ -54,10 +57,10 @@ export const initTbot = async (
       //   retries: 0,
       // });
 
-      // io.emit(`${tenantId}:whatsappSession`, {
-      //   action: "update",
-      //   session: connection,
-      // });
+      io.emit(`${tenantId}:whatsappSession`, {
+        action: "update",
+        session: connection,
+      });
       whatsappService.handleConnected(
         TbotappSession.id,
         TbotappSession.tenantId,
