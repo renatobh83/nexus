@@ -17,6 +17,8 @@ export async function messageController(
 ) {
   const messageService = fastify.services.messageService;
   const ticketService = fastify.services.ticketService;
+ 
+ 
   fastify.get(
     "/:ticketId",
     async (request: FastifyRequest, reply: FastifyReply) => {
@@ -40,6 +42,8 @@ export async function messageController(
       }
     }
   );
+  
+  
   fastify.post(
     "/:ticketId",
     async (
@@ -99,6 +103,7 @@ export async function messageController(
           status: "pending",
         };
 
+        // console.log(messageData)
         messageService.createMessageSystem(messageData);
         return reply.code(200).send({ message: "messagem enviada" });
       } catch (error) {
