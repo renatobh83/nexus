@@ -91,7 +91,7 @@ const VerifyMediaMessage = async (
       connect: { id: quotedMsg.id },
     };
   }
-  console.log(msg.ack);
+
   if (msg.ack !== 0) {
     await getFastifyApp().services.messageService.createMessage(messageData);
   }
