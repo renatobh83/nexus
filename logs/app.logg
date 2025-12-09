@@ -2225,3 +2225,127 @@
   level: 'error',
   timestamp: '2025-12-06T00:04:01.547Z'
 }
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:34:10.934Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:34:58.989Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:41:33.302Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:41:52.155Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:43:40.592Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T11:48:08.964Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-09T11:57:38.265Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T14:26:27.609Z'
+}
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\messages\\message.repository.ts:39:27\n' +
+    '\n' +
+    '  36 \n' +
+    '  37 export class MessageRepository {\n' +
+    '  38   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 39     return prisma.message.create(\n' +
+    'Unique constraint failed on the fields: (`"messageId"`)',
+  level: 'error',
+  timestamp: '2025-12-09T14:28:57.066Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-09T14:46:05.710Z'
+}

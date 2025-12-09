@@ -54,8 +54,9 @@ const VerifyMessage = async (
       connect: { id: quotedMsg.id },
     };
   }
-
-  await app.messageService.createMessage(messageData);
+  if (msg.ack !== 0) {
+    await app.messageService.createMessage(messageData);
+  }
   // // Normalizar lastMessage
   let lastMessage: string;
   if (msg.type === "list") {

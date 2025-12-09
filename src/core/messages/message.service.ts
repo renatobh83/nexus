@@ -87,7 +87,7 @@ export class MessageService {
       ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
-  // eventBus.emit(`messageSaved:${savedMessage.messageId}`, message);
+    // eventBus.emit(`messageSaved:${savedMessage.messageId}`, message);
     socketEmit({
       tenantId,
       type: "chat:create",
@@ -200,7 +200,7 @@ export class MessageService {
       sendType: "chat" as enum_Messages_sendType,
       mediaType: "chat",
       mediaUrl: "",
-      timestamp: Date.now(),
+      timestamp: message.timestamp,
       quotedMsgId: message.quotedMsg?.messageId,
       quotedMsg: message.quotedMsg,
       scheduleDate: message.scheduleDate,
@@ -233,9 +233,10 @@ export class MessageService {
             ticket,
             messageData,
             media,
-           });
+          });
+
           //  if (ticket.channel === "whatsapp") return;
- 
+
           const dataForDb: any = {
             ...restDto,
             id: String(messageSent.id),
@@ -284,7 +285,7 @@ export class MessageService {
           }
 
           let fullMediaUrl: string | null = null;
-          
+
           if (savedMessage.mediaUrl) {
             const { MEDIA_URL, PROXY_PORT } = process.env;
             fullMediaUrl =
@@ -299,7 +300,7 @@ export class MessageService {
             ticket: { id: savedMessage.ticket!.id },
             contact: savedMessage.contact!.id,
           };
-          console.log("emit")
+          console.log("emit");
           socketEmit({
             tenantId,
             type: "chat:create",

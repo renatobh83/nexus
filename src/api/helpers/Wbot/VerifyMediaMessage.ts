@@ -91,16 +91,19 @@ const VerifyMediaMessage = async (
       connect: { id: quotedMsg.id },
     };
   }
-
-  const message = await getFastifyApp().services.messageService.createMessage(
-    messageData
-  );
+  console.log(msg.ack);
+  if (msg.ack !== 0) {
+    await getFastifyApp().services.messageService.createMessage(messageData);
+  }
+  // const message = await getFastifyApp().services.messageService.createMessage(
+  //   messageData
+  // );
   await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
     lastMessage: msg.caption?.slice(0, 250) + "..." || filename,
     lastMessageAt: Date.now(),
     answered: !!msg.fromMe,
   });
-  return message;
+  return messageData;
 };
 
 function buildFilename(msg: any, ext: any) {
