@@ -71,6 +71,7 @@ export const HandleMessageChatClient = async (socket: any) => {
     });
     socket.emit("chat:ready", { ticketId: ticket.id });
     socket.join(`chat-${id}`);
+
     if (isNew) {
       const isBusinessHours = await VerifyBusinessHoursFlow(ticket);
       if (isBusinessHours) {

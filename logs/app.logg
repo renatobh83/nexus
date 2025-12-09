@@ -2359,3 +2359,28 @@
     '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
   timestamp: '2025-12-09T15:28:19.045Z'
 }
+{
+  message: 'Falha na verificação do token em todas as chaves.',
+  level: 'error',
+  timestamp: '2025-12-09T16:30:24.721Z'
+}
+{
+  message: "[Channel-25] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'author')",
+  level: 'error',
+  timestamp: '2025-12-09T16:37:37.632Z'
+}
+{
+  message: "[Channel-25] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'author')",
+  level: 'error',
+  timestamp: '2025-12-09T16:42:11.607Z'
+}
+{
+  message: "[Channel-25] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'chatClient')",
+  level: 'error',
+  timestamp: '2025-12-09T16:49:36.174Z'
+}
+{
+  message: "[Channel-25] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'chatClient')",
+  level: 'error',
+  timestamp: '2025-12-09T16:53:32.700Z'
+}

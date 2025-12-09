@@ -20,10 +20,10 @@ export const findOrCreateTicketSafe = async (params: {
   chatClient?: boolean;
 }): Promise<{ ticket: any; isNew: boolean }> => {
   const TicketService = getFastifyApp().services.ticketService;
-  
+
   const ChatFlow = getFastifyApp().services.chatFlowService;
-  
-  const { contact, whatsappId, msg } = params;
+
+  const { contact, whatsappId, msg, chatClient } = params;
 
   const lockKey = REDIS_KEYS.ticketLock(whatsappId, contact.id);
   const LOCK_TIMEOUT = 30;
@@ -65,7 +65,7 @@ export const findOrCreateTicketSafe = async (params: {
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
 
-      if ((msg && !msg.fromMe) || (!newTicket.userId && !msg.author)) {
+      if ((msg && !msg.fromMe) || (!newTicket.userId && !chatClient)) {
         const ticket = await ChatFlow.CheckChatBotFlowWelcome(newTicket);
         newTicket = ticket ? ticket : newTicket;
       }

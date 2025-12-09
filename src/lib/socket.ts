@@ -1,7 +1,6 @@
 import { Server as SocketIOServer, Socket } from "socket.io";
 import { logger } from "../ultis/logger";
 import { HandleMessageChatClient } from "../api/helpers/WebChat/HandleMessageChatClient";
-// import { HandleMessageChatClient } from "../services/ChatClientService/HandleMessageChatClient";
 
 // 1. A variável `io` continua a existir para ser acessada por outras partes da aplicação através do `getIO`.
 let io: SocketIOServer | null = null;

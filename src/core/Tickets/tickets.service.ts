@@ -309,11 +309,9 @@ export class TicketService {
     chaflowId,
   }): Promise<any> {
     let ticket: Ticket;
-   
-   
+
     const logService = getFastifyApp().services.logTicketService;
-   
-   
+
     ticket = await this.ticketRepository.findOne({
       id: parseInt(ticketId),
     });
@@ -343,9 +341,11 @@ export class TicketService {
 
     if (statusData === "closed") {
       data.closedAt = new Date().getTime();
-      if (ticket.channel === "chatClient") {
+
+      if (ticket.channel === "web") {
         const io = getIO();
         const socket = io.sockets.sockets.get(ticket.socketId!);
+
         if (socket && socket.connected) {
           socket.emit("chat:closedTicket", "Seu ticket foi fechado. Obrigado!");
         }
@@ -383,16 +383,6 @@ export class TicketService {
         chamadoId: null,
         queueId: null,
       });
-
-
-      
-
-
-
-
-
-
-
     }
     if (oldStatus === "open" && statusData === "pending") {
       await logService.createLogTicket({
