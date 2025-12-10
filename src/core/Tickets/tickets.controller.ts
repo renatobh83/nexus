@@ -124,7 +124,7 @@ export async function ticketController(
           userId,
           tenantId,
           channelId: isConnected.id,
-          channel: isConnected.name.toLowerCase(),
+          channel: isConnected.type,
         };
 
         const ticket = await ticketService.createTicketRoute(payload);
