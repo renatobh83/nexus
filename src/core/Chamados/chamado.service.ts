@@ -46,12 +46,13 @@ export class ChamadoService {
   async findAllBy(where: Prisma.ChamadoWhereInput) {
     return await this.chamadoRepository.findAll(where);
   }
-  async findAll() {
-    return await this.chamadoRepository.findAll();
+  async findAll(where?: Prisma.ChamadoWhereInput) {
+    return await this.chamadoRepository.findAll(where);
   }
   async findById(chamadoId: number) {
     return await this.chamadoRepository.findById(chamadoId);
   }
+
   async updateChamado({
     chamadoId,
     contatoId,

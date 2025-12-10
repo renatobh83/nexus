@@ -18,6 +18,7 @@ import { chamadoController } from "../../core/Chamados/chamado.controller";
 import { emailController } from "../../core/Email/email.controller";
 import { chatFlowController } from "../../core/ChatFlow/chatFlow.controller";
 import { integracoesController } from "../../core/Integracoes/integracoes.controller";
+import { statisticsController } from "../../core/Statistics/statistics.controller";
 
 // Importe seus controllers
 
@@ -65,6 +66,7 @@ async function apiV1Routes(fastify: FastifyInstance) {
     privateScope.register(emailController, { prefix: "/email" });
     privateScope.register(chatFlowController, { prefix: "/chatFlow" });
     privateScope.register(integracoesController, { prefix: "/integracoes" });
+    privateScope.register(statisticsController, { prefix: "/statistics" });
 
     // Registra os controllers privados dentro do escopo autenticado.
     // O prefixo final será: /api/v1/users

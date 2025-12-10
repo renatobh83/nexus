@@ -2384,3 +2384,250 @@
   level: 'error',
   timestamp: '2025-12-09T16:53:32.700Z'
 }
+{
+  message: 'Unhandled Rejection: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.$queryRaw()` invocation:\n' +
+    '\n' +
+    '\n' +
+    'Raw query failed. Code: `42P01`. Message: `relation "Chamado" does not exist`',
+  level: 'error',
+  timestamp: '2025-12-10T10:49:24.201Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/Chamados/chamado.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Chamados/chamado.repository.ts(167,44): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(167,54): error TS1005: ';' expected.
+  src/core/Chamados/chamado.repository.ts(175,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Chamados/chamado.repository.ts(175,44): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(175,63): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(175,73): error TS1005: ';' expected.
+  src/core/Chamados/chamado.repository.ts(193,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Chamados/chamado.repository.ts(194,14): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(195,9): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(196,5): error TS1005: ';' expected.
+  src/core/Chamados/chamado.repository.ts(214,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Chamados/chamado.repository.ts(214,41): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(214,51): error TS1005: ';' expected.
+  src/core/Chamados/chamado.repository.ts(221,3): error TS1434: Unexpected keyword or identifier.
+  src/core/Chamados/chamado.repository.ts(221,18): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(221,32): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(221,60): error TS1005: ';' expected.
+  src/core/Chamados/chamado.repository.ts(222,11): error TS1005: ':' expected.
+  src/core/Chamados/chamado.repository.ts(228,7): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(229,12): error TS1005: ':' expected.
+  src/core/Chamados/chamado.repository.ts(229,38): error TS1005: ',' expected.
+  src/core/Chamados/chamado.repository.ts(232,1): error TS1128: Declaration or statement expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Chamados\chamado.repository.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-5939898654006749.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-5939898654006749.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-5939898654006749.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Chamados/chamado.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(167,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(167,54): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(175,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(175,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,63): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,73): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(193,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(194,14): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(195,9): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(196,5): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(214,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(214,41): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(214,51): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(221,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(221,18): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,32): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,60): error TS1005: ';' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(222,11): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(228,7): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,12): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,38): error TS1005: ',' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(232,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Chamados/chamado.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(167,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(167,54): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(175,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(175,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,63): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,73): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(193,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(194,14): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(195,9): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(196,5): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(214,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(214,41): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(214,51): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(221,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(221,18): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,32): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,60): error TS1005: ';' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(222,11): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(228,7): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,12): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,38): error TS1005: ',' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(232,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Chamados\\chamado.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/Chamados/chamado.repository.ts(167,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(167,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(167,54): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(175,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(175,44): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,63): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(175,73): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(193,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(194,14): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(195,9): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(196,5): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(214,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(214,41): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(214,51): error TS1005: ';' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(221,3): error TS1434: Unexpected keyword or identifier.\r\n' +
+    "src/core/Chamados/chamado.repository.ts(221,18): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,32): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(221,60): error TS1005: ';' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(222,11): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(228,7): error TS1005: ',' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,12): error TS1005: ':' expected.\r\n" +
+    "src/core/Chamados/chamado.repository.ts(229,38): error TS1005: ',' expected.\r\n" +
+    'src/core/Chamados/chamado.repository.ts(232,1): error TS1128: Declaration or statement expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Chamados\\chamado.repository.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Wed Dec 10 2025 07:51:16 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 4080,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 136249344,
+      heapTotal: 107724800,
+      heapUsed: 61415496,
+      external: 4043973,
+      arrayBuffers: 412811
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 5476.89 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Chamados\\chamado.repository.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-5939898654006749.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-10T10:51:16.807Z'
+}

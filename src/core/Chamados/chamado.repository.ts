@@ -162,6 +162,7 @@ export class ChamadoRepository {
 
     return transformChamados(chamados);
   }
+
   async createPauseHistoryChamado(chamadoId: number) {
     await prisma.pauseHistory.create({
       data: {
