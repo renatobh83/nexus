@@ -86,7 +86,7 @@ export class IGenesisServices {
         contatoSend: payload.contato,
         procedimentos: novosProcedimentos,
         idexterno: novosIdExternos,
-        channel: "Whatsapp",
+        channelId: integracao.sessionId,
         atendimentoData: body.atendimento_data,
         atendimentoHora: dadosAgendamento.horarioMaisCedo.Hora,
         integracaoId: +payload.idIntegracao,

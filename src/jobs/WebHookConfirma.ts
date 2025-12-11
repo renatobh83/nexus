@@ -4,6 +4,8 @@ import { getWbot } from "../lib/wbot";
 import { getFastifyApp } from "../api";
 import { IGConfirmacao } from "@prisma/client";
 import { respostaInvalidaConfirmacao } from "../core/IGenesis/Templates/textoIGIntegracao";
+import { ConfirmarExameApi } from "../core/IGenesis/IGenesis.utils";
+import { number } from "yup";
 
 interface RequestProps {
   contatoSend: string;
@@ -38,7 +40,10 @@ export default {
   async handle({ contatoSend, response, status, ticket }: RequestProps) {
     const app = getFastifyApp().services;
     try {
-      const wbot = getWbot(ticket.integracaoId!);
+      const Integracao = await app.integracaoService.findOne({
+        id: ticket.integracaoId!,
+      });
+      const wbot = getWbot(ticket.channelId);
       await app.iGenesisServices.updateTicketConfirmacao(ticket.id, {
         status: STATUS_CONFIRMACAO.RESPONDIDO,
         lastMessage: response,
@@ -49,17 +54,19 @@ export default {
         wbot.sendText(contatoSend, respostaInvalidaConfirmacao);
         return;
       }
+      let dadosConfirmacao: Promise<any | void>[] = [];
       if (Array.isArray(ticket.idexterno)) {
-        const confirmacao = ticket.idexterno.map(async (id) => {
+        dadosConfirmacao = ticket.idexterno.map(async (id) => {
           if (status === "confirm") {
-            // return await Confirmar({ cdAtendimento: id, integracao });
+            return await ConfirmarExameApi(+id!, Integracao!);
           }
           if (status === "cancel") {
             // return await CancelarAgendamento({ integracao, cdAtendimento: id });
           }
         });
-        console.log(confirmacao);
       }
+      const retornoConfirmacao = await Promise.allSettled(dadosConfirmacao);
+      console.log(retornoConfirmacao);
 
       // const integracao = await GetIntegracaoById(ticketIntegracao.integracaoId);
       //       const confirmacao = ticketIntegracao.idexterno.map(async (id) => {

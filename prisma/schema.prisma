@@ -915,20 +915,20 @@ model UsersQueues {
 model IGConfirmacao {
   id                String    @id @default(uuid())
   status            String    @default("pending")
-  contatoSend       String?
-  contato           String?
+  contatoSend       String
+  contato           String
   lastMessage       String?
-  procedimentos     Json?
-  idexterno         Json?
-  atendimentoData   String?
-  atendimentoHora   String?
+  procedimentos     Json
+  idexterno         Json
+  atendimentoData   String
+  atendimentoHora   String
   answered          Boolean   @default(false)
   lastMessageAt     BigInt?
   messageResponse   String?
-  integracaoId      Int?
+  integracaoId      Int
   preparoEnviado    Boolean   @default(false)
   closedAt          BigInt?
-  channel           String?
+  channelId          Int
   enviada           DateTime?
   // --- Timestamps ---
   createdAt DateTime @default(now())
