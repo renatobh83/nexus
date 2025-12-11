@@ -66,38 +66,26 @@ export default {
         });
       }
       const retornoConfirmacao = await Promise.allSettled(dadosConfirmacao);
-      console.log(retornoConfirmacao);
+      // pega só os fulfilled
+      const valores = retornoConfirmacao
+        .filter((r) => r.status === "fulfilled")
+        .map((r) => r.value);
 
-      // const integracao = await GetIntegracaoById(ticketIntegracao.integracaoId);
-      //       const confirmacao = ticketIntegracao.idexterno.map(async (id) => {
-      //         try {
-      //           if (status === "confirm") {
-      //             return await Confirmar({ cdAtendimento: id, integracao });
-      //           }
-      //           if (status === "cancel") {
-      //             return await CancelarAgendamento({ integracao, cdAtendimento: id });
-      //           }
-      //         } catch (error) {
-      //           // Captura e retorna erros para análise posterior
-      //           console.log(error, "Erro na confirmacao dos exames");
-      //           return error;
-      //         }
-      //       });
-      //       const retornoConfirmacao = await Promise.allSettled(confirmacao);
-      //       const errosConfirmacao = retornoConfirmacao.filter(
-      //         (result) => result.status === "rejected"
-      //       );
-      //       if (errosConfirmacao.length > 0) {
-      //         // Lidar com os erros, talvez logar com mais detalhes ou atualizar o status do ticket
-      //         errosConfirmacao.forEach((error) =>
-      //           logger.error(`Erro na confirmação/cancelamento: ${error.reason}`)
-      //         );
-      //         // Opcional: Atualizar o ticket com um status de erro específico
-      //         await ticketIntegracao.update(
-      //           { status: "erro_parcial_confirmacao" },
-      //           { transaction: t }
-      //         );
-      //       }
+      // verifica se TODOS os retornos são arrays vazios
+      const todasVazias = valores.every(
+        (v) => Array.isArray(v) && v.length === 0
+      );
+
+      if (todasVazias) {
+        console.log("Nenhum retorno válido. Parando execução.");
+        return; // ⬅ PARA A FUNÇÃO AQUI
+      }
+      console.log(valores);
+      //       [
+      //   [ { nr_controle: null, cd_paciente: 72382 } ],
+      //   [ { nr_controle: null, cd_paciente: 72382 } ]
+      // ]
+
       //       // const examesConfirmados = retornoConfirmacao
       //       //   .filter(
       //       //     (result) =>
