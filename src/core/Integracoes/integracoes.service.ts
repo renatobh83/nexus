@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { AppError } from "../../errors/errors.helper";
 import { IntegracoesRepository } from "./integracoes.repository";
 
@@ -6,7 +7,9 @@ export class IntegracoesService {
   constructor() {
     this.integracoesRepository = new IntegracoesRepository();
   }
-
+  async findOne(where: Prisma.IntegracoesWhereInput) {
+    return this.integracoesRepository.findOne(where);
+  }
   async listarIntegracoes() {
     return this.integracoesRepository.findAll();
   }

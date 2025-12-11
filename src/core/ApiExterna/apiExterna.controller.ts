@@ -5,6 +5,7 @@ import {
   FastifyRequest,
 } from "fastify";
 import { ERRORS, handleServerError } from "../../errors/errors.helper";
+import { CheckServiceGenesisIntegrcao } from "../IGenesis/IGenesis.utils";
 
 export interface ApiData {
   name: string;
@@ -162,7 +163,7 @@ export async function extenalApiController(
   );
   fastify.post(
     "/external/:apiId/:idIntegracao/:authToken",
-    
+
     async (
       request: FastifyRequest<{
         Body: {
@@ -175,7 +176,8 @@ export async function extenalApiController(
       const dadosConfirmacao = request.body.contatos[0] as any;
       try {
         const payload = { ...dadosConfirmacao, apiId, idIntegracao, authToken };
-        // await checkBotIntegracaoService(dadosConfirmacao, payload);
+
+        await CheckServiceGenesisIntegrcao(dadosConfirmacao, payload);
         return reply.code(200).send({ message: "Add job " });
       } catch (error) {
         return handleServerError(reply, error);

@@ -2631,3 +2631,625 @@
   ],
   timestamp: '2025-12-10T10:51:16.807Z'
 }
+{
+  error: TypeError: (0 , api_1.getFastifyApp) is not a function
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\IGenesis\IGenesis.utils.ts:2:41)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: (0 , api_1.getFastifyApp) is not a function\n' +
+    'TypeError: (0 , api_1.getFastifyApp) is not a function\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts:2:41)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'TypeError: (0 , api_1.getFastifyApp) is not a function\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts:2:41)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Thu Dec 11 2025 11:08:07 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 10304,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 128839680,
+      heapTotal: 106373120,
+      heapUsed: 54585256,
+      external: 4052165,
+      arrayBuffers: 396309
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 103687.671 },
+  trace: [
+    {
+      column: 41,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts',
+      function: null,
+      line: 2,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-11T14:08:07.269Z'
+}
+{
+  error: TypeError: (0 , api_1.getFastifyApp) is not a function
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\IGenesis\IGenesis.utils.ts:2:41)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-36468898741227973.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: (0 , api_1.getFastifyApp) is not a function\n' +
+    'TypeError: (0 , api_1.getFastifyApp) is not a function\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts:2:41)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'TypeError: (0 , api_1.getFastifyApp) is not a function\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts:2:41)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Thu Dec 11 2025 11:08:24 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 7500,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 128806912,
+      heapTotal: 106373120,
+      heapUsed: 54663912,
+      external: 4052165,
+      arrayBuffers: 396309
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 103704.984 },
+  trace: [
+    {
+      column: 41,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.utils.ts',
+      function: null,
+      line: 2,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-36468898741227973.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-11T14:08:24.582Z'
+}
+{
+  error: Error: ⨯ Unable to compile TypeScript:
+  src/core/IGenesis/IGenesis.services.ts(74,43): error TS1136: Property assignment expected.
+  
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\IGenesis\IGenesis.services.ts:1:7)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)
+      at Module._compile (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\source-map-support\source-map-support.js:568:25)
+      at Module.m._compile (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8452194624198396.js:69:33)
+      at node:internal/modules/cjs/loader:1893:10
+      at require.extensions..jsx.require.extensions..js (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8452194624198396.js:114:20)
+      at require.extensions.<computed> (C:\Users\suporte2\AppData\Local\Temp\ts-node-dev-hook-8452194624198396.js:71:20)
+      at Object.nodeDevHook [as .ts] (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ts-node-dev\lib\hook.js:63:13)
+      at Module.load (node:internal/modules/cjs/loader:1481:32)
+      at Module._load (node:internal/modules/cjs/loader:1300:12),
+  level: 'error',
+  message: 'uncaughtException: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/IGenesis/IGenesis.services.ts(74,43): error TS1136: Property assignment expected.\r\n' +
+    '\n' +
+    'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/IGenesis/IGenesis.services.ts(74,43): error TS1136: Property assignment expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  stack: 'Error: ⨯ Unable to compile TypeScript:\n' +
+    'src/core/IGenesis/IGenesis.services.ts(74,43): error TS1136: Property assignment expected.\r\n' +
+    '\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.services.ts:1:7)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)\n' +
+    '    at Module._compile (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js:568:25)\n' +
+    '    at Module.m._compile (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:69:33)\n' +
+    '    at node:internal/modules/cjs/loader:1893:10\n' +
+    '    at require.extensions..jsx.require.extensions..js (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:114:20)\n' +
+    '    at require.extensions.<computed> (C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js:71:20)\n' +
+    '    at Object.nodeDevHook [as .ts] (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js:63:13)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1481:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1300:12)',
+  exception: true,
+  date: 'Thu Dec 11 2025 11:19:10 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 2288,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 151609344,
+      heapTotal: 113291264,
+      heapUsed: 71123280,
+      external: 4771216,
+      arrayBuffers: 1149875
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 104351.312 },
+  trace: [
+    {
+      column: 7,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\IGenesis\\IGenesis.services.ts',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    },
+    {
+      column: 25,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\source-map-support\\source-map-support.js',
+      function: 'Module._compile',
+      line: 568,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 33,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js',
+      function: 'Module.m._compile',
+      line: 69,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1893,
+      method: null,
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js',
+      function: 'require.extensions..jsx.require.extensions..js',
+      line: 114,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'C:\\Users\\suporte2\\AppData\\Local\\Temp\\ts-node-dev-hook-8452194624198396.js',
+      function: 'require.extensions.<computed>',
+      line: 71,
+      method: '<computed>',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ts-node-dev\\lib\\hook.js',
+      function: 'Object.nodeDevHook [as .ts]',
+      line: 63,
+      method: 'ts]',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1481,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1300,
+      method: '_load',
+      native: false
+    }
+  ],
+  timestamp: '2025-12-11T14:19:10.918Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 5)',
+  error: "Cannot read properties of undefined (reading 'paciente_nome')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'paciente_nome')\n" +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:30:28)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:32)\n' +
+    '    at Worker.callProcessJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:432:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:37\n' +
+    '    at trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\utils\\index.ts:345:12)\n' +
+    '    at Worker.trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\queue-base.ts:204:17)\n' +
+    '    at Worker.processJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:942:17)\n' +
+    '    at Worker.mainLoop (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:639:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.run (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:550:7)',
+  level: 'error',
+  timestamp: '2025-12-11T16:28:29.186Z'
+}
+{
+  error: TypeError: Cannot read properties of undefined (reading 'paciente_nome')
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:30:28)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:32)
+      at Worker.callProcessJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:432:17)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:37
+      at trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\utils\index.ts:345:12)
+      at Worker.trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\queue-base.ts:204:17)
+      at Worker.processJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:942:17)
+      at Worker.mainLoop (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:639:16)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.run (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:550:7),
+  level: 'error',
+  message: "[Worker SendMessageConfirmar] Job 5 falhou. Erro: Cannot read properties of undefined (reading 'paciente_nome')",
+  timestamp: '2025-12-11T16:28:29.401Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 5)',
+  error: "Cannot read properties of undefined (reading 'paciente_nome')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'paciente_nome')\n" +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:30:28)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:32)\n' +
+    '    at Worker.callProcessJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:432:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:37\n' +
+    '    at trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\utils\\index.ts:345:12)\n' +
+    '    at Worker.trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\queue-base.ts:204:17)\n' +
+    '    at Worker.processJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:942:17)\n' +
+    '    at Worker.mainLoop (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:639:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.run (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:550:7)',
+  level: 'error',
+  timestamp: '2025-12-11T16:28:41.360Z'
+}
+{
+  error: TypeError: Cannot read properties of undefined (reading 'paciente_nome')
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:30:28)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:32)
+      at Worker.callProcessJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:432:17)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:37
+      at trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\utils\index.ts:345:12)
+      at Worker.trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\queue-base.ts:204:17)
+      at Worker.processJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:942:17)
+      at Worker.mainLoop (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:639:16)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.run (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:550:7),
+  level: 'error',
+  message: "[Worker SendMessageConfirmar] Job 5 falhou. Erro: Cannot read properties of undefined (reading 'paciente_nome')",
+  timestamp: '2025-12-11T16:28:41.583Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 6)',
+  error: "Cannot read properties of undefined (reading 'paciente_nome')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'paciente_nome')\n" +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:30:28)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:32)\n' +
+    '    at Worker.callProcessJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:432:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:37\n' +
+    '    at trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\utils\\index.ts:345:12)\n' +
+    '    at Worker.trace (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\queue-base.ts:204:17)\n' +
+    '    at Worker.processJob (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:942:17)\n' +
+    '    at Worker.mainLoop (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:639:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.run (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:550:7)',
+  level: 'error',
+  timestamp: '2025-12-11T16:28:53.585Z'
+}
+{
+  error: TypeError: Cannot read properties of undefined (reading 'paciente_nome')
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:30:28)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:32)
+      at Worker.callProcessJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:432:17)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:37
+      at trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\utils\index.ts:345:12)
+      at Worker.trace (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\queue-base.ts:204:17)
+      at Worker.processJob (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:942:17)
+      at Worker.mainLoop (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:639:16)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.run (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:550:7),
+  level: 'error',
+  message: "[Worker SendMessageConfirmar] Job 6 falhou. Erro: Cannot read properties of undefined (reading 'paciente_nome')",
+  timestamp: '2025-12-11T16:28:53.795Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 7)',
+  error: 'Error: Lock ativo. Tentando novamente mais tarde.',
+  stack: 'Error: Error: Lock ativo. Tentando novamente mais tarde.\n' +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:128:13)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:26)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:26',
+  level: 'error',
+  timestamp: '2025-12-11T16:29:29.168Z'
+}
+{
+  error: Error: Error: Lock ativo. Tentando novamente mais tarde.
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:128:13)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:26)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:26,
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Job 7 falhou. Erro: Error: Lock ativo. Tentando novamente mais tarde.',
+  timestamp: '2025-12-11T16:29:29.379Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 12)',
+  error: 'Error: Lock ativo. Tentando novamente mais tarde.',
+  stack: 'Error: Error: Lock ativo. Tentando novamente mais tarde.\n' +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:129:13)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:26)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:26',
+  level: 'error',
+  timestamp: '2025-12-11T16:35:21.423Z'
+}
+{
+  error: Error: Error: Lock ativo. Tentando novamente mais tarde.
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:129:13)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:26)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:26,
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Job 12 falhou. Erro: Error: Lock ativo. Tentando novamente mais tarde.',
+  timestamp: '2025-12-11T16:35:21.636Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 12)',
+  error: 'Error: Lock ativo. Tentando novamente mais tarde.',
+  stack: 'Error: Error: Lock ativo. Tentando novamente mais tarde.\n' +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:129:13)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:26)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:26',
+  level: 'error',
+  timestamp: '2025-12-11T16:35:33.625Z'
+}
+{
+  error: Error: Error: Lock ativo. Tentando novamente mais tarde.
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:129:13)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:26)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:26,
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Job 12 falhou. Erro: Error: Lock ativo. Tentando novamente mais tarde.',
+  timestamp: '2025-12-11T16:35:33.840Z'
+}
+{
+  message: 'Erro em processamento do job SendMessageConfirmar (ID: 18)',
+  error: 'Error: Lock ativo. Tentando novamente mais tarde.',
+  stack: 'Error: Error: Lock ativo. Tentando novamente mais tarde.\n' +
+    '    at handle (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts:134:13)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at Worker.processFn (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts:207:26)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\bullmq\\src\\classes\\worker.ts:990:26',
+  level: 'error',
+  timestamp: '2025-12-11T16:40:22.680Z'
+}
+{
+  error: Error: Error: Lock ativo. Tentando novamente mais tarde.
+      at handle (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts:134:13)
+      at processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at Worker.processFn (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts:207:26)
+      at C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\bullmq\src\classes\worker.ts:990:26,
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Job 18 falhou. Erro: Error: Lock ativo. Tentando novamente mais tarde.',
+  timestamp: '2025-12-11T16:40:22.896Z'
+}
+{
+  message: "Error send message confirmacao response: TypeError: Cannot read properties of undefined (reading 'integracaoId')",
+  level: 'error',
+  timestamp: '2025-12-11T17:41:00.917Z'
+}

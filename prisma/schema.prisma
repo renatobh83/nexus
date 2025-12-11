@@ -911,3 +911,28 @@ model UsersQueues {
   // Crucial para que o Prisma encontre a tabela correta.
   @@map("UsersQueues")
 }
+
+model IGConfirmacao {
+  id                String    @id @default(uuid())
+  status            String    @default("pending")
+  contatoSend       String?
+  contato           String?
+  lastMessage       String?
+  procedimentos     Json?
+  idexterno         Json?
+  atendimentoData   String?
+  atendimentoHora   String?
+  answered          Boolean   @default(false)
+  lastMessageAt     BigInt?
+  messageResponse   String?
+  integracaoId      Int?
+  preparoEnviado    Boolean   @default(false)
+  closedAt          BigInt?
+  channel           String?
+  enviada           DateTime?
+  // --- Timestamps ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("IGConfirmacao")
+}

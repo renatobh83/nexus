@@ -2,10 +2,10 @@ import fastify from "fastify";
 import { createBullBoard } from "@bull-board/api";
 import { BullMQAdapter } from "@bull-board/api/bullMQAdapter";
 import { FastifyAdapter } from "@bull-board/fastify";
-import { queues } from "../../lib/Queue";
+import { processQueues, queues } from "../../lib/Queue";
 
 export async function registerBullMQ(app: ReturnType<typeof fastify>) {
-  //   processQueues();
+  processQueues();
   const serverAdapter = new FastifyAdapter();
   createBullBoard({
     queues: queues.map((q) => new BullMQAdapter(q.bull)),

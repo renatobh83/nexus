@@ -11,6 +11,7 @@ import VerifyMessage from "./VerifyMessage";
 import { isValidFlowAnswer } from "../isValidFlowAnswer";
 import { isRetriesLimit } from "../../../core/Tickets/tickets.utils";
 import { sendBotMessage } from "../SendBotMessage";
+import { ProcessReturnMessage } from "../../../core/IGenesis/IGenesis.utils";
 
 export const HandleMessageReceived = async (
   message: Message,
@@ -25,7 +26,14 @@ export const HandleMessageReceived = async (
     const contact = await verifyContactWbot(message, app, wbot);
 
     let authorGrupMessage: any = "";
-
+    const isResponseIntegracao = await app.iGenesisServices.findOne({
+      contato: chat.id._serialized,
+      closedAt: null,
+    });
+    if (isResponseIntegracao) {
+      ProcessReturnMessage(message, isResponseIntegracao);
+      return;
+    }
     if (message.isGroupMsg && !message.fromMe) {
       const numberContato = await wbot.getContactLid(message.author);
       const contato = await app.contatoService.findContato({
