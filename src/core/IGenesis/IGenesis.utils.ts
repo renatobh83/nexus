@@ -140,9 +140,9 @@ export const ConfirmarExameApi = async (
 ) => {
   const body = new URLSearchParams();
   body.append("cd_atendimento", cdAtendimento.toString());
-  const apiUrl = getBaseUrlFromIntegracao(integracao);
-  if (apiUrl) {
-    const URL_FINAL = `${apiUrl}doAgendaConfirmar`;
+  const { baseUrl } = integracao.config_json as any;
+  if (baseUrl) {
+    const URL_FINAL = `${baseUrl}doAgendaConfirmar`;
     const instanceApi = await getApiInstance(integracao);
     try {
       const { data } = await instanceApi.post(URL_FINAL, body, {
@@ -150,55 +150,57 @@ export const ConfirmarExameApi = async (
           "Content-Type": "application/x-www-form-urlencoded",
         },
       });
-
+      console.log(data);
       return data;
     } catch (error) {
       console.error("Error na confirmacao de exames");
     }
   }
 };
-
-/**
- * Extrai e retorna o objeto de configuração parseado a partir de um objeto de integração.
- * Esta é uma função auxiliar interna, por isso não a exportamos.
- * @param integracao - O objeto de integração.
- * @returns O objeto IConfig ou null se a extração falhar.
- */
-function getParsedConfig(integracao: Integracoes): Config {
-  // 2. Tenta fazer o parse da string JSON.
-  const configObject = integracao.config_json as any;
-  return configObject;
+interface GetLaudoProps {
+  integracao: any;
+  cdAtendimento: number;
 }
 
-/**
- * Obtém a baseUrl de um objeto de integração de forma segura.
- * Esta é a função que você usará em toda a sua aplicação.
- * @param integracao - O objeto de integração completo.
- * @returns A string da baseUrl ou undefined se não for encontrada.
- */
-export function getBaseUrlFromIntegracao(
-  integracao: Integracoes
-): string | undefined {
-  const config = getParsedConfig(integracao);
-  const baseUrl = config.baseUrl;
+export const CancelarAgendamento = async ({
+  cdAtendimento,
+  integracao,
+}: GetLaudoProps) => {
+  const body = new URLSearchParams();
+  body.append("cd_atendimento", cdAtendimento.toString());
+  const url = `/doAgendaCancelar`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
 
-  if (!baseUrl) {
-    console.warn(
-      `'baseUrl' não encontrada para a integração ID: ${integracao.id}`
-    );
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, body, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Erro ao cancelar exame:", error);
+    throw error;
   }
+};
 
-  return baseUrl;
-}
+export const getPreparoExteno = async ({ integracao, atedimento }) => {
+  const url = `doProcedimentoPreparo`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  const body = new URLSearchParams();
+  body.append("cd_procedimento", atedimento);
+  const instanceApi = await getApiInstance(integracao);
+  try {
+    const { data } = await instanceApi.post(URL_FINAL, body);
 
-/**
- * Exemplo de outra função centralizada que você poderia criar.
- * @param integracao - O objeto de integração completo.
- * @returns O token JWT ou undefined.
- */
-export function getTokenFromIntegracao(
-  integracao: Integracoes
-): string | undefined {
-  const config = getParsedConfig(integracao);
-  return config?.tokenJwt;
-}
+    if (!data[0].bb_preparo) {
+      return null;
+    }
+    const blob = data[0].bb_preparo;
+
+    return blob;
+  } catch (error) {
+    console.error("Erro get preparo", error);
+  }
+};

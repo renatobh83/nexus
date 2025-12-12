@@ -1,4 +1,3 @@
-import { getTokenFromIntegracao } from "../IGenesis.utils";
 import https from "https";
 import axios from "axios";
 import { isTokenExpired } from "../../../ultis/isTokenExpired";
@@ -8,7 +7,7 @@ const agent = new https.Agent({
   rejectUnauthorized: false, // IGNORA erros de certificado SSL
 });
 export async function getApiInstance(integracao: any) {
-  let token = getTokenFromIntegracao(integracao);
+  let token = integracao.config_json.token;
   let url = "";
   try {
     if (!token || !token.trim() || isTokenExpired(token)) {
@@ -39,7 +38,7 @@ export async function getApiInstance(integracao: any) {
       baseURL: integracao.config_json.baseUrl,
       httpsAgent: agent,
       headers: {
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
       },
     });
   } catch (error: any) {
