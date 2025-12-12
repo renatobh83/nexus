@@ -15,7 +15,7 @@ export interface MessageData {
   id?: string;
   ticketId?: number;
   body?: string;
-  contactId?: number;
+  contactId: number;
   fromMe?: boolean;
   read?: boolean;
   mediaType?: string;
@@ -23,11 +23,11 @@ export interface MessageData {
   timestamp?: number;
   internalId?: string;
   userId?: number;
-  tenantId?: number;
+  tenantId: number;
   quotedMsgId?: string;
   scheduleDate?: Date;
   sendType?: string;
-  status?: string;
+  status: MessageStatus;
 }
 
 interface WebhookProps {
@@ -119,16 +119,20 @@ const BuildSendMessageService = async ({
       const rawMessageId = messageSent?.id ?? messageSent?.messageId ?? "";
       const messageId = String(rawMessageId || uuidV4());
 
-      //      const messageS =
-      // const newMessage =
-      //   await getFastifyApp().services.messageService.createMessage({
-      //     ...message,
-      //     ...messageSent,
-      //     messageId,
-      //     status: message.status as MessageStatus,
-      //     timestamp: new Date().getTime(),
-      //     tenantId,
-      //   });
+      const newMessage =
+        await getFastifyApp().services.messageService.createMessage({
+          ...messageData,
+          status: messageData.status,
+          read: messageSent.read,
+          fromMe: messageSent.fromMe,
+          body: messageSent.body,
+          timestamp: new Date().getTime(),
+          sendType: messageSent.sendType,
+          id: messageId,
+          idFront: uuidV4(),
+          messageId,
+          ack: 2,
+        });
 
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage:
@@ -139,7 +143,7 @@ const BuildSendMessageService = async ({
         answered: true,
       });
 
-      // socketEmit({ tenantId, type: "chat:create", payload: newMessage });
+      socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
     }
 
@@ -194,7 +198,12 @@ const BuildSendMessageService = async ({
       const message =
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
-          ...messageSent,
+          status: messageData.status,
+          read: messageSent.read,
+          fromMe: messageSent.fromMe,
+          body: messageSent.body,
+          timestamp: messageSent.timestamp,
+          sendType: messageSent.sendType,
           id: messageId,
           idFront: uuidV4(),
           messageId,
@@ -232,10 +241,16 @@ const BuildSendMessageService = async ({
     const messageId = String(
       messageSent?.id ?? messageSent?.messageId ?? uuidV4()
     );
+
     const message = await getFastifyApp().services.messageService.createMessage(
       {
         ...messageData,
-        ...messageSent,
+        status: messageData.status,
+        read: messageSent.read,
+        fromMe: messageSent.fromMe,
+        body: messageSent.body,
+        timestamp: messageSent.timestamp,
+        sendType: messageSent.sendType,
         id: messageId,
         idFront: uuidV4(),
         messageId,
