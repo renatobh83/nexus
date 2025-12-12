@@ -120,15 +120,15 @@ const BuildSendMessageService = async ({
       const messageId = String(rawMessageId || uuidV4());
 
       //      const messageS =
-      const newMessage =
-        await getFastifyApp().services.messageService.createMessage({
-          ...message,
-          ...messageSent,
-          messageId,
-          status: message.status as MessageStatus,
-          timestamp: new Date().getTime(),
-          tenantId,
-        });
+      // const newMessage =
+      //   await getFastifyApp().services.messageService.createMessage({
+      //     ...message,
+      //     ...messageSent,
+      //     messageId,
+      //     status: message.status as MessageStatus,
+      //     timestamp: new Date().getTime(),
+      //     tenantId,
+      //   });
 
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage:
@@ -139,7 +139,7 @@ const BuildSendMessageService = async ({
         answered: true,
       });
 
-      socketEmit({ tenantId, type: "chat:create", payload: newMessage });
+      // socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
     }
 
