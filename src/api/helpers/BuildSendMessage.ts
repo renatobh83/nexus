@@ -97,55 +97,49 @@ const BuildSendMessageService = async ({
       const urlSplit = isAbsolutePath
         ? msg.data.mediaUrl.split("\\")
         : msg.data.mediaUrl.split("/");
+      const message = {
+        ...messageData,
+        body: msg.data.name,
+        mediaName: urlSplit[0],
+        mediaUrl: urlSplit[0],
+        mediaType: msg.data.message?.mediaType || "chat",
+      };
 
-      // const message = {
-      //   ...messageData,
-      //   body: msg.data.name,
-      //   mediaName: urlSplit.at(-1),
-      //   mediaUrl: urlSplit.at(-1),
-      //   mediaType: msg.data.message?.mediaType || "chat",
-      // };
+      const customPath = join(__dirname, "..", "..", "..", "public");
+      const mediaPath = join(customPath, message.mediaUrl || "");
+      const media = { path: mediaPath, filename: message.mediaName };
 
-      // const customPath = join(__dirname, "..", "..", "..", "public");
-      // const mediaPath = join(customPath, message.mediaUrl || "");
-      // const media = { path: mediaPath, filename: message.mediaName };
+      const messageSent = await SendMessageSystemProxy({
+        ticket,
+        messageData: message,
+        media,
+        userId,
+      });
 
-      // const messageSent = await SendMessageSystemProxy({
-      //   ticket,
-      //   messageData: message,
-      //   media,
-      //   userId,
-      // });
+      const rawMessageId = messageSent?.id ?? messageSent?.messageId ?? "";
+      const messageId = String(rawMessageId || uuidV4());
 
-      // const rawMessageId = messageSent?.id ?? messageSent?.messageId ?? "";
-      // const messageId = String(rawMessageId || uuidV4());
+      //      const messageS =
+      const newMessage =
+        await getFastifyApp().services.messageService.createMessage({
+          ...message,
+          ...messageSent,
+          messageId,
+          status: message.status as MessageStatus,
+          timestamp: new Date().getTime(),
+          tenantId,
+        });
 
-      // const [existingMessage] = await Message.findOrCreate({
-      //   where: { messageId },
-      //   defaults: filterValidAttributes({
-      //     ...message,
-      //     ...messageSent,
-      //     id: messageId,
-      //   }),
-      // });
+      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+        lastMessage:
+          decrypt(messageSent.body).length > 255
+            ? decrypt(messageSent.body).slice(0, 252) + "..."
+            : decrypt(messageSent.body),
+        lastMessageAt: Date.now(),
+        answered: true,
+      });
 
-      // const messageCreated = await reloadMessageWithIncludes(
-      //   existingMessage.id,
-      //   tenantId
-      // );
-      // if (!messageCreated)
-      //   throw new AppError("ERR_CREATING_MESSAGE_SYSTEM", 422);
-
-      //    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-      //   lastMessage:
-      //     decrypt(message.body).length > 255
-      //       ? decrypt(message.body).slice(0, 252) + "..."
-      //       : decrypt(message.body),
-      //   lastMessageAt: Date.now(),
-      //   answered: true,
-      // });
-
-      // socketEmit({ tenantId, type: "chat:create", payload: messageCreated });
+      socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
     }
 

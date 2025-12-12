@@ -27,7 +27,7 @@ const SendMessageSystemProxy = async ({
   userId,
 }: Payload): Promise<Message> => {
   // TODO VER OS TIPOS DE MEDIA TYPE
-  const hasMedia = Boolean(messageData.mediaType === "image" && media);
+  const hasMedia = Boolean(messageData.mediaType !== "chat" && media);
   let message: any | null = null;
 
   switch (ticket.channel) {
@@ -65,7 +65,7 @@ const SendMessageSystemProxy = async ({
   // Se a mensagem foi enviada mas ainda está "pendente"
   // if (message?.ack === 0) return null;
   // const savedMessage = await waitForMessageSaved(message.id);
-// console.log(savedMessage)
+  // console.log(savedMessage)
   return message as Message;
 };
 
