@@ -31,6 +31,7 @@ export const wbotMessageListener = async (wbot: Session): Promise<void> => {
     if (msg.chatId === "status@broadcast") return;
     if (!msg.fromMe) return;
     if (msg.type === "list") return;
+
     const messageContent = msg.body || msg.caption || "";
     const isBlocked = blockedMessages.some((blocked) => {
       return messageContent.includes(blocked);

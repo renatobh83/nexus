@@ -191,6 +191,7 @@ const BuildSendMessageService = async ({
         });
       }
 
+
       const messageId = String(
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );

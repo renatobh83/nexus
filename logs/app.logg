@@ -6450,3 +6450,53 @@
     '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:47:5)',
   timestamp: '2025-12-12T19:37:10.442Z'
 }
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of undefined (reading 'findFirst')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'findFirst')\n" +
+    '    at IGenesisRepository.findOne (/Users/renato/Desktop/Dev/nexus/src/core/IGenesis/IGenesis.repository.ts:8:39)\n' +
+    '    at IGenesisServices.findOne (/Users/renato/Desktop/Dev/nexus/src/core/IGenesis/IGenesis.services.ts:31:53)\n' +
+    '    at HandleMessageReceived (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts:29:61)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:47:5)',
+  timestamp: '2025-12-12T23:10:18.417Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (/Users/renato/Desktop/Dev/nexus/src/api/helpers/BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at handleNextStep (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.service.ts:496:7)\n' +
+    '    at HandleMessageReceived (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts:129:7)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:47:5)',
+  timestamp: '2025-12-12T23:14:48.430Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (/Users/renato/Desktop/Dev/nexus/src/api/helpers/BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at handleNextStep (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.service.ts:496:7)\n' +
+    '    at HandleMessageReceived (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts:129:7)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:47:5)',
+  timestamp: '2025-12-12T23:15:29.795Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (/Users/renato/Desktop/Dev/nexus/src/api/helpers/BuildSendMessage.ts:278:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at handleNextStep (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.service.ts:496:7)\n' +
+    '    at HandleMessageReceived (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts:129:7)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-12T23:30:54.899Z'
+}

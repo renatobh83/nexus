@@ -32,7 +32,7 @@ export class MessageService {
    */
   async createMessage(dto: MessageDTO): Promise<Message> {
     // --- LÓGICA DO HOOK 'beforeCreate' ---
-    let bodyToSave = dto.body.trim();
+    let bodyToSave = (dto.body ?? "").trim();
     if (bodyToSave === "") {
       bodyToSave = "Bot message - sem conteudo";
     }
