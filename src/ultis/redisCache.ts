@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+import { SessaoUsuario } from "../core/IGenesis/types";
 import { redisClient } from "../lib/redis";
 
 // Buscar do cache
@@ -23,13 +25,50 @@ export const REDIS_KEYS = {
   //   `cache:wpp:setting:ignoreGroup:${tenantId}`,
   sessao: (ticketId: number) => `sessao:${ticketId}`,
   previousStepId: (ticketId: number) => `stepFromTicket:${ticketId}`,
+  horarioAgendamento: (horarioId: any) => `horario:${horarioId}`,
 };
 
 /// INTEGRACAO
 
 export async function salvarSessaoUsuario(
-  userId: number,
+  ticketId: number,
   sessao: any
 ): Promise<void> {
-  await setCache(REDIS_KEYS.sessao(userId), sessao);
+  await setCache(REDIS_KEYS.sessao(ticketId), sessao);
+}
+
+export async function obterSessaoUsuarioRedis(
+  ticketId: number
+): Promise<SessaoUsuario> {
+  const sessaoExist = (await getCache(
+    REDIS_KEYS.sessao(ticketId)
+  )) as SessaoUsuario;
+  if (sessaoExist) {
+    console.log("s", sessaoExist);
+    return sessaoExist;
+  }
+  const novaSessao: SessaoUsuario = {
+    dadosPaciente: {},
+    unidadeSelecionada: null,
+    planoSelecionado: null,
+    examesParaAgendar: [],
+    ultimaDataConsulta: format(new Date(), "dd/MM/yyyy"),
+    horarioSelecionado: null,
+    cadastro: null,
+    cdHorario: null,
+    intervaloSelecionado: "",
+    medicosSelecionados: null,
+    ultimoExameSelecionado: null,
+    valorTotalExames: 0,
+    listaAtendimentos: [],
+    listaAgendamentos: [],
+    listaPlanos: [],
+    listaUnidades: [],
+    listaExames: [],
+    examesComMedicos: [],
+    errosResponse: 0,
+  };
+  console.log(novaSessao);
+  await salvarSessaoUsuario(ticketId, JSON.stringify(novaSessao)); // TTL de 1h
+  return novaSessao;
 }

@@ -150,7 +150,7 @@ export const ConfirmarExameApi = async (
           "Content-Type": "application/x-www-form-urlencoded",
         },
       });
-      console.log(data);
+
       return data;
     } catch (error) {
       console.error("Error na confirmacao de exames");
@@ -202,5 +202,38 @@ export const getPreparoExteno = async ({ integracao, atedimento }) => {
     return blob;
   } catch (error) {
     console.error("Erro get preparo", error);
+  }
+};
+
+// Helper Flow
+
+import axios from "axios";
+interface ConsultaPacienteProps {
+  senha: string;
+  integracao: any;
+  cpf: string;
+}
+export const ConsultaPaciente = async ({
+  senha,
+  integracao,
+  cpf,
+}: ConsultaPacienteProps) => {
+  try {
+    const url = "doPacienteLogin";
+    const body = new URLSearchParams();
+    body.append("id", cpf);
+    body.append("pw", senha);
+
+    const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+
+    const { data } = await axios.post(URL_FINAL, body, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+    return data;
+  } catch (error: any) {
+    console.error("doPacienteLogin", error);
+    return error.response.data;
   }
 };

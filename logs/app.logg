@@ -3587,3 +3587,524 @@
   ],
   timestamp: '2025-12-12T10:52:01.682Z'
 }
+{
+  message: 'Unhandled Rejection: DriverAdapterError: invalid input value for enum "enum_Messages_status": "sent"',
+  level: 'error',
+  timestamp: '2025-12-12T14:15:38.544Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:271:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleNextStep (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:496:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-12T14:18:19.070Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:277:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleNextStep (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:496:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:69:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21',
+  timestamp: '2025-12-12T14:19:36.524Z'
+}
+{
+  error: Error: Cannot find module '../utils/utils'
+  Require stack:
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\messages\message_utils.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actions\action_handlers.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actions\action_dispatcher.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actionsIGenesis.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\BuildSendMessage.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Tickets\tickets.utils.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\HandleMessageReceived.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\wbotMessageListener.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\wbot.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\bullMq.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\server.ts
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1227:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.require (node:internal/modules/cjs/loader:1504:12)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\messages\message_utils.ts:3:1)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../utils/utils'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    "Error: Cannot find module '../utils/utils'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1227:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1504:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts:3:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)',
+  stack: "Error: Cannot find module '../utils/utils'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1227:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1504:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts:3:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)',
+  exception: true,
+  date: 'Fri Dec 12 2025 12:09:55 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 22920,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 129998848,
+      heapTotal: 107036672,
+      heapUsed: 49365160,
+      external: 4090238,
+      arrayBuffers: 405615
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 20317.812 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._resolveFilename',
+      line: 1421,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1059,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1064,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1227,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 328,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 245,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1504,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 152,
+      method: null,
+      native: false
+    },
+    {
+      column: 1,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts',
+      function: null,
+      line: 3,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-12T15:09:55.839Z'
+}
+{
+  error: Error: Cannot find module '../services/IntegracoesServices/Genesis/utils/gerarMensagemExame'
+  Require stack:
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\ultis\templateButtons.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\messages\message_utils.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actions\action_handlers.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actions\action_dispatcher.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\ChatFlow\FlowIntegracao\genesis\actionsIGenesis.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\BuildSendMessage.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Tickets\tickets.utils.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\HandleMessageReceived.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\wbotMessageListener.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\wbot.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\bullMq.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\server.ts
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1227:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.require (node:internal/modules/cjs/loader:1504:12)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\ultis\templateButtons.ts:2:1)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '../services/IntegracoesServices/Genesis/utils/gerarMensagemExame'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    "Error: Cannot find module '../services/IntegracoesServices/Genesis/utils/gerarMensagemExame'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1227:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1504:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts:2:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)',
+  stack: "Error: Cannot find module '../services/IntegracoesServices/Genesis/utils/gerarMensagemExame'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\messages\\message_utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_handlers.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actions\\action_dispatcher.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\FlowIntegracao\\genesis\\actionsIGenesis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1421:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1227:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1504:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts:2:1)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1761:14)',
+  exception: true,
+  date: 'Fri Dec 12 2025 12:16:55 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 10172,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+    version: 'v24.11.1',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nodePortable\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 129982464,
+      heapTotal: 106807296,
+      heapUsed: 46663576,
+      external: 4041592,
+      arrayBuffers: 357524
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 20737.078 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._resolveFilename',
+      line: 1421,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1059,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1064,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1227,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 328,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 245,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1504,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 152,
+      method: null,
+      native: false
+    },
+    {
+      column: 1,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\ultis\\templateButtons.ts',
+      function: null,
+      line: 2,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1761,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-12T15:16:55.093Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:249:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleNextStep (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:202:7)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:496:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-12T15:44:16.641Z'
+}
