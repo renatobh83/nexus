@@ -19,8 +19,6 @@ export async function dispatchAction({
   sessao,
   input,
 }: DispatcherParams) {
-  console.log("Action Integracao", action, input);
-
   switch (action) {
     case "Inicio":
       return ActionHandlers.handleInicioNode({
@@ -55,6 +53,14 @@ export async function dispatchAction({
         sessao,
         input,
       });
+    case "servicoescolhido":
+      return ActionHandlers.handleServicoEscolhido({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
     // case "linkcadastro":
     //   return ActionHandlers.handleLinkCadastro({
     //     integracao,
@@ -63,63 +69,55 @@ export async function dispatchAction({
     //     sessao,
     //     input,
     //   });
-    // case "servicoescolhido":
-    //   return ActionHandlers.handleServicoEscolhido({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "agendamentos":
-    //   return ActionHandlers.handleAgendamentos({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "laudo":
-    //   return ActionHandlers.handleLaudo({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
+    case "agendamentos":
+      return ActionHandlers.handleAgendamentos({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "laudo":
+      return ActionHandlers.handleLaudo({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
 
-    // case "laudopdf":
-    //   return ActionHandlers.handleLaudoPdf({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "preparo":
-    //   return ActionHandlers.handlePreparo({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "sendpreparo":
-    //   return ActionHandlers.handleSendPreparo({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "confirmar":
-    //   return ActionHandlers.handleConfirmarExame({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
+    case "laudopdf":
+      return ActionHandlers.handleLaudoPdf({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "preparo":
+      return ActionHandlers.handlePreparo({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "sendpreparo":
+      return ActionHandlers.handleSendPreparo({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "confirmar":
+      return ActionHandlers.handleConfirmarExame({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
     // case "agendar":
     // case "marcar":
     // case "agendamento":

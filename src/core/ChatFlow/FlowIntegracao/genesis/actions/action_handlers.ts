@@ -5,11 +5,27 @@ import {
   getCache,
 } from "../../../../../ultis/redisCache";
 import { validarCPF } from "../../../../../ultis/validarCPF";
-import { ConsultaPaciente } from "../../../../IGenesis/IGenesis.utils";
+import {
+  ConfirmarExameApi,
+  ConsultaAgendamentos,
+  ConsultaAtendimentos,
+  ConsultaPaciente,
+  GetLaudo,
+  getPreparo,
+} from "../../../../IGenesis/IGenesis.utils";
 import { SessaoUsuario } from "../../../../IGenesis/types";
 import { Ticket } from "@prisma/client";
 import {
+  generateAppointmentListMessage,
+  generateConfirmaMessage,
+  generateLaudoListMessage,
+  generateLaudoPdfMessage,
+  generateNoAppointmentMessage,
+  generateNoLaudoMessage,
   generatePatientNotFoundMessage,
+  generatePreparoSelectionMessage,
+  generateSendPreparoMessage,
+  generateServiceSelectionMessage,
   generateWelcomeMessage,
 } from "../messages/message_utils";
 
@@ -199,6 +215,18 @@ export async function handleSolicitarSenha({
   );
 }
 
+export async function handleServicoEscolhido({
+  ticket,
+  sessao,
+}: ActionHandlerParams) {
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    botRetries: 0,
+    lastInteractionBot: new Date(),
+  });
+  sessao.errosResponse = 0;
+  const servicosDisponiveis = ["Agendamentos", "Laudos"];
+  return generateServiceSelectionMessage(servicosDisponiveis, ticket.channel!);
+}
 // export async function handleLinkCadastro({
 //   integracao,
 //   ticket,
@@ -215,149 +243,133 @@ export async function handleSolicitarSenha({
 //   return `🤖 Clique no link para se cadastrar:\n\n${link}\n\nO link irá expirar em 15minutos.\nEsse atendimento sera encerrado.`;
 // }
 
-// export async function handleServicoEscolhido({
-//   ticket,
-//   sessao,
-// }: ActionHandlerParams) {
-//   ticket.update({
-//     botRetries: 0,
-//     lastInteractionBot: new Date(),
-//   });
-//   sessao.errosResponse = 0;
-//   const servicosDisponiveis = ["Agendamentos", "Laudos"];
-//   return generateServiceSelectionMessage(servicosDisponiveis, ticket.channel);
-// }
+export async function handleAgendamentos({
+  integracao,
+  ticket,
+  sessao,
+}: ActionHandlerParams) {
+  await setCache(REDIS_KEYS.previousStepId(ticket.id), ticket.stepChatFlow);
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastInteractionBot: new Date(),
+  });
+  sessao.errosResponse = 0;
+  sessao.listaAgendamentos = await ConsultaAgendamentos({
+    ticket,
+    codPaciente: sessao.dadosPaciente.cd_paciente,
+    integracao,
+    sessao,
+  });
 
-// export async function handleAgendamentos({
-//   integracao,
-//   ticket,
-//   sessao,
-// }: ActionHandlerParams) {
-//   PREVIOUS_STEPID = ticket.stepChatFlow;
-//   ticket.update({
-//     lastInteractionBot: new Date(),
-//   });
-//   sessao.errosResponse = 0;
-//   sessao.listaAgendamentos = await ConsultaAgendamentosHelper({
-//     ticket,
-//     codPaciente: sessao.dadosPaciente.cd_paciente,
-//     integracao,
-//     sessao,
-//   });
+  if (
+    Array.isArray(sessao.listaAgendamentos) &&
+    sessao.listaAgendamentos.length > 0
+  ) {
+    return generateAppointmentListMessage(sessao.listaAgendamentos);
+  } else {
+    return generateNoAppointmentMessage();
+  }
+}
 
-//   if (
-//     Array.isArray(sessao.listaAgendamentos) &&
-//     sessao.listaAgendamentos.length > 0
-//   ) {
-//     return generateAppointmentListMessage(sessao.listaAgendamentos);
-//   } else {
-//     return generateNoAppointmentMessage();
-//   }
-// }
+export async function handleLaudo({
+  integracao,
+  ticket,
+  sessao,
+}: ActionHandlerParams) {
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastInteractionBot: new Date(),
+  });
 
-// export async function handleLaudo({
-//   integracao,
-//   ticket,
-//   sessao,
-// }: ActionHandlerParams) {
-//   ticket.update({
-//     lastInteractionBot: new Date(),
-//   });
+  sessao.errosResponse = 0;
+  sessao.listaAtendimentos = await ConsultaAtendimentos({
+    integracao,
+    codigoPaciente: sessao.dadosPaciente.cd_paciente,
+    token: sessao.dadosPaciente.ds_token,
+  });
+  if (
+    Array.isArray(sessao.listaAtendimentos) &&
+    sessao.listaAtendimentos.length
+  ) {
+    return generateLaudoListMessage(sessao.listaAtendimentos);
+  } else {
+    return generateNoLaudoMessage();
+  }
+}
 
-//   sessao.errosResponse = 0;
-//   sessao.listaAtendimentos = await ConsultaAtendimentosHelper({
-//     integracao,
-//     codigoPaciente: sessao.dadosPaciente.cd_paciente,
-//     token: sessao.dadosPaciente.ds_token,
-//   });
-//   if (
-//     Array.isArray(sessao.listaAtendimentos) &&
-//     sessao.listaAtendimentos.length
-//   ) {
-//     return generateLaudoListMessage(sessao.listaAtendimentos);
-//   } else {
-//     return generateNoLaudoMessage();
-//   }
-// }
+export async function handleLaudoPdf({
+  integracao,
+  ticket,
+  msg,
+  sessao,
+}: ActionHandlerParams) {
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastInteractionBot: new Date(),
+  });
+  sessao.errosResponse = 0;
+  const selectedLaudo = sessao.listaAtendimentos![+ticket.lastMessage! - 1];
+  await GetLaudo({
+    cdExame: +selectedLaudo!.cd_exame,
+    integracao,
+    ticket,
+    exame: selectedLaudo!.ds_procedimento,
+    cdPaciente: sessao.dadosPaciente.cd_paciente,
+  });
 
-// export async function handleLaudoPdf({
-//   integracao,
-//   ticket,
-//   msg,
-//   sessao,
-// }: ActionHandlerParams) {
-//   ticket.update({
-//     lastInteractionBot: new Date(),
-//   });
-//   sessao.errosResponse = 0;
-//   const selectedLaudo = sessao.listaAtendimentos![+ticket.lastMessage - 1];
-//   await GetLaudoHelper({
-//     cdExame: +selectedLaudo!.cd_exame,
-//     integracao,
-//     ticket,
-//     exame: selectedLaudo!.ds_procedimento,
-//     cdPaciente: sessao.dadosPaciente.cd_paciente,
-//   });
+  return generateLaudoPdfMessage();
+}
 
-//   return generateLaudoPdfMessage();
-// }
+export async function handlePreparo({ ticket, sessao }: ActionHandlerParams) {
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastInteractionBot: new Date(),
+  });
+  sessao.errosResponse = 0;
 
-// export async function handlePreparo({ ticket, sessao }: ActionHandlerParams) {
-//   ticket.update({
-//     lastInteractionBot: new Date(),
-//   });
-//   sessao.errosResponse = 0;
-//   // Assuming listaAgendamentos is accessible here, or passed as a parameter
-//   // For now, I'll assume it's a global or passed in a more refactored way.
-//   // This needs to be properly managed in the main dispatcher.
-//   return generatePreparoSelectionMessage(
-//     sessao.listaAgendamentos!,
-//     ticket.channel
-//   );
-//   // return "Preparo ainda não implementado completamente."; // Placeholder
-// }
+  return generatePreparoSelectionMessage(
+    sessao.listaAgendamentos!,
+    ticket.channel!
+  );
+}
 
-// export async function handleSendPreparo({
-//   integracao,
-//   ticket,
-//   msg,
-//   sessao,
-// }: ActionHandlerParams) {
-//   ticket.update({
-//     lastInteractionBot: new Date(),
-//   });
-//   sessao.errosResponse = 0;
-//   let procedimento: string = "";
-//   if (msg.msg.type === "reply_markup") {
-//     procedimento = msg.msg.body.toLowerCase().trim().split("_")[1];
-//   }
-//   if (msg.msg.type === "list_response") {
-//     procedimento = String(msg.msg.listResponse.singleSelectReply.selectedRowId)
-//       .toLowerCase()
-//       .trim()
-//       .split("_")[1] as string;
-//   }
-//   const cdProcedimento = procedimento.split(";");
-//   const data = await Promise.all(
-//     cdProcedimento.map(async (procedimento) => {
-//       return await GetPreparoHelper(procedimento, integracao, ticket);
-//     })
-//   );
-//   return generateSendPreparoMessage(data);
-// }
-// export async function handleConfirmarExame({
-//   ticket,
-//   sessao,
-//   integracao,
-// }: ActionHandlerParams) {
-//   const exameParaConfirmar =
-//     sessao.listaAgendamentos![+ticket.lastMessage - 1].cd_atendimento;
-//   const responseCofirmacao = await ConfirmarHelper({
-//     integracao,
-//     cdAtendimento: exameParaConfirmar,
-//   });
-//   return generateConfirmaMessage(responseCofirmacao);
-// }
+export async function handleSendPreparo({
+  integracao,
+  ticket,
+  msg,
+  sessao,
+}: ActionHandlerParams) {
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastInteractionBot: new Date(),
+  });
+  sessao.errosResponse = 0;
+  let procedimento: string = "";
+  if (msg.msg.type === "reply_markup") {
+    procedimento = msg.msg.body.toLowerCase().trim().split("_")[1];
+  }
+  if (msg.msg.type === "list_response") {
+    procedimento = String(msg.msg.listResponse.singleSelectReply.selectedRowId)
+      .toLowerCase()
+      .trim()
+      .split("_")[1] as string;
+  }
+  const cdProcedimento = procedimento.split(";");
+  const data = await Promise.all(
+    cdProcedimento.map(async (procedimento) => {
+      return await getPreparo(procedimento, integracao, ticket);
+    })
+  );
+  return generateSendPreparoMessage(data);
+}
+export async function handleConfirmarExame({
+  ticket,
+  sessao,
+  integracao,
+}: ActionHandlerParams) {
+  const exameParaConfirmar =
+    sessao.listaAgendamentos![+ticket.lastMessage! - 1].cd_atendimento;
+  const responseCofirmacao = await ConfirmarExameApi(
+    exameParaConfirmar,
+    integracao
+  );
+  return generateConfirmaMessage(responseCofirmacao);
+}
 // export async function handleConfirmarExame({
 //   ticket,
 //   sessao,

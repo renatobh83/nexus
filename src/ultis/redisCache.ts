@@ -44,7 +44,6 @@ export async function obterSessaoUsuarioRedis(
     REDIS_KEYS.sessao(ticketId)
   )) as SessaoUsuario;
   if (sessaoExist) {
-    console.log("s", sessaoExist);
     return sessaoExist;
   }
   const novaSessao: SessaoUsuario = {
@@ -68,7 +67,7 @@ export async function obterSessaoUsuarioRedis(
     examesComMedicos: [],
     errosResponse: 0,
   };
-  console.log(novaSessao);
+
   await salvarSessaoUsuario(ticketId, JSON.stringify(novaSessao)); // TTL de 1h
   return novaSessao;
 }

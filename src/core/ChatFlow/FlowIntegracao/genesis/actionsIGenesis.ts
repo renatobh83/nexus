@@ -11,11 +11,9 @@ export const actionsIntegracaoGenesis = async (
   msg: any
 ) => {
   const action = msg.data.webhook?.acao!;
-  console.log("Estou no Action GENESIS", action, msg);
 
   const sessao = await obterSessaoUsuarioRedis(ticket.id); // carrega ou cria a sessão no Redis
   const input: any = ticket.lastMessage;
-  console.log(input);
 
   try {
     const result = await dispatchAction({

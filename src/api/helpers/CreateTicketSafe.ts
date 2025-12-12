@@ -56,7 +56,18 @@ export const findOrCreateTicketSafe = async (params: {
         logger.info(
           `[Channel-${whatsappId}] Ticket ${existingTicket.id} já existia. Usando-o.`
         );
-        return { ticket: existingTicket, isNew: false };
+
+        const updateTicketLastMessage = await TicketService.updateTicket(
+          existingTicket.id,
+          {
+            lastMessage: msg.text
+              ? msg.text
+              : msg.content.length > 255
+              ? msg.content.slice(0, 252) + "..."
+              : msg.content,
+          }
+        );
+        return { ticket: updateTicketLastMessage, isNew: false };
       }
 
       // Se não existe, cria o novo ticket

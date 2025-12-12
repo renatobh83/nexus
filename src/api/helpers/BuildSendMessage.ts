@@ -71,7 +71,6 @@ const BuildSendMessageService = async ({
   userId,
 }: Request): Promise<void> => {
   try {
-    console.log(msg.type);
     const messageData: MessageData = {
       ticketId: ticket.id,
       body: "",
@@ -176,7 +175,7 @@ const BuildSendMessageService = async ({
           );
         }
       }
-      console.log("OPT", options);
+
       if (!options) return;
 
       let messageSent: any;
@@ -249,7 +248,7 @@ const BuildSendMessageService = async ({
         ack: 2,
       }
     );
-    console.log(decrypt(message.body));
+
     await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
       lastMessage:
         decrypt(message.body).length > 255

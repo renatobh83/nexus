@@ -300,7 +300,6 @@ export class MessageService {
             ticket: { id: savedMessage.ticket!.id },
             contact: savedMessage.contact!.id,
           };
-          console.log("emit");
           socketEmit({
             tenantId,
             type: "chat:create",

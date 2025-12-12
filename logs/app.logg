@@ -4108,3 +4108,2282 @@
     '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
   timestamp: '2025-12-12T15:44:16.641Z'
 }
+{
+  code: 'P2025',
+  meta: { modelName: 'Ticket', operation: 'an update' },
+  clientVersion: '7.1.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.\n' +
+    '    at qr.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:228:13)\n' +
+    '    at qr.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at qr.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:805:24)\n' +
+    '    at TicketRepository.update (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:20)\n' +
+    '    at TicketService.updateTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:243:27)\n' +
+    '    at VerifyMessageTbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\VerifyMessageTbot.ts:60:25)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:141:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5',
+  timestamp: '2025-12-12T16:45:24.289Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:03.256Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:03.475Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:03.477Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:13.472Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:13.596Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:13.597Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:23.649Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:23.769Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:23.771Z'
+}
+{
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): read ECONNRESET',
+  stack: 'Error: read ECONNRESET\n' +
+    '    at TCP.onStreamRead (node:internal/stream_base_commons:216:20)',
+  timestamp: '2025-12-12T17:05:31.602Z'
+}
+{
+  error: Error: read ECONNRESET
+      at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: read ECONNRESET',
+  timestamp: '2025-12-12T17:05:31.615Z'
+}
+{
+  error: Error: read ECONNRESET
+      at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: read ECONNRESET',
+  timestamp: '2025-12-12T17:05:31.615Z'
+}
+{
+  error: Error: read ECONNRESET
+      at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -4077,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: read ECONNRESET',
+  timestamp: '2025-12-12T17:05:31.616Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:33.860Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:33.985Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:33.987Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:05:41.691Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:41.696Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:41.696Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:41.696Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:44.131Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:44.265Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:44.267Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:05:51.810Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:51.815Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:51.815Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:51.816Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:54.451Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:54.575Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:05:54.576Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:01.974Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:01.977Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:01.977Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:01.978Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:04.823Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:04.946Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:04.948Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:12.188Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:12.191Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:12.191Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:12.191Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:15.254Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:15.372Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:15.375Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:22.458Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:22.461Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:22.461Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:22.461Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:25.718Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:25.838Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:25.841Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:32.775Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:32.782Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:32.782Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:32.783Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:36.239Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:36.364Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:36.365Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:43.160Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:43.165Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:43.165Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:43.165Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:46.804Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:46.942Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:46.945Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:06:53.594Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:53.600Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:53.600Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:53.601Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:57.425Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:57.565Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:06:57.566Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:04.079Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:04.083Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:04.084Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:04.084Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:08.095Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:08.231Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:08.233Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:14.614Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:14.617Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:14.617Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:14.617Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:18.814Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:18.960Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:18.962Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:25.191Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:25.195Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:25.195Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:25.196Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:29.586Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:29.725Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:29.727Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:35.813Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:35.815Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:35.816Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:35.816Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:40.410Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:40.545Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:40.546Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:46.479Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:46.484Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:46.484Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:46.485Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:51.272Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:51.431Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:51.435Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:07:57.201Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:57.203Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:57.203Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:07:57.203Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:02.199Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:02.361Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:02.363Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:08:07.973Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:07.975Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:07.976Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:07.976Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:13.177Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:13.335Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:13.336Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:08:18.789Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:18.794Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:18.794Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:18.795Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:24.212Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:24.360Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:24.362Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:08:29.657Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:29.662Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:29.663Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:29.663Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:35.269Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:35.419Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:35.421Z'
+}
+{
+  errorno: 'ETIMEDOUT',
+  code: 'ETIMEDOUT',
+  syscall: 'connect',
+  level: 'error',
+  message: 'Erro na conexão Redis (redisForWorkers): connect ETIMEDOUT',
+  stack: 'Error: connect ETIMEDOUT\n' +
+    '    at Socket.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\ioredis\\built\\Redis.js:171:41)\n' +
+    '    at Object.onceWrapper (node:events:622:28)\n' +
+    '    at Socket.emit (node:events:508:28)\n' +
+    '    at Socket._onTimeout (node:net:604:8)\n' +
+    '    at listOnTimeout (node:internal/timers:605:17)\n' +
+    '    at processTimers (node:internal/timers:541:7)',
+  timestamp: '2025-12-12T17:08:40.589Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:40.593Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:40.594Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:40.594Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker SendMessageConfirmar] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:46.389Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:46.548Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-12T17:08:46.549Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'slice')",
+  level: 'error',
+  timestamp: '2025-12-12T17:20:53.000Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-12T17:20:53.332Z'
+}
