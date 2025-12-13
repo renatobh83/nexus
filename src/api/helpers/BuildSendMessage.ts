@@ -134,14 +134,14 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
-      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-        lastMessage:
-          decrypt(messageSent.body).length > 255
-            ? decrypt(messageSent.body).slice(0, 252) + "..."
-            : decrypt(messageSent.body),
-        lastMessageAt: Date.now(),
-        answered: true,
-      });
+      // await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+      //   lastMessage:
+      //     decrypt(messageSent.body).length > 255
+      //       ? decrypt(messageSent.body).slice(0, 252) + "..."
+      //       : decrypt(messageSent.body),
+      //   lastMessageAt: Date.now(),
+      //   answered: true,
+      // });
 
       socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
@@ -211,6 +211,7 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
+        console.log(message)
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage:
           decrypt(message.body).length > 255

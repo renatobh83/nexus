@@ -433,11 +433,11 @@ export const GetLaudo = async ({
       },
     });
   } catch (error) {
-    console.error("Erro ao confirmar exame:", error);
+    console.error("Erro ao GetLaudo exame:", error);
     throw error;
   } finally {
     // remove arquivo depois do envio
-    // await fs.unlink(filePath).catch(() => {});
+    await fs.unlink(filePath).catch(() => {});
   }
 };
 
