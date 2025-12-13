@@ -145,6 +145,7 @@ const TelegramSendMessagesSystem = async (
       payload: messageToSocket,
     });
     logger.info("Message Update ok");
+    console.log(messageToUpdate)
     return messageToUpdate;
   } catch (error: any) {
     const idMessage = message.id;
