@@ -184,7 +184,7 @@ export const handleNextStep = async (
   msg: WbotMessage | any
 ): Promise<void> => {
   if (stepCondition.action === ChatFlowAction.NextStep) {
-    await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
+    const update = await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
       stepChatFlow: stepCondition.nextStepId,
       botRetries: 0,
       lastInteractionBot: new Date(),
@@ -202,7 +202,7 @@ export const handleNextStep = async (
       await BuildSendMessageService({
         msg: { ...interaction, msg },
         tenantId: ticket.tenantId,
-        ticket,
+        ticket: update
       });
     }
   }

@@ -572,12 +572,13 @@ export class TicketService {
     ticket: Ticket,
     data: Partial<any>,
     socketType: "ticket:update" | "ticket:update_chatflow" = "ticket:update"
-  ): Promise<void> {
-    await this.ticketRepository.update(ticket.id, data);
+  ): Promise<Ticket> {
+    
     socketEmit({
       tenantId: ticket.tenantId,
       type: socketType,
       payload: ticket,
     });
+    return await this.ticketRepository.update(ticket.id, data);
   }
 }
