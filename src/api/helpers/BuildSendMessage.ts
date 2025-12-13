@@ -10,7 +10,7 @@ import { SendWhatsMessageList } from "./Wbot/SendWhatsAppMessageList";
 import { MessageStatus } from "../../core/messages/message.type";
 import { actionsIntegracaoGenesis } from "../../core/ChatFlow/FlowIntegracao/genesis/actionsIGenesis";
 import { decrypt } from "../../lib/crypto";
-import { enum_Messages_sendType } from "@prisma/client";
+
 
 export interface MessageData {
   id?: string;
@@ -86,7 +86,7 @@ const BuildSendMessageService = async ({
       status: "pending" as MessageStatus,
       tenantId,
     };
-    console.log(msg.type )
+    console.info(msg.type)
     // ------------------------------------------------------------
     // 🧩 1. MEDIA FIELD
     // ------------------------------------------------------------
@@ -115,7 +115,7 @@ const BuildSendMessageService = async ({
         messageData: message,
         media,
         userId,
-      });
+      }) as any
 
       const rawMessageId = messageSent?.id ?? messageSent?.messageId ?? "";
       const messageId = String(rawMessageId || uuidV4());
@@ -124,11 +124,11 @@ const BuildSendMessageService = async ({
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-          read: messageSent.read ?? true,
-          fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
+          read: messageSent.read,
+          fromMe: messageSent.fromMe,
           body: messageSent.body,
-          timestamp:new Date().getTime(),
-            sendType: (messageData.sendType as enum_Messages_sendType) ?? messageSent.sendType,
+          timestamp: messageSent.timestamp,
+          sendType: messageSent.sendType,
           id: messageId,
           idFront: uuidV4(),
           messageId,
@@ -192,7 +192,7 @@ const BuildSendMessageService = async ({
         });
       }
 
-      console.log(messageSent)
+
 
       const messageId = String(
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
@@ -202,11 +202,11 @@ const BuildSendMessageService = async ({
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-          read: messageSent?.read ?? true,
-          fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
+          read: messageSent.read,
+          fromMe: messageSent.fromMe,
           body: messageSent.body,
           timestamp: messageSent.timestamp,
-          sendType: messageData.sendType ?? messageSent.sendType,
+          sendType: messageSent.sendType,
           id: messageId,
           idFront: uuidV4(),
           messageId,
@@ -250,11 +250,11 @@ const BuildSendMessageService = async ({
       {
         ...messageData,
         status: messageData.status,
-        read: messageSent.read ?? true,
-        fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
+        read: messageSent.read,
+        fromMe: messageSent.fromMe,
         body: messageSent.body,
         timestamp: messageSent.timestamp,
-        sendType: messageData.sendType ?? messageSent.sendType,
+        sendType: messageSent.sendType,
         id: messageId,
         idFront: uuidV4(),
         messageId,

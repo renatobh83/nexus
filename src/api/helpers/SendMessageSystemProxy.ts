@@ -61,7 +61,7 @@ const SendMessageSystemProxy = async ({
         ? await SendMessageMediaChatClient(media, ticket)
         : await SendMessageChatClient(messageData, ticket);
   }
-  console.log("in send", message)
+
 
   // Se a mensagem foi enviada mas ainda está "pendente"
   // if (message?.ack === 0) return null;
