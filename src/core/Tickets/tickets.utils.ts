@@ -212,7 +212,7 @@ export const handleQueueAssignment = async (
   ticket: Ticket,
   flowConfig: any,
   stepCondition: any
-): Promise<void> => {
+): Promise<any> => {
   try {
     if (stepCondition.action === ChatFlowAction.QueueDefine) {
       if (!(await handleBusinessHoursCheck(ticket))) return;
