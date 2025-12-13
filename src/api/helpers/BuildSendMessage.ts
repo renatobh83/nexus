@@ -195,12 +195,12 @@ const BuildSendMessageService = async ({
       const messageId = String(
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );
-
+      
       const message =
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-          read: messageSent.read,
+          read: messageSent.read ?? true,
           fromMe: messageSent.fromMe,
           body: messageSent.body,
           timestamp: messageSent.timestamp,
