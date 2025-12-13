@@ -44,7 +44,7 @@ export class ContatoService {
       const wbot = getWbot(wppConnect.id);
       try {
         const contato = await wbot.checkNumberStatus(data.number!);
-        if (contato) {
+        if (contato.numberExists) {
           data.serializednumber = contato.id._serialized;
           data.isWAContact = true;
           data.number = contato.id.user.replace("55", "");
