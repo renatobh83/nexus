@@ -86,7 +86,7 @@ const BuildSendMessageService = async ({
       status: "pending" as MessageStatus,
       tenantId,
     };
-
+    console.log(msg.type )
     // ------------------------------------------------------------
     // 🧩 1. MEDIA FIELD
     // ------------------------------------------------------------
