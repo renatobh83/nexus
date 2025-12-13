@@ -10,6 +10,7 @@ import { SendWhatsMessageList } from "./Wbot/SendWhatsAppMessageList";
 import { MessageStatus } from "../../core/messages/message.type";
 import { actionsIntegracaoGenesis } from "../../core/ChatFlow/FlowIntegracao/genesis/actionsIGenesis";
 import { decrypt } from "../../lib/crypto";
+import { enum_Messages_sendType } from "@prisma/client";
 
 export interface MessageData {
   id?: string;
@@ -123,11 +124,11 @@ const BuildSendMessageService = async ({
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-            read: messageSent.read ?? true,
-          fromMe: messageSent.fromMe,
+          read: messageSent.read ?? true,
+          fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
           body: messageSent.body,
-          timestamp: new Date().getTime(),
-          sendType: messageSent.sendType,
+          timestamp:new Date().getTime(),
+            sendType: (messageData.sendType as enum_Messages_sendType) ?? messageSent.sendType,
           id: messageId,
           idFront: uuidV4(),
           messageId,
@@ -195,23 +196,23 @@ const BuildSendMessageService = async ({
       const messageId = String(
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );
-      
+
       const message =
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
           read: messageSent?.read ?? true,
-          fromMe: messageSent.fromMe,
+          fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
           body: messageSent.body,
           timestamp: messageSent.timestamp,
-          sendType: messageSent.sendType,
+          sendType: messageData.sendType ?? messageSent.sendType,
           id: messageId,
           idFront: uuidV4(),
           messageId,
           ack: 2,
         });
 
-      
+
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage:
           decrypt(message.body).length > 255
@@ -248,11 +249,11 @@ const BuildSendMessageService = async ({
       {
         ...messageData,
         status: messageData.status,
-        read: messageSent?.read ?? true,
-        fromMe: messageSent.fromMe,
+        read: messageSent.read ?? true,
+        fromMe: messageData.fromMe ?? messageSent.fromMe ?? true,
         body: messageSent.body,
         timestamp: messageSent.timestamp,
-        sendType: messageSent.sendType,
+        sendType: messageData.sendType ?? messageSent.sendType,
         id: messageId,
         idFront: uuidV4(),
         messageId,
