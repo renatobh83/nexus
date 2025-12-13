@@ -123,7 +123,7 @@ const BuildSendMessageService = async ({
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-          read: messageSent.read,
+            read: messageSent.read ?? true,
           fromMe: messageSent.fromMe,
           body: messageSent.body,
           timestamp: new Date().getTime(),
@@ -134,14 +134,14 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
-      // await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-      //   lastMessage:
-      //     decrypt(messageSent.body).length > 255
-      //       ? decrypt(messageSent.body).slice(0, 252) + "..."
-      //       : decrypt(messageSent.body),
-      //   lastMessageAt: Date.now(),
-      //   answered: true,
-      // });
+      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+        lastMessage:
+          decrypt(messageSent.body).length > 255
+            ? decrypt(messageSent.body).slice(0, 252) + "..."
+            : decrypt(messageSent.body),
+        lastMessageAt: Date.now(),
+        answered: true,
+      });
 
       socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
@@ -200,7 +200,7 @@ const BuildSendMessageService = async ({
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
           status: messageData.status,
-          read: messageSent.read ?? true,
+          read: messageSent?.read ?? true,
           fromMe: messageSent.fromMe,
           body: messageSent.body,
           timestamp: messageSent.timestamp,
@@ -248,7 +248,7 @@ const BuildSendMessageService = async ({
       {
         ...messageData,
         status: messageData.status,
-        read: messageSent.read,
+        read: messageSent?.read ?? true,
         fromMe: messageSent.fromMe,
         body: messageSent.body,
         timestamp: messageSent.timestamp,
