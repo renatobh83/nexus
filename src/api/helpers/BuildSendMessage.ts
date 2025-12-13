@@ -197,6 +197,7 @@ const BuildSendMessageService = async ({
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );
 
+      console.log(messageSent)
       const message =
         await getFastifyApp().services.messageService.createMessage({
           ...messageData,
