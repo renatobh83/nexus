@@ -211,7 +211,7 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
-        console.log(message)
+      
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage:
           decrypt(message.body).length > 255

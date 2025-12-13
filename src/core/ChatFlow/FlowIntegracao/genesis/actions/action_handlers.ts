@@ -28,6 +28,9 @@ import {
   generateServiceSelectionMessage,
   generateWelcomeMessage,
 } from "../messages/message_utils";
+import { delay } from "bullmq";
+import { promisify } from "node:util";
+
 
 export let listaUnidades: any[];
 
@@ -313,7 +316,8 @@ export async function handleLaudoPdf({
     exame: selectedLaudo!.ds_procedimento,
     cdPaciente: sessao.dadosPaciente.cd_paciente,
   });
-
+  const delay = promisify(setTimeout);
+  await delay(800)
   return generateLaudoPdfMessage();
 }
 
