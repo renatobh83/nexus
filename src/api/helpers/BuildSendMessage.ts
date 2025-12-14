@@ -135,14 +135,15 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
-      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-        lastMessage:
-          decrypt(messageSent.body).length > 255
-            ? decrypt(messageSent.body).slice(0, 252) + "..."
-            : decrypt(messageSent.body),
-        lastMessageAt: Date.now(),
-        answered: true,
-      });
+        
+   await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastMessage: (() => {
+        const decryptedBody = decrypt(messageSent?.body) ?? '';
+        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
+    })(),
+    lastMessageAt: Date.now(),
+    answered: true,
+});
 
       socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
@@ -214,14 +215,14 @@ const BuildSendMessageService = async ({
         });
 
 
-      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-        lastMessage:
-          decrypt(message.body).length > 255
-            ? decrypt(message.body).slice(0, 252) + "..."
-            : decrypt(message.body),
-        lastMessageAt: Date.now(),
-        answered: true,
-      });
+  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastMessage: (() => {
+        const decryptedBody = decrypt(messageSent?.body) ?? '';
+        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
+    })(),
+    lastMessageAt: Date.now(),
+    answered: true,
+});
 
       socketEmit({ tenantId, type: "chat:create", payload: message });
       return;
@@ -262,14 +263,14 @@ const BuildSendMessageService = async ({
       }
     );
 
-    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-      lastMessage:
-        decrypt(message.body).length > 255
-          ? decrypt(message.body).slice(0, 252) + "..."
-          : decrypt(message.body),
-      lastMessageAt: Date.now(),
-      answered: true,
-    });
+await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+    lastMessage: (() => {
+        const decryptedBody = decrypt(messageSent?.body) ?? '';
+        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
+    })(),
+    lastMessageAt: Date.now(),
+    answered: true,
+});
 
     socketEmit({
       tenantId,
