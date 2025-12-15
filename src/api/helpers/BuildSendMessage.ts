@@ -11,7 +11,6 @@ import { MessageStatus } from "../../core/messages/message.type";
 import { actionsIntegracaoGenesis } from "../../core/ChatFlow/FlowIntegracao/genesis/actionsIGenesis";
 import { decrypt } from "../../lib/crypto";
 
-
 export interface MessageData {
   id?: string;
   ticketId?: number;
@@ -86,7 +85,7 @@ const BuildSendMessageService = async ({
       status: "pending" as MessageStatus,
       tenantId,
     };
-    console.info(msg.type)
+    console.info(msg.type);
     // ------------------------------------------------------------
     // 🧩 1. MEDIA FIELD
     // ------------------------------------------------------------
@@ -110,12 +109,12 @@ const BuildSendMessageService = async ({
       const mediaPath = join(customPath, message.mediaUrl || "");
       const media = { path: mediaPath, filename: message.mediaName };
 
-      const messageSent = await SendMessageSystemProxy({
+      const messageSent = (await SendMessageSystemProxy({
         ticket,
         messageData: message,
         media,
         userId,
-      }) as any
+      })) as any;
 
       const rawMessageId = messageSent?.id ?? messageSent?.messageId ?? "";
       const messageId = String(rawMessageId || uuidV4());
@@ -134,16 +133,16 @@ const BuildSendMessageService = async ({
           messageId,
           ack: 2,
         });
+      console.log(decrypt(messageSent?.body));
 
-        
-   await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-    lastMessage: (() => {
-        const decryptedBody = decrypt(messageSent?.body) ?? '';
-        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
-    })(),
-    lastMessageAt: Date.now(),
-    answered: true,
-});
+      //    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+      //     lastMessage: (() => {
+      //         const decryptedBody = decrypt(messageSent?.body) ?? '';
+      //         return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
+      //     })(),
+      //     lastMessageAt: Date.now(),
+      //     answered: true,
+      // });
 
       socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
@@ -193,8 +192,6 @@ const BuildSendMessageService = async ({
         });
       }
 
-
-
       const messageId = String(
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );
@@ -214,15 +211,16 @@ const BuildSendMessageService = async ({
           ack: 2,
         });
 
-
-  await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-    lastMessage: (() => {
-        const decryptedBody = decrypt(messageSent?.body) ?? '';
-        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
-    })(),
-    lastMessageAt: Date.now(),
-    answered: true,
-});
+      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+        lastMessage: (() => {
+          const decryptedBody = decrypt(messageSent?.body) ?? "";
+          return decryptedBody.length > 255
+            ? decryptedBody.slice(0, 252) + "..."
+            : decryptedBody;
+        })(),
+        lastMessageAt: Date.now(),
+        answered: true,
+      });
 
       socketEmit({ tenantId, type: "chat:create", payload: message });
       return;
@@ -263,14 +261,16 @@ const BuildSendMessageService = async ({
       }
     );
 
-await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-    lastMessage: (() => {
-        const decryptedBody = decrypt(messageSent?.body) ?? '';
-        return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
-    })(),
-    lastMessageAt: Date.now(),
-    answered: true,
-});
+    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+      lastMessage: (() => {
+        const decryptedBody = decrypt(messageSent?.body) ?? "";
+        return decryptedBody.length > 255
+          ? decryptedBody.slice(0, 252) + "..."
+          : decryptedBody;
+      })(),
+      lastMessageAt: Date.now(),
+      answered: true,
+    });
 
     socketEmit({
       tenantId,
