@@ -133,16 +133,12 @@ const BuildSendMessageService = async ({
           messageId,
           ack: 2,
         });
-      console.log(messageSent);
 
-      //    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-      //     lastMessage: (() => {
-      //         const decryptedBody = decrypt(messageSent?.body) ?? '';
-      //         return decryptedBody.length > 255 ? decryptedBody.slice(0, 252) + "..." : decryptedBody;
-      //     })(),
-      //     lastMessageAt: Date.now(),
-      //     answered: true,
-      // });
+      await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
+        lastMessage: newMessage.body,
+        lastMessageAt: Date.now(),
+        answered: true,
+      });
 
       socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
