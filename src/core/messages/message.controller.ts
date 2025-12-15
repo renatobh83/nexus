@@ -17,8 +17,7 @@ export async function messageController(
 ) {
   const messageService = fastify.services.messageService;
   const ticketService = fastify.services.ticketService;
- 
- 
+
   fastify.get(
     "/:ticketId",
     async (request: FastifyRequest, reply: FastifyReply) => {
@@ -35,15 +34,17 @@ export async function messageController(
             { skip: parseInt(pageNumber) }
           );
 
-        // SetTicketMessagesAsRead(ticket);
+        const ticket = await fastify.services.ticketService.findTicketId(
+          numberTicket
+        );
+        await SetTicketMessagesAsRead(ticket);
         return reply.code(200).send({ count, messages, hasMore });
       } catch (error) {
         return handleServerError(reply, error);
       }
     }
   );
-  
-  
+
   fastify.post(
     "/:ticketId",
     async (

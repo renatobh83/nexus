@@ -13,9 +13,7 @@ export interface TicketContato extends Ticket {
     serializednumber: string;
   };
 }
-const SetTicketMessagesAsRead = async (
-  ticket: TicketContato
-): Promise<void> => {
+const SetTicketMessagesAsRead = async (ticket: any): Promise<void> => {
   const appService = getFastifyApp().services;
 
   const ticketUpdate = await appService.ticketService.updateTicket(ticket.id, {

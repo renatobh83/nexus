@@ -20,6 +20,7 @@ export const flows = async (action: string, ticket: Ticket, msg: any) => {
   console.log(action);
   switch (action.toLocaleLowerCase().trim()) {
     case "consultar":
+      await setCache(REDIS_KEYS.previousStepId(ticket.id), ticket.stepChatFlow);
       const empresasForContato =
         await getFastifyApp().services.empresaService.EmpresasContato(
           ticket.contactId

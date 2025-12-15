@@ -81,10 +81,7 @@ const SendMessageSystemProxy = async ({
     tenantId: ticket.tenantId,
     sendType: "chat" as enum_Messages_sendType,
   };
-  // Se a mensagem foi enviada mas ainda está "pendente"
-  // if (message?.ack === 0) return null;
-  // const savedMessage = await waitForMessageSaved(message.id);
-  // console.log(savedMessage)
+
   return messageReturn as Message;
 };
 
