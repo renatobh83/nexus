@@ -62,14 +62,12 @@ const SendWhatsAppMedia = async ({
         fileData,
         media.filename
       )) as unknown as Message;
-      console.log("1", messageSent);
     } else {
       messageSent = (await wbot.sendFile(
         ticket.contact.serializednumber!,
         fileData,
         media.filename
       )) as unknown as Message;
-      console.log("2", messageSent);
     }
     await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
       lastMessage: media.filename,

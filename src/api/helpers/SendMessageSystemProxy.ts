@@ -3,11 +3,12 @@ import TelegramSendMessagesSystem from "./Tbot/TelegramSendMessagesSystem";
 import { requireTbot } from "../../lib/tbot";
 import { SendMessageChatClient } from "./WebChat/SendMessageChatClient";
 import { SendMessageMediaChatClient } from "./WebChat/SendMessageMediaChatClient";
-import { Message } from "@prisma/client";
+import { enum_Messages_sendType, Message, MessageStatus } from "@prisma/client";
 import SendWhatsAppMessage from "./Wbot/SendWhatsAppMessage";
 import SendWhatsAppMedia from "./Wbot/SendWhatsAppMedia";
 import { transformFile } from "../../ultis/transformFile";
 import { waitForMessageSaved } from "../../core/messages/message.utils";
+import { MessageDTO } from "../../core/messages/message.type";
 
 type Payload = {
   ticket: any;
@@ -62,12 +63,29 @@ const SendMessageSystemProxy = async ({
         : await SendMessageChatClient(messageData, ticket);
   }
 
+  const messageReturn: MessageDTO | any = {
+    id: message.id,
+    messageId: message.id,
+    ticketId: ticket.id,
+    contactId: messageData.contactId!,
+    ack: message.ack,
+    fromMe: messageData.fromMe,
+    timestamp: messageData.timestamp,
+    body: messageData.body,
+    mediaType: messageData.type,
+    read: messageData.fromMe,
 
+    status: messageData.fromMe
+      ? ("sended" as MessageStatus)
+      : ("received" as MessageStatus),
+    tenantId: ticket.tenantId,
+    sendType: "chat" as enum_Messages_sendType,
+  };
   // Se a mensagem foi enviada mas ainda está "pendente"
   // if (message?.ack === 0) return null;
   // const savedMessage = await waitForMessageSaved(message.id);
   // console.log(savedMessage)
-  return message as Message;
+  return messageReturn as Message;
 };
 
 export default SendMessageSystemProxy;
