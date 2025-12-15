@@ -133,7 +133,7 @@ const BuildSendMessageService = async ({
           messageId,
           ack: 2,
         });
-      console.log(decrypt(messageSent?.body));
+      console.log(messageSent);
 
       //    await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
       //     lastMessage: (() => {
