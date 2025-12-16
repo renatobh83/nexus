@@ -33,8 +33,16 @@ export class EmpresaService {
     return true;
   }
   async updateCompany(dto: any) {
-    const { id, empresaContacts, contratos, ...restDto } = dto;
-    const company = await this.empresaRepository.update(id, restDto);
+    const { id, empresaContacts, contratos, tenantId, contacts, ...restDto } =
+      dto;
+    const dataForPrisma: any = {
+      ...restDto,
+    };
+    dataForPrisma.tenant = {
+      connect: { id: tenantId },
+    };
+
+    const company = await this.empresaRepository.update(id, dataForPrisma);
     return company;
   }
   async insertOrUpdateContrato({
