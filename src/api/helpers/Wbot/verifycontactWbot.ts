@@ -5,19 +5,13 @@ import { REDIS_KEYS } from "../../../ultis/redisCache";
 import { AppServices } from "../../plugins/di-container";
 import { Session } from "../../../lib/wbot";
 
-interface ContatoId {
-  user: string;
-  _serialized: string;
-}
-interface Contato extends Omit<WbotContact, "id"> {
-  id: ContatoId;
-}
 export const verifyContactWbot = async (
   message: Message,
   app: AppServices,
   wbot: Session
 ) => {
-  let msgContact: Contato;
+  let msgContact: any;
+  let contactId: any;
   try {
     if (message.fromMe) {
       if (
@@ -26,34 +20,39 @@ export const verifyContactWbot = async (
         message.type !== "vcard"
       )
         return;
-      msgContact = await wbot.getContact(message.to);
+      contactId = message.to;
+      msgContact = await wbot.getPnLidEntry(contactId);
     } else {
-      msgContact = await wbot.getContact(message.from);
+      contactId = message.from;
+      msgContact = await wbot.getPnLidEntry(contactId);
     }
 
-    const key = REDIS_KEYS.contact(wbot.id, msgContact.id._serialized);
-
+    const key = REDIS_KEYS.contact(wbot.id, msgContact.phoneNumber._serialized);
     const cached = await redisClient.get(key);
+    const profilePicUrl = await wbot.getProfilePicFromServer(
+      msgContact.phoneNumber._serialized
+    );
 
     const contactData: any = {
       name:
-        msgContact?.name ||
-        msgContact?.pushname ||
-        msgContact?.shortName ||
+        msgContact?.contact.name ||
+        msgContact?.contact.pushname ||
+        msgContact?.contact.shortName ||
         null,
-      number: msgContact.id.user.replace("55", ""),
-      pushname: msgContact.pushname,
+      number: msgContact.phoneNumber.id.replace("55", ""),
+      pushname: msgContact.contact.pushname,
       isWAContact: msgContact.isWAContact,
-      isGroup: !msgContact.isUser,
-      profilePicUrl: msgContact.profilePicThumbObj.eurl,
-      serializednumber: msgContact.id._serialized,
+      isGroup: msgContact.contact.isBusiness,
+      profilePicUrl: profilePicUrl.eurl,
+      serializednumber: msgContact.phoneNumber._serialized,
     };
     if (cached) return JSON.parse(cached);
 
     const contact = await app.contatoService.findOrCreate(
-      { serializednumber: msgContact.id._serialized },
+      { serializednumber: msgContact.phoneNumber._serialized },
       contactData
     );
+
     if (contact) {
       await redisClient.set(key, JSON.stringify(contact), "EX", 60);
     }

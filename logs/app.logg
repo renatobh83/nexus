@@ -6582,3 +6582,73 @@
   level: 'error',
   timestamp: '2025-12-16T11:23:17.109Z'
 }
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:73:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:35:19.094Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:73:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:35:27.719Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:74:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:36:02.265Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:76:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:44)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:36:36.401Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:76:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:44)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:37:19.917Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:76:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:37:55.416Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: erro create contato',
+  stack: 'Error: erro create contato\n' +
+    '    at verifyContactWbot (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\verifycontactWbot.ts:71:11)\n' +
+    '    at HandleMessageReceived (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts:26:21)\n' +
+    '    at EventEmitter.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts:48:5)',
+  timestamp: '2025-12-16T15:39:09.385Z'
+}
