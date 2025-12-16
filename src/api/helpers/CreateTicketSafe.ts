@@ -76,7 +76,10 @@ export const findOrCreateTicketSafe = async (params: {
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
 
-      if ((msg && !msg.fromMe) || (!newTicket.userId && !chatClient)) {
+      if (
+        (msg && !msg.fromMe) ||
+        (!newTicket.userId && !msg.fromMe && !chatClient)
+      ) {
         const ticket = await ChatFlow.CheckChatBotFlowWelcome(newTicket);
         newTicket = ticket ? ticket : newTicket;
       }
