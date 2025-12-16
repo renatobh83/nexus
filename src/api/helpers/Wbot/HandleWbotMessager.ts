@@ -18,9 +18,9 @@ export const HandleMessage = async (
   let authorGrupMessage: any = "";
 
   if (message.isGroupMsg && !message.fromMe) {
-    const numberContato = await wbot.getContactLid(message.author);
+    const numberContato = await wbot.getPnLidEntry(message.author);
     const contato = await app.contatoService.findContato({
-      serializednumber: numberContato,
+      serializednumber: numberContato.phoneNumber?._serialized,
     });
     authorGrupMessage = contato;
   }
