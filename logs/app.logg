@@ -6500,3 +6500,80 @@
     '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:48:5)',
   timestamp: '2025-12-12T23:30:54.899Z'
 }
+{
+  message: 'Error send message (id: undefined):: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.',
+  level: 'error',
+  timestamp: '2025-12-16T10:20:45.106Z'
+}
+{
+  statusCode: 500,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR',
+  stack: 'Error: ERR\n' +
+    '    at TelegramSendMessagesSystem (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\TelegramSendMessagesSystem.ts:158:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at SendMessageSystemProxy (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendMessageSystemProxy.ts:36:17)\n' +
+    '    at sendBotMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\SendBotMessage.ts:40:19)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:530:9)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-16T10:20:45.110Z'
+}
+{
+  message: 'Error send message (id: undefined):: PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.ticket.update()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.repository.ts:308:40\n' +
+    '\n' +
+    '  305   id: number,\n' +
+    '  306   data: Prisma.TicketUpdateInput\n' +
+    '  307 ): Promise<TicketWithMessages> {\n' +
+    '→ 308   const ticket = await prisma.ticket.update(\n' +
+    'An operation failed because it depends on one or more records that were required but not found. No record was found for an update.',
+  level: 'error',
+  timestamp: '2025-12-16T10:37:25.120Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:289:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:533:9)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-16T10:37:25.136Z'
+}
+{
+  statusCode: 502,
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  stack: 'Error: ERR_BUILD_SEND_MESSAGE_SERVICE\n' +
+    '    at BuildSendMessageService (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\BuildSendMessage.ts:254:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at handleCloseTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.utils.ts:301:5)\n' +
+    '    at TicketService.VerifyStepsChatFlowTicket (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.service.ts:499:7)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:206:7)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:519:21\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2025-12-16T10:43:19.694Z'
+}

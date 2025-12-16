@@ -1,15 +1,11 @@
 import { join } from "path";
-import { v4 as uuidv4 } from "uuid";
 import { promisify } from "util";
 import { Telegraf } from "telegraf";
 import { Ticket } from "@prisma/client";
 import { logger } from "../../../ultis/logger";
 import { AppError } from "../../../errors/errors.helper";
 import { getFastifyApp } from "../..";
-import SetTicketMessagesAsRead from "../../../ultis/SetTicketMessagesAsRead";
-import socketEmit from "../socketEmit";
 import { encrypt } from "../../../lib/crypto";
-
 interface Session extends Telegraf {
   id: number;
 }
@@ -139,14 +135,14 @@ const TelegramSendMessagesSystem = async (
       updatedAt: new Date(),
     };
 
-    socketEmit({
-      tenantId: ticket.tenantId,
-      type: "chat:create",
-      payload: messageToSocket,
-    });
+    // socketEmit({
+    //   tenantId: ticket.tenantId,
+    //   type: "chat:create",
+    //   payload: messageToSocket,
+    // });
     logger.info("Message Update ok");
 
-    return messageToUpdate;
+    return messageToSocket;
   } catch (error: any) {
     const idMessage = message.id;
     logger.error(`Error send message (id: ${idMessage}):: ${error}`);

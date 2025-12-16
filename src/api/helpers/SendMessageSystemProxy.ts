@@ -72,14 +72,14 @@ const SendMessageSystemProxy = async ({
     fromMe: messageData.fromMe,
     timestamp: messageData.timestamp,
     body: messageData.body,
-    mediaType: messageData.type,
+    mediaType: messageData.mediaType,
+    mediaUrl: messageData.mediaUrl,
     read: messageData.fromMe,
-
     status: messageData.fromMe
       ? ("sended" as MessageStatus)
       : ("received" as MessageStatus),
     tenantId: ticket.tenantId,
-    sendType: "chat" as enum_Messages_sendType,
+    sendType: messageData.sendType,
   };
 
   return messageReturn as Message;

@@ -2,7 +2,6 @@ import { join } from "node:path";
 import { v4 as uuidV4 } from "uuid";
 import SendMessageSystemProxy from "./SendMessageSystemProxy";
 import { AppError } from "../../errors/errors.helper";
-import socketEmit from "./socketEmit";
 import { pupa } from "../../ultis/pupa";
 import { getFastifyApp } from "..";
 import { sendBotMessage } from "./SendBotMessage";
@@ -71,7 +70,7 @@ const BuildSendMessageService = async ({
   userId,
 }: Request): Promise<void> => {
   try {
-    const messageData: MessageData = {
+    let messageData: MessageData = {
       ticketId: ticket.id,
       body: "",
       contactId: ticket.contactId,
@@ -121,17 +120,9 @@ const BuildSendMessageService = async ({
 
       const newMessage =
         await getFastifyApp().services.messageService.createMessage({
-          ...messageData,
-          status: messageData.status,
-          read: messageSent.read,
-          fromMe: messageSent.fromMe,
-          body: messageSent.body,
-          timestamp: messageSent.timestamp,
-          sendType: messageSent.sendType,
-          id: messageId,
-          idFront: uuidV4(),
+          ...messageSent,
           messageId,
-          ack: 2,
+          ack: messageSent.ack,
         });
 
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
@@ -140,7 +131,6 @@ const BuildSendMessageService = async ({
         answered: true,
       });
 
-      socketEmit({ tenantId, type: "chat:create", payload: newMessage });
       return;
     }
 
@@ -192,20 +182,11 @@ const BuildSendMessageService = async ({
         messageSent?.id ?? messageSent?.messageId ?? uuidV4()
       );
 
-      const message =
-        await getFastifyApp().services.messageService.createMessage({
-          ...messageData,
-          status: messageData.status,
-          read: messageSent.read,
-          fromMe: messageSent.fromMe,
-          body: messageSent.body,
-          timestamp: messageSent.timestamp,
-          sendType: messageSent.sendType,
-          id: messageId,
-          idFront: uuidV4(),
-          messageId,
-          ack: 2,
-        });
+      await getFastifyApp().services.messageService.createMessage({
+        ...messageSent,
+        messageId,
+        ack: messageSent.ack,
+      });
 
       await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
         lastMessage: (() => {
@@ -217,8 +198,6 @@ const BuildSendMessageService = async ({
         lastMessageAt: Date.now(),
         answered: true,
       });
-
-      socketEmit({ tenantId, type: "chat:create", payload: message });
       return;
     }
 
@@ -241,21 +220,11 @@ const BuildSendMessageService = async ({
       messageSent?.id ?? messageSent?.messageId ?? uuidV4()
     );
 
-    const message = await getFastifyApp().services.messageService.createMessage(
-      {
-        ...messageData,
-        status: messageData.status,
-        read: messageSent.read,
-        fromMe: messageSent.fromMe,
-        body: messageSent.body,
-        timestamp: messageSent.timestamp,
-        sendType: messageSent.sendType,
-        id: messageId,
-        idFront: uuidV4(),
-        messageId,
-        ack: 2,
-      }
-    );
+    await getFastifyApp().services.messageService.createMessage({
+      ...messageSent,
+      messageId,
+      ack: messageSent.ack,
+    });
 
     await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
       lastMessage: (() => {
@@ -266,12 +235,6 @@ const BuildSendMessageService = async ({
       })(),
       lastMessageAt: Date.now(),
       answered: true,
-    });
-
-    socketEmit({
-      tenantId,
-      type: "chat:create",
-      payload: message,
     });
   } catch (error) {
     console.error(error);
