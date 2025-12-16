@@ -6577,3 +6577,8 @@
     '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
   timestamp: '2025-12-16T10:43:19.694Z'
 }
+{
+  message: 'Unhandled Rejection: Error: 409: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running',
+  level: 'error',
+  timestamp: '2025-12-16T11:23:17.109Z'
+}
