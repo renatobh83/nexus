@@ -167,7 +167,7 @@ export async function whatsappController(
           return null;
         }
 
-        await whatsappService.startChannelSession(id);
+        whatsappService.startChannelSession(id);
         return reply.code(200).send({ message: "Starting session." });
       } catch (error) {
         logger.error("Error in startSessionChannel", error);
