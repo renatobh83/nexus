@@ -574,7 +574,6 @@ export class TicketService {
     data: Partial<any>,
     socketType: "ticket:update" | "ticket:update_chatflow" = "ticket:update"
   ): Promise<Ticket> {
-
     socketEmit({
       tenantId: ticket.tenantId,
       type: socketType,
@@ -591,44 +590,40 @@ export class TicketService {
     };
 
     const tickets = await this.ticketRepository.findInactiveTickets(tenantId);
-    Promise.all(tickets.map(async (item: any) => {
-
-      const ticket = {
-        ...item,
-        tenantId: tenantId,
-        contact: {
-          name: item.name,
-          number: item.number,
-          serializednumber: item.serializednumber,
-          telegramId: item.telegramId,
-
-        },
-      }
-
-      if (item.type_action === 3) {
-
-        const sendMessageParams = {
-          msg: {
-            data: { message: item.message },
-            id: uuidv4(),
-            type: "MessageField" as "MessageField",
-          },
+    Promise.all(
+      tickets.map(async (item: any) => {
+        const ticket = {
+          ...item,
           tenantId: tenantId,
-          ticket
+          contact: {
+            name: item.name,
+            number: item.number,
+            serializednumber: item.serializednumber,
+            telegramId: item.telegramId,
+          },
         };
-        values.closedAt = new Date().getTime()
-        values.status = "closed"
-        await BuildSendMessageService(sendMessageParams);
-      } else if (item.type_action === 1) {
-        values.queueId = item.destiny;
 
-      } else if (item.type_action === 2) {
-        values.userId = item.destiny;
-      }
+        if (parseInt(item.type_action) === 3) {
+          const sendMessageParams = {
+            msg: {
+              data: { message: item.message },
+              id: uuidv4(),
+              type: "MessageField" as "MessageField",
+            },
+            tenantId: tenantId,
+            ticket,
+          };
+          values.closedAt = new Date().getTime();
+          values.status = "closed";
+          await BuildSendMessageService(sendMessageParams);
+        } else if (parseInt(item.type_action) === 1) {
+          values.queueId = item.destiny;
+        } else if (parseInt(item.type_action) === 2) {
+          values.userId = item.destiny;
+        }
 
-      await this.updateTicketAndEmit(ticket, values);
-    }
-    ))
+        await this.updateTicketAndEmit(ticket, values);
+      })
+    );
   }
-
 }
