@@ -40,6 +40,7 @@ export class ChamadoRepository {
       where: {
         id: chamado.empresaId,
         active: true,
+        createdAt: ticket ? new Date(ticket.createdAt) : new Date(),
       },
     });
 
