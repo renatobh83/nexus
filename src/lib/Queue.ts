@@ -108,16 +108,14 @@ function setupWorkerListeners(worker: Worker, name: string) {
 
   worker.on("completed", (job: Job, result: any) => {
     logger.info(
-      `[Worker ${name}] Job ${
-        job.id
+      `[Worker ${name}] Job ${job.id
       } concluído com sucesso. Resultado: ${JSON.stringify(result, null, 2)}`
     );
   });
 
   worker.on("failed", (job: Job | undefined, error: Error) => {
     logger.error(
-      `[Worker ${name}] Job ${job?.id || "unknown"} falhou. Erro: ${
-        error.message
+      `[Worker ${name}] Job ${job?.id || "unknown"} falhou. Erro: ${error.message
       }`,
       { error }
     );

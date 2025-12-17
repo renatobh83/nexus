@@ -110,7 +110,7 @@ export async function chatFlowController(
     async (
       request: FastifyRequest<{
         Body: {
-          flow: Flow;
+          flow: any;
           name: string;
           celularTeste: string;
           isActive: boolean;
@@ -124,7 +124,7 @@ export async function chatFlowController(
         if (profile !== "admin") {
           throw new AppError("ERR_NO_PERMISSION", 403);
         }
-        const { celularTeste, name, isActive } = request.body;
+        const { celularTeste, name, isActive, flow } = request.body;
 
         const flowUpdated = await chatFlowServices.updateChatFlow(
           parseInt(chatFlowId),
@@ -132,6 +132,7 @@ export async function chatFlowController(
             celularTeste,
             name,
             isActive,
+            flow
           }
         );
         return reply.code(200).send(flowUpdated);

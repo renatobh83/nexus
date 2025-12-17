@@ -314,4 +314,41 @@ export class TicketRepository {
       ticket as TicketWithStandardIncludes
     ) as TicketWithMessages;
   }
+  async findInactiveTickets(tenantId: number): Promise<Ticket[] | []> {
+
+    // Executa a consulta bruta
+    const result: Ticket[] | [] = await prisma.$queryRaw`
+    SELECT
+        t.*,
+        c.name,
+        c.number,
+        c.pushname,
+        c.serializednumber,
+        c."telegramId",
+        config->'data'->'notResponseMessage'->>'message' AS message,
+        config->'data'->'notResponseMessage'->>'type' AS type_action,
+        config->'data'->'notResponseMessage'->>'destiny' AS destiny
+    FROM
+        "Tickets" t
+    INNER JOIN
+        "Contacts" c ON t."contactId" = c."id"
+    INNER JOIN
+        "ChatFlows" cf ON t."tenantId" = cf."tenantId" AND cf.id = t."chatFlowId"
+    INNER JOIN
+        "Settings" s ON s."tenantId" = cf."tenantId" AND s."key" = 'botTicketActive'
+    CROSS JOIN LATERAL
+        json_array_elements(cf.flow->'nodeList') AS config
+    WHERE
+        t."chatFlowId" = s.value::integer
+        AND t.status = 'pending'
+        AND config->>'type' = 'configurations'
+        AND t."lastInteractionBot" < CURRENT_TIMESTAMP - (config->'data'->'notResponseMessage'->>'time')::int * interval '1 minute'
+        AND (t."queueId" IS NULL AND t."userId" IS NULL)
+
+  `;
+
+    // O resultado será um array de objetos, onde as chaves correspondem aos aliases (id, message, type_action, destiny).
+    return result;
+  }
+
 }
