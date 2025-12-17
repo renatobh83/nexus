@@ -15,7 +15,7 @@ export async function registerBullMQ(app: ReturnType<typeof fastify>) {
   app.register(serverAdapter.registerPlugin(), { prefix: "/ui" });
 
   setImmediate(() => {
-    upsertJobScheduler("VerifyTicketsChatBotInactives", { every: 1_60_000 }, {
+    upsertJobScheduler("VerifyTicketsChatBotInactives", { every: 10_60_000 }, {
       opts: {
         attempts: 2,
         removeOnComplete: true,
