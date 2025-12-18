@@ -1,0 +1,5 @@
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-18T13:18:02.240Z'
+}

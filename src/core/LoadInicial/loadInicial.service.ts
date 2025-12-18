@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { encrypt } from "../../lib/crypto";
 
 export class LoadInicialService {
-  constructor() {}
+  constructor() { }
   async loadInicial(fastify: FastifyInstance) {
     const app = fastify.services;
     const channels = await app.whatsappService.findAll();
@@ -26,6 +26,6 @@ export class LoadInicialService {
     };
     const encryptedData = encrypt(JSON.stringify(data));
 
-    return { payload: encryptedData };
+    return { payload: data };
   }
 }
