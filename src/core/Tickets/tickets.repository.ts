@@ -341,7 +341,8 @@ export class TicketRepository {
         t."chatFlowId" = s.value::integer
         AND t.status = 'pending'
         AND config->>'type' = 'configurations'
-        AND t."lastInteractionBot" - interval '3 hours' < CURRENT_TIMESTAMP - (config->'data'->'notResponseMessage'->>'time')::int * interval '1 minute'
+        AND t."lastInteractionBot" <
+        timezone('UTC', NOW()) - (config->'data'->'notResponseMessage'->>'time')::int * interval '1 minute'
         AND (t."queueId" IS NULL AND t."userId" IS NULL)
 
   `;
