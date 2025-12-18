@@ -58,13 +58,26 @@ export async function authController(
         };
 
         SendRefreshToken(reply, refreshToken);
-
-        return reply.code(200).send(payload);
+        reply.setCookie("access_token", accessToken, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "strict",
+          path: "/",
+        });
+        return reply.code(200).send({ success: true });
       } catch (error) {
         return handleServerError(reply, error);
       }
     }
   );
+  fastify.get("/me", { preHandler: [fastify.authenticate] }, async (request: FastifyRequest, reply: FastifyReply) => {
+    try {
+
+      return reply.code(200).send(request.user);
+    } catch (error) {
+      return handleServerError(reply, error);
+    }
+  });
   fastify.post(
     "/logout",
     {

@@ -3,3 +3,228 @@
   level: 'error',
   timestamp: '2025-12-18T13:18:02.240Z'
 }
+{
+  error: Error: Cannot find module '.prisma/client/default'
+  Require stack:
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client\default.js
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\core\Tickets\tickets.type.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\isValidFlowAnswer.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\HandleMessageReceived.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\helpers\Wbot\wbotMessageListener.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\wbot.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\SendMessageConfirmar.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\jobs\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\lib\Queue.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\bullMq.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\plugins\redis.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\api\index.ts
+  - C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\src\server.ts
+      at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+      at Function._load (node:internal/modules/cjs/loader:1192:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+      at Module.require (node:internal/modules/cjs/loader:1463:12)
+      at require (node:internal/modules/helpers:147:16)
+      at Object.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\@prisma\client\default.js:2:6)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1706:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.type.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\isValidFlowAnswer.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts',
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.type.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\isValidFlowAnswer.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    "Error: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.type.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\isValidFlowAnswer.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js:2:6)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1706:14)',
+  stack: "Error: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\Tickets\\tickets.type.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\isValidFlowAnswer.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\HandleMessageReceived.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Wbot\\wbotMessageListener.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\wbot.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\SendMessageConfirmar.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\jobs\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\lib\\Queue.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\bullMq.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\plugins\\redis.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\index.ts\n' +
+    '- C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\server.ts\n' +
+    '    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)\n' +
+    '    at Function._load (node:internal/modules/cjs/loader:1192:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1463:12)\n' +
+    '    at require (node:internal/modules/helpers:147:16)\n' +
+    '    at Object.<anonymous> (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js:2:6)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1706:14)',
+  exception: true,
+  date: 'Thu Dec 18 2025 12:26:08 GMT-0300 (Horário Padrão de Brasília)',
+  process: {
+    pid: 10488,
+    uid: null,
+    gid: null,
+    cwd: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus',
+    execPath: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\Port\\app\\node.exe',
+    version: 'v22.19.0',
+    argv: [
+      'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\Port\\app\\node.exe',
+      'src/server.ts'
+    ],
+    memoryUsage: {
+      rss: 99053568,
+      heapTotal: 59600896,
+      heapUsed: 47874060,
+      external: 3858950,
+      arrayBuffers: 379407
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 104100.14 },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._resolveFilename',
+      line: 1383,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1025,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1030,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Function._load',
+      line: 1192,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 237,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1463,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 6,
+      file: 'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\default.js',
+      function: null,
+      line: 2,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1706,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-18T15:26:08.061Z'
+}
+{
+  message: 'Unhandled Rejection: FastifyError [FST_JWT_NO_AUTHORIZATION_IN_HEADER]: No Authorization was found in request.headers',
+  level: 'error',
+  timestamp: '2025-12-18T16:08:27.266Z'
+}
+{
+  message: 'Unhandled Rejection: FastifyError [FST_JWT_NO_AUTHORIZATION_IN_HEADER]: No Authorization was found in request.headers',
+  level: 'error',
+  timestamp: '2025-12-18T16:09:57.787Z'
+}

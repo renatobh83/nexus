@@ -36,21 +36,21 @@ async function buildServer(): Promise<FastifyInstance> {
       level: "info",
       transport: isDevelopment
         ? {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss Z",
-              ignore: "pid,hostname",
-            },
-          }
-        : {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss Z",
-              ignore: "pid,hostname",
-            },
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            translateTime: "HH:MM:ss Z",
+            ignore: "pid,hostname",
           },
+        }
+        : {
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            translateTime: "HH:MM:ss Z",
+            ignore: "pid,hostname",
+          },
+        },
     },
     trustProxy: true,
   });
@@ -85,7 +85,26 @@ async function buildServer(): Promise<FastifyInstance> {
     "authenticate",
     async function (request: FastifyRequest, reply: FastifyReply) {
       try {
-        await request.jwtVerify();
+        // await request.jwtVerify();
+        const auth = request.headers.authorization
+        let token: string | undefined;
+
+        if (auth?.startsWith("Bearer ")) {
+          token = auth.replace("Bearer ", "");
+        }
+
+        // 2️⃣ fallback para cookie
+        if (!token) {
+          token = request.cookies.access_token;;
+        }
+
+        if (!token) {
+          return reply.code(401).send({ message: "Not authenticated" });
+        }
+
+        const user = request.server.jwt.verify(token);
+        request.user = user;
+
       } catch (err: any) {
         // Não precisa tipar 'err' como 'any' aqui, o catch já o trata.
         request.server.log.error("JWT ERROR:", err);

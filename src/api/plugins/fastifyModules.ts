@@ -50,8 +50,8 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     contentSecurityPolicy:
       process.env.NODE_ENV === "production"
         ? {
-            /* Configurações de produção estritas */
-          }
+          /* Configurações de produção estritas */
+        }
         : false, // Desativa CSP em desenvolvimento para facilitar o uso de hot-reloading e outras ferramentas.
     // ... outras configurações do helmet
     xPoweredBy: false, // Sempre desativar para não expor a tecnologia do servidor.
@@ -118,7 +118,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   // --- 7. Proteção contra Cross-Site Request Forgery (CSRF) ---
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
   await fastify.register(csrf, {
-    cookieOpts: { secure: true, httpOnly: true, sameSite: "strict" },
+    cookieOpts: { secure: true, httpOnly: true, sameSite: "strict", path: "/" },
   });
   fastify.addHook(
     "preHandler",
