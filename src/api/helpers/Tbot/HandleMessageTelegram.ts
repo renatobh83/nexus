@@ -8,6 +8,7 @@ import VerifyMediaMessageTbot from "./VerifyMediaMessageTbot";
 import { isValidFlowAnswer } from "../isValidFlowAnswer";
 import { isRetriesLimit } from "../../../core/Tickets/tickets.utils";
 import { sendBotMessage } from "../SendBotMessage";
+import { Ticket } from "@prisma/client";
 
 // // Constantes para chaves Redis e TTLs
 // const REDIS_KEYS = {
@@ -128,7 +129,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       tenantId: tbot.tenantId,
       msg: { ...messageData, fromMe },
       channel: "telegram",
-    });
+    }) as { ticket: Ticket; isNew: boolean };
     if (!ticket) {
       logger.error("[Telegram] Falha crítica ao criar ou obter ticket.");
       return;
@@ -161,11 +162,12 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
         `[Telegram] Ticket ${ticket.id} está aguardando resposta. Processando...`
       );
       const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
-        ticket.chaflowId
+        ticket.chatFlowId!
       );
       const step = (chatFlow?.flow as any).nodeList.find(
         (node: any) => node.id === ticket.stepChatFlow
       );
+
 
       if (step) {
         if (isValidFlowAnswer({ fromMe, body, type: "reply_markup" }, step)) {
@@ -195,7 +197,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
             defaultMessage;
           await sendBotMessage(ticket.tenantId, ticket, messageBody);
           await app.ticketService.updateTicket(ticket.id, {
-            botRetries: ticket.botRetries + 1,
+            botRetries: ticket.botRetries! + 1,
           });
         }
       }

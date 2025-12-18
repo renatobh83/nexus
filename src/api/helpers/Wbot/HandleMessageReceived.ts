@@ -1,4 +1,4 @@
-import { Chat, Message, Whatsapp as wbot } from "wbotconnect";
+import { Message } from "wbotconnect";
 
 import { isValidMsg } from "./isValidMsg";
 import { getFastifyApp } from "../..";
@@ -12,6 +12,7 @@ import { isValidFlowAnswer } from "../isValidFlowAnswer";
 import { isRetriesLimit } from "../../../core/Tickets/tickets.utils";
 import { sendBotMessage } from "../SendBotMessage";
 import { ProcessReturnMessage } from "../../../core/IGenesis/IGenesis.utils";
+import { Ticket } from "@prisma/client";
 
 export const HandleMessageReceived = async (
   message: Message,
@@ -51,7 +52,7 @@ export const HandleMessageReceived = async (
       tenantId: wbot.tenantId,
       msg: message,
       channel: "whatsapp",
-    });
+    }) as { ticket: Ticket; isNew: boolean };
 
     if (!ticket) {
       logger.error("[whatsapp] Falha crítica ao criar ou obter ticket.");
@@ -85,7 +86,7 @@ export const HandleMessageReceived = async (
         `[WhatsApp] Ticket ${ticket.id} está aguardando resposta. Processando...`
       );
       const chatFlow = await getFastifyApp().services.chatFlowService.findOne(
-        ticket.chaflowId
+        ticket.chatFlowId!
       );
       const step = (chatFlow?.flow as any).nodeList.find(
         (node: any) => node.id === ticket.stepChatFlow
@@ -118,7 +119,7 @@ export const HandleMessageReceived = async (
             defaultMessage;
           await sendBotMessage(ticket.tenantId, ticket, messageBody);
           await app.ticketService.updateTicket(ticket.id, {
-            botRetries: ticket.botRetries + 1,
+            botRetries: ticket.botRetries! + 1,
           });
         }
       }
