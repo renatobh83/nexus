@@ -38,9 +38,9 @@ export class MessageService {
     }
 
     // Criptografa o corpo da mensagem se ainda não estiver criptografado.
-    if (!isEncrypted(bodyToSave)) {
-      bodyToSave = encrypt(bodyToSave);
-    }
+    // if (!isEncrypted(bodyToSave)) {
+    //   bodyToSave = encrypt(bodyToSave);
+    // }
 
     const { ticketId, tenantId, contactId, id, messageId, ...restDto } = dto;
 

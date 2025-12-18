@@ -281,7 +281,7 @@ export class TicketRepository {
     const count = await prisma.ticket.count({ where });
 
     // 2.2. Busca dos Tickets
-    const tickets = await prisma.ticket.findMany({
+    const tickets = await prisma.ticket.findManyAndDecrypt({
       where,
       include: TICKET_INCLUDE_CONFIG,
       orderBy: [

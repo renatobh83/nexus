@@ -3,6 +3,7 @@ import { Prisma, Ticket } from "@prisma/client";
 // 1. Defina o tipo de inclusão (o mesmo objeto que você passa para o 'include')
 const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
   messages: {
+
     include: {
       quotedMsg: true,
     },
