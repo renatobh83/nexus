@@ -155,7 +155,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     "onRequest",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
-
+console.log(request)
       // 🔹 Só métodos mutáveis
       if (!protectedMethods.includes(request.method)) {
         return;
