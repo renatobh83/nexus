@@ -373,3 +373,23 @@
   level: 'error',
   timestamp: '2025-12-19T17:16:20.985Z'
 }
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-19T17:34:01.929Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-19T17:51:41.762Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-19T18:09:21.618Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-19T18:27:01.652Z'
+}
