@@ -393,3 +393,8 @@
   level: 'error',
   timestamp: '2025-12-19T18:27:01.652Z'
 }
+{
+  message: 'Unhandled Rejection: Error: 409: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running',
+  level: 'error',
+  timestamp: '2025-12-19T19:19:27.732Z'
+}
