@@ -70,6 +70,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
         return cb(null, true);
       }
       console.log(origin, allowedOrigins);
+      console.log(allowedOrigins.includes(origin));
       // Rejeita a requisição se a origem não estiver na lista de permissões.
       return cb(new Error("Not allowed by CORS"), false);
     },
