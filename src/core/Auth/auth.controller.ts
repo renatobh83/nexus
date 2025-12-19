@@ -9,6 +9,8 @@ import { SendRefreshToken } from "../../api/helpers/SendRefreshToken";
 import { RefreshTokenService } from "../../api/helpers/RefreshTokenService";
 import { ValidateTokenResetService } from "../../api/helpers/ValidTokenResetSenha";
 
+
+const isDevelopment = process.env.NODE_ENV === 'development'; 
 export async function authController(
   fastify: FastifyInstance,
   opts: FastifyPluginOptions
@@ -57,14 +59,17 @@ export async function authController(
           usuariosOnline: usersOline,
         };
 
+
         SendRefreshToken(reply, refreshToken);
+       
         reply.setCookie("access_token", accessToken, {
           httpOnly: true,
-          secure: true,
+          secure: !isDevelopment,
           sameSite: "strict",
           path: "/",
         });
         return reply.code(200).send({ success: true });
+
       } catch (error) {
         return handleServerError(reply, error);
       }
