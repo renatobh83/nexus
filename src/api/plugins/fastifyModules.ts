@@ -11,7 +11,7 @@ import fastifyStatic from "@fastify/static";
 import path from "node:path";
 import xss from "xss";
 import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
-
+const isDevelopment = process.env.NODE_ENV !== "production";
 /**
  * @file Módulo de Segurança e Middlewares Essenciais para Fastify
  * @module plugins/fastifyModules
@@ -50,8 +50,8 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     contentSecurityPolicy:
       process.env.NODE_ENV === "production"
         ? {
-          /* Configurações de produção estritas */
-        }
+            /* Configurações de produção estritas */
+          }
         : false, // Desativa CSP em desenvolvimento para facilitar o uso de hot-reloading e outras ferramentas.
     // ... outras configurações do helmet
     xPoweredBy: false, // Sempre desativar para não expor a tecnologia do servidor.
@@ -119,12 +119,12 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
   await fastify.register(csrf, {
     cookieOpts: {
-      httpOnly: false,
-      sameSite: "lax",
+      httpOnly: false, // precisa ser lido no front
+      secure: !isDevelopment, // 🔥 HTTPS EM PRODUÇÃO
+      sameSite: isDevelopment ? "lax" : "none",
       path: "/",
     },
   });
-
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
   // Limpa todas as entradas do usuário (body, query, params) para remover scripts maliciosos.
@@ -148,44 +148,40 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     request.params = sanitize(request.params);
   });
 
-  fastify.addHook("onRequest", async (request: FastifyRequest, reply: FastifyReply) => {
-    const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
+  fastify.addHook(
+    "onRequest",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
 
+      // 🔹 Só métodos mutáveis
+      if (!protectedMethods.includes(request.method)) {
+        return;
+      }
 
-    // 🔹 Só métodos mutáveis
-    if (!protectedMethods.includes(request.method)) {
-      return;
+      // 🔹 Rotas que NÃO exigem CSRF
+      const csrfIgnoreRoutes = [
+        "/api/v1/auth/login",
+        "/api/v1/auth/refresh_token",
+        "/api/v1/auth/logout",
+        "/api/v1/auth/forgot-password",
+      ];
+
+      if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
+        return;
+      }
+
+      const csrfCookie = request.cookies._csrf;
+      const csrfHeader = request.headers["x-csrf-token"];
+
+      if (!csrfCookie || !csrfHeader) {
+        return reply.status(403).send({ message: "CSRF token missing" });
+      }
+
+      if (csrfCookie !== csrfHeader) {
+        return reply.status(403).send({ message: "Invalid CSRF token" });
+      }
     }
-
-    // 🔹 Rotas que NÃO exigem CSRF
-    const csrfIgnoreRoutes = [
-      "/api/v1/auth/login",
-      "/api/v1/auth/refresh_token",
-      "/api/v1/auth/logout",
-      "/api/v1/auth/forgot-password",
-
-    ];
-
-    if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
-      return;
-    }
-
-    const csrfCookie = request.cookies._csrf;
-    const csrfHeader = request.headers["x-csrf-token"];
-
-
-    if (!csrfCookie || !csrfHeader) {
-      return reply
-        .status(403)
-        .send({ message: "CSRF token missing" });
-    }
-
-    if (csrfCookie !== csrfHeader) {
-      return reply
-        .status(403)
-        .send({ message: "Invalid CSRF token" });
-    }
-  });
+  );
   fastify.log.info(
     "✅ Módulo de segurança e middlewares essenciais carregado com sucesso!"
   );
