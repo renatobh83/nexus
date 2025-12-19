@@ -116,7 +116,7 @@ export async function statisticsController(
   fastify.get(
     "/dash-tickets-queues",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { tenantId, userId, profile } = request.user as any;
+      const { tenantId, id, profile } = request.user as any;
       const { dateStart, dateEnd, status, queuesIds } =
         request.query as IndexQuery;
       try {
@@ -126,7 +126,7 @@ export async function statisticsController(
           status,
           queuesIds,
           tenantId,
-          userId,
+          userId: id,
           profile,
           showAll: profile === "admin" ? true : false,
         };

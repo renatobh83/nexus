@@ -10,7 +10,7 @@ import { RefreshTokenService } from "../../api/helpers/RefreshTokenService";
 import { ValidateTokenResetService } from "../../api/helpers/ValidTokenResetSenha";
 
 
-const isDevelopment = process.env.NODE_ENV === 'development'; 
+const isDevelopment = process.env.NODE_ENV === 'development';
 export async function authController(
   fastify: FastifyInstance,
   opts: FastifyPluginOptions
@@ -50,31 +50,26 @@ export async function authController(
         const accessToken = request.server.jwt.sign(user, { expiresIn: "3d" });
         const refreshToken = request.server.jwt.sign(user, { expiresIn: "7d" });
 
-        const usersOline = await authService.findUsersOnline();
-
-        const payload = {
-          ...user,
-          token: accessToken,
-          refreshToken,
-          usuariosOnline: usersOline,
-        };
-
-
         SendRefreshToken(reply, refreshToken);
-       
+
         reply.setCookie("access_token", accessToken, {
           httpOnly: true,
           secure: !isDevelopment,
           sameSite: "strict",
           path: "/",
         });
-        return reply.code(200).send({ success: true });
+        return reply.code(200).send(user);
 
       } catch (error) {
         return handleServerError(reply, error);
       }
     }
   );
+  fastify.get("/csrf", async (request: FastifyRequest, reply: FastifyReply) => {
+    return {
+      csrfToken: reply.generateCsrf(),
+    };
+  });
   fastify.get("/me", { preHandler: [fastify.authenticate] }, async (request: FastifyRequest, reply: FastifyReply) => {
     try {
 
@@ -108,11 +103,19 @@ export async function authController(
       const { userId } = request.body as any;
       try {
         await authService.logout(userId);
-        return reply
-          .clearCookie("refreshToken", {
-            path: "/", // precisa ser o mesmo usado ao criar
-          })
-          .send({ message: "Logout realizado com sucesso" });
+        const AUTH_COOKIES = [
+          "access_token",
+          "refreshToken",
+          "_csrf",
+        ];
+        AUTH_COOKIES.forEach((cookie) => {
+          reply.clearCookie(cookie, {
+            path: "/",
+            sameSite: "strict",
+          });
+        });
+
+        return reply.send({ message: "Logout realizado com sucesso" });
       } catch (error) {
         return handleServerError(reply, error);
       }
@@ -170,8 +173,21 @@ export async function authController(
     "/refresh_token",
     async (request: FastifyRequest, reply: FastifyReply) => {
       try {
-        const token = await RefreshTokenService(request);
-        reply.code(200).send(token);
+        const refreshToken = request.cookies.refreshToken;
+        if (!refreshToken) {
+          return reply.status(401).send();
+        }
+
+        const payload = fastify.jwt.verify(refreshToken);
+        const newAccessToken = fastify.jwt.sign(payload);
+        reply.setCookie("access_token", newAccessToken, {
+          httpOnly: true,
+          sameSite: "lax",
+          secure: true,
+          path: "/",
+        });
+
+        return { success: true };
       } catch (error) {
         return handleServerError(reply, error);
       }

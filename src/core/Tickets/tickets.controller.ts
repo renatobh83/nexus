@@ -56,7 +56,7 @@ export async function ticketController(
     async (request: FastifyRequest, reply: FastifyReply) => {
       try {
         const { ticketId } = request.params as { ticketId: string };
-        const { tenantId, userId } = request.user as any;
+        const { tenantId, id } = request.user as any;
         const ticket = await ticketService.findTicketBy({
           id: parseInt(ticketId, 10),
         });
@@ -64,7 +64,7 @@ export async function ticketController(
           throw new AppError("ERRO_TICKET_NO_FOUND", 404);
         }
         await logTicketService.createLogTicket({
-          userId,
+          userId: id,
           queueId: null,
           chamadoId: null,
           ticketId,

@@ -118,17 +118,13 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   // --- 7. Proteção contra Cross-Site Request Forgery (CSRF) ---
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
   await fastify.register(csrf, {
-    cookieOpts: { secure: true, httpOnly: true, sameSite: "strict", path: "/" },
+    cookieOpts: {
+      httpOnly: false,
+      sameSite: "lax",
+      path: "/",
+    },
   });
-  fastify.addHook(
-    "preHandler",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      // Para requisições GET, gera e envia um novo token CSRF para ser usado em requisições subsequentes.
-      if (request.method === "GET") {
-        reply.header("x-csrf-token", reply.generateCsrf());
-      }
-    }
-  );
+
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
   // Limpa todas as entradas do usuário (body, query, params) para remover scripts maliciosos.
@@ -152,6 +148,44 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     request.params = sanitize(request.params);
   });
 
+  fastify.addHook("onRequest", async (request: FastifyRequest, reply: FastifyReply) => {
+    const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
+
+
+    // 🔹 Só métodos mutáveis
+    if (!protectedMethods.includes(request.method)) {
+      return;
+    }
+
+    // 🔹 Rotas que NÃO exigem CSRF
+    const csrfIgnoreRoutes = [
+      "/api/v1/auth/login",
+      "/api/v1/auth/refresh_token",
+      "/api/v1/auth/logout",
+      "/api/v1/auth/forgot-password",
+
+    ];
+
+    if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
+      return;
+    }
+
+    const csrfCookie = request.cookies._csrf;
+    const csrfHeader = request.headers["x-csrf-token"];
+
+
+    if (!csrfCookie || !csrfHeader) {
+      return reply
+        .status(403)
+        .send({ message: "CSRF token missing" });
+    }
+
+    if (csrfCookie !== csrfHeader) {
+      return reply
+        .status(403)
+        .send({ message: "Invalid CSRF token" });
+    }
+  });
   fastify.log.info(
     "✅ Módulo de segurança e middlewares essenciais carregado com sucesso!"
   );

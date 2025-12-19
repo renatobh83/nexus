@@ -26,21 +26,13 @@ export class AuthService {
     if (!isPasswordValid) {
       throw new AppError("ERR_INVALID_CREDENTIALS", 401);
     }
-    const payload = {
-      name: user.name,
-      email: user.email,
-      username: user.name,
-      tenantId: user.tenantId,
-      profile: user.profile,
-      userId: user.id,
-      configs: user.configs,
-      status: user.status,
-    };
-    await this.userRepository.updateStatus(user.id, user.tenantId, {
+
+    const userUpdate = await this.userRepository.updateStatus(user.id, user.tenantId, {
       isOnline: true,
       status: "online",
       lastLogin: new Date(),
     });
+
     const io = getIO();
     io.emit(`${user.tenantId}:users`, {
       action: "update",
@@ -52,7 +44,7 @@ export class AuthService {
         lastOnline: new Date(),
       },
     });
-    return payload;
+    return userUpdate;
   }
 
   async findUsersOnline(tenantid?: number) {

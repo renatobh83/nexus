@@ -79,10 +79,10 @@ export async function extenalApiController(
       preHandler: [fastify.authenticate],
     },
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { tenantId, userId, profile } = request.user as any;
+      const { tenantId, id, profile } = request.user as any;
       const dataApi = request.body as ApiData;
       dataApi.tenantId = tenantId;
-      dataApi.userId = userId;
+      dataApi.userId = id;
 
       if (profile !== "admin") {
         return reply

@@ -199,6 +199,8 @@ export class UsersRepository {
         lastLogin: data.lastLogin,
         lastLogout: data.lastLogout,
         lastOnline: data.lastOnline,
+        configs: data.configs,
+        queues: data.queues,
       },
       omit: {
         passwordHash: true,

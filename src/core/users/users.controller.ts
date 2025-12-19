@@ -159,11 +159,13 @@ export async function userController(
   fastify.put(
     "/usersIsOnline/:id",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { tenantId, userId } = request.user as any;
-      const payload = { userData: request.body, userId, tenantId };
+
+      const { tenantId, id } = request.user as any;
+      const payload = { userData: request.body, userId: id, tenantId };
       try {
+
         const userUpdate = await userService.updateUserStatusLogin(
-          userId,
+          id,
           tenantId,
           payload
         );

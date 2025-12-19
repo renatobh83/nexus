@@ -12,5 +12,6 @@ declare module "fastify" {
   interface FastifyRequest {
     user?: any;
     moduleName: any;
+    csrfToken(): string;
   }
 }

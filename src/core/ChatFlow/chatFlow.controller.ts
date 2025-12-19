@@ -52,7 +52,7 @@ export async function chatFlowController(
       const { celularTeste, flow: flowFromBody, name } = request.body;
 
       try {
-        const { tenantId, profile, userId } = request.user as any;
+        const { tenantId, profile, id } = request.user as any;
         if (profile !== "admin") {
           throw new AppError("ERR_NO_PERMISSION", 403);
         }
@@ -60,7 +60,7 @@ export async function chatFlowController(
           flow: Object.assign({}, flowFromBody),
           name: name,
           isActive: true,
-          userId,
+          userId: id,
           tenantId,
           celularTeste: celularTeste,
         };

@@ -48,7 +48,7 @@ export async function chamadoController(
       },
     },
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { userId, tenantId } = request.user as any;
+      const { id, tenantId } = request.user as any;
 
       try {
         const { empresaId, assunto, descricao, contatoId, ticket } =
@@ -57,7 +57,7 @@ export async function chamadoController(
         const chamado = await chamadoService.createChamado(
           {
             tenantId,
-            userId,
+            userId: id,
             assunto,
             empresaId: parseInt(empresaId),
             descricao,
@@ -137,14 +137,14 @@ export async function chamadoController(
       }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, userId } = request.user as any;
+      const { tenantId, id } = request.user as any;
       const { chamadoId } = request.params as { chamadoId: string };
 
       const payload = {
         ...request.body,
         chamadoId: parseInt(chamadoId),
         tenantId,
-        userIdUpdate: userId,
+        userIdUpdate: id,
         socket: request.server.io,
       };
       try {

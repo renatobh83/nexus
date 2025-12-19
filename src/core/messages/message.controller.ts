@@ -136,12 +136,12 @@ export async function messageController(
       reply: FastifyReply
     ) => {
       const { contact, messages } = request.body;
-      const { userId, tenantId } = request.user as any;
+      const { id, tenantId } = request.user as any;
 
       try {
         for (const message of messages) {
           await messageService.createForwardMessageService({
-            userId,
+            userId: id,
             tenantId: tenantId,
             message,
             contact,
