@@ -134,23 +134,13 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     secure: true,    // ✅ true em produção (HTTPS)
     sameSite: 'none', // ✅ 'none' para cross-site
     path: '/',
-    domain: 'panelapps.site', // ⚠️ Verifique se precisa do ponto inicial
+    
     // 🔥 ADICIONE ESTAS PROPRIEDADES:
     maxAge: 24 * 60 * 60 * 1000, // 24 horas
     signed: false
   },
-  cookie: {
-    name: '_csrf'  // ⚠️ IMPORTANTE: nome do cookie
-  },
   // 🔥 CONFIGURAÇÕES ADICIONAIS DO CSRF:
   sessionPlugin: '@fastify/cookie',
-  csrfOpts: {
-    ignoredMethods: ['GET', 'HEAD', 'OPTIONS'],
-    getToken: (req) => {
-      // Extrai token do header ou body
-      return req.headers['x-csrf-token'] || req.body?._csrf;
-    }
-  }
 });
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
