@@ -155,7 +155,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     "onRequest",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
-console.log(request)
+
       // 🔹 Só métodos mutáveis
       if (!protectedMethods.includes(request.method)) {
         return;
@@ -175,7 +175,9 @@ console.log(request)
 
       const csrfCookie = request.cookies._csrf;
       const csrfHeader = request.headers["x-csrf-token"];
-
+  console.log(csrfHeader)
+      console.log(csrfCookie)
+      
       if (!csrfCookie || !csrfHeader) {
         return reply.status(403).send({ message: "CSRF token missing" });
       }
