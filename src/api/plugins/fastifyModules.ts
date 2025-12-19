@@ -64,6 +64,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   );
   await fastify.register(cors, {
     origin: (origin, cb) => {
+      console.log(allowedOrigins, origin);
       if (!origin) return cb(null, true); // curl / server-to-server
 
       if (allowedOrigins?.includes(origin)) {
