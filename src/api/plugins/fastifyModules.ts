@@ -125,6 +125,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
       secure: !isDevelopment, // 🔥 HTTPS EM PRODUÇÃO
       sameSite: isDevelopment ? "lax" : "none",
       path: "/",
+      domain: ".panelapps.site"
     },
   });
 
