@@ -79,37 +79,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     credentials: true,
   });
 
-  fastify.addHook(
-    "onRequest",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
 
-      // 🔹 Só métodos mutáveis
-      if (!protectedMethods.includes(request.method)) {
-        return;
-      }
-
-      // 🔹 Rotas que NÃO exigem CSRF
-      const csrfIgnoreRoutes = [
-        "/api/v1/auth/login",
-        "/api/v1/auth/refresh_token",
-        "/api/v1/auth/logout",
-        "/api/v1/auth/forgot-password",
-      ];
-
-      if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
-        return;
-      }
-
-      // const csrfCookie = request.cookies._csrf;
-      const csrfHeader = request.headers["x-csrf-token"];
-console.log(request.cookies)
-      console.log(request.headers)
-      
-      // if (!csrfCookie || !csrfHeader) {
-      //   return reply.status(403).send({ message: "CSRF token missing" });
-      // }
-    })
   // --- 3. Servidor de Arquivos Estáticos ---
   await fastify.register(fastifyStatic, {
     root: path.join(__dirname, "..", "..", "..", "public"),
@@ -159,10 +129,41 @@ console.log(request.cookies)
     sameSite: isDevelopment ? "lax" : "none",
     path: "/",
     
+    
   },
 })
 
+  fastify.addHook(
+    "onRequest",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
 
+      // 🔹 Só métodos mutáveis
+      if (!protectedMethods.includes(request.method)) {
+        return;
+      }
+
+      // 🔹 Rotas que NÃO exigem CSRF
+      const csrfIgnoreRoutes = [
+        "/api/v1/auth/login",
+        "/api/v1/auth/refresh_token",
+        "/api/v1/auth/logout",
+        "/api/v1/auth/forgot-password",
+      ];
+
+      if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
+        return;
+      }
+
+      // const csrfCookie = request.cookies._csrf;
+      const csrfHeader = request.headers["x-csrf-token"];
+console.log(request.cookies)
+      console.log(request.headers)
+      
+      // if (!csrfCookie || !csrfHeader) {
+      //   return reply.status(403).send({ message: "CSRF token missing" });
+      // }
+    })
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
   // Limpa todas as entradas do usuário (body, query, params) para remover scripts maliciosos.
   const sanitize = (value: unknown): unknown => {
