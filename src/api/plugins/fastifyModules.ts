@@ -101,14 +101,14 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
         return;
       }
 
-      const csrfCookie = request.cookies._csrf;
+      // const csrfCookie = request.cookies._csrf;
       const csrfHeader = request.headers["x-csrf-token"];
-
+console.log(request.cookies)
       console.log(request.headers)
       
-      if (!csrfCookie || !csrfHeader) {
-        return reply.status(403).send({ message: "CSRF token missing" });
-      }
+      // if (!csrfCookie || !csrfHeader) {
+      //   return reply.status(403).send({ message: "CSRF token missing" });
+      // }
     })
   // --- 3. Servidor de Arquivos Estáticos ---
   await fastify.register(fastifyStatic, {
