@@ -120,7 +120,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
   // --- 7. Proteção contra Cross-Site Request Forgery (CSRF) ---
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
-  await fastify.register(csrf, {
+  await fastify.register(csrf, {cookieKey: 'CSRF-TOKEN', 
  cookieOpts: {
     // Adicione esta linha 👇
     domain: isDevelopment ? undefined : ".panelapps.site", 
