@@ -109,6 +109,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
       if (!csrfCookie || !csrfHeader) {
         return reply.status(403).send({ message: "CSRF token missing" });
       }
+    })
   // --- 3. Servidor de Arquivos Estáticos ---
   await fastify.register(fastifyStatic, {
     root: path.join(__dirname, "..", "..", "..", "public"),
