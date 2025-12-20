@@ -119,29 +119,15 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
   // --- 7. Proteção contra Cross-Site Request Forgery (CSRF) ---
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
-  // await fastify.register(csrf, {
-  //   cookieOpts: {
-  //     httpOnly: false, // precisa ser lido no front
-  //     secure: !isDevelopment, // 🔥 HTTPS EM PRODUÇÃO
-  //     sameSite: isDevelopment ? "lax" : "none",
-  //     path: "/",
-  //     domain: ".panelapps.site"
-  //   },
-  // });
   await fastify.register(csrf, {
-  cookieOpts: {
-    httpOnly: true,  // ✅ Mude para true (mais seguro)
-    secure: true,    // ✅ true em produção (HTTPS)
-    sameSite: 'none', // ✅ 'none' para cross-site
-    path: '/',
-    
-    // 🔥 ADICIONE ESTAS PROPRIEDADES:
-    maxAge: 24 * 60 * 60 * 1000, // 24 horas
-    signed: false
-  },
-  // 🔥 CONFIGURAÇÕES ADICIONAIS DO CSRF:
-  sessionPlugin: '@fastify/cookie',
-});
+    cookieOpts: {
+      httpOnly: false, // precisa ser lido no front
+      secure: !isDevelopment, // 🔥 HTTPS EM PRODUÇÃO
+      sameSite: isDevelopment ? "lax" : "none",
+      path: "/",
+    },
+  });
+
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
   // Limpa todas as entradas do usuário (body, query, params) para remover scripts maliciosos.
@@ -189,8 +175,8 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
       const csrfCookie = request.cookies._csrf;
       const csrfHeader = request.headers["x-csrf-token"];
-  console.log(csrfHeader)
-      console.log(csrfCookie)
+
+      console.log(request.headers)
       
       if (!csrfCookie || !csrfHeader) {
         return reply.status(403).send({ message: "CSRF token missing" });
