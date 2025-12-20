@@ -123,12 +123,13 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
  cookieOpts: {
     // Adicione esta linha 👇
     domain: isDevelopment ? undefined : ".panelapps.site", 
-
     httpOnly: false,
     secure: !isDevelopment,
     sameSite: isDevelopment ? "lax" : "none",
     path: "/",
-  }})
+    
+  },
+})
 
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
@@ -153,42 +154,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     request.params = sanitize(request.params);
   });
 
-  fastify.addHook(
-    "onRequest",
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const protectedMethods = ["POST", "PUT", "PATCH", "DELETE"];
 
-      // 🔹 Só métodos mutáveis
-      if (!protectedMethods.includes(request.method)) {
-        return;
-      }
-
-      // 🔹 Rotas que NÃO exigem CSRF
-      const csrfIgnoreRoutes = [
-        "/api/v1/auth/login",
-        "/api/v1/auth/refresh_token",
-        "/api/v1/auth/logout",
-        "/api/v1/auth/forgot-password",
-      ];
-
-      if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
-        return;
-      }
-
-      const csrfCookie = request.cookies._csrf;
-      const csrfHeader = request.headers["x-csrf-token"];
-
-      console.log(request.headers)
-      
-      if (!csrfCookie || !csrfHeader) {
-        return reply.status(403).send({ message: "CSRF token missing" });
-      }
-
-      if (csrfCookie !== csrfHeader) {
-        return reply.status(403).send({ message: "Invalid CSRF token" });
-      }
-    }
-  );
   fastify.log.info(
     "✅ Módulo de segurança e middlewares essenciais carregado com sucesso!"
   );
