@@ -128,7 +128,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     secure: !isDevelopment,
     sameSite: isDevelopment ? "lax" : "none",
     path: "/",
-  });
+  }})
 
 
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
