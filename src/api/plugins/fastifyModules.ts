@@ -59,7 +59,10 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
   // --- 2. Controle de Acesso Cross-Origin (CORS) ---
   // Gerencia quais origens externas podem fazer requisições à API.
-  const allowedOrigins = process.env.CORS_ALLOWED_ORIGINS?.split(",") || ["*"];
+  const allowedOriginsString = process.env.CORS_ALLOWED_ORIGINS || '["*"]';
+  const allowedOrigins = allowedOriginsString
+    .replace(/[\[\]"]/g, "") // Remove [, ], e " da string
+    .split(",");
   await fastify.register(cors, {
     origin: (origin, cb) => {
       if (
@@ -69,8 +72,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
       ) {
         return cb(null, true);
       }
-      console.log(origin, allowedOrigins);
-      console.log(allowedOrigins.includes(origin));
+
       // Rejeita a requisição se a origem não estiver na lista de permissões.
       return cb(new Error("Not allowed by CORS"), false);
     },
@@ -78,7 +80,6 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
     credentials: true,
   });
-
 
   // --- 3. Servidor de Arquivos Estáticos ---
   await fastify.register(fastifyStatic, {
@@ -120,18 +121,16 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
   // --- 7. Proteção contra Cross-Site Request Forgery (CSRF) ---
   // Garante que as requisições que modificam o estado sejam originadas da nossa própria aplicação.
-  await fastify.register(csrf, { 
- cookieOpts: {
-    // Adicione esta linha 👇
-    domain: isDevelopment ? undefined : ".panelapps.site", 
-    httpOnly: false,
-    secure: !isDevelopment,
-    sameSite: isDevelopment ? "lax" : "none",
-    path: "/",
-    
-    
-  },
-})
+  await fastify.register(csrf, {
+    cookieOpts: {
+      // Adicione esta linha 👇
+      domain: isDevelopment ? undefined : ".panelapps.site",
+      httpOnly: false,
+      secure: !isDevelopment,
+      sameSite: isDevelopment ? "lax" : "none",
+      path: "/",
+    },
+  });
 
   fastify.addHook(
     "onRequest",
@@ -158,11 +157,11 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
       const csrfCookie = request.cookies._csrf;
       const csrfHeader = request.headers["x-csrf-token"];
 
-      
       if (!csrfCookie || !csrfHeader) {
         return reply.status(403).send({ message: "CSRF token missing" });
       }
-    })
+    }
+  );
   // --- 8. Sanitização de Entradas contra Cross-Site Scripting (XSS) ---
   // Limpa todas as entradas do usuário (body, query, params) para remover scripts maliciosos.
   const sanitize = (value: unknown): unknown => {
@@ -184,7 +183,6 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     request.query = sanitize(request.query);
     request.params = sanitize(request.params);
   });
-
 
   fastify.log.info(
     "✅ Módulo de segurança e middlewares essenciais carregado com sucesso!"
