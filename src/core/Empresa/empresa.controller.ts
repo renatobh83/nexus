@@ -133,7 +133,7 @@ export async function empresaController(
       },
     },
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { profile } = request.user as any;
+      const { profile, tenantId } = request.user as any;
       if (profile !== "admin") {
         return reply
           .code(ERRORS.unauthorizedAccess.statusCode)
@@ -143,6 +143,7 @@ export async function empresaController(
 
       const payload = {
         id: empresaId,
+        tenantId,
         ...(request.body as any),
       };
 
@@ -251,23 +252,20 @@ export async function empresaController(
   );
   fastify.delete(
     "/:empresaId/contacts/:contactId",
-    async (
-      request: FastifyRequest,
-      reply: FastifyReply
-    ) => {
+    async (request: FastifyRequest, reply: FastifyReply) => {
       const { empresaId, contactId } = request.params as {
         empresaId: string;
         contactId: string;
       };
       try {
-        const idEmpresa = parseInt(empresaId)
-        const idContato = parseInt(contactId)
-        const empresa = await empresaService.removeContatoEmpresa(idEmpresa, idContato)
-        return reply
-          .code(200)
-          .send({ message: empresa });
+        const idEmpresa = parseInt(empresaId);
+        const idContato = parseInt(contactId);
+        const empresa = await empresaService.removeContatoEmpresa(
+          idEmpresa,
+          idContato
+        );
+        return reply.code(200).send({ message: empresa });
       } catch (error) {
-
         return handleServerError(reply, error);
       }
     }
@@ -275,25 +273,18 @@ export async function empresaController(
 
   fastify.delete(
     "/:empresaId/deleteall/contacts",
-    async (
-      request: FastifyRequest,
-      reply: FastifyReply
-    ) => {
+    async (request: FastifyRequest, reply: FastifyReply) => {
       const { empresaId, contactId } = request.params as {
         empresaId: string;
         contactId: string;
       };
       try {
-        const idEmpresa = parseInt(empresaId)
-        const empresa = await empresaService.removeAllConato(idEmpresa)
-        return reply
-          .code(200)
-          .send({ message: empresa });
+        const idEmpresa = parseInt(empresaId);
+        const empresa = await empresaService.removeAllConato(idEmpresa);
+        return reply.code(200).send({ message: empresa });
       } catch (error) {
-
         return handleServerError(reply, error);
       }
     }
-
   );
 }

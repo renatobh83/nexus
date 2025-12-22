@@ -86,9 +86,6 @@ export class EmpresaRepository {
           },
         },
       },
-      include: {
-        empresaContacts: true,
-      },
     });
   }
   async update(

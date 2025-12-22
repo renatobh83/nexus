@@ -26,7 +26,7 @@ export class EmpresaService {
     }
 
     const newCompany = await this.empresaRepository.create(data);
-    return newCompany;
+    return { ...newCompany, contacts: [] };
   }
   async deleteCompany(emrpesaId: string) {
     await this.empresaRepository.delete(emrpesaId);
