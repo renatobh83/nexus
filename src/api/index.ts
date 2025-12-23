@@ -36,21 +36,21 @@ async function buildServer(): Promise<FastifyInstance> {
       level: "info",
       transport: isDevelopment
         ? {
-          target: "pino-pretty",
-          options: {
-            colorize: true,
-            translateTime: "HH:MM:ss Z",
-            ignore: "pid,hostname",
-          },
-        }
+            target: "pino-pretty",
+            options: {
+              colorize: true,
+              translateTime: "HH:MM:ss Z",
+              ignore: "pid,hostname",
+            },
+          }
         : {
-          target: "pino-pretty",
-          options: {
-            colorize: true,
-            translateTime: "HH:MM:ss Z",
-            ignore: "pid,hostname",
+            target: "pino-pretty",
+            options: {
+              colorize: true,
+              translateTime: "HH:MM:ss Z",
+              ignore: "pid,hostname",
+            },
           },
-        },
     },
     trustProxy: true,
   });
@@ -86,7 +86,7 @@ async function buildServer(): Promise<FastifyInstance> {
     async function (request: FastifyRequest, reply: FastifyReply) {
       try {
         // await request.jwtVerify();
-        const auth = request.headers.authorization
+        const auth = request.headers.authorization;
         let token: string | undefined;
 
         if (auth?.startsWith("Bearer ")) {
@@ -95,7 +95,7 @@ async function buildServer(): Promise<FastifyInstance> {
 
         // 2️⃣ fallback para cookie
         if (!token) {
-          token = request.cookies.access_token;;
+          token = request.cookies.access_token;
         }
 
         if (!token) {
@@ -104,7 +104,6 @@ async function buildServer(): Promise<FastifyInstance> {
 
         const user = request.server.jwt.verify(token);
         request.user = user;
-
       } catch (err: any) {
         // Não precisa tipar 'err' como 'any' aqui, o catch já o trata.
         request.server.log.error("JWT ERROR:", err);
@@ -152,15 +151,19 @@ async function buildServer(): Promise<FastifyInstance> {
     // 3. APLICAR O MIDDLEWARE DE AUTENTICAÇÃO DO SOCKET.IO
     server.io.use(async (socket, next) => {
       try {
-        const token =
-          socket?.handshake?.auth?.token ||
-          socket?.handshake?.headers?.authorization?.split(" ")[1];
+        const req = { headers: { cookie: socket.handshake.headers.cookie } };
+        const cookies = req.headers.cookie;
 
-        if (!token) {
+        const accessToken = cookies
+          ?.split("; ")
+          .find((c) => c.startsWith("access_token="))
+          ?.split("=")[1];
+
+        if (!accessToken) {
           return next(new Error("token ausente"));
         }
 
-        const verifyValid = decodeTokenSocket(token);
+        const verifyValid = decodeTokenSocket(accessToken);
         if (!verifyValid.isValid) return next(new Error("invalid token"));
         const data = verifyValid.data;
 
