@@ -17,6 +17,7 @@ export interface ApiData {
   tenantId: number;
   userId: number;
   id: string;
+  
 }
 export async function extenalApiController(
   fastify: FastifyInstance,
