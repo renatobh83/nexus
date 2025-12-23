@@ -256,6 +256,7 @@ export async function start() {
     } else {
       console.error("❌ Falha crítica antes da inicialização do logger:", err);
     }
+    console.log(err)
     process.exit(1);
   }
 }
