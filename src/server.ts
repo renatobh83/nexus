@@ -5,11 +5,5 @@ import { start } from "./api";
 };
 if (require.main === module) {
   start();
-  process.on("uncaughtException", (err) => {
-  console.error("UNCAUGHT EXCEPTION:", err);
-});
 
-process.on("unhandledRejection", (reason) => {
-  console.error("UNHANDLED REJECTION:", reason);
-});
 }
