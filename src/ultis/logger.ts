@@ -14,7 +14,7 @@ const jsonLogFileFormat = winston.format.combine(
   winston.format.prettyPrint()
 );
 
-let env = "prod";
+let env = "production";
 if (process.env?.NODE_ENV) {
   env = process.env.NODE_ENV;
 }
