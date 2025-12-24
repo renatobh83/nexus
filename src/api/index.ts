@@ -29,6 +29,12 @@ const isDevelopment = process.env.NODE_ENV !== "production";
  */
 async function buildServer(): Promise<FastifyInstance> {
   // config: FastifyServerOptions = {}
+  if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET não definida");
+}
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL não definida");
+}
   const server = Fastify({
     disableRequestLogging: true,
     logger: {
@@ -69,9 +75,9 @@ async function buildServer(): Promise<FastifyInstance> {
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };
   });
-  //   await server.register(fastifyEnv, {
-  //     dotenv: true,
-  //   });
+    await server.register(fastifyEnv, {
+      dotenv: true,
+    });
   server.register(async (instance: FastifyInstance) => {
     instance.log.info("🔌 Tentando conectar ao banco de dados...");
     await prisma.$connect();
@@ -256,7 +262,7 @@ export async function start() {
     } else {
       console.error("❌ Falha crítica antes da inicialização do logger:", err);
     }
-    console.log(err)
+    
     process.exit(1);
   }
 }
