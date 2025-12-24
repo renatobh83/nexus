@@ -35,11 +35,11 @@ export async function ticketController(
       reply: FastifyReply
     ) => {
       try {
-        const { tenantId, userId, profile } = request.user as any;
+        const { tenantId, id, profile } = request.user as any;
         const payload = {
           ...request.query,
           tenantId,
-          userId,
+          userId: id,
           profile,
           status: request.query.status.split(","),
         };
