@@ -72,19 +72,23 @@ if (!process.env.DATABASE_URL) {
 
   server.register(diContainerPlugin);
 
+
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };
   });
-    await server.register(fastifyEnv, {
-      dotenv: true,
-    });
-  server.register(async (instance: FastifyInstance) => {
+    // await server.register(fastifyEnv, {
+    //   dotenv: true,
+    // });
+server.register(async (instance) => {
+  try {
     instance.log.info("🔌 Tentando conectar ao banco de dados...");
     await prisma.$connect();
     instance.log.info("✅ Banco de dados conectado com sucesso!");
-
-    // Registra outros plugins que dependem de conexões externas
-  });
+  } catch (err) {
+    instance.log.error(err, "❌ Erro ao conectar no banco");
+    throw err; // deixa claro no log
+  }
+});
   await server.register(fastifyModule);
   await server.register(redisPlugin);
   server.decorate(
