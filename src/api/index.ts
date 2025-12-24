@@ -21,7 +21,7 @@ import diContainerPlugin from "./plugins/di-container";
 let fastifyApp: FastifyInstance;
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-console.log("ENTROU AQUI")
+
 /**
  * Funcao responsavel para construir o servidor
  *
@@ -30,15 +30,15 @@ console.log("ENTROU AQUI")
 async function buildServer(): Promise<FastifyInstance> {
   // config: FastifyServerOptions = {}
   if (!process.env.JWT_SECRET) {
-  throw new Error("JWT_SECRET não definida");
-}
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL não definida");
-}
+    throw new Error("JWT_SECRET não definida");
+  }
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL não definida");
+  }
   const server = Fastify({
     disableRequestLogging: true,
-  logger: isDevelopment
-    ? {
+    logger: isDevelopment
+      ? {
         transport: {
           target: "pino-pretty",
           options: {
@@ -48,7 +48,7 @@ if (!process.env.DATABASE_URL) {
           },
         },
       }
-    : true, // produção → JSON puro
+      : true, // produção → JSON puro
     trustProxy: true,
   });
   // server.setSerializerCompiler(() => {
@@ -67,19 +67,19 @@ if (!process.env.DATABASE_URL) {
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };
   });
-    // await server.register(fastifyEnv, {
-    //   dotenv: true,
-    // });
-server.register(async (instance) => {
-  try {
-    instance.log.info("🔌 Tentando conectar ao banco de dados...");
-    await prisma.$connect();
-    instance.log.info("✅ Banco de dados conectado com sucesso!");
-  } catch (err) {
-    instance.log.error(err, "❌ Erro ao conectar no banco");
-    throw err; // deixa claro no log
-  }
-});
+  // await server.register(fastifyEnv, {
+  //   dotenv: true,
+  // });
+  server.register(async (instance) => {
+    try {
+      instance.log.info("🔌 Tentando conectar ao banco de dados...");
+      await prisma.$connect();
+      instance.log.info("✅ Banco de dados conectado com sucesso!");
+    } catch (err) {
+      instance.log.error(err, "❌ Erro ao conectar no banco");
+      throw err; // deixa claro no log
+    }
+  });
   await server.register(fastifyModule);
   await server.register(redisPlugin);
   server.decorate(
@@ -244,7 +244,7 @@ export async function start() {
     } else {
       console.error("❌ Falha crítica antes da inicialização do logger:", err);
     }
-    
+
     process.exit(1);
   }
 }
