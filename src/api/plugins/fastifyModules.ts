@@ -61,6 +61,7 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   // Gerencia quais origens externas podem fazer requisições à API.
   const allowedOriginsString = process.env.CORS_ALLOWED_ORIGINS || '["*"]';
   
+  
   const allowedOrigins = allowedOriginsString
     .replace(/[\[\]"]/g, "") // Remove [, ], e " da string
     .split(",");
