@@ -2,6 +2,8 @@ import PDFDocument from "pdfkit";
 import fs from "fs";
 export const formatador = new Intl.DateTimeFormat("pt-BR");
 
+type PDFDoc = InstanceType<typeof PDFDocument>;
+
 export function generatePDF(
   company: { name: any; cpnj: any },
   period: any,
@@ -129,7 +131,7 @@ const formatarTempo = (ms: number): string => {
 
 // Função para adicionar o rodapé corretamente
 function adicionarRodape(
-  doc: PDFKit.PDFDocument,
+  doc: PDFDoc,
   currentPage: number,
   totalPages: number,
   isLastPage = false,
