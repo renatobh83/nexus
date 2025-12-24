@@ -1,0 +1,220 @@
+{
+  error: Error: Cannot find module '.prisma/client/default'
+  Require stack:
+  - /Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js
+  - /Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.type.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/helpers/isValidFlowAnswer.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts
+  - /Users/renato/Desktop/Dev/nexus/src/lib/wbot.ts
+  - /Users/renato/Desktop/Dev/nexus/src/jobs/SendMessageConfirmar.ts
+  - /Users/renato/Desktop/Dev/nexus/src/jobs/index.ts
+  - /Users/renato/Desktop/Dev/nexus/src/lib/Queue.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/plugins/bullMq.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts
+  - /Users/renato/Desktop/Dev/nexus/src/api/index.ts
+  - /Users/renato/Desktop/Dev/nexus/src/server.ts
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+      at Module._load (node:internal/modules/cjs/loader:1226:37)
+      at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+      at Module.require (node:internal/modules/cjs/loader:1503:12)
+      at require (node:internal/modules/helpers:152:16)
+      at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js:2:6)
+      at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [
+      '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js',
+      '/Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.type.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/helpers/isValidFlowAnswer.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/lib/wbot.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/jobs/SendMessageConfirmar.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/jobs/index.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/lib/Queue.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/plugins/bullMq.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/api/index.ts',
+      '/Users/renato/Desktop/Dev/nexus/src/server.ts'
+    ]
+  },
+  level: 'error',
+  message: "uncaughtException: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.type.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/isValidFlowAnswer.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/wbot.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/SendMessageConfirmar.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/Queue.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/bullMq.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    "Error: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.type.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/isValidFlowAnswer.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/wbot.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/SendMessageConfirmar.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/Queue.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/bullMq.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1226:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1503:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js:2:6)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)',
+  stack: "Error: Cannot find module '.prisma/client/default'\n" +
+    'Require stack:\n' +
+    '- /Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/core/Tickets/tickets.type.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/isValidFlowAnswer.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/wbot.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/SendMessageConfirmar.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/jobs/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/lib/Queue.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/bullMq.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/plugins/redis.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/api/index.ts\n' +
+    '- /Users/renato/Desktop/Dev/nexus/src/server.ts\n' +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)\n' +
+    '    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1226:37)\n' +
+    '    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1503:12)\n' +
+    '    at require (node:internal/modules/helpers:152:16)\n' +
+    '    at Object.<anonymous> (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js:2:6)\n' +
+    '    at Module.<anonymous> (node:internal/modules/cjs/loader:1760:14)',
+  exception: true,
+  date: 'Tue Dec 23 2025 22:19:42 GMT-0300 (Brasilia Standard Time)',
+  process: {
+    pid: 4450,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/renato/Desktop/Dev/nexus',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [ '/opt/homebrew/Cellar/node/24.8.0/bin/node', 'src/server.ts' ],
+    memoryUsage: {
+      rss: 171114496,
+      heapTotal: 194543616,
+      heapUsed: 58459616,
+      external: 3879808,
+      arrayBuffers: 126193
+    }
+  },
+  os: {
+    loadavg: [ 5.728515625, 2.52392578125, 1.96435546875 ],
+    uptime: 5967
+  },
+  trace: [
+    {
+      column: 15,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._resolveFilename',
+      line: 1420,
+      method: '_resolveFilename',
+      native: false
+    },
+    {
+      column: 19,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'defaultResolveImpl',
+      line: 1058,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'resolveForCJSWithHooks',
+      line: 1063,
+      method: null,
+      native: false
+    },
+    {
+      column: 37,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 1226,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:diagnostics_channel',
+      function: 'TracingChannel.traceSync',
+      line: 322,
+      method: 'traceSync',
+      native: false
+    },
+    {
+      column: 24,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'wrapModuleLoad',
+      line: 244,
+      method: null,
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.require',
+      line: 1503,
+      method: 'require',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'node:internal/modules/helpers',
+      function: 'require',
+      line: 152,
+      method: null,
+      native: false
+    },
+    {
+      column: 6,
+      file: '/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/default.js',
+      function: null,
+      line: 2,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: null,
+      line: 1760,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2025-12-24T01:19:42.365Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-24T01:20:09.773Z'
+}
