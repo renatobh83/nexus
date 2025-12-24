@@ -1,4 +1,12 @@
 import winston from "winston";
+import fs from "fs";
+import path from "path";
+
+const logDir = path.resolve("logs");
+
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
+}
 
 const jsonLogFileFormat = winston.format.combine(
   winston.format.errors({ stack: true }),
@@ -36,16 +44,16 @@ const logger = winston.createLogger({
       ),
     }),
     new winston.transports.File({
-      filename: "./logs/app.logg",
+      filename: "logs/app.log",
       level: "error",
       handleExceptions: true,
-      maxsize: 10485760,
+      maxsize: 10 * 1024 * 1024,
       maxFiles: 10,
     }),
-    new winston.transports.Http({
-      level: "warn",
-      format: winston.format.json(),
-    }),
+    // new winston.transports.Http({
+    //   level: "warn",
+    //   format: winston.format.json(),
+    // }),
   ],
 });
 
