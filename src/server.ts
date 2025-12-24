@@ -4,6 +4,7 @@ import { start } from "./api";
   return this.toString();
 };
 if (require.main === module) {
+  console.log("ENTROU AQUI")
   start().catch((err) => {
   console.error("❌ Erro fatal ao iniciar o servidor:", err);
   process.exit(1);
