@@ -37,27 +37,18 @@ if (!process.env.DATABASE_URL) {
 }
   const server = Fastify({
     disableRequestLogging: true,
-    logger: {
-      // level: isDevelopment ? "info" : "error",
-      level: "info",
-      transport: isDevelopment
-        ? {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss Z",
-              ignore: "pid,hostname",
-            },
-          }
-        : {
-            target: "pino-pretty",
-            options: {
-              colorize: true,
-              translateTime: "HH:MM:ss Z",
-              ignore: "pid,hostname",
-            },
+  logger: isDevelopment
+    ? {
+        transport: {
+          target: "pino-pretty",
+          options: {
+            colorize: true,
+            translateTime: "SYS:standard",
+            ignore: "pid,hostname",
           },
-    },
+        },
+      }
+    : true, // produção → JSON puro
     trustProxy: true,
   });
   // server.setSerializerCompiler(() => {
