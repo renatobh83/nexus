@@ -18,6 +18,7 @@ const logger = winston.createLogger({
   level,
   format: jsonLogFileFormat,
   // expressFormat: true,
+   exitOnError: false, // 🔥 ESSENCIAL
 
   transports: [
     new winston.transports.Console({
