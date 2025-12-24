@@ -67,7 +67,7 @@ if (!process.env.DATABASE_URL) {
   //     );
   // });
   await server.register(jwt, {
-    secret: process.env.JWT_SECRET!,
+    secret: process.env.JWT_SECRET as string,
   });
 
   server.register(diContainerPlugin);
@@ -215,19 +215,6 @@ server.register(async (instance) => {
   });
 
   const signals: NodeJS.Signals[] = ["SIGINT", "SIGTERM"];
-  signals.forEach((signal) => {
-    process.on(signal, async () => {
-      try {
-        await server.close();
-        // await shutdown();
-        server.log.error(`Closed application on ${signal}`);
-        process.exit(0);
-      } catch (err: any) {
-        server.log.error(`Error closing application on ${signal}`, err);
-        process.exit(1);
-      }
-    });
-  });
 
   signals.forEach((signal) => {
     process.on(signal, async () => {
