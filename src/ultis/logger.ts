@@ -17,7 +17,7 @@ const level = env !== "development" ? "info" : "debug";
 const logger = winston.createLogger({
   level,
   format: jsonLogFileFormat,
-  // expressFormat: true,
+  handleExceptions: true,
    exitOnError: false, // 🔥 ESSENCIAL
 
   transports: [
