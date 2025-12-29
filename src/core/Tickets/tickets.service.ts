@@ -294,7 +294,11 @@ export class TicketService {
         type: "open",
         tenantId: ticket.tenantId,
       });
-
+      socketEmit({
+        tenantId,
+        type: "ticket:update",
+        payload: ticket,
+      });
       return ticket;
     } catch (error) {
       console.log(error);

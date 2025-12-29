@@ -106,7 +106,7 @@ export async function ticketController(
       }>,
       reply: FastifyReply
     ) => {
-      const { tenantId, userId } = request.user as any;
+      const { tenantId, id } = request.user as any;
 
       try {
         const isConnected = await whatsappService.findById(
@@ -121,7 +121,7 @@ export async function ticketController(
         }
         const payload = {
           ...request.body,
-          userId,
+          userId: id,
           tenantId,
           channelId: isConnected.id,
           channel: isConnected.type,

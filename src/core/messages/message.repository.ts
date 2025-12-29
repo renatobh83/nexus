@@ -17,7 +17,9 @@ const messageInclude = {
     include: {
       contact: true,
       messages: {
-
+        orderBy: {
+          createdAt: "asc", // ou id: "asc"
+        },
         include: {
           quotedMsg: true,
         },
