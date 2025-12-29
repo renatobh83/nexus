@@ -1,6 +1,6 @@
 import { enum_Messages_sendType, Message, Prisma } from "@prisma/client";
 
-import { encrypt, decrypt, isEncrypted } from "../../lib/crypto";
+
 import { MessageRepository, ResponseMessages } from "./message.repository";
 import { MessageDTO, RequestMessage } from "./message.type";
 import { PaginationOptions } from "../users/users.repository";
@@ -266,7 +266,7 @@ export class MessageService {
             messageId: dataForDb.messageId,
           });
 
-          let savedMessage;
+          let savedMessage: { ticket: any; contact: any; };
 
           if (forUpdated) {
             const updateInput: Prisma.MessageUpdateInput = {
@@ -280,23 +280,12 @@ export class MessageService {
             savedMessage = await this.messageRepository.create(dataForDb);
           }
 
-          let fullMediaUrl: string | null = null;
-
-          if (savedMessage.mediaUrl) {
-            const { MEDIA_URL, PROXY_PORT } = process.env;
-            fullMediaUrl =
-              process.env.NODE_ENV === "development" && PROXY_PORT
-                ? `${MEDIA_URL}:${PROXY_PORT}/public/${savedMessage.mediaUrl}`
-                : `${MEDIA_URL}/public/${savedMessage.mediaUrl}`;
-          }
-
           const messageToSocket = {
             ...savedMessage,
-            mediaUrl: fullMediaUrl,
             ticket: { id: savedMessage.ticket!.id, ...savedMessage.ticket },
             contact: savedMessage.contact!.id,
           };
-          // console.log(savedMessage.ticket);
+
           socketEmit({
             tenantId,
             type: "chat:create",
@@ -345,9 +334,9 @@ export class MessageService {
         unreadMessages: 0,
         whatsappId: message.ticket.whatsappId,
         lastMessage:
-          decrypt(message.body).length > 255
-            ? decrypt(message.body).slice(0, 252) + "..."
-            : decrypt(message.body),
+          message.body.length > 255
+            ? message.body.slice(0, 252) + "..."
+            : message.body,
         lastMessageAt: new Date().getTime(),
         answered: true,
       }

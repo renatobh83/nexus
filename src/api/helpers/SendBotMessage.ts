@@ -4,7 +4,7 @@ import { getFastifyApp } from "..";
 import SendMessageSystemProxy from "./SendMessageSystemProxy";
 import { v4 as uuidV4 } from "uuid";
 import { MessageDTO, MessageStatus } from "../../core/messages/message.type";
-import { encrypt } from "../../lib/crypto";
+
 import { buildMessageBody } from "../../core/messages/message.utils";
 
 // TODO codigo ainda incompleto
@@ -48,7 +48,7 @@ export const sendBotMessage = async (
   const messageData: MessageDTO = {
     id: String(messageSent.id),
     messageId: String(messageSent.id),
-    body: encrypt(body),
+    body: body,
     mediaType: "chat",
     sendType: "bot" as enum_Messages_sendType,
     fromMe: true,

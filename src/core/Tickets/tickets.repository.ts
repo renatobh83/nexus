@@ -310,6 +310,7 @@ export class TicketRepository {
       data,
       include: TICKET_INCLUDE_CONFIG,
     });
+
     return transformTickets(
       ticket as TicketWithStandardIncludes
     ) as TicketWithMessages;

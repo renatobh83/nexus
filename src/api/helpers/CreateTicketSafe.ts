@@ -62,9 +62,11 @@ export const findOrCreateTicketSafe = async (params: {
           {
             lastMessage: msg.text
               ? msg.text
-              : msg.content.length > 255
-              ? msg.content.slice(0, 252) + "..."
-              : msg.content,
+              : msg.content
+                ? msg.content.length > 255
+                  ? msg.content.slice(0, 252) + "..."
+                  : msg.content
+                : null,
           }
         );
         return { ticket: updateTicketLastMessage, isNew: false };
@@ -135,8 +137,7 @@ export const findOrCreateTicketSafe = async (params: {
 
       if (ticket) {
         logger.info(
-          `[Channel-${whatsappId}] Ticket ${ticket.id} encontrado após ${
-            Date.now() - startTime
+          `[Channel-${whatsappId}] Ticket ${ticket.id} encontrado após ${Date.now() - startTime
           }ms de espera.`
         );
         return { ticket, isNew: false };

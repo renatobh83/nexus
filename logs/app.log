@@ -10109,3 +10109,58 @@
   level: 'error',
   timestamp: '2025-12-29T15:11:01.437Z'
 }
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T15:31:37.128Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T15:31:37.532Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T15:32:57.487Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T15:32:57.813Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T15:33:23.193Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T15:33:23.591Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T15:34:49.238Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T15:34:49.630Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T15:35:59.113Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T15:35:59.441Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T15:46:22.130Z'
+}

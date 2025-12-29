@@ -3,7 +3,6 @@ import "dotenv/config";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { decrypt, encrypt } from "./crypto";
-import { PayloadToResult, DefaultArgs, RenameAndNestPayloadKeys } from "@prisma/client/runtime/client";
 
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString });
@@ -48,7 +47,22 @@ function decryptMessage(msg: any) {
   if (msg.quotedMsg) {
     msg.quotedMsg = decryptMessage(msg.quotedMsg);
   }
-  msg.ticket.messages = decryptMessageArray(msg.ticket.messages);
+  if (msg.ticket?.messages) {
+    const messages = msg.ticket.messages.map((m: { mediaUrl: string | null; body: string }) => {
+      let fullMediaUrl: string | null = null;
+      if (m.mediaUrl) {
+        const { MEDIA_URL, PROXY_PORT } = process.env;
+        fullMediaUrl =
+          process.env.NODE_ENV === "development" && PROXY_PORT
+            ? `${MEDIA_URL}:${PROXY_PORT}/public/${m.mediaUrl}`
+            : `${MEDIA_URL}/public/${m.mediaUrl}`;
+      }
+      m.mediaUrl = fullMediaUrl;
+      m.body = decrypt(m.body);
+      return m;
+    })
+    msg.ticket.messages = messages;
+  }
 
   return msg;
 }

@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { encrypt } from "../../lib/crypto";
+
 
 export class LoadInicialService {
   constructor() { }
@@ -24,7 +24,6 @@ export class LoadInicialService {
       contatos,
       chatFlow,
     };
-    const encryptedData = encrypt(JSON.stringify(data));
 
     return { payload: data };
   }

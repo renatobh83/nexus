@@ -195,6 +195,7 @@ export class TicketService {
     const dataForPrisma = {
       ...restData,
     };
+
     // 2. Adiciona as conexões (connects) de forma condicional
     if (contact?.id) {
       dataForPrisma.contact = {

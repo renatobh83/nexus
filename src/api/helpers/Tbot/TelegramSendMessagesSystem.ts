@@ -5,7 +5,7 @@ import { Ticket } from "@prisma/client";
 import { logger } from "../../../ultis/logger";
 import { AppError } from "../../../errors/errors.helper";
 import { getFastifyApp } from "../..";
-import { encrypt } from "../../../lib/crypto";
+
 interface Session extends Telegraf {
   id: number;
 }
@@ -128,7 +128,7 @@ const TelegramSendMessagesSystem = async (
     const messageToSocket = {
       ...messageToUpdate,
       mediaUrl: fullMediaUrl,
-      body: encrypt(messageToUpdate.body),
+      body: messageToUpdate.body,
       ticket: { id: messageToUpdate.ticketId },
       contact: ticket.contact!.id,
       createdAt: new Date(),
