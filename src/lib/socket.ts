@@ -26,9 +26,13 @@ export const setupSocket = (ioInstance: SocketIOServer): void => {
   // A lógica de conexão permanece aqui.
   io.on("connection", async (socket: Socket) => {
     try {
-      const token =
-        socket.handshake.auth?.token ||
-        socket.handshake.headers?.authorization?.split(" ")[1];
+      const req = { headers: { cookie: socket.handshake.headers.cookie } };
+      const cookies = req.headers.cookie;
+
+      const accessToken = cookies
+        ?.split("; ")
+        .find((c) => c.startsWith("access_token="))
+        ?.split("=")[1];
 
       const { tenantId, type } = socket.handshake.auth;
 
@@ -38,7 +42,7 @@ export const setupSocket = (ioInstance: SocketIOServer): void => {
         return;
       }
 
-      if (!token) {
+      if (!accessToken) {
         console.warn(`Socket ${socket.id} tentou conectar sem token`);
         socket.disconnect(true);
         return;

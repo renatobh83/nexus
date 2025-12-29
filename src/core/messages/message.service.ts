@@ -13,7 +13,6 @@ import { SendMessageForward } from "../../api/helpers/SendMessageForward";
 import { MediaService } from "../../api/helpers/MediaService";
 import { SendMessageReaction } from "../../api/helpers/SendMessageReaction";
 import { buildMessageBody } from "./message.utils";
-import { eventBus } from "../../ultis/eventBus";
 
 export class MessageService {
   private messageRepository: MessageRepository;
@@ -37,10 +36,6 @@ export class MessageService {
       bodyToSave = "Bot message - sem conteudo";
     }
 
-    // Criptografa o corpo da mensagem se ainda não estiver criptografado.
-    // if (!isEncrypted(bodyToSave)) {
-    //   bodyToSave = encrypt(bodyToSave);
-    // }
 
     const { ticketId, tenantId, contactId, id, messageId, ...restDto } = dto;
 
@@ -113,7 +108,7 @@ export class MessageService {
     // --- LÓGICA DO GETTER 'mediaUrl' E DESCRIPTOGRAFIA ---
 
     // Descriptografa o corpo da mensagem
-    const decryptedBody = decrypt(message.body);
+    const decryptedBody = message.body
 
     // Monta a URL completa da mídia
     let fullMediaUrl: string | null = null;
@@ -186,7 +181,8 @@ export class MessageService {
     ticket,
     filesArray,
   }: RequestMessage): Promise<void> {
-    const decryptedMessage = decrypt(message.body);
+
+    const decryptedMessage = message.body
 
     const messageData = {
       ticketId: ticket.id,
@@ -242,7 +238,7 @@ export class MessageService {
             id: String(messageSent.id),
             ack: 2,
             messageId: String(messageSent.id),
-            body: encrypt(messageData.body),
+            body: messageData.body,
           };
 
           if (messageData.ticketId) {
@@ -297,9 +293,10 @@ export class MessageService {
           const messageToSocket = {
             ...savedMessage,
             mediaUrl: fullMediaUrl,
-            ticket: { id: savedMessage.ticket!.id },
+            ticket: { id: savedMessage.ticket!.id, ...savedMessage.ticket },
             contact: savedMessage.contact!.id,
           };
+          // console.log(savedMessage.ticket);
           socketEmit({
             tenantId,
             type: "chat:create",

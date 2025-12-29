@@ -17,6 +17,7 @@ const messageInclude = {
     include: {
       contact: true,
       messages: {
+
         include: {
           quotedMsg: true,
         },

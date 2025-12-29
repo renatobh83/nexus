@@ -9967,3 +9967,145 @@
   level: 'error',
   timestamp: '2025-12-24T14:45:22.174Z'
 }
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T10:22:53.328Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T10:28:21.524Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T10:46:01.564Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T11:03:41.593Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T11:21:21.087Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker send-message] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-29T11:34:17.275Z'
+}
+{
+  error: Error: connect ETIMEDOUT
+      at Socket.<anonymous> (C:\Users\suporte2\Documents\Programacao\Nodejs\nexus\node_modules\ioredis\built\Redis.js:171:41)
+      at Object.onceWrapper (node:events:622:28)
+      at Socket.emit (node:events:508:28)
+      at Socket._onTimeout (node:net:604:8)
+      at listOnTimeout (node:internal/timers:605:17)
+      at processTimers (node:internal/timers:541:7) {
+    errorno: 'ETIMEDOUT',
+    code: 'ETIMEDOUT',
+    syscall: 'connect'
+  },
+  level: 'error',
+  message: '[Worker WebHookConfirma] Erro geral no worker: connect ETIMEDOUT',
+  timestamp: '2025-12-29T11:34:17.306Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T11:39:01.749Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T11:56:41.775Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T12:14:21.824Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T12:32:01.923Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T12:49:41.789Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T13:07:20.960Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T13:25:01.831Z'
+}
+{
+  message: "[Channel-10] Erro durante a criação do ticket (com lock): TypeError: Cannot read properties of undefined (reading 'length')",
+  level: 'error',
+  timestamp: '2025-12-29T13:30:40.481Z'
+}
+{
+  message: '[Telegram] Falha crítica ao criar ou obter ticket.',
+  level: 'error',
+  timestamp: '2025-12-29T13:30:40.802Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T13:42:42.280Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T14:00:22.293Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T14:19:18.283Z'
+}
+{
+  message: 'Unhandled Rejection: Error: Function not implemented.',
+  level: 'error',
+  timestamp: '2025-12-29T14:19:43.813Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T14:35:41.335Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T14:53:21.163Z'
+}
+{
+  message: 'Unhandled Rejection: FetchError: request to https://api.telegram.org/bot8196077280:[REDACTED]/getMe failed, reason: connect ETIMEDOUT 149.154.167.220:443',
+  level: 'error',
+  timestamp: '2025-12-29T14:55:02.137Z'
+}
+{
+  message: 'Unhandled Rejection: Error: ERR_BUILD_SEND_MESSAGE_SERVICE',
+  level: 'error',
+  timestamp: '2025-12-29T15:11:01.437Z'
+}

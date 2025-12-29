@@ -2,7 +2,8 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import "dotenv/config";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { decrypt } from "./crypto";
+import { decrypt, encrypt } from "./crypto";
+import { PayloadToResult, DefaultArgs, RenameAndNestPayloadKeys } from "@prisma/client/runtime/client";
 
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString });
@@ -37,7 +38,22 @@ function decryptMessageArray(messages: any[]) {
     } : null,
   }));
 }
+function decryptMessage(msg: any) {
+  if (!msg) return msg;
+
+  if (msg.body) {
+    msg.body = decrypt(msg.body);
+  }
+
+  if (msg.quotedMsg) {
+    msg.quotedMsg = decryptMessage(msg.quotedMsg);
+  }
+  msg.ticket.messages = decryptMessageArray(msg.ticket.messages);
+
+  return msg;
+}
 const prisma = prismaBase.$extends({
+
   model: {
     ticket: {
       // Cria um novo método: prisma.ticket.findAndDecrypt()
@@ -61,7 +77,32 @@ const prisma = prismaBase.$extends({
         }
         return tickets;
       }
-    }
+    },
+    message: {
+      async create(args: Prisma.MessageCreateArgs) {
+
+        if (args.data.body) {
+          args.data.body = encrypt(args.data.body);
+        }
+
+        const result = await prismaBase.message.create(args);
+
+        return decryptMessage(result);
+      },
+      async update(args: Prisma.MessageUpdateArgs) {
+
+        if (args.data.body && typeof args.data.body === "string") {
+          args.data.body = encrypt(args.data.body);
+        }
+
+        const result = await prismaBase.message.update(args);
+
+        return decryptMessage(result);
+      },
+
+    },
+
+
   }
 })
 export { prisma };
