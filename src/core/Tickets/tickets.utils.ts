@@ -19,6 +19,7 @@ import BuildSendMessageService, {
   MessageType,
 } from "../../api/helpers/BuildSendMessage";
 import { handleBusinessHoursCheck } from "../../api/helpers/BusinessHoursCheck";
+import { decrypt } from "../../lib/crypto";
 
 type TicketInput = TicketWithStandardIncludes | TicketWithStandardIncludes[];
 type TicketOutput = TicketWithMessages | TicketWithMessages[];
@@ -34,6 +35,7 @@ function _transformSingleTicket(
     const newQuot = message.quotedMsg
       ? {
           ...message.quotedMsg,
+          body: decrypt(message.quotedMsg.body),
           mediaUrl: message.quotedMsg.mediaUrl
             ? getFullMediaUrl(message.quotedMsg.mediaUrl)
             : null,
@@ -42,6 +44,8 @@ function _transformSingleTicket(
 
     return {
       ...message,
+
+      body: decrypt(message.body),
       mediaUrl: getFullMediaUrl(message.mediaUrl),
       quotedMsg: newQuot,
       isGroup: ticket.isGroup,
@@ -184,11 +188,12 @@ export const handleNextStep = async (
   msg: WbotMessage | any
 ): Promise<void> => {
   if (stepCondition.action === ChatFlowAction.NextStep) {
-    const update = await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
-      stepChatFlow: stepCondition.nextStepId,
-      botRetries: 0,
-      lastInteractionBot: new Date(),
-    });
+    const update =
+      await getFastifyApp().services.ticketService.updateTicketAndEmit(ticket, {
+        stepChatFlow: stepCondition.nextStepId,
+        botRetries: 0,
+        lastInteractionBot: new Date(),
+      });
 
     const nodesList = [...(chatFlow.flow as any).nodeList];
 
@@ -202,7 +207,7 @@ export const handleNextStep = async (
       await BuildSendMessageService({
         msg: { ...interaction, msg },
         tenantId: ticket.tenantId,
-        ticket: update
+        ticket: update,
       });
     }
   }

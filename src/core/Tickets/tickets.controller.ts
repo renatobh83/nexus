@@ -6,6 +6,7 @@ import {
 } from "fastify";
 import { AppError, handleServerError } from "../../errors/errors.helper";
 import { pupa } from "../../ultis/pupa";
+import SetTicketMessagesAsRead from "../../ultis/SetTicketMessagesAsRead";
 
 export async function ticketController(
   fastify: FastifyInstance,
@@ -208,6 +209,27 @@ export async function ticketController(
         }
 
         return reply.code(200).send(ticket);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
+    }
+  );
+  fastify.post(
+    "/:ticketId/read",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        const { ticketId } = request.params as { ticketId: string };
+
+        const ticket = await ticketService.findTicketBy({
+          id: parseInt(ticketId, 10),
+        });
+        if (!ticket) {
+          throw new AppError("ERRO_TICKET_NO_FOUND", 404);
+        }
+        if (ticket.unreadMessages! > 0) {
+          SetTicketMessagesAsRead(ticket);
+        }
+        return reply.code(200).send("sucess");
       } catch (error) {
         return handleServerError(reply, error);
       }
