@@ -143,6 +143,9 @@ export class UsersRepository {
             },
           },
         },
+        omit: {
+          passwordHash: true,
+        },
       });
       return transformUserQueues(user);
     } else {
@@ -154,6 +157,9 @@ export class UsersRepository {
               queue: true,
             },
           },
+        },
+        omit: {
+          passwordHash: true,
         },
       });
       return transformUserQueues(user);
