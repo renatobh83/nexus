@@ -2,6 +2,8 @@ import { hash } from "bcryptjs";
 import { UsersRepository } from "./users.repository";
 import { AppError } from "../../errors/errors.helper";
 import { Prisma, User } from "@prisma/client";
+import emitEvent from "../../api/helpers/socketEmit";
+import socketEmit from "../../api/helpers/socketEmit";
 
 export class UserService {
   private userRepository: UsersRepository;
@@ -57,7 +59,11 @@ export class UserService {
     }
 
     const user = await this.userRepository.createOrUpdateUser(userDataPayload);
-
+    socketEmit({
+      tenantId: userData.tenantId,
+      payload: user,
+      type: "user:update",
+    });
     return user;
   }
 

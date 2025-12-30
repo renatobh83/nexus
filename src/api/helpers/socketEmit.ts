@@ -12,13 +12,13 @@ type Events =
   | "contact:create"
   | "notification:new"
   | "campaign:update"
-  | "user:update"
   | "ticket:update_chatflow"
   | "campaign:send"
   | "ChatClientDesconectado"
   | "chamado:create"
   | "chamado:delete"
   | "chamado:update"
+  | "user:update"
   | "message:create";
 
 interface ObjEvent {

@@ -4,6 +4,7 @@ import { PaginationOptions } from "../users/users.repository";
 import { WhatsappRepository } from "../whatsapp/whatsapp.repository";
 import { getWbot } from "../../lib/wbot";
 import { AppError } from "../../errors/errors.helper";
+import socketEmit from "../../api/helpers/socketEmit";
 
 type ContactFindWhere = {
   email?: string;
@@ -61,7 +62,11 @@ export class ContatoService {
       data,
       where
     );
-
+    socketEmit({
+      tenantId: 1,
+      type: "contact:update",
+      payload: contact,
+    });
     return contact;
   }
   async findContato(where: Prisma.ContactWhereInput) {
@@ -126,6 +131,11 @@ export class ContatoService {
       throw new AppError("ERR_DUPLICATED_CONTACT", 400);
     }
     const contact = await this.contatosRepository.createContat(data);
+    socketEmit({
+      tenantId: 1,
+      type: "contact:update",
+      payload: contact,
+    });
     return contact;
   }
 }
