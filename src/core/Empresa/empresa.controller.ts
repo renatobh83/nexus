@@ -294,6 +294,7 @@ export async function empresaController(
   fastify.delete(
     "/:empresaId/deleteall/contacts",
     async (request: FastifyRequest, reply: FastifyReply) => {
+        const { tenantId } = request.user as any;
       const { empresaId, contactId } = request.params as {
         empresaId: string;
         contactId: string;
@@ -301,6 +302,12 @@ export async function empresaController(
       try {
         const idEmpresa = parseInt(empresaId);
         const empresa = await empresaService.removeAllConato(idEmpresa);
+             const io = getIO();
+
+        io.emit(`${tenantId}:empresa`, {
+          action: "deleteContact",
+          empresa: empresa,
+        });
         return reply.code(200).send({ message: empresa });
       } catch (error) {
         return handleServerError(reply, error);
