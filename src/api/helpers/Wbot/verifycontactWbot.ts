@@ -22,10 +22,28 @@ export const verifyContactWbot = async (
         return;
       contactId = message.to;
       msgContact = await wbot.getPnLidEntry(contactId);
+    } else if (message.isGroupMsg) {
+
+      const dadosGrupo = await wbot.getContact(message.from)
+      msgContact = {
+        phoneNumber: {
+          id: dadosGrupo.id.user,
+          server: dadosGrupo.id.server,
+          _serialized: dadosGrupo.id._serialized
+        },
+        contact: {
+          pushname: dadosGrupo.name,
+          type: 'in',
+          syncToAddressbook: false,
+          isContactSyncCompleted: 1
+        }
+      }
+
     } else {
       contactId = message.from;
       msgContact = await wbot.getPnLidEntry(contactId);
     }
+
 
     const key = REDIS_KEYS.contact(wbot.id, msgContact.phoneNumber._serialized);
     const cached = await redisClient.get(key);
@@ -58,6 +76,7 @@ export const verifyContactWbot = async (
     }
     return contact;
   } catch (error) {
+    console.log(error)
     throw new AppError("erro create contato", 500);
   }
 };
