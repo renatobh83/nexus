@@ -11,7 +11,7 @@ export const verifyContactWbot = async (
   wbot: Session
 ) => {
   let msgContact: any;
-  let contactId: any;
+  let contactId: string;
   try {
     if (message.fromMe) {
       if (
@@ -20,8 +20,27 @@ export const verifyContactWbot = async (
         message.type !== "vcard"
       )
         return;
-      contactId = message.to;
-      msgContact = await wbot.getPnLidEntry(contactId);
+      contactId = message.to as string;
+
+      if (contactId.includes("@g.us")) {
+        const dadosGrupo = await wbot.getContact(message.from)
+        msgContact = {
+          phoneNumber: {
+            id: dadosGrupo.id.user,
+            server: dadosGrupo.id.server,
+            _serialized: dadosGrupo.id._serialized
+          },
+          contact: {
+            pushname: dadosGrupo.name,
+            type: 'in',
+            syncToAddressbook: false,
+            isContactSyncCompleted: 1
+          }
+        }
+      } else {
+
+        msgContact = await wbot.getPnLidEntry(contactId);
+      }
     } else if (message.isGroupMsg) {
 
       const dadosGrupo = await wbot.getContact(message.from)

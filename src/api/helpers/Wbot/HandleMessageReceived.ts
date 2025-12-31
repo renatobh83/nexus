@@ -44,6 +44,7 @@ export const HandleMessageReceived = async (
       authorGrupMessage = contato;
     }
 
+    
     const { ticket, isNew } = await findOrCreateTicketSafe({
       contact,
       whatsappId: wbot.id,
