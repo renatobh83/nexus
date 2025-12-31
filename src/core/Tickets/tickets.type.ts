@@ -8,7 +8,7 @@ const ticketWithMessagesInclude = Prisma.validator<Prisma.TicketInclude>()({
       quotedMsg: true,
     },
     orderBy: {
-      updatedAt: "asc",
+      createdAt: "asc",
     },
   },
 });
@@ -57,7 +57,7 @@ export const TICKET_INCLUDE_CONFIG = {
       quotedMsg: true,
     },
     orderBy: {
-      updatedAt: "asc",
+      createdAt: "asc",
     },
   },
   queue: {
