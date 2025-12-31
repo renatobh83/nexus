@@ -1,6 +1,7 @@
 import { Prisma, User } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { transformUserQueues } from "../../ultis/prismaQueue";
+import socketEmit from "../../api/helpers/socketEmit";
 
 export interface PaginationOptions {
   limit?: number;
@@ -147,6 +148,7 @@ export class UsersRepository {
           passwordHash: true,
         },
       });
+
       return transformUserQueues(user);
     } else {
       const user = await prisma.user.create({
@@ -161,7 +163,9 @@ export class UsersRepository {
         omit: {
           passwordHash: true,
         },
+
       });
+  
       return transformUserQueues(user);
     }
   }

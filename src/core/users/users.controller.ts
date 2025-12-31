@@ -47,6 +47,12 @@ export async function userController(
             .send(ERRORS.unauthorizedAccess.message);
         }
         const user = await userService.saveUser(payload);
+         const io = getIO();
+
+        io.emit(`${tenantId}:user`, {
+          action: "create",
+          user,
+        });
         return reply.code(200).send(user);
       } catch (error) {
         return reply.code(404).send({ message: error });
@@ -196,7 +202,7 @@ export async function userController(
 
         io.emit(`${tenantId}:user`, {
           action: "delete",
-          userId,
+          user: userId,
         });
         return reply.code(200).send({ message: isDelete });
       } catch (error) {

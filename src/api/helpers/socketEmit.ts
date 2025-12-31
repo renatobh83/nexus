@@ -19,6 +19,7 @@ type Events =
   | "chamado:delete"
   | "chamado:update"
   | "user:update"
+  | "user:create"
   | "message:create";
 
 interface ObjEvent {

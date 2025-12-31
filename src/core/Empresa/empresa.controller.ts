@@ -6,6 +6,7 @@ import {
 } from "fastify";
 import { ERRORS, handleServerError } from "../../errors/errors.helper";
 import { Prisma } from "@prisma/client";
+import { getIO } from "../../lib/socket";
 
 export async function empresaController(
   fastify: FastifyInstance,
@@ -149,6 +150,12 @@ export async function empresaController(
 
       try {
         const empresa = await empresaService.updateCompany(payload);
+           const io = getIO();
+
+        io.emit(`${tenantId}:empresa`, {
+          action: "update",
+          empresa: empresa,
+        });
 
         return reply.code(200).send(empresa);
       } catch (error) {
@@ -232,6 +239,7 @@ export async function empresaController(
       },
     },
     async (request: FastifyRequest, reply: FastifyReply) => {
+      const { tenantId } = request.user as any;
       const { empresaId } = request.params as any;
       const { contactIds } = request.body as any;
       try {
@@ -243,7 +251,12 @@ export async function empresaController(
           id,
           contactIds
         );
+        const io = getIO();
 
+        io.emit(`${tenantId}:empresa`, {
+          action: "update",
+          empresa: emrpesaContatos,
+        });
         return reply.code(200).send(emrpesaContatos);
       } catch (error) {
         return handleServerError(reply, error);
@@ -253,6 +266,7 @@ export async function empresaController(
   fastify.delete(
     "/:empresaId/contacts/:contactId",
     async (request: FastifyRequest, reply: FastifyReply) => {
+        const { tenantId } = request.user as any;
       const { empresaId, contactId } = request.params as {
         empresaId: string;
         contactId: string;
@@ -264,6 +278,12 @@ export async function empresaController(
           idEmpresa,
           idContato
         );
+           const io = getIO();
+
+        io.emit(`${tenantId}:empresa`, {
+          action: "deleteContact",
+          empresa: empresa,
+        });
         return reply.code(200).send({ message: empresa });
       } catch (error) {
         return handleServerError(reply, error);

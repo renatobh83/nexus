@@ -5,6 +5,7 @@ import {
   FastifyRequest,
 } from "fastify";
 import { handleServerError } from "../../errors/errors.helper";
+import { getIO } from "../../lib/socket";
 
 interface ContactData {
   name: string;
@@ -81,6 +82,7 @@ export async function ContatoController(
       reply: FastifyReply
     ) => {
       const newContato = request.body;
+      const { tenantId } = request.user as any;
 
       newContato.number = newContato.number.toString();
       try {
@@ -92,6 +94,12 @@ export async function ContatoController(
           },
           newContato
         );
+        const io = getIO();
+
+        io.emit(`${tenantId}:contact`, {
+          action: "create",
+          contact: contact,
+        });
         return reply.code(200).send(contact);
       } catch (error) {
         return handleServerError(reply, error);
@@ -120,13 +128,19 @@ export async function ContatoController(
     "/:contactId",
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { contactId } = request.params as any;
-      // const { tenantId } = request.user as any;
+      const { tenantId } = request.user as any;
       const id = parseInt(contactId);
       if (!isNaN) {
         return;
       }
       try {
         await conatoService.deleteContato(id);
+           const io = getIO();
+
+        io.emit(`${tenantId}:contact`, {
+          action: "delete",
+          contact: id,
+        });
         return reply.code(200).send("Contato Deletado");
       } catch (error) {
         return handleServerError(reply, error);
@@ -140,7 +154,7 @@ export async function ContatoController(
       reply: FastifyReply
     ) => {
       const { contactId } = request.params as any;
-
+      const { tenantId } = request.user as any;
       const newContato = request.body;
 
       newContato.number = newContato.number?.toString();
@@ -150,6 +164,12 @@ export async function ContatoController(
           return;
         }
         const contact = await conatoService.updateContato(id, newContato);
+        const io = getIO();
+
+        io.emit(`${tenantId}:contact`, {
+          action: "update",
+          contact: contact,
+        });
         return reply.code(200).send(contact);
       } catch (error) {
         return handleServerError(reply, error);
