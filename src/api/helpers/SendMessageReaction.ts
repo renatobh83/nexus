@@ -85,6 +85,9 @@ export const SendMessageReaction = async (
     const wbot = getWbot(message.ticket.whatsappId);
 
     await wbot.sendReactionToMessage(message.messageId, reaction);
+    
+     const updateData = { reactionFromMe: reaction };
+      return updateData;
   } else if (message.ticket.channel === "telegram") {
     const chatId = message.contact.telegramId as string;
     const tbot = getTbot(message.ticket.whatsappId);
