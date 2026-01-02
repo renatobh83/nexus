@@ -12,6 +12,7 @@ export const verifyContactWbot = async (
 ) => {
   let msgContact: any;
   let contactId: string;
+  
   try {
     if (message.fromMe) {
       if (
@@ -23,7 +24,8 @@ export const verifyContactWbot = async (
       contactId = message.to as string;
 
       if (contactId.includes("@g.us")) {
-        const dadosGrupo = await wbot.getContact(message.from)
+        
+        const dadosGrupo = await wbot.getContact(message.to)
         msgContact = {
           phoneNumber: {
             id: dadosGrupo.id.user,
@@ -83,6 +85,7 @@ export const verifyContactWbot = async (
       profilePicUrl: profilePicUrl.eurl,
       serializednumber: msgContact.phoneNumber._serialized,
     };
+    
     if (cached) return JSON.parse(cached);
 
     const contact = await app.contatoService.findOrCreate(
