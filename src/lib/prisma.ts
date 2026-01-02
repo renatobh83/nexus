@@ -3,6 +3,7 @@ import "dotenv/config";
 import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { decrypt, encrypt } from "./crypto";
+import { getFullMediaUrl } from "../ultis/getFullMediaUrl";
 
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString });
@@ -45,7 +46,16 @@ function decryptMessage(msg: any) {
   }
 
   if (msg.quotedMsg) {
-    msg.quotedMsg = decryptMessage(msg.quotedMsg);
+    msg.quotedMsg = 
+    {
+              ...msg.quotedMsg,
+              body: decrypt(msg.quotedMsg.body),
+              mediaUrl: msg.quotedMsg.mediaUrl
+                ? getFullMediaUrl(msg.quotedMsg.mediaUrl)
+                : null,
+            }
+    
+    // decryptMessage(msg.quotedMsg);
   }
   if (msg.ticket?.messages) {
     const messages = msg.ticket.messages.map((m: { mediaUrl: string | null; body: string }) => {

@@ -2,33 +2,14 @@ import { Prisma, Ticket } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import {
   TICKET_INCLUDE_CONFIG,
-  TicketMessageUsername,
+
   TicketWithMessages,
   TicketWithStandardIncludes,
 } from "./tickets.type";
-import { getFullMediaUrl } from "../../ultis/getFullMediaUrl";
+
 import { transformTickets } from "./tickets.utils";
 
 export interface ITicketRepository {
-  // findTickets(params: {
-  //   tenantId: number;
-  //   status: string[];
-  //   queuesIdsUser: number[];
-  //   userId: number;
-  //   isUnread: boolean;
-  //   isNotAssigned: boolean;
-  //   isNotViewAssignedTickets: boolean;
-  //   isSearchParam: boolean;
-  //   searchParam: string;
-  //   limit: number;
-  //   offset: number;
-  //   profile: string;
-  //   isExistsQueueTenant: boolean;
-  //   NotQueueDefinedTicket: boolean;
-  // }): Promise<{ tickets: Ticket[]; count: number }>;
-
-  countQueuesByTenant(tenantId: number): Promise<number>;
-
   findUserQueues(userId: number): Promise<{ queueId: number }[]>;
 }
 
