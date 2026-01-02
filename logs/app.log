@@ -10403,3 +10403,352 @@
     '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:48:5)',
   timestamp: '2025-12-31T14:26:27.768Z'
 }
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.2.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.findFirst()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:49:33\n' +
+    '\n' +
+    '  46   where: Prisma.MessageWhereInput,\n' +
+    '  47   include?: Prisma.MessageInclude\n' +
+    '  48 ): Promise<Message | null> {\n' +
+    '→ 49   return await prisma.message.findFirst({\n' +
+    '         where: {\n' +
+    '           messageId: 35763,\n' +
+    '                      ~~~~~\n' +
+    '           tenantId: 1\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true,\n' +
+    '               messages: {\n' +
+    '                 orderBy: {\n' +
+    '                   createdAt: "asc"\n' +
+    '                 },\n' +
+    '                 include: {\n' +
+    '                   quotedMsg: true\n' +
+    '                 }\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: true,\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `messageId`: Invalid value provided. Expected StringNullableFilter, String or Null, provided Int.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.findFirst()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:49:33\n' +
+    '\n' +
+    '  46   where: Prisma.MessageWhereInput,\n' +
+    '  47   include?: Prisma.MessageInclude\n' +
+    '  48 ): Promise<Message | null> {\n' +
+    '→ 49   return await prisma.message.findFirst({\n' +
+    '         where: {\n' +
+    '           messageId: 35763,\n' +
+    '                      ~~~~~\n' +
+    '           tenantId: 1\n' +
+    '         },\n' +
+    '         include: {\n' +
+    '           ticket: {\n' +
+    '             include: {\n' +
+    '               contact: true,\n' +
+    '               messages: {\n' +
+    '                 orderBy: {\n' +
+    '                   createdAt: "asc"\n' +
+    '                 },\n' +
+    '                 include: {\n' +
+    '                   quotedMsg: true\n' +
+    '                 }\n' +
+    '               }\n' +
+    '             }\n' +
+    '           },\n' +
+    '           quotedMsg: true,\n' +
+    '           contact: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Argument `messageId`: Invalid value provided. Expected StringNullableFilter, String or Null, provided Int.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at qr.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at qr.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at qr.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:805:24)\n' +
+    '    at MessageRepository.findMessageBy (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:49:12)\n' +
+    '    at MessageService.findMessageBy (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:161:12)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:33:27)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)',
+  timestamp: '2026-01-02T13:02:05.739Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.2.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:42:27\n' +
+    '\n' +
+    '  39 \n' +
+    '  40 export class MessageRepository {\n' +
+    '  41   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 42     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             body: "f035accdd9a2410a0194d5f0d07b70c0:RqECeYGq08ulhvlCMCkahA==",\n' +
+    '             fromMe: false,\n' +
+    '             read: false,\n' +
+    '             sendType: "chat",\n' +
+    '             quotedMsgId: "35763",\n' +
+    '             ~~~~~~~~~~~\n' +
+    '             mediaType: "chat",\n' +
+    '             timestamp: 1767359115000,\n' +
+    '             status: "received",\n' +
+    '             ack: 2,\n' +
+    '             idFront: "5bee8bdb-0417-485b-b03a-cca244dc968c",\n' +
+    '             messageId: "35773",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 29\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: 77\n' +
+    '               }\n' +
+    '             },\n' +
+    '         ?   id?: String,\n' +
+    '         ?   wabaMediaId?: String | Null,\n' +
+    '         ?   mediaUrl?: String | Null,\n' +
+    '         ?   reaction?: String | Null,\n' +
+    '         ?   reactionFromMe?: String | Null,\n' +
+    '         ?   scheduleDate?: DateTime | Null,\n' +
+    '         ?   isDeleted?: Boolean,\n' +
+    '         ?   isForwarded?: Boolean,\n' +
+    '         ?   createdAt?: DateTime,\n' +
+    '         ?   updatedAt?: DateTime,\n' +
+    '         ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '         ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '         ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true,\n' +
+    '                 messages: {\n' +
+    '                   orderBy: {\n' +
+    '                     createdAt: "asc"\n' +
+    '                   },\n' +
+    '                   include: {\n' +
+    '                     quotedMsg: true\n' +
+    '                   }\n' +
+    '                 }\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: true,\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Unknown argument `quotedMsgId`. Did you mean `quotedMsg`? Available options are marked with ?.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.message.create()` invocation in\n' +
+    '/Users/renato/Desktop/Dev/nexus/src/core/messages/message.repository.ts:42:27\n' +
+    '\n' +
+    '  39 \n' +
+    '  40 export class MessageRepository {\n' +
+    '  41   create(dto: Prisma.MessageCreateInput) {\n' +
+    '→ 42     return prisma.message.create({\n' +
+    '           data: {\n' +
+    '             body: "f035accdd9a2410a0194d5f0d07b70c0:RqECeYGq08ulhvlCMCkahA==",\n' +
+    '             fromMe: false,\n' +
+    '             read: false,\n' +
+    '             sendType: "chat",\n' +
+    '             quotedMsgId: "35763",\n' +
+    '             ~~~~~~~~~~~\n' +
+    '             mediaType: "chat",\n' +
+    '             timestamp: 1767359115000,\n' +
+    '             status: "received",\n' +
+    '             ack: 2,\n' +
+    '             idFront: "5bee8bdb-0417-485b-b03a-cca244dc968c",\n' +
+    '             messageId: "35773",\n' +
+    '             ticket: {\n' +
+    '               connect: {\n' +
+    '                 id: 29\n' +
+    '               }\n' +
+    '             },\n' +
+    '             tenant: {\n' +
+    '               connect: {\n' +
+    '                 id: 1\n' +
+    '               }\n' +
+    '             },\n' +
+    '             contact: {\n' +
+    '               connect: {\n' +
+    '                 id: 77\n' +
+    '               }\n' +
+    '             },\n' +
+    '         ?   id?: String,\n' +
+    '         ?   wabaMediaId?: String | Null,\n' +
+    '         ?   mediaUrl?: String | Null,\n' +
+    '         ?   reaction?: String | Null,\n' +
+    '         ?   reactionFromMe?: String | Null,\n' +
+    '         ?   scheduleDate?: DateTime | Null,\n' +
+    '         ?   isDeleted?: Boolean,\n' +
+    '         ?   isForwarded?: Boolean,\n' +
+    '         ?   createdAt?: DateTime,\n' +
+    '         ?   updatedAt?: DateTime,\n' +
+    '         ?   user?: UserCreateNestedOneWithoutMessagesInput,\n' +
+    '         ?   quotedMsg?: MessageCreateNestedOneWithoutQuotesInput,\n' +
+    '         ?   quotes?: MessageCreateNestedManyWithoutQuotedMsgInput\n' +
+    '           },\n' +
+    '           include: {\n' +
+    '             ticket: {\n' +
+    '               include: {\n' +
+    '                 contact: true,\n' +
+    '                 messages: {\n' +
+    '                   orderBy: {\n' +
+    '                     createdAt: "asc"\n' +
+    '                   },\n' +
+    '                   include: {\n' +
+    '                     quotedMsg: true\n' +
+    '                   }\n' +
+    '                 }\n' +
+    '               }\n' +
+    '             },\n' +
+    '             quotedMsg: true,\n' +
+    '             contact: true\n' +
+    '           }\n' +
+    '         })\n' +
+    '\n' +
+    'Unknown argument `quotedMsgId`. Did you mean `quotedMsg`? Available options are marked with ?.\n' +
+    '    at throwValidationException (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/core/errorRendering/throwValidationException.ts:46:9)\n' +
+    '    at qr.handleRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:202:7)\n' +
+    '    at qr.handleAndLogRequestError (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:174:12)\n' +
+    '    at qr.request (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at a (/Users/renato/Desktop/Dev/nexus/node_modules/@prisma/client/src/runtime/getPrismaClient.ts:805:24)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:112:24)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:74:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)',
+  timestamp: '2026-01-02T13:05:27.115Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:74:43\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:125:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T13:52:06.148Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:75:43\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:126:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T13:55:24.471Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:75:43\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:126:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/VerifyMessage.ts:58:5)\n' +
+    '    at HandleMessageReceived (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/HandleMessageReceived.ts:72:7)\n' +
+    '    at EventEmitter.<anonymous> (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Wbot/wbotMessageListener.ts:48:5)',
+  timestamp: '2026-01-02T13:56:08.305Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:75:43\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:126:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T13:57:30.127Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:75:39\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:126:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T13:59:44.758Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:76:39\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:127:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T14:00:59.835Z'
+}
+{
+  level: 'error',
+  message: "Erro fatal no HandleMessage: Cannot read properties of null (reading 'body')",
+  stack: "TypeError: Cannot read properties of null (reading 'body')\n" +
+    '    at /Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:76:39\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at decryptMessage (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:61:42)\n' +
+    '    at Proxy.create (/Users/renato/Desktop/Dev/nexus/src/lib/prisma.ts:127:16)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at MessageService.createMessage (/Users/renato/Desktop/Dev/nexus/src/core/messages/message.service.ts:70:22)\n' +
+    '    at VerifyMessageTbot (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/VerifyMessageTbot.ts:78:3)\n' +
+    '    at HandleMessage (/Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/HandleMessageTelegram.ts:142:7)\n' +
+    '    at /Users/renato/Desktop/Dev/nexus/src/api/helpers/Tbot/tbotMessageListener.ts:18:5\n' +
+    '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
+  timestamp: '2026-01-02T14:01:52.551Z'
+}

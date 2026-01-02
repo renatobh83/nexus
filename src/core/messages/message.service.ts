@@ -82,6 +82,7 @@ export class MessageService {
       ...savedMessage,
       mediaUrl: fullMediaUrl,
     };
+    
     // eventBus.emit(`messageSaved:${savedMessage.messageId}`, message);
     socketEmit({
       tenantId,

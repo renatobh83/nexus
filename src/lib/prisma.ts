@@ -46,19 +46,19 @@ function decryptMessage(msg: any) {
   }
 
   if (msg.quotedMsg) {
-    msg.quotedMsg = 
+    msg.quotedMsg =
     {
-              ...msg.quotedMsg,
-              body: decrypt(msg.quotedMsg.body),
-              mediaUrl: msg.quotedMsg.mediaUrl
-                ? getFullMediaUrl(msg.quotedMsg.mediaUrl)
-                : null,
-            }
-    
+      ...msg.quotedMsg,
+      body: decrypt(msg.quotedMsg.body),
+      mediaUrl: msg.quotedMsg.mediaUrl
+        ? getFullMediaUrl(msg.quotedMsg.mediaUrl)
+        : null,
+    }
+
     // decryptMessage(msg.quotedMsg);
   }
   if (msg.ticket?.messages) {
-    const messages = msg.ticket.messages.map((m: { mediaUrl: string | null; body: string }) => {
+    const messages = msg.ticket.messages.map((m: { mediaUrl: string | null; body: string; quotedMsg: any }) => {
       let fullMediaUrl: string | null = null;
       if (m.mediaUrl) {
         const { MEDIA_URL, PROXY_PORT } = process.env;
@@ -67,8 +67,21 @@ function decryptMessage(msg: any) {
             ? `${MEDIA_URL}:${PROXY_PORT}/public/${m.mediaUrl}`
             : `${MEDIA_URL}/public/${m.mediaUrl}`;
       }
+      if (m.quotedMsg) {
+        
+
+        m.quotedMsg =
+        {
+          ...m.quotedMsg,
+          body: decrypt(m.quotedMsg.body),
+          mediaUrl: m.quotedMsg.mediaUrl
+            ? getFullMediaUrl(m.quotedMsg.mediaUrl)
+            : null,
+        }
+      }
       m.mediaUrl = fullMediaUrl;
       m.body = decrypt(m.body);
+
       return m;
     })
     msg.ticket.messages = messages;

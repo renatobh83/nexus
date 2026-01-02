@@ -31,13 +31,13 @@ export const VerifyMessageTbot = async (
   let quotedMsgId: string | undefined;
   if (message?.reply_to_message?.message_id) {
     const messageQuoted = await app.messageService.findMessageBy({
-      messageId: message.reply_to_message.message_id,
+      messageId: String(message.reply_to_message.message_id),
       tenantId: ticket.tenantId,
     });
     quotedMsgId = messageQuoted?.id || undefined;
   }
 
-  const messageData: MessageDTO = {
+  const messageData: any = {
     id: String(message?.message_id),
     messageId: String(message?.message_id),
     ticketId: ticket.id,
@@ -49,7 +49,6 @@ export const VerifyMessageTbot = async (
     fromMe,
     read: fromMe,
     sendType: "chat" as enum_Messages_sendType,
-    quotedMsgId,
     mediaType: "chat",
     timestamp: +message.date * 1000,
     status: "received" as MessageStatus,
@@ -57,6 +56,12 @@ export const VerifyMessageTbot = async (
     idFront: uuidV4(),
   };
 
+   if (quotedMsgId) {
+    messageData.quotedMsg = {
+      connect: { id: quotedMsgId },
+    };
+  }
+  
   const updatedTicket = await app.ticketService.updateTicket(ticket.id, {
     lastMessage: reduzirString(message.text),
     lastMessageAt: new Date().getTime(),
