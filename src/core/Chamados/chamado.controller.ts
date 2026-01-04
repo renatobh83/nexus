@@ -53,7 +53,7 @@ export async function chamadoController(
       try {
         const { empresaId, assunto, descricao, contatoId, ticket } =
           request.body as any;
-
+        
         const chamado = await chamadoService.createChamado(
           {
             tenantId,

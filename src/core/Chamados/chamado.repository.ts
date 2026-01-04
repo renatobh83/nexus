@@ -40,7 +40,7 @@ export class ChamadoRepository {
       where: {
         id: chamado.empresaId,
         active: true,
-        createdAt: ticket ? new Date(ticket.createdAt) : new Date(),
+        
       },
     });
 
@@ -50,10 +50,12 @@ export class ChamadoRepository {
     const dataCreateChamado = {
       ...restChamado,
       id: nextNumber,
+      createdAt: ticket ? new Date(ticket.createdAt) : new Date(),
     };
 
     const chamadoNew = await prisma.chamado.create({
       data: dataCreateChamado,
+      
     });
     const contatoPromises = contatoId.map((contato) =>
       prisma.chamadoContatos.create({
