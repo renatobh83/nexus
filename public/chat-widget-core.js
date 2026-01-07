@@ -140,7 +140,7 @@ const getCookie = (name) => {
               "success"
             );
             chatToken = token;
-            setCookie("chat_token", token, 1);
+            localStorage.setItem("chat_token", token);
             formContainer.remove();
             connectSocket();
           } catch (err) {
@@ -230,7 +230,7 @@ const getCookie = (name) => {
       socket.on("chat:closedTicket", (msg) => {
         showToast(msg, "success");
         socket.disconnect();
-        deleteCookie("chat_token")
+        localStorage.removeItem("chat_token")
         formContainer.remove();
         formContainer = null;
         offset = 0;
@@ -241,7 +241,7 @@ const getCookie = (name) => {
         console.error("Erro de conexão:", err.message);
         if (err.message.includes("invalid token")) {
           showToast("Sessão expirada. Recarregue e inicie novamente.", "error");
-          deleteCookie("chat_token")
+          localStorage.removeItem("chat_token")
         }
       });
     }
@@ -338,7 +338,7 @@ const getCookie = (name) => {
         .addEventListener("click", async () => {
           if (confirm("Deseja encerrar o atendimento?")) {
             socket.disconnect();
-            deleteCookie("chat_token")
+           localStorage.removeItem("chat_token")
             formContainer.remove();
             formContainer = null;
             offset = 0;
