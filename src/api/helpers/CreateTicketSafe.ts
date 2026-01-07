@@ -81,7 +81,7 @@ export const findOrCreateTicketSafe = async (params: {
 console.log(msg)
       if (
         (msg && !msg.fromMe) ||
-        (!newTicket.userId  && chatClient && !msg.fromMe)
+        (!newTicket.userId  && !chatClient && !msg.fromMe)
       ) {
         const ticket = await ChatFlow.CheckChatBotFlowWelcome(newTicket);
         newTicket = ticket ? ticket : newTicket;
