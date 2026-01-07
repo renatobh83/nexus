@@ -78,7 +78,7 @@ export const findOrCreateTicketSafe = async (params: {
       logger.info(
         `[Channel-${whatsappId}] Novo ticket ${newTicket.id} criado.`
       );
-
+console.log(msg)
       if (
         (msg && !msg.fromMe) ||
         (!newTicket.userId && !msg.fromMe && !chatClient)
