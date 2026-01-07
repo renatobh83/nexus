@@ -1,12 +1,6 @@
 (function () {
   if (window.__chatWidgetLoaded) return; // evita duplicação
   window.__chatWidgetLoaded = true;
-  // Função para ler o valor de um cookie pelo nome
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  };
 
   const loadScript = (src, callback) => {
     const script = document.createElement("script");
@@ -20,7 +14,7 @@
     const URL_SOCKET = "https://fast.panelapps.site";
     let socket;
     let chatVisible = false;
-    let chatToken = getCookie("chat_token");
+    let chatToken = localStorage.getItem("chat_token");
     let formContainer = null;
     let chatMessages = null;
     let loadingOlder = false;
@@ -214,8 +208,7 @@
       socket.on("chat:closedTicket", (msg) => {
         showToast(msg, "success");
         socket.disconnect();
-        document.cookie =
-          "chat_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        localStorage.removeItem("chat_token");
         formContainer.remove();
         formContainer = null;
         offset = 0;
@@ -226,8 +219,7 @@
         console.error("Erro de conexão:", err.message);
         if (err.message.includes("invalid token")) {
           showToast("Sessão expirada. Recarregue e inicie novamente.", "error");
-          document.cookie =
-            "chat_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          localStorage.removeItem("chat_token");
         }
       });
     }
@@ -324,8 +316,7 @@
         .addEventListener("click", async () => {
           if (confirm("Deseja encerrar o atendimento?")) {
             socket.disconnect();
-            document.cookie =
-              "chat_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            localStorage.removeItem("chat_token");
             formContainer.remove();
             formContainer = null;
             offset = 0;

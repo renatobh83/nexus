@@ -67,9 +67,6 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
 
   await fastify.register(cors, {
     origin: (origin, cb) => {
-      console.log(origin);
-      console.log(allowedOrigins);
-      console.log(allowedOrigins.includes(origin!));
       if (
         !origin ||
         allowedOrigins.includes("*") ||
