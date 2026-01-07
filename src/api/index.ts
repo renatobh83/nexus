@@ -129,7 +129,7 @@ async function buildServer(): Promise<FastifyInstance> {
 
   await server.register(fastifySocketIO, {
     cors: {
-      origin: ["http://localhost:5173", "*"],
+      origin: ["http://localhost:5173", "*", "https://renatobh83.github.io/"],
       credentials: true,
       methods: ["GET", "POST"],
     },
