@@ -161,7 +161,7 @@ async function buildServer(): Promise<FastifyInstance> {
         
         const tokenAuth = socket.handshake.auth?.token
 
-        const accessToken = tokenCookies | tokenAuth
+        const accessToken = tokenCookies || tokenAuth
 
         if (!accessToken) {
           return next(new Error("token ausente"));
