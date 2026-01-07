@@ -69,11 +69,11 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
     origin: (origin, cb) => {
       console.log(origin);
       console.log(allowedOrigins);
-      console.log(allowedOrigins.includes(origin));
+      console.log(allowedOrigins.includes(origin!));
       if (
         !origin ||
         allowedOrigins.includes("*") ||
-        allowedOrigins.includes(origin)
+        allowedOrigins.includes(origin!)
       ) {
         return cb(null, true);
       }
