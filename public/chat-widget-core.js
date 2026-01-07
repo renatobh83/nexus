@@ -157,6 +157,7 @@ const getCookie = (name) => {
       socket = io(URL_SOCKET, {
         auth: { token: chatToken },
         transports: ["websocket"],
+        withCredentials:true
       });
       socket.on("chat:ready", () => {
         console.log("Conexão pronta, agora posso pedir mensagens");
