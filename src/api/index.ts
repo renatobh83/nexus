@@ -155,7 +155,7 @@ async function buildServer(): Promise<FastifyInstance> {
 
         const tokenCookies = cookies
           ?.split("; ")
-          .find((c) => c.startsWith("chat_token="))
+          .find((c) => c.startsWith("access_token="))
           ?.split("=")[1];
 
         
