@@ -4,7 +4,7 @@ import Fastify, {
   FastifyError,
   FastifyRequest,
 } from "fastify";
-import fastifyEnv from "@fastify/env";
+
 import jwt from "@fastify/jwt";
 import fastifySocketIO from "fastify-socket.io";
 import { FastifyReply } from "fastify/types/reply";
@@ -12,7 +12,6 @@ import { redisPlugin } from "./plugins/redis";
 import { prisma } from "../lib/prisma";
 import fastifyModule from "./plugins/fastifyModules";
 import routes from "./routes/Index";
-import { initWbot } from "../lib/wbot";
 import { setupSocket } from "../lib/socket";
 import decodeTokenSocket from "../ultis/decodeTokenSocket";
 import { JsonWebTokenError } from "jsonwebtoken";
@@ -39,15 +38,15 @@ async function buildServer(): Promise<FastifyInstance> {
     disableRequestLogging: true,
     logger: isDevelopment
       ? {
-        transport: {
-          target: "pino-pretty",
-          options: {
-            colorize: true,
-            translateTime: "SYS:standard",
-            ignore: "pid,hostname",
+          transport: {
+            target: "pino-pretty",
+            options: {
+              colorize: true,
+              translateTime: "SYS:standard",
+              ignore: "pid,hostname",
+            },
           },
-        },
-      }
+        }
       : true, // produção → JSON puro
     trustProxy: true,
   });
@@ -62,7 +61,6 @@ async function buildServer(): Promise<FastifyInstance> {
   });
 
   server.register(diContainerPlugin);
-
 
   server.get("/", async () => {
     return { message: "Bem-vindo ao Nexus!" };

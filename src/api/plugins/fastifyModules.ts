@@ -60,12 +60,11 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
   // --- 2. Controle de Acesso Cross-Origin (CORS) ---
   // Gerencia quais origens externas podem fazer requisições à API.
   const allowedOriginsString = process.env.CORS_ALLOWED_ORIGINS || '["*"]';
-  
-  
+
   const allowedOrigins = allowedOriginsString
     .replace(/[\[\]"]/g, "") // Remove [, ], e " da string
     .split(",");
-  
+
   await fastify.register(cors, {
     origin: (origin, cb) => {
       if (
@@ -151,6 +150,11 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
         "/api/v1/auth/refresh_token",
         "/api/v1/auth/logout",
         "/api/v1/auth/forgot-password",
+        "/api/v1/chatClient/token",
+        "/api/v1/chatClient/upload",
+        "/api/v1/validate-registration-token",
+        "/api/v1/complete-registration",
+        "/api/v1/register",
       ];
 
       if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
