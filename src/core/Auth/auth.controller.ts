@@ -9,8 +9,7 @@ import { SendRefreshToken } from "../../api/helpers/SendRefreshToken";
 import { RefreshTokenService } from "../../api/helpers/RefreshTokenService";
 import { ValidateTokenResetService } from "../../api/helpers/ValidTokenResetSenha";
 
-
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV === "development";
 export async function authController(
   fastify: FastifyInstance,
   opts: FastifyPluginOptions
@@ -59,7 +58,6 @@ export async function authController(
           path: "/",
         });
         return reply.code(200).send(user);
-
       } catch (error) {
         return handleServerError(reply, error);
       }
@@ -70,14 +68,17 @@ export async function authController(
       csrfToken: reply.generateCsrf(),
     };
   });
-  fastify.get("/me", { preHandler: [fastify.authenticate] }, async (request: FastifyRequest, reply: FastifyReply) => {
-    try {
-
-      return reply.code(200).send(request.user);
-    } catch (error) {
-      return handleServerError(reply, error);
+  fastify.get(
+    "/me",
+    { preHandler: [fastify.authenticate] },
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      try {
+        return reply.code(200).send(request.user);
+      } catch (error) {
+        return handleServerError(reply, error);
+      }
     }
-  });
+  );
   fastify.post(
     "/logout",
     {
@@ -103,11 +104,7 @@ export async function authController(
       const { userId } = request.body as any;
       try {
         await authService.logout(userId);
-        const AUTH_COOKIES = [
-          "access_token",
-          "refreshToken",
-          "_csrf",
-        ];
+        const AUTH_COOKIES = ["access_token", "refreshToken", "_csrf"];
         AUTH_COOKIES.forEach((cookie) => {
           reply.clearCookie(cookie, {
             path: "/",
