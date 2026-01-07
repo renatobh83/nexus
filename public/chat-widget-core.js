@@ -1,7 +1,28 @@
 (function () {
   if (window.__chatWidgetLoaded) return; // evita duplicação
   window.__chatWidgetLoaded = true;
+// Função para LER um cookie
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+};
+  const setCookie = (name, value, days) => {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    // O cookie expira em 'days' dias a partir de agora
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  // Define o cookie com o nome, valor, tempo de expiração e o path (para ser válido em todo o site)
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+};
 
+  const deleteCookie = (name) => {
+  // Apaga o cookie setando uma data de expiração no passado
+  document.cookie = name + '=; Max-Age=-99999999; path=/;';
+};
   const loadScript = (src, callback) => {
     const script = document.createElement("script");
     script.src = src;
@@ -119,7 +140,7 @@
               "success"
             );
             chatToken = token;
-            localStorage.setItem("chat_token", token);
+            setCookie("chat_token", token, 1);
             formContainer.remove();
             connectSocket();
           } catch (err) {
@@ -208,7 +229,7 @@
       socket.on("chat:closedTicket", (msg) => {
         showToast(msg, "success");
         socket.disconnect();
-        localStorage.removeItem("chat_token");
+        deleteCookie("chat_token")
         formContainer.remove();
         formContainer = null;
         offset = 0;
@@ -219,7 +240,7 @@
         console.error("Erro de conexão:", err.message);
         if (err.message.includes("invalid token")) {
           showToast("Sessão expirada. Recarregue e inicie novamente.", "error");
-          localStorage.removeItem("chat_token");
+          deleteCookie("chat_token")
         }
       });
     }
@@ -316,7 +337,7 @@
         .addEventListener("click", async () => {
           if (confirm("Deseja encerrar o atendimento?")) {
             socket.disconnect();
-            localStorage.removeItem("chat_token");
+            deleteCookie("chat_token")
             formContainer.remove();
             formContainer = null;
             offset = 0;
