@@ -77,11 +77,6 @@ export async function chatClientController(
       const token = sign(payload, JWT_SECRET, {
         expiresIn: "360m", // tempo de vida do token
       });
-      reply.setCookie("chat_token", token, {
-        httpOnly: true,
-        sameSite: "lax",
-        maxAge: 24 * 60 * 60 * 1000,
-      });
 
       try {
         return reply.code(200).send({ token });
