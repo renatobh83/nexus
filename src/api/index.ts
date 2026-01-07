@@ -152,7 +152,7 @@ async function buildServer(): Promise<FastifyInstance> {
       try {
         const req = { headers: { cookie: socket.handshake.headers.cookie } };
         const cookies = req.headers.cookie;
-
+console.log(cookies)
         const accessToken = cookies
           ?.split("; ")
           .find((c) => c.startsWith("chat_token="))
