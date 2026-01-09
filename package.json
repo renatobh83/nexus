@@ -66,6 +66,7 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
+    "@prisma/config": "^7.2.0",
     "@types/crypto-js": "^4.2.2",
     "@types/mime-types": "^3.0.1",
     "@types/node": "^24.10.4",
