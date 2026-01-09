@@ -10752,3 +10752,127 @@
     '    at execute (/Users/renato/Desktop/Dev/nexus/node_modules/telegraf/lib/composer.js:518:17)',
   timestamp: '2026-01-02T14:01:52.551Z'
 }
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.2.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.chatFlow.findFirst()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.repository.ts:6:28\n' +
+    '\n' +
+    '  3 \n' +
+    '  4 export class ChatFlowRepository {\n' +
+    '  5   findOne(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow | null> {\n' +
+    '→ 6     return prisma.chatFlow.findFirst({\n' +
+    '          where: {\n' +
+    '        +   id: {\n' +
+    '        +     equals: Int | IntFieldRefInput,\n' +
+    '        +     in: Int[] | ListIntFieldRefInput,\n' +
+    '        +     notIn: Int[] | ListIntFieldRefInput,\n' +
+    '        +     lt: Int | IntFieldRefInput,\n' +
+    '        +     lte: Int | IntFieldRefInput,\n' +
+    '        +     gt: Int | IntFieldRefInput,\n' +
+    '        +     gte: Int | IntFieldRefInput,\n' +
+    '        +     not: Int | NestedIntFilter\n' +
+    '        +   }\n' +
+    '          }\n' +
+    '        })\n' +
+    '\n' +
+    'Argument `id` must not be null.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.chatFlow.findFirst()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.repository.ts:6:28\n' +
+    '\n' +
+    '  3 \n' +
+    '  4 export class ChatFlowRepository {\n' +
+    '  5   findOne(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow | null> {\n' +
+    '→ 6     return prisma.chatFlow.findFirst({\n' +
+    '          where: {\n' +
+    '        +   id: {\n' +
+    '        +     equals: Int | IntFieldRefInput,\n' +
+    '        +     in: Int[] | ListIntFieldRefInput,\n' +
+    '        +     notIn: Int[] | ListIntFieldRefInput,\n' +
+    '        +     lt: Int | IntFieldRefInput,\n' +
+    '        +     lte: Int | IntFieldRefInput,\n' +
+    '        +     gt: Int | IntFieldRefInput,\n' +
+    '        +     gte: Int | IntFieldRefInput,\n' +
+    '        +     not: Int | NestedIntFilter\n' +
+    '        +   }\n' +
+    '          }\n' +
+    '        })\n' +
+    '\n' +
+    'Argument `id` must not be null.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at qr.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at qr.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at qr.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:805:24)\n' +
+    '    at ChatFlowService.findOne (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.service.ts:16:12)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:164:24)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2026-01-09T13:51:20.302Z'
+}
+{
+  name: 'PrismaClientValidationError',
+  clientVersion: '7.2.0',
+  level: 'error',
+  message: 'Erro fatal no HandleMessage: \n' +
+    'Invalid `prisma.chatFlow.findFirst()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.repository.ts:6:28\n' +
+    '\n' +
+    '  3 \n' +
+    '  4 export class ChatFlowRepository {\n' +
+    '  5   findOne(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow | null> {\n' +
+    '→ 6     return prisma.chatFlow.findFirst({\n' +
+    '          where: {\n' +
+    '        +   id: {\n' +
+    '        +     equals: Int | IntFieldRefInput,\n' +
+    '        +     in: Int[] | ListIntFieldRefInput,\n' +
+    '        +     notIn: Int[] | ListIntFieldRefInput,\n' +
+    '        +     lt: Int | IntFieldRefInput,\n' +
+    '        +     lte: Int | IntFieldRefInput,\n' +
+    '        +     gt: Int | IntFieldRefInput,\n' +
+    '        +     gte: Int | IntFieldRefInput,\n' +
+    '        +     not: Int | NestedIntFilter\n' +
+    '        +   }\n' +
+    '          }\n' +
+    '        })\n' +
+    '\n' +
+    'Argument `id` must not be null.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.chatFlow.findFirst()` invocation in\n' +
+    'C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.repository.ts:6:28\n' +
+    '\n' +
+    '  3 \n' +
+    '  4 export class ChatFlowRepository {\n' +
+    '  5   findOne(where?: Prisma.ChatFlowWhereInput): Promise<ChatFlow | null> {\n' +
+    '→ 6     return prisma.chatFlow.findFirst({\n' +
+    '          where: {\n' +
+    '        +   id: {\n' +
+    '        +     equals: Int | IntFieldRefInput,\n' +
+    '        +     in: Int[] | ListIntFieldRefInput,\n' +
+    '        +     notIn: Int[] | ListIntFieldRefInput,\n' +
+    '        +     lt: Int | IntFieldRefInput,\n' +
+    '        +     lte: Int | IntFieldRefInput,\n' +
+    '        +     gt: Int | IntFieldRefInput,\n' +
+    '        +     gte: Int | IntFieldRefInput,\n' +
+    '        +     not: Int | NestedIntFilter\n' +
+    '        +   }\n' +
+    '          }\n' +
+    '        })\n' +
+    '\n' +
+    'Argument `id` must not be null.\n' +
+    '    at throwValidationException (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at qr.handleRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:202:7)\n' +
+    '    at qr.handleAndLogRequestError (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:174:12)\n' +
+    '    at qr.request (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:143:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:805:24)\n' +
+    '    at ChatFlowService.findOne (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\core\\ChatFlow\\chatFlow.service.ts:16:12)\n' +
+    '    at HandleMessage (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\HandleMessageTelegram.ts:164:24)\n' +
+    '    at C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\src\\api\\helpers\\Tbot\\tbotMessageListener.ts:18:5\n' +
+    '    at execute (C:\\Users\\suporte2\\Documents\\Programacao\\Nodejs\\nexus\\node_modules\\telegraf\\lib\\composer.js:518:17)',
+  timestamp: '2026-01-09T14:08:01.900Z'
+}

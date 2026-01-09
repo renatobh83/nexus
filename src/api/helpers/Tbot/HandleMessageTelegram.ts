@@ -121,7 +121,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
     const contact = await verifyContactTbot(ctx, app, tbot);
     const messageData = { ...message, timestamp: +message.date * 1000 };
 
-    const { ticket, isNew } = await findOrCreateTicketSafe({
+    const { ticket, isNew } = (await findOrCreateTicketSafe({
       contact,
       whatsappId: tbot.id,
       unreadMessages: fromMe ? 0 : 1,
@@ -129,7 +129,7 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       tenantId: tbot.tenantId,
       msg: { ...messageData, fromMe },
       channel: "telegram",
-    }) as { ticket: Ticket; isNew: boolean };
+    })) as { ticket: Ticket; isNew: boolean };
     if (!ticket) {
       logger.error("[Telegram] Falha crítica ao criar ou obter ticket.");
       return;
@@ -154,10 +154,14 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
         ticket,
         isNew
       );
+
       await app.ticketService.updateTicket(ticket.id, {
         chatFlowStatus: "waiting_answer",
       });
-    } else if (ticket.chatFlowStatus === "waiting_answer") {
+    } else if (
+      ticket.chatFlowStatus === "waiting_answer" &&
+      ticket.chatFlowId
+    ) {
       logger.info(
         `[Telegram] Ticket ${ticket.id} está aguardando resposta. Processando...`
       );
@@ -167,7 +171,6 @@ const HandleMessage = async (ctx: any, tbot: Session): Promise<void> => {
       const step = (chatFlow?.flow as any).nodeList.find(
         (node: any) => node.id === ticket.stepChatFlow
       );
-
 
       if (step) {
         if (isValidFlowAnswer({ fromMe, body, type: "reply_markup" }, step)) {
