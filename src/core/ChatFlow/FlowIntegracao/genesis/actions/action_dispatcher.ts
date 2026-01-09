@@ -36,14 +36,14 @@ export async function dispatchAction({
         sessao,
         input,
       });
-    // case "recuperar":
-    //   return ActionHandlers.handleRecuperar({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
+    case "recuperar":
+      return ActionHandlers.handleRecuperar({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
 
     case "solicitarSenha":
       return ActionHandlers.handleSolicitarSenha({
@@ -118,138 +118,138 @@ export async function dispatchAction({
         msg,
         sessao,
       });
-    // case "agendar":
-    // case "marcar":
-    // case "agendamento":
-    //   return ActionHandlers.handleAgendamentoExame({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "selecionarPlano":
-    //   return ActionHandlers.handleSelecionarUnidade({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "getPlano":
-    //   return ActionHandlers.handleGetPlanos({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
+    case "agendar":
+    case "marcar":
+    case "agendamento":
+      return ActionHandlers.handleAgendamentoExame({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "selecionarPlano":
+      return ActionHandlers.handleSelecionarUnidade({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "getPlano":
+      return ActionHandlers.handleGetPlanos({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
 
-    // case "Obsplano":
-    //   return ActionHandlers.handleObsPlanoSelecionado({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "pesquisaexame":
-    //   return ActionHandlers.handlePesquisaExame({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   })
-    // case "procedimento":
-    //   return ActionHandlers.handleSelectProcedimento({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "loop":
-    //   return ActionHandlers.handleLoopProcedimentos({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
+    case "Obsplano":
+      return ActionHandlers.handleObsPlanoSelecionado({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "pesquisaexame":
+      return ActionHandlers.handlePesquisaExame({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "procedimento":
+      return ActionHandlers.handleSelectProcedimento({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "loop":
+      return ActionHandlers.handleLoopProcedimentos({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
 
-    // case "precoexame":
-    //   return ActionHandlers.handlePrecoExame({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "examesmedico":
-    //   return ActionHandlers.handleListaMedicoExames({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "preparoAgendamento":
-    //   return ActionHandlers.handlePreparoAutoAgendamento({
-    //     ticket,
-    //     integracao,
-    //     input,
-    //     msg,
-    //     sessao,
-    //   });
-    // case "periodo":
-    //   return ActionHandlers.handleSelectPeriodo({
-    //     input,
-    //     integracao,
-    //     msg,
-    //     sessao,
-    //     ticket,
-    //   });
-    // case "intervalo":
-    //   return ActionHandlers.handleIntervalos({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "confirmaintervalo":
-    //   return ActionHandlers.handleConfirmarHorarioAutoAgendamento({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "pesquisaHorarios":
-    //   return ActionHandlers.handlePesquisaHorarios({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "confirmarHorario":
-    //   return ActionHandlers.handleConfirmarAutoAgendamento({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
-    // case "concluiragendamento":
-    //   return ActionHandlers.handleConcluirAgendamento({
-    //     integracao,
-    //     ticket,
-    //     msg,
-    //     sessao,
-    //     input,
-    //   });
+    case "precoexame":
+      return ActionHandlers.handlePrecoExame({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "examesmedico":
+      return ActionHandlers.handleListaMedicoExames({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "preparoAgendamento":
+      return ActionHandlers.handlePreparoAutoAgendamento({
+        ticket,
+        integracao,
+        input,
+        msg,
+        sessao,
+      });
+    case "periodo":
+      return ActionHandlers.handleSelectPeriodo({
+        input,
+        integracao,
+        msg,
+        sessao,
+        ticket,
+      });
+    case "intervalo":
+      return ActionHandlers.handleIntervalos({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "confirmaintervalo":
+      return ActionHandlers.handleConfirmarHorarioAutoAgendamento({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "pesquisaHorarios":
+      return ActionHandlers.handlePesquisaHorarios({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "confirmarHorario":
+      return ActionHandlers.handleConfirmarAutoAgendamento({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
+    case "concluiragendamento":
+      return ActionHandlers.handleConcluirAgendamento({
+        integracao,
+        ticket,
+        msg,
+        sessao,
+        input,
+      });
     default:
       return "Ação desconhecida.";
   }

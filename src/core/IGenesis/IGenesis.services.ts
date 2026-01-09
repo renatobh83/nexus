@@ -7,8 +7,9 @@ import ProcessBodyData from "../../ultis/ProcessBodyData";
 import { getWbot } from "../../lib/wbot";
 import { extratcInforAgendamneto } from "./IGenesis.utils";
 import { prisma } from "../../lib/prisma";
-import { compareSync } from "bcryptjs";
+
 import { addJob } from "../../lib/Queue";
+
 interface ConfirmacaoProps {
   contato: string;
   cliente: string;

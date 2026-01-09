@@ -32,7 +32,11 @@ import {
   loopTelegram,
   loopWpp,
 } from "../../../../../ultis/templateButtons";
-import { REDIS_KEYS, setCache } from "../../../../../ultis/redisCache";
+import {
+  getCache,
+  REDIS_KEYS,
+  setCache,
+} from "../../../../../ultis/redisCache";
 
 export function generateWhatsAppOptions(
   buttonText: string,
@@ -621,12 +625,12 @@ export function generateObsPlanoSelecionado(
 export async function generateProcedimentosMessage(
   channel: string,
   ticket: Ticket,
-  procedimentos: any[],
-  PREVIOUS_STEPID: string
+  procedimentos: any[]
 ) {
+  const PREVIOUS_STEPID = await getCache(REDIS_KEYS.previousStepId(ticket.id));
   if (procedimentos.length === 0) {
     await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
-      stepChatFlow: PREVIOUS_STEPID,
+      stepChatFlow: PREVIOUS_STEPID!,
       botRetries: ticket.botRetries! + 1,
       lastInteractionBot: new Date(),
     });
@@ -636,7 +640,7 @@ Caso contrário, esse exame pode não estar disponível para agendamento no mome
 Favor digitar novamente o exame que deseja agendar.\n\n`;
     return message;
   }
-  PREVIOUS_STEPID = ticket.stepChatFlow as string;
+  await setCache(REDIS_KEYS.previousStepId(ticket.id), ticket.stepChatFlow);
   await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
     botRetries: 0,
     lastInteractionBot: new Date(),

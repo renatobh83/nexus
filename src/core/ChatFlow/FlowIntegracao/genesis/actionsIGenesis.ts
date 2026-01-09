@@ -13,6 +13,7 @@ export const actionsIntegracaoGenesis = async (
   const action = msg.data.webhook?.acao!;
 
   const sessao = await obterSessaoUsuarioRedis(ticket.id); // carrega ou cria a sessão no Redis
+
   const input: any = ticket.lastMessage;
 
   try {

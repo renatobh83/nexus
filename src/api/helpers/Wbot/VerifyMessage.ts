@@ -3,7 +3,7 @@ import { Contact } from "wbotconnect";
 import { v4 as uuidV4 } from "uuid";
 import VerifyQuotedMessage from "./VerifyQuotedMessage";
 import { getFastifyApp } from "../..";
-import socketEmit from "../socketEmit";
+
 import { MessageDTO, MessageStatus } from "../../../core/messages/message.type";
 
 const VerifyMessage = async (

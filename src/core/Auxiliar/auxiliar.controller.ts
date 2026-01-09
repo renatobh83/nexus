@@ -1,6 +1,7 @@
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
 import { handleServerError } from "../../errors/errors.helper";
 import { redisClient } from "../../lib/redis";
+import { verify } from "jsonwebtoken";
 
 export async function auxiliarController(
   fastify: FastifyInstance,
@@ -26,11 +27,10 @@ export async function auxiliarController(
     const { cdPlano } = request.params as any;
     const { token } = request.query as any;
     try {
-      console.log(token);
-      //   verify(
-      //     token,
-      //     "78591a1f59eda6e939d7a7752412b364a5218eef12a839616af49080860273c7"
-      //   );
+      verify(
+        token,
+        "78591a1f59eda6e939d7a7752412b364a5218eef12a839616af49080860273c7"
+      );
       const htmlContent = await redisClient.get(`Pdf:${cdPlano}`);
       if (!htmlContent) {
         return reply.status(200).send("PDF expirado ou não encontrado");

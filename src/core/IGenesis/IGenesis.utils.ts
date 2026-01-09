@@ -1,9 +1,25 @@
 import { IGConfirmacao, Integracoes, Ticket } from "@prisma/client";
 import { getFastifyApp } from "../../api";
+import FormData from "form-data";
 import { addJob } from "../../lib/Queue";
 import { getApiInstance } from "./helpers/apiInstance";
 import { v4 as uuidV4 } from "uuid";
 import fs from "node:fs/promises";
+import axios from "axios";
+import { AppError } from "../../errors/errors.helper";
+import BuildSendMessageService from "../../api/helpers/BuildSendMessage";
+import { createWriteStream } from "node:fs";
+import path from "node:path";
+import { sign } from "jsonwebtoken";
+import { customAlphabet } from "nanoid";
+import { redisClient } from "../../lib/redis";
+import { SessaoUsuario } from "./types";
+
+interface ConsultaPacienteProps {
+  senha: string;
+  integracao: any;
+  cpf: string;
+}
 
 interface Config {
   user: string;
@@ -207,18 +223,6 @@ export const getPreparoExteno = async ({ integracao, atedimento }) => {
   }
 };
 
-// Helper Flow
-
-import axios from "axios";
-import { AppError } from "../../errors/errors.helper";
-import BuildSendMessageService from "../../api/helpers/BuildSendMessage";
-import { createWriteStream } from "node:fs";
-import path from "node:path";
-interface ConsultaPacienteProps {
-  senha: string;
-  integracao: any;
-  cpf: string;
-}
 export const ConsultaPaciente = async ({
   senha,
   integracao,
@@ -490,4 +494,474 @@ export const getPreparo = async (
   } finally {
     await fs.unlink(filePath).catch(() => {});
   }
+};
+export const ListarUnidades = async (integracao: any, token: string) => {
+  const url = `/doListaEmpresa`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  const body = new URLSearchParams();
+  body.append("token", token);
+
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, body);
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+export const ListarPlanos = async (integracao: any, token: string) => {
+  const url = `/doListaPlano`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  const body = new URLSearchParams();
+  body.append("token", token);
+
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, body);
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+interface GetListProcedimento {
+  integracao: any;
+  cdPlano: number;
+  cdEmpresa: number;
+  token: string;
+}
+
+export const getListaProcedimento = async ({
+  integracao,
+  cdPlano,
+  cdEmpresa,
+  token,
+}: GetListProcedimento) => {
+  const url = `doListaProcedimento`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  const body = new URLSearchParams();
+  body.append("cd_plano", cdPlano.toString());
+  body.append("cd_empresa", cdEmpresa.toString());
+  body.append("token", token);
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, body);
+
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+interface GetObsPlanoProps {
+  integracao: any;
+  cdPlano: number;
+  token: string;
+}
+export const ObsplanoAsync = async ({
+  integracao,
+  cdPlano,
+  token,
+}: GetObsPlanoProps) => {
+  const url = `doPlanoAviso?cd_plano=${cdPlano}&token=${token}`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const body = new URLSearchParams();
+    body.append("cd_plano", cdPlano.toString());
+    body.append("token", token);
+
+    const { data } = await instanceApi.post(URL_FINAL, body);
+
+    const infoPlano = data[0];
+    1;
+    if (!infoPlano.ds_infoweb) return false;
+    const decoded = Buffer.from(infoPlano.ds_infoweb, "base64").toString(
+      "utf-8"
+    );
+    return decoded;
+  } catch (error) {
+    console.error("Erro observacao plano:", error);
+    throw error;
+  }
+};
+
+export const gerarIntervalosPorPeriodo = (
+  periodo: "manha" | "tarde" | "noite"
+): string[] => {
+  const intervalos: string[] = [];
+  let horaInicial: number;
+  let horaFinal: number;
+
+  switch (periodo) {
+    case "manha":
+      horaInicial = 7;
+      horaFinal = 12;
+      break;
+    case "tarde":
+      horaInicial = 13;
+      horaFinal = 18;
+      break;
+    case "noite":
+      horaInicial = 19;
+      horaFinal = 22;
+      break;
+    default:
+      return [];
+  }
+
+  for (let h = horaInicial; h <= horaFinal; h++) {
+    intervalos.push(`${String(h).padStart(2, "0")}:00`);
+  }
+
+  return intervalos;
+};
+export const adicionarMinutos = (horario: string, minutos: number): string => {
+  const [hora, minuto] = horario.split(":").map(Number);
+  const data = new Date();
+  data.setHours(hora!, minuto! + minutos, 0, 0);
+
+  const novaHora = data.getHours().toString().padStart(2, "0");
+  const novoMinuto = data.getMinutes().toString().padStart(2, "0");
+
+  return `${novaHora}:${novoMinuto}`;
+};
+export function montarJsonAgendaSemanal(sessao: SessaoUsuario): string {
+  // 1. Contar quantidades por cd_procedimento
+  const quantidadePorProcedimento: Record<string, number> = {};
+
+  sessao.examesParaAgendar.forEach((exame) => {
+    const cd = exame;
+    quantidadePorProcedimento[cd] = (quantidadePorProcedimento[cd] || 0) + 1;
+  });
+
+  // 2. Criar lista única de procedimentos (sem repetição)
+  const procedimentosUnicos = sessao.examesParaAgendar.filter(
+    (exame, index, self) => index === self.findIndex((e) => e === exame)
+  );
+
+  // 3. Montar array com os dados completos e nr_quantidade correta
+  const examesConvertidos = procedimentosUnicos
+    .map((exameAgendado) => {
+      const exameCompleto = sessao.listaExames.find(
+        (e) => e.cd_procedimento === +exameAgendado
+      );
+
+      if (!exameCompleto) {
+        console.warn(
+          `Exame não encontrado para cd_procedimento: ${exameAgendado}`
+        );
+        return null;
+      }
+      const cd_medico_selecionado =
+        sessao.medicosSelecionados?.[exameCompleto.cd_modalidade] || 0;
+
+      return {
+        cd_modalidade: exameCompleto.cd_modalidade,
+        cd_procedimento: exameCompleto.cd_procedimento,
+        ds_procedimento: exameCompleto.ds_procedimento,
+        cd_medico: cd_medico_selecionado,
+        cd_plano: +sessao.planoSelecionado,
+        cd_subplano: 0,
+        cd_empresa: +sessao.unidadeSelecionada,
+        nr_tempo: exameCompleto.nr_tempo,
+        nr_tempo_total: exameCompleto.nr_tempo,
+        nr_valor: exameCompleto.nr_valor,
+        sn_especial: exameCompleto.sn_especial,
+        nr_quantidade: quantidadePorProcedimento[exameAgendado],
+      };
+    })
+    .filter(Boolean); // Remove os nulls
+
+  const json = JSON.stringify(examesConvertidos);
+  const base64 = Buffer.from(json).toString("base64");
+
+  return base64;
+}
+interface GetPropsAgendaSemanal {
+  integracao: any;
+  dadosPesquisa: {
+    cd_horario?: string;
+    tokenPaciente: string;
+    cd_paciente: string;
+    dt_data: string;
+    dt_hora: string;
+    dt_hora_fim: string;
+    js_exame: any;
+  };
+  token: string;
+}
+
+export const doAgendaSemanal = async ({
+  integracao,
+  dadosPesquisa,
+  token,
+}: GetPropsAgendaSemanal) => {
+  const URL_FINAL = `${integracao.config_json.baseUrl}doAgendaSemanal?token=${token}`;
+  // 1. Criar o form-data real
+  const form = new FormData();
+  form.append("dt_data", dadosPesquisa.dt_data); // '14/05/2025'
+  form.append("dt_hora", dadosPesquisa.dt_hora); // '08:00'
+  form.append("dt_hora_fim", dadosPesquisa.dt_hora_fim); // '23:49'
+  form.append("js_exame", JSON.stringify(dadosPesquisa.js_exame));
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${dadosPesquisa.tokenPaciente}`, // ou onde estiver seu token
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+interface doAgendaHorario {
+  integracao: any;
+  token: string;
+  dadosPesquisa: {
+    cd_horario?: string;
+    tokenPaciente: string;
+    cd_paciente: string;
+    dt_data: string;
+    dt_hora: string;
+    dt_hora_fim: string;
+    js_exame: any;
+  };
+}
+export const doAgendaHorario = async ({
+  integracao,
+  dadosPesquisa,
+  token,
+}: doAgendaHorario) => {
+  const URL_FINAL = `${integracao.config_json.baseUrl}doAgendaHorario?token=${token}`;
+  // 1. Criar o form-data real
+  const form = new FormData();
+  form.append("dt_data", dadosPesquisa.dt_data); // '14/05/2025'
+  form.append("dt_hora", dadosPesquisa.dt_hora); // '08:00'
+  form.append("dt_hora_fim", dadosPesquisa.dt_hora_fim); // '23:49'
+  form.append("js_exame", JSON.stringify(dadosPesquisa.js_exame));
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${dadosPesquisa.tokenPaciente}`, // ou onde estiver seu token
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+export const gerarLinkRegistro = async (user: string, dataIntegracao: any) => {
+  const { FRONTEND_URL, BACKEND_URL } = process.env;
+  const payload = {
+    identifier: user,
+    id: dataIntegracao.id,
+    tenantId: dataIntegracao.tenantId,
+  };
+  const token = sign(
+    payload,
+    "78591a1f59eda6e939d7a7752412b364a5218eef12a839616af49080860273c7",
+    { expiresIn: "15m" }
+  );
+  // Link original com o token
+  const fullUrl = `${FRONTEND_URL}/register?token=${token}`;
+  const nanoidSafe = customAlphabet(
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    6
+  );
+  // Encurta com Redis
+  const code = nanoidSafe();
+  const expireSeconds = 15 * 60;
+
+  await redisClient.setex(`short:${code}`, expireSeconds, fullUrl);
+  const shortUrl = `${BACKEND_URL}/api/v1/r/${code}`;
+
+  return shortUrl;
+};
+interface GetPropsAgendaPost {
+  integracao: any;
+  dadosPesquisa: {
+    cd_horario?: string;
+    tokenPaciente: string;
+    cd_paciente: string;
+    dt_data: string;
+    dt_hora: string;
+    dt_hora_fim: string;
+    js_exame: any;
+  };
+}
+export const doAgendaPost = async ({
+  integracao,
+  dadosPesquisa,
+}: GetPropsAgendaPost) => {
+  const URL_FINAL = `${integracao.config_json.baseUrl}doAgendaPost`;
+  // 1. Criar o form-data real
+  const form = new FormData();
+  form.append("cd_paciente", dadosPesquisa.cd_paciente);
+  form.append("cd_horario", dadosPesquisa.cd_horario);
+  form.append("dt_data", dadosPesquisa.dt_data);
+  form.append("dt_hora", dadosPesquisa.dt_hora);
+  form.append("dt_hora_fim", dadosPesquisa.dt_hora_fim);
+  form.append("js_exame", JSON.stringify(dadosPesquisa.js_exame));
+  try {
+    const instanceApi = await getApiInstance(integracao);
+    const { data } = await instanceApi.post(URL_FINAL, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${dadosPesquisa.tokenPaciente}`, // ou onde estiver seu token
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Erro ao confirmar exame:", error);
+    throw error;
+  }
+};
+type ListaExameMedicoProps = {
+  cdProcedimento: number;
+  integracao: any;
+  token: string;
+  cdEmpresa: number;
+};
+export const ListaMedicoExame = async ({
+  cdProcedimento,
+  integracao,
+  token,
+  cdEmpresa,
+}: ListaExameMedicoProps) => {
+  const body = new URLSearchParams();
+  body.append("cd_procedimento", cdProcedimento.toString());
+  body.append("token", token);
+  body.append("cd_empresa", cdEmpresa.toString());
+
+  const url = `doListaMedico`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  const instanceApi = await getApiInstance(integracao);
+  const { data } = await instanceApi.post(URL_FINAL, body, {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+  return data;
+};
+type Sessao = {
+  dadosPaciente: {
+    ds_token: string;
+  };
+  planoSelecionado: string;
+};
+type PrecoExameProps = {
+  cdProcedimento: number;
+  sessao: Sessao;
+  integracao: any;
+};
+export const PrecoExame = async ({
+  cdProcedimento,
+  sessao,
+  integracao,
+}: PrecoExameProps) => {
+  const { planoSelecionado, dadosPaciente } = sessao;
+  const body = new URLSearchParams();
+  body.append("cd_procedimento", cdProcedimento.toString());
+  body.append("token", dadosPaciente.ds_token);
+  body.append("cd_plano", planoSelecionado);
+  const url = `doProcedimentoValor`;
+  const URL_FINAL = `${integracao.config_json.baseUrl}${url}`;
+  console.log(URL_FINAL);
+  const instanceApi = await getApiInstance(integracao);
+  try {
+    const { data } = await instanceApi.post(URL_FINAL, body, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+
+    return data[0];
+  } catch (error: any) {
+    console.log(error);
+    return error.response.data;
+  }
+};
+export function examesUnico(sessao: SessaoUsuario): any[] {
+  // 1. Contar quantidades por cd_procedimento
+  const quantidadePorProcedimento: Record<string, number> = {};
+
+  sessao.examesParaAgendar.forEach((exame) => {
+    const cd = exame;
+    quantidadePorProcedimento[cd] = (quantidadePorProcedimento[cd] || 0) + 1;
+  });
+
+  // 2. Criar lista única de procedimentos (sem repetição)
+  const procedimentosUnicos = sessao.examesParaAgendar.filter(
+    (exame, index, self) => index === self.findIndex((e) => e === exame)
+  );
+
+  // 3. Montar array com os dados completos e nr_quantidade correta
+  const examesConvertidos = procedimentosUnicos
+    .map((exameAgendado) => {
+      const exameCompleto = sessao.listaExames.find(
+        (e) => e.cd_procedimento === +exameAgendado
+      );
+
+      if (!exameCompleto) {
+        console.warn(
+          `Exame não encontrado para cd_procedimento: ${exameAgendado}`
+        );
+        return null;
+      }
+
+      return {
+        cd_modalidade: exameCompleto.cd_modalidade,
+        cd_procedimento: exameCompleto.cd_procedimento,
+        ds_procedimento: exameCompleto.ds_procedimento,
+        cd_medico: 0,
+        cd_plano: +sessao.planoSelecionado,
+        cd_subplano: 0,
+        cd_empresa: +sessao.unidadeSelecionada,
+        nr_tempo: exameCompleto.nr_tempo,
+        nr_tempo_total: exameCompleto.nr_tempo,
+        nr_valor: exameCompleto.nr_valor,
+        sn_especial: exameCompleto.sn_especial,
+        nr_quantidade: quantidadePorProcedimento[exameAgendado],
+      };
+    })
+    .filter(Boolean); // Remove os nulls
+  return examesConvertidos ? examesConvertidos : [];
+}
+export const generateLinkPdf = async (plano: number, integracao: any) => {
+  const { BACKEND_URL } = process.env;
+  const { id, tenantId } = integracao;
+  const payload = { cdPlano: plano, id: id, tenantId: tenantId };
+
+  const token = sign(
+    payload,
+    "78591a1f59eda6e939d7a7752412b364a5218eef12a839616af49080860273c7",
+
+    { expiresIn: "25m" }
+  );
+
+  // Link original com o token
+  const fullUrl = `${BACKEND_URL}/pdf/${plano}?token=${token}`;
+
+  const nanoidSafe = customAlphabet(
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+    6
+  );
+  // Encurta com Redis
+  const code = nanoidSafe();
+  const expireSeconds = 25 * 60;
+
+  await redisClient.setex(`short:${code}`, expireSeconds, fullUrl);
+
+  const shortUrl = `${BACKEND_URL}/r/${code}`;
+
+  return shortUrl;
 };
