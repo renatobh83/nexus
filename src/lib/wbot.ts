@@ -54,7 +54,7 @@ export const initWbot = async (
   try {
     const options = {
       logQR: true,
-      headless: false,
+      headless: true,
       phoneNumber: whatsapp.pairingCodeEnabled ? whatsapp.wppUser : null,
       puppeteerOptions: {
         userDataDir: "./userDataDir/" + whatsapp.name,
