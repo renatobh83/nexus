@@ -28,6 +28,8 @@ export const REDIS_KEYS = {
   horarioAgendamento: (horarioId: any) => `horario:${horarioId}`,
   Procedimentos: (unidadeId: any) => `Procedimentos:${unidadeId}`,
   Pdf: (plano: any) => `pdf:${plano}`,
+  unidades: (ticketId: number) => `ListaUnidades:${ticketId}`,
+  planos: (ticketId: number) => `planos:${ticketId}`,
 };
 
 /// INTEGRACAO

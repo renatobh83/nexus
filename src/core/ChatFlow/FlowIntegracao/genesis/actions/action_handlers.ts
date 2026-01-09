@@ -454,39 +454,35 @@ export async function handleAgendamentoExame({
     lastInteractionBot: new Date(),
   });
   sessao.errosResponse = 0;
-  const existeUnidadesRedis = await redisClient.exists("ListaUnidades");
+  const existeUnidadesRedis = await getCache(REDIS_KEYS.unidades(ticket.id));
 
   if (!existeUnidadesRedis) {
     const unidades = await ListarUnidades(
       integracao,
       sessao.dadosPaciente.ds_token
     );
-    await redisClient.set(
-      "ListaUnidades",
-      JSON.stringify(unidades),
-      "EX",
-      3600
-    );
+    await setCache(REDIS_KEYS.unidades(ticket.id), unidades);
+
     sessao.listaUnidades = unidades;
     listaUnidades = unidades;
   } else {
-    const unidadesRedis = await redisClient.get("ListaUnidades");
-    sessao.listaUnidades = JSON.parse(unidadesRedis!);
+    const unidadesRedis = await getCache(REDIS_KEYS.unidades(ticket.id));
+    sessao.listaUnidades = unidadesRedis as any;
     listaUnidades = sessao.listaUnidades;
   }
-  const existePlanosRedis = await redisClient.exists("ListaPlanos");
+  const existePlanosRedis = await getCache(REDIS_KEYS.planos(ticket.id));
 
   if (!existePlanosRedis) {
     const planos = await ListarPlanos(
       integracao,
       sessao.dadosPaciente.ds_token
     );
-    await redisClient.set("ListaPlanos", JSON.stringify(planos), "EX", 3600);
 
+    await setCache(REDIS_KEYS.planos(ticket.id), planos);
     sessao.listaPlanos = planos;
   } else {
-    const planosRedis = await redisClient.get("ListaPlanos");
-    sessao.listaPlanos = JSON.parse(planosRedis!);
+    const planosRedis = await getCache(REDIS_KEYS.planos(ticket.id));
+    sessao.listaPlanos = planosRedis as any;
   }
 
   return generateAgendamentoMessage(ticket.channel!, sessao.listaUnidades);
