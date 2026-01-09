@@ -1,15 +1,8 @@
-import {
-  type Job,
-  Queue,
-  Worker,
-  JobSchedulerTemplateOptions,
-  type JobProgress,
-} from "bullmq";
+import { type Job, Queue, Worker, JobSchedulerTemplateOptions } from "bullmq";
 import * as jobs from "../jobs/index";
 
 import { RepeatOptions, JobsOptions } from "bullmq";
 import { redisClient } from "./redis";
-import fastify from "fastify";
 import { logger } from "../ultis/logger";
 
 // Atualize a interface JobQueue para incluir o tipo correto para options
@@ -108,14 +101,16 @@ function setupWorkerListeners(worker: Worker, name: string) {
 
   worker.on("completed", (job: Job, result: any) => {
     logger.info(
-      `[Worker ${name}] Job ${job.id
+      `[Worker ${name}] Job ${
+        job.id
       } concluído com sucesso. Resultado: ${JSON.stringify(result, null, 2)}`
     );
   });
 
   worker.on("failed", (job: Job | undefined, error: Error) => {
     logger.error(
-      `[Worker ${name}] Job ${job?.id || "unknown"} falhou. Erro: ${error.message
+      `[Worker ${name}] Job ${job?.id || "unknown"} falhou. Erro: ${
+        error.message
       }`,
       { error }
     );
