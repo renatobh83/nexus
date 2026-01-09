@@ -26,6 +26,8 @@ export const REDIS_KEYS = {
   sessao: (ticketId: number) => `sessao:${ticketId}`,
   previousStepId: (ticketId: number) => `stepFromTicket:${ticketId}`,
   horarioAgendamento: (horarioId: any) => `horario:${horarioId}`,
+  Procedimentos: (unidadeId: any) => `Procedimentos:${unidadeId}`,
+  Pdf: (plano: any) => `pdf:${plano}`,
 };
 
 /// INTEGRACAO

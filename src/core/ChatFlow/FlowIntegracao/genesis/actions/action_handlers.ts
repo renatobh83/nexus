@@ -57,10 +57,10 @@ import {
   generateServiceSelectionMessage,
   generateWelcomeMessage,
 } from "../messages/message_utils";
-import { delay } from "bullmq";
+
 import { promisify } from "node:util";
 import { RecuperarAcesso } from "../../../../IGenesis/helpers/recuperar";
-import { redisClient } from "../../../../../lib/redis";
+
 import { fuseSearch } from "../../../../../lib/fuse";
 
 let listaUnidades: any[];
@@ -574,8 +574,8 @@ export async function handleObsPlanoSelecionado({
       .split("_")[1];
   }
 
-  const ListaProcedimentoEmpresa = await redisClient.exists(
-    `${sessao.unidadeSelecionada}:Procedimentos`
+  const ListaProcedimentoEmpresa = await getCache(
+    REDIS_KEYS.Procedimentos(sessao.unidadeSelecionada)
   );
 
   if (!ListaProcedimentoEmpresa) {
@@ -585,23 +585,21 @@ export async function handleObsPlanoSelecionado({
       cdEmpresa: sessao.unidadeSelecionada,
       token: sessao.dadosPaciente.ds_token,
     });
-    await redisClient.set(
-      `${sessao.unidadeSelecionada}:Procedimentos`,
-      JSON.stringify(listaProcedimentos),
-      "EX",
-      3600
+    await setCache(
+      REDIS_KEYS.Procedimentos(sessao.unidadeSelecionada),
+      listaProcedimentos
     );
 
     sessao.listaExames = listaProcedimentos;
   } else {
-    const listaProcedimentosRedis = await redisClient.get(
-      `${sessao.unidadeSelecionada}:Procedimentos`
+    const ListaProcedimentoEmpresa = await getCache(
+      REDIS_KEYS.Procedimentos(sessao.unidadeSelecionada)
     );
-    sessao.listaExames = JSON.parse(listaProcedimentosRedis!);
+    sessao.listaExames = ListaProcedimentoEmpresa as any;
   }
 
   sessao.planoSelecionado = cdPlano;
-  const existeObsPlanoSelecionado = await redisClient.exists(`Pdf:${cdPlano}`);
+  const existeObsPlanoSelecionado = await getCache(REDIS_KEYS.Pdf(cdPlano));
 
   if (!existeObsPlanoSelecionado) {
     const obsPlano = await ObsplanoAsync({
@@ -611,16 +609,16 @@ export async function handleObsPlanoSelecionado({
     });
 
     if (!obsPlano) {
-      await redisClient.del(`Pdf:${cdPlano}`);
+      // await redisClient.del(`Pdf:${cdPlano}`);
       return generateObsPlanoSelecionado(obsPlano, ticket.channel!);
     } else {
-      await redisClient.set(`Pdf:${cdPlano}`, obsPlano, "EX", 3600);
+      await setCache(REDIS_KEYS.Pdf(cdPlano), obsPlano);
     }
 
     const linkPDF = await generateLinkPdf(cdPlano, integracao); //`https://seuservidor.com/pdf/${cdPlano}`;
     return generateObsPlanoSelecionado(linkPDF, ticket.channel!);
   } else {
-    const obsPlanoRedis = await redisClient.get(`Pdf:${cdPlano}`);
+    const obsPlanoRedis = await getCache(REDIS_KEYS.Pdf(cdPlano));
 
     if (!obsPlanoRedis) {
       return generateObsPlanoSelecionado(!obsPlanoRedis, ticket.channel!);
