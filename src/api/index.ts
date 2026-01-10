@@ -150,6 +150,7 @@ async function buildServer(): Promise<FastifyInstance> {
     // 3. APLICAR O MIDDLEWARE DE AUTENTICAÇÃO DO SOCKET.IO
     server.io.use(async (socket, next) => {
       try {
+        console.log(socket)
         const req = { headers: { cookie: socket.handshake.headers.cookie } };
         const cookies = req.headers.cookie;
 
