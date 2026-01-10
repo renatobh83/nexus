@@ -454,19 +454,19 @@ export async function handleAgendamentoExame({
     lastInteractionBot: new Date(),
   });
   sessao.errosResponse = 0;
-  const existeUnidadesRedis = await getCache(REDIS_KEYS.unidades(ticket.id));
+  const existeUnidadesRedis = await getCache(REDIS_KEYS.unidades());
 
   if (!existeUnidadesRedis) {
     const unidades = await ListarUnidades(
       integracao,
       sessao.dadosPaciente.ds_token
     );
-    await setCache(REDIS_KEYS.unidades(ticket.id), unidades);
+    await setCache(REDIS_KEYS.unidades(), unidades);
 
     sessao.listaUnidades = unidades;
     listaUnidades = unidades;
   } else {
-    const unidadesRedis = await getCache(REDIS_KEYS.unidades(ticket.id));
+    const unidadesRedis = await getCache(REDIS_KEYS.unidades());
     sessao.listaUnidades = unidadesRedis as any;
     listaUnidades = sessao.listaUnidades;
   }

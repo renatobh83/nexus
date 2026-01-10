@@ -28,7 +28,7 @@ export const REDIS_KEYS = {
   horarioAgendamento: (horarioId: any) => `horario:${horarioId}`,
   Procedimentos: (unidadeId: any) => `Procedimentos:${unidadeId}`,
   Pdf: (plano: any) => `pdf:${plano}`,
-  unidades: (ticketId: number) => `ListaUnidades:${ticketId}`,
+  unidades: () => `ListaUnidades`,
   planos: (ticketId: number) => `planos:${ticketId}`,
 };
 

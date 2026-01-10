@@ -3,6 +3,7 @@ import HandleMessageTelegram from "./HandleMessageTelegram";
 import { Session } from "../../../lib/tbot";
 import { HandleReactionTelegram } from "./HandleReactionTelegram";
 import { redisClient } from "../../../lib/redis";
+import { getCache, REDIS_KEYS } from "../../../ultis/redisCache";
 
 function escapeMarkdownV2(text: string) {
   return String(text ?? "")
@@ -26,11 +27,13 @@ const tbotMessageListener = (tbot: Session): void => {
   tbot.on("callback_query", async (ctx: any) => {
     const data = ctx.update.callback_query.data;
     // TODO Completar Codigo
+
     if (data.startsWith("selecEmpresa_")) {
       const empresaId = parseInt(data.split("_")[1]);
-      const unidadesRedis = await redisClient.get("ListaUnidades");
-      const listaUnidades = JSON.parse(unidadesRedis!);
-      const empresa = listaUnidades.find(
+      const unidadesRedis = await getCache(REDIS_KEYS.unidades()) as any
+
+
+      const empresa = unidadesRedis.find(
         (e: { cd_empresa: number }) => e.cd_empresa === empresaId
       );
 
