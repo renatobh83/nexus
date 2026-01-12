@@ -156,11 +156,16 @@ const fastifyModule = fp(async (fastify: FastifyInstance) => {
         "/api/v1/complete-registration",
         "/api/v1/register",
       ];
+      const externalApiBaseRoute = "/api/v1/external";
+      const requestedUrl = request.routeOptions.url ?? "";
 
-      if (csrfIgnoreRoutes.includes(request.routeOptions.url ?? "")) {
-        return;
+      if (
+        requestedUrl.startsWith(externalApiBaseRoute) ||
+        csrfIgnoreRoutes.includes(requestedUrl)
+      ) {
+        console.log("Rota ignorada para verificação de CSRF.");
+        return; // Ignora a verificação
       }
-
       const csrfCookie = request.cookies._csrf;
       const csrfHeader = request.headers["x-csrf-token"];
 

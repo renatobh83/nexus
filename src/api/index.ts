@@ -150,7 +150,6 @@ async function buildServer(): Promise<FastifyInstance> {
     // 3. APLICAR O MIDDLEWARE DE AUTENTICAÇÃO DO SOCKET.IO
     server.io.use(async (socket, next) => {
       try {
-        console.log(socket)
         const req = { headers: { cookie: socket.handshake.headers.cookie } };
         const cookies = req.headers.cookie;
 
@@ -159,10 +158,9 @@ async function buildServer(): Promise<FastifyInstance> {
           .find((c) => c.startsWith("access_token="))
           ?.split("=")[1];
 
-        
-        const tokenAuth = socket.handshake.auth?.token
+        const tokenAuth = socket.handshake.auth?.token;
 
-        const accessToken = tokenCookies || tokenAuth
+        const accessToken = tokenAuth || tokenCookies;
 
         if (!accessToken) {
           return next(new Error("token ausente"));
