@@ -40,15 +40,20 @@ export class UserService {
    * @returns O usuário criado ou atualizado.
    */
   async saveUser(userData: SaveUserDTO) {
+    const { name, email, tenantId, profile, queues, configs, ativo, password } =
+      userData;
     // Prepara os dados base do usuário, excluindo o ID por enquanto.
     const userDataPayload: any = {
       // Usar 'any' aqui é um atalho, mas podemos tipar melhor
       id: "id" in userData ? userData.id : undefined,
-      name: userData.name,
-      email: userData.email,
-      tenantId: userData.tenantId,
-      profile: userData.profile,
-      queues: userData.queues,
+      name,
+      email,
+      tenantId,
+      profile,
+      queues,
+      configs,
+      ativo,
+      password,
     };
 
     // Adicione a senha apenas se ela foi fornecida
@@ -81,7 +86,7 @@ export class UserService {
   async updateUserStatusLogin(
     userId: number,
     tenantId: number,
-    dto: any
+    dto: any,
   ): Promise<any> {
     try {
       // O repositório faz tudo em uma única chamada!
@@ -90,7 +95,7 @@ export class UserService {
       const updatedUser = await this.userRepository.updateStatus(
         userId,
         tenantId,
-        userData
+        userData,
       );
       return updatedUser;
     } catch (error) {

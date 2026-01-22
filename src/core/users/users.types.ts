@@ -6,5 +6,6 @@ interface SaveUserDTO {
   tenantId: number;
   profile: string;
   queues?: number[];
+  configs?: any;
+  ativo?: boolean;
 }
-
