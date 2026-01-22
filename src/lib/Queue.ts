@@ -54,7 +54,12 @@ redisClient.on("reconnecting", () => {
 // Cria as filas com tipagem melhorada
 export const queues: JobQueue[] = Object.values(jobs).map((job: any) => {
   const bullQueue = new Queue(job.key, {
-    connection: redisClient,
+    connection: {
+      port: Number(process.env.IO_REDIS_PORT),
+      host: process.env.IO_REDIS_SERVER,
+      db: Number(process.env.IO_REDIS_DB_SESSION) || 8,
+      password: process.env.IO_REDIS_PASSWORD || undefined,
+    },
     defaultJobOptions: {
       attempts: 3,
       backoff: {
@@ -103,7 +108,7 @@ function setupWorkerListeners(worker: Worker, name: string) {
     logger.info(
       `[Worker ${name}] Job ${
         job.id
-      } concluído com sucesso. Resultado: ${JSON.stringify(result, null, 2)}`
+      } concluído com sucesso. Resultado: ${JSON.stringify(result, null, 2)}`,
     );
   });
 
@@ -112,7 +117,7 @@ function setupWorkerListeners(worker: Worker, name: string) {
       `[Worker ${name}] Job ${job?.id || "unknown"} falhou. Erro: ${
         error.message
       }`,
-      { error }
+      { error },
     );
   });
 
@@ -138,7 +143,7 @@ function setupWorkerListeners(worker: Worker, name: string) {
 export async function addJob(
   queueName: string,
   data: Record<string, any> = {},
-  jobOptions: JobsOptions & { opts?: JobSchedulerTemplateOptions } = {}
+  jobOptions: JobsOptions & { opts?: JobSchedulerTemplateOptions } = {},
 ): Promise<{ success: boolean; jobId: string }> {
   const queue = queues.find((q) => q.name === queueName);
   if (!queue) {
@@ -202,12 +207,12 @@ export function processQueues(concurrency = 30) {
         } catch (error) {
           const err = handleError(
             `processamento do job ${name} (ID: ${job.id})`,
-            error
+            error,
           );
           throw err;
         }
       },
-      customOptions
+      customOptions,
     );
 
     setupWorkerListeners(worker, name);
@@ -277,7 +282,7 @@ export async function shutdown(): Promise<ShutdownResult> {
         errors.workerErrors.push(err);
         errors.success = false;
       }
-    })
+    }),
   );
 
   // Fecha filas em paralelo
@@ -291,7 +296,7 @@ export async function shutdown(): Promise<ShutdownResult> {
         errors.queueErrors.push(err);
         errors.success = false;
       }
-    })
+    }),
   );
 
   if (!errors.success) {
@@ -313,7 +318,7 @@ export async function shutdown(): Promise<ShutdownResult> {
 export async function upsertJobScheduler(
   queueName: string,
   repeatOptions: RepeatOptions,
-  jobOptions: JobsOptions & { opts?: JobSchedulerTemplateOptions } = {} // Tipo corrigido
+  jobOptions: JobsOptions & { opts?: JobSchedulerTemplateOptions } = {}, // Tipo corrigido
 ): Promise<void> {
   const queue = queues.find((q) => q.name === queueName);
   if (!queue) {
