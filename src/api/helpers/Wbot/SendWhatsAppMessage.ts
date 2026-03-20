@@ -26,13 +26,14 @@ const SendWhatsAppMessage = async ({
   }
 
   const wbot = getWbot(ticket.whatsappId!);
+  console.log(ticket.contact);
   try {
     const sendMessage = await wbot.sendText(
       ticket.contact.serializednumber!,
       body,
-      {
-        quotedMsg: quotedMsgSerializedId,
-      }
+      // {
+      //   quotedMsg: quotedMsgSerializedId,
+      // },
     );
     await getFastifyApp().services.ticketService.updateTicket(ticket.id, {
       lastMessage: body.length > 255 ? body.slice(0, 252) + "..." : body,
@@ -53,6 +54,7 @@ const SendWhatsAppMessage = async ({
     }
     return sendMessage;
   } catch (err) {
+    console.log(err);
     logger.error(`SendWhatsAppMessage | Error: ${err}`);
     throw new AppError("ERR_SENDING_WAPP_MSG", 501);
   }

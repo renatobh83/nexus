@@ -35,7 +35,7 @@ function extractQrCode(url: string): string | null {
  */
 export const initWbot = async (
   whatsapp: any,
-  whatsappService: WhatsappService
+  whatsappService: WhatsappService,
 ): Promise<Session> => {
   const io = getIO();
   let wbot: Session;
@@ -48,7 +48,7 @@ export const initWbot = async (
     "..",
     "..",
     "public",
-    `qrCode-${whatsapp.id}.png`
+    `qrCode-${whatsapp.id}.png`,
   );
 
   try {
@@ -67,7 +67,7 @@ export const initWbot = async (
           base64Qrimg: any,
           asciiQR: any,
           attempts: any,
-          urlCode: any
+          urlCode: any,
         ) => {
           const qrCode = extractQrCode(urlCode);
           if (qrCode) {
@@ -76,7 +76,7 @@ export const initWbot = async (
               whatsapp.id,
               whatsapp.tenantId,
               qrCode,
-              attempts
+              attempts,
             );
           }
           // const matches = base64Qrimg.match(
@@ -110,7 +110,7 @@ export const initWbot = async (
         },
         statusFind: async (statusSession: any) => {
           console.log(
-            `INFO: Status da sessão '${whatsapp.name}': ${statusSession}`
+            `INFO: Status da sessão '${whatsapp.name}': ${statusSession}`,
           );
           switch (statusSession) {
             case "autocloseCalled":
@@ -120,7 +120,7 @@ export const initWbot = async (
               // Todos esses status levam a uma desconexão.
               await whatsappService.handleDisconnected(
                 whatsapp.id,
-                whatsapp.tenantId
+                whatsapp.tenantId,
               );
               // Lógica para remover a sessão do array local e limpar arquivos pode ser chamada aqui.
               break;
@@ -140,10 +140,10 @@ export const initWbot = async (
           await whatsappService.handlePairingCode(
             whatsapp.id,
             whatsapp.tenantId,
-            code
+            code,
           );
         },
-      })
+      }),
     )) as unknown as Session;
     const sessionIndex = sessions.findIndex((s) => s.id === whatsapp.id);
     if (sessionIndex === -1) {
@@ -200,7 +200,7 @@ const start = async (client: Session, io: any, service: WhatsappService) => {
         whatsappSession.id,
         whatsappSession.tenantId,
         profileSession,
-        whatsappSession.name
+        whatsappSession.name,
       );
 
       if (await client.isAuthenticated()) {
@@ -218,7 +218,7 @@ export async function removeSession(session: string) {
       "..",
       "..",
       "userDataDir",
-      session
+      session,
     );
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
